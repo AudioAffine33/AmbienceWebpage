@@ -26,7 +26,7 @@
     	<div id="MidLeft"><img src="Testbilder/dscn1776.jpg" class="AmbienceFoto desaturate grey" /></div>
     
    		<div id="LoginBox">
-        	<div id="Login"> 
+        	<div id="LoginTop"> 
         
        			<h1>Login</h1> 
                 Benutzername:
@@ -35,7 +35,7 @@
    	
           	</div>
         
-        	<div id="Entdecken">
+        	<div id="LoginBottom">
              
             	<h1>Entdecke</h1>
             

@@ -3,13 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>AmbienceWebsite_Startseite</title>
-
+	
 	<link rel="stylesheet" href="Startseite_style.css" type="text/css" />
+    
+    <script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="js/fancyBox/source/jquery.fancybox.pack.js"></script>
+    <link rel="stylesheet" href="js/fancyBox/source/jquery.fancybox.css" media="screen" />
+    
     <?php
 		include('php/include.php');
 		
 		$errorLog;
-		$errorReg;
 		
 		if (isset($_POST['loginName'])){
 			$errorLog = login($_POST);
@@ -20,16 +24,13 @@
 				exit;
 			}
 		}
-		
-		/*if (isset($_POST['regName'])){
-			$errorReg = addUser($_POST);
-			
-			if ($errorReg['new']){
-				header('Location: login.php?success=true'); 
-				exit;
-			}
-		}*/
 	?>	
+    
+    <script type="text/javascript">
+		$(document).ready(function() {
+			$("#regFrame").fancybox();
+		});
+	</script>
 </head>
 
 <body>
@@ -54,11 +55,11 @@
         
        			<h1>Login</h1> 
    				<form method="POST">
-                	<input type="text" name="loginName"/><br />
-                    <input type="password" name="loginPass"/><br/>
+                	<input type="text" name="loginName" <?php if(isset($errorLog['name'])){ ?> style="background-color:#F00" <?php } ?>/>
+                    <input type="password" name="loginPass" <?php if(isset($errorLog['pass'])){ ?> style="background-color:#F00" <?php } ?>/>
                     <input type="submit" value="Einloggen"/><br />
                 </form>
-                <button>Neuer User</button>
+              	 <a id="regFrame" data-fancybox-type="iframe" href="register.php">Registrieren</a> 
           	</div>
         
         	<div id="LoginBottom" href="overview.php">

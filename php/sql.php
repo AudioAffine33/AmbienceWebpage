@@ -72,7 +72,7 @@
 	function addUser ($userArray){
 		$array = checkUser($userArray);
 		if ($array['new']){
-			$abfrage = "INSERT INTO user (name, pass, email) VALUES ('".$userArray['regName']."', '".md5($userArray['regPass1'])."', '".$userArray['regMail']."');";
+			$abfrage = "INSERT INTO user (name, pass, email, rights) VALUES ('".$userArray['regName']."', '".md5($userArray['regPass1'])."', '".$userArray['regMail']."', 'user');";
 			mysql_query($abfrage);
 			return $array;
 		}

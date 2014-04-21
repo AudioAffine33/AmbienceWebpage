@@ -59,7 +59,7 @@
                     <input type="password" name="loginPass" <?php if(isset($errorLog['pass'])){ ?> style="background-color:#F00" <?php } ?>/>
                     <input type="submit" value="Einloggen"/><br />
                 </form>
-              	 <a id="regFrame" data-fancybox-type="iframe" href="register.php">Registrieren</a> 
+              	 <a id="regFrame" data-fancybox-type="iframe" href="register.php" title="Registrieren">Neuer User</a> 
           	</div>
         
         	<div id="LoginBottom" href="overview.php">

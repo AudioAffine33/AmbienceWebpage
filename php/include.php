@@ -15,6 +15,9 @@
 	
 	//$getID3->setOption(array('encoding' => $PageEncoding));
 	
+	//Session starten
+	session_start();
+	
 	//Audio auf Server laden und in DB eintragen
 	function upload_audio_inDB_onServer ($file, $userid){
 		$getID3 = new getID3;

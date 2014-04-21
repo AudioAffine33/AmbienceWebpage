@@ -125,7 +125,7 @@
 		
 		while ($row = mysql_fetch_object($ergebnis)){
 			if (md5($loginArray['loginPass']) == $row->pass){
-				session_start();
+				//session_start();
 				$_SESSION['name'] = $row->name;
 				$_SESSION['id'] = $row->id;
 				$error['correct'] = true;

@@ -5,6 +5,10 @@
 <title>Hauptseite_uneingeloggt</title>
 <link rel="stylesheet" href="Haupseite.css" type="text/css" />
 
+	<?php
+		include('php/include.php');
+	?>
+
 </head>
 
 <body>
@@ -12,8 +16,19 @@
 		<div id="Header">
         	
             <div id="LogoHeader">Logo</div>
-        	
-            <div id="LoginHeader">Login</div>
+            <div id="LoginHeader">
+            	<a href="">
+					<?php
+                        if (!isset($_SESSION['name'])){
+                    ?>
+                        Login
+                    <?php
+                        } else {
+                            echo $_SESSION['name'];
+                        }
+                    ?>
+                </a>
+            </div>
         	<br>
             <div id="SucheHeader">Suche</div>
             

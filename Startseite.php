@@ -26,13 +26,16 @@
     	<div id="MidLeft"><img src="Testbilder/dscn1776.jpg" class="AmbienceFoto desaturate grey" /></div>
     
    		<div id="LoginBox">
-        	<div id="LoginLeft"> 
+        	<div id="Login"> 
         
        			<h1>Login</h1> 
+                Benutzername:
+                <br>
+                Passwort:
    	
           	</div>
         
-        	<div id="LoginRight">
+        	<div id="Entdecken">
              
             	<h1>Entdecke</h1>
             

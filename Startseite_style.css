@@ -46,17 +46,23 @@ filter: none;
 	margin:1%;
 	float:left;
 	}
-#LoginLeft{
-	float:left;
-	width:175px;
-	height:133px;
+#Login{
+	margin-left:15%;
+	width:225px;
+	height:100px;
+	background-color:#FFF;
+	}
+#Login h1{
 	text-align:center;
 	}
-#LoginRight{
-	float:right;
-	width:175px;
-	height:133px;
+#Entdecken{
+	margin-left:15%;
+	margin-top:5%;
+	padding-top:5%;
+	width:225px;
+	height:100px;
 	text-align:center;
+	background-color:#FFF;
 	}
 
 #TopLeft{

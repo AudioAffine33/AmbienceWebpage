@@ -32,8 +32,9 @@
    	
           	</div>
         
-        	<div id="LoginRight"> 
-            <h1>Entdecke</h1>
+        	<div id="LoginRight">
+             
+            	<h1>Entdecke</h1>
             
             </div>
 	</div>

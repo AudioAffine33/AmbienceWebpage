@@ -36,9 +36,7 @@ filter: grayscale(0%);
 -ms-filter: grayscale(0%);
 -o-filter: grayscale(0%);
 filter: none;
-transition-property: all;
-transition-duration: 1s;
-}
+	}
 	
 	
 #LoginBox{

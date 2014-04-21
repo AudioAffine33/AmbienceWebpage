@@ -5,7 +5,7 @@
 
 	mysql_select_db("ambienceproj")
 					or die ("Die Datenbank existiert nicht.");
-
+	
 	//Get ID3
 	require('getid3/getid3.php');
 	
@@ -23,6 +23,7 @@
 			$infoArray = get_audio_info($info, $file);
 			$filename_new = add_amb($infoArray, $userid);
 			upload_audio($file, $filename_new);
+			echo $filename_new;
 		
 			$amb_id_act = get_ambience_id($filename_new);
 		
@@ -37,5 +38,11 @@
 		
 		delete_ambience_fromDB($id);
 		delete_ambience_from_Server($infoArray);
+	}
+	
+	//Pfadvariablen
+	function getRoot(){
+		$rootPath = str_replace("\\php", "", dirname(__FILE__));
+		return $rootPath;
 	}
 ?>

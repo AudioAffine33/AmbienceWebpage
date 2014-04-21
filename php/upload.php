@@ -1,17 +1,14 @@
 <?php
 
-	//Pfadvariablen
-	$rootPath = str_replace("/php", "", dirname(__FILE__));
-
 	//Basic Upload
 	function upload_audio ($file, $filename_neu){
-		$uploadfile = $rootPath.'\\media\\audio\\'. $filename_neu;
+		$uploadfile = getRoot().'\\media\\audio\\'. $filename_neu;
 		
 		if (move_uploaded_file($file['tmp_name'], $uploadfile)){}
 	}
 	
 	function upload_pic_amb ($file, $filename_neu){
-		$uploadfile = $rootPath.'\\media\\pics_ambiences\\'.$filename_neu;
+		$uploadfile = getRoot().'\\media\\pics_ambiences\\'.$filename_neu;
 		
 		if (move_uploaded_file($file['tmp_name'], $uploadfile)){
 			img_createThumb($uploadfile);
@@ -69,9 +66,9 @@
 	
 	//Delete Ambience
 	function delete_ambience_from_Server($fileArray){
-		unlink(dirname(__FILE__)."\\audio\\".$fileArray['filename']);
-		unlink(dirname(__FILE__)."\\pics_ambiences\\".$fileArray['picture']);
-		unlink(dirname(__FILE__)."\\pics_ambiences\\".$fileArray['id']."_thumb.jpg");
+		unlink(getRoot()."\\media\\audio\\".$fileArray['filename']);
+		unlink(getRoot()."\\media\\pics_ambiences\\".$fileArray['picture']);
+		unlink(getRoot()."\\media\\pics_ambiences\\thumb\\".$fileArray['picture']);
 	}
 	
 	function img_createThumb($uploadfile){
@@ -90,7 +87,7 @@
 				$image = imagecreatefromwbmp($uploadfile);
 			}
 			$pathparts = pathinfo ($uploadfile);
-			$filename = $pathparts['dirname']."/thumbs/".$pathparts['filename'].".jpg";
+			$filename = $pathparts['dirname']."/thumb/".$pathparts['filename'].".".$pathparts['extension'];
 
 			$thumb_width = 200;
 			$thumb_height = 200;
@@ -124,7 +121,18 @@
 							   0, 0,
 							   $new_width, $new_height,
 							   $width, $height);
-			imagejpeg($thumb, $filename, 80);
+			if ($filetype['mime'] == 'image/jpg' || $filetype['mime'] == 'image/jpeg') {
+				imagejpeg($thumb, $filename, 80);
+			}
+			else if ($filetype['mime'] == 'image/png') {
+				imagepng($thumb, $filename);
+			}
+			else if ($filetype['mime'] == 'image/gif') {
+				imagegif($thumb, $filename);
+			}
+			else if ($filetype['mime'] == 'image/wbmp') {
+				imagewbmp($thumb, $filename);
+			}
 	}
 	
 	function img_createSmallerVers($uploadfile){

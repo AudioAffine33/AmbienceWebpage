@@ -55,11 +55,16 @@
 			mysql_query($abfrage);
 		}
 		
-		$ext = pathinfo($infoArray['filename'], PATHINFO_EXTENSION);		
-		$filename_neu = $amb_id.".".$ext;		
+		$ext = pathinfo($infoArray['filename'], PATHINFO_EXTENSION);	
+		$ersetzen = array( 'ä' => 'ae', 'ö' => 'oe', 'ü' => 'ue', 'ß' => 'ss', ' ' => '_', '\\' => '-', '/' => '-', '|' => '-', '*' => '-' );
+		$nameNeu = strtr( strtolower( pathinfo($infoArray['filename'], PATHINFO_FILENAME) ), $ersetzen );
+		$filename_neu = $amb_id."_".$nameNeu.".".$ext;	
+		echo $filename_neu;
 		$abfrage = "UPDATE ambience SET filename='".$filename_neu."' WHERE id=".$amb_id.";";
 		
+		
 		mysql_query($abfrage);
+		
 		
 		return $filename_neu;
 	}

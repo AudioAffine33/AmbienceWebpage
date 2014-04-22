@@ -59,82 +59,52 @@
         <div id="AmbiencesAnzeige">
         	
             <table id="Ambiences">
+            	<?php
+					$abfrage = "SELECT * FROM ambience;";
+					$result = mysql_query($abfrage);
+					$found = mysql_num_rows($result);
+					$index = 0;
+					while ($row = mysql_fetch_object($result)){
+						if ($index%2 == 0){
+							$format_act = getFormat_by_ID($row->format_id);
+				?>
             	<tr>
             		<td>
-                    	<img src="Testbilder/533046l.jpg" class="AmbiencePic" />
-            		</td>
-                    <td>
-                    	<h1>Blumen und Gras</h1>
-                    	<ul>
-                        	<li>Ostsee,DE</li>
-                            <li>12:00Uhr</li>
-                            <li>16-bit, 44.1Khz</li>
-                    	</ul>
-                    </td>
-                    <td>
-                    	<img src="Testbilder/dsc_9869axhaf.jpg" class="AmbiencePic"  />
-                    </td>
-                    <td>
-                    	<h1>Fluss</h1>
-                        <ul>
-                        	<li>Ostsee,DE</li>
-                            <li>15:00Uhr</li>
-                            <li>4-bit, 8Khz</li>
-                    	</ul>
-                    </td>
-           		</tr>
-                
-                <tr>
-                	<td>
-                    	<img src="Testbilder/DSC00904.jpg" class="AmbiencePic" />
+                    	<img src="media/pics_ambiences/thumb/<?php echo $row->picture;  ?>" class="AmbiencePic" />
                   	</td>
                     <td>
-                    	<h1>Alpenpanorama</h1>
+                    	<h1><?php echo $row->name; ?></h1>
                         <ul>
-                        	<li>Alpen,AUS</li>
-                            <li>16:00 Uhr</li>
-                            <li>8-bit, 16Khz</li>
+                        	<li><?php echo $row->location; ?></li>
+                            <li><?php echo date("G:i", strtotime($row->time)) ?></li>
+                            <li><?php echo $format_act['bitdepth']." bit , ".$format_act['samplerate']." kHz"; ?></li>
                        	</ul>
                   	</td>
-                    
+                <?php
+							if ($result == ($index -1)) {
+								?></tr><?php
+							}
+							$index ++;
+						} else {
+				?>
+                 	<td>
+                    	<img src="media/pics_ambiences/thumb/<?php echo $row->picture;  ?>" class="AmbiencePic" />
+                  	</td>
                     <td>
-                    	<img src="Testbilder/dscn1776.jpg" class="AmbiencePic" />
-                    </td>
-                    <td>
-                    	<h1>Palmenallee</h1>
+                    	<h1><?php echo $row->name; ?></h1>
                         <ul>
-                        	<li>San Francisco,USA</li>
-                            <li>1PM</li>
-                            <li>8-bit,44.1Khz</li>
+                        	<li><?php echo $row->location; ?></li>
+                            <li><?php echo date("G:i", strtotime($row->time)); ?></li>
+                            <li><?php echo $format_act['bitdepth']." bit , ".$format_act['samplerate']." kHz"; ?></li>
                        	</ul>
                   	</td>
+            		
                	</tr>
-                  
-                <tr>
-                	<td>
-                    	<img src="Testbilder/hollywood-walk-of-fame-100.jpg" class="AmbiencePic" />
-                  	</td>
-                    <td>
-                    	<h1>Walk of Fame</h1>
-                        <ul>
-                        	<li>Los Angeles,USA</li>
-                            <li>10AM</li>
-                            <li>16-bit,48Khz</li>
-                       	</ul>
-                  	</td>
-                    
-                    <td>
-                    	<img src="Testbilder/lanschaftsbilder004.jpg" class="AmbiencePic" />
-                    </td>
-                    <td>
-                    	<h1>Grasberg</h1>
-                        <ul>
-                        	<li>Hobbingen,Mittelerde</li>
-                            <li>14:00 Uhr</li>
-                            <li>16-bit, 48Khz</li>
-                       	</ul>
-                  	</td>
-               	</tr>
+                <?php
+						$index++;
+						}
+					}
+				?>
             </table>
             
         </div>

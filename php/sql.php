@@ -268,6 +268,35 @@
 		return $ret;
 	}
 	
+	function getRandAmb ($number){
+		$ret = array();
+		
+		$abfrage= "SELECT * FROM ambience ORDER BY RAND() LIMIT ".$number;
+		$result = mysql_query($abfrage);
+		$index=0;
+		while($row = mysql_fetch_object($result)){
+			$ret[$index]["id"] = $row->id;
+			$ret[$index]["format_id"] = $row->format_id;
+			$ret[$index]["filename"] = $row->filename;
+			$ret[$index]["size"] = $row->size;
+			$ret[$index]["length"] = $row->length;
+			$ret[$index]["name"] = $row->name;
+			$ret[$index]["user_id"] = $row->user_id;
+			$ret[$index]["location"] = $row->location;
+			$ret[$index]["date"] = $row->date;
+			$ret[$index]["time"] = $row->time;
+			$ret[$index]["description"] = $row->description;
+			$ret[$index]["category_id"] = $row->category_id;
+			$ret[$index]["picture"] = $row->picture;
+			$ret[$index]["rating"] = $row->rating;
+			$ret[$index]["date_added"] = $row->date_added;
+			$ret[$index]["orig"] = $row->originator;
+			$index++;
+		}
+		
+		return $ret;
+	}
+	
 	function setPic ($file, $amb_id){
 		$check = getimagesize($file['tmp_name']);
 		if (!$check){

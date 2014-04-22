@@ -13,6 +13,8 @@
     <?php
 		include('php/include.php');
 		
+		$randPics = getRandAmb(8);
+		
 		$errorLog;
 		
 		if (isset($_POST['loginName'])){
@@ -38,17 +40,17 @@
 
 	<div id="Top">
 
-		<div id="TopLeft"><img src="Testbilder/533046l.jpg" class="AmbienceFoto desaturate grey"/></div>
+		<div id="TopLeft"><img src="media/pics_ambiences/<?php echo $randPics[0]['picture'] ?>" class="AmbienceFoto desaturate grey"/></div>
     
-    	<div id="TopCenter"><img src="Testbilder/dsc_9869axhaf.jpg" class="AmbienceFoto desaturate grey"/></div>
+    	<div id="TopCenter"><img src="media/pics_ambiences/<?php echo $randPics[1]['picture'] ?>" class="AmbienceFoto desaturate grey"/></div>
     
-    	<div id="TopRight"><img src="Testbilder/DSC00904.jpg" class="AmbienceFoto desaturate grey" /></div>
+    	<div id="TopRight"><img src="media/pics_ambiences/<?php echo $randPics[2]['picture'] ?>" class="AmbienceFoto desaturate grey" /></div>
     
     </div>
 
 	<div id="Center">
   
-    	<div id="MidLeft"><img src="Testbilder/dscn1776.jpg" class="AmbienceFoto desaturate grey" /></div>
+    	<div id="MidLeft"><img src="media/pics_ambiences/<?php echo $randPics[3]['picture'] ?>" class="AmbienceFoto desaturate grey" /></div>
     
    		<div id="LoginBox">
         	<div id="LoginTop"> 
@@ -69,17 +71,17 @@
             </div>
 	</div>
     
-   	 	<div id="MidRight"><img src="Testbilder/hollywood-walk-of-fame-100.jpg" class="AmbienceFoto desaturate grey" /></div>
+   	 	<div id="MidRight"><img src="media/pics_ambiences/<?php echo $randPics[4]['picture'] ?>" class="AmbienceFoto desaturate grey" /></div>
    </div>
  
 
    	<div id="Bot">
     
-  		<div id="BotLeft"><img src="Testbilder/lanschaftsbilder004.jpg" class="AmbienceFoto desaturate grey" /></div>
+  		<div id="BotLeft"><img src="media/pics_ambiences/<?php echo $randPics[5]['picture'] ?>" class="AmbienceFoto desaturate grey" /></div>
     
-    	<div id="BotCenter" ><img src="Testbilder/New_york_times_square-terabass.jpg" class="AmbienceFoto desaturate grey"/></div>
+    	<div id="BotCenter" ><img src="media/pics_ambiences/<?php echo $randPics[6]['picture'] ?>" class="AmbienceFoto desaturate grey"/></div>
     
-    	<div id="BotRight" ><img src="Testbilder/Tokyo_street.jpg" class="AmbienceFoto desaturate grey" /></div>
+    	<div id="BotRight" ><img src="media/pics_ambiences/<?php echo $randPics[7]['picture'] ?>" class="AmbienceFoto desaturate grey" /></div>
 	</div>
 
 </div>

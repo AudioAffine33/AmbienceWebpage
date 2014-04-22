@@ -5,6 +5,8 @@
 
 	mysql_select_db("ambienceproj")
 					or die ("Die Datenbank existiert nicht.");
+					
+	mysql_query("SET NAMES 'utf8'");
 	
 	//Get ID3
 	require('getid3/getid3.php');
@@ -12,6 +14,7 @@
 	//GoogleMaps API
 	?>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBeZ-iwEnYMBb5cke9oBkkYf-5WqCGhxf8&sensor=false&libraries=places"></script>
+    <script type="text/javascript" src="JS/functions.js"></script>
 	<?php
 	
 	//Verbindung zu PHP-Skripten

@@ -188,6 +188,27 @@
 		return $ret;
 	}
 	
+	function get_location_id($infoArray){
+		$ret = NULL;
+		
+		$abfrage  = "SELECT id FROM location " ;
+		$abfrage .= "WHERE name='".$infoArray['locName']."' ";
+		$abfrage .= "AND land='".$infoArray['locLand']."' ";
+		$abfrage .= "AND latitude=".$infoArray['locLat']." ";
+		$abfrage .= "AND longitude=".$infoArray['locLng']." ";
+		
+		print_r($abfrage);
+		$ergebnis = mysql_query($abfrage);
+		
+		if (isset($ergebnis)){
+			while($row = mysql_fetch_object($ergebnis)){
+   					$ret = $row->id;
+  			}
+		}
+		
+		return $ret;
+	}
+	
 	function get_ambience_id($filename){
 		$ret = NULL;
 		
@@ -217,7 +238,7 @@
 			$ret["length"] = $row->length;
 			$ret["name"] = $row->name;
 			$ret["user_id"] = $row->user_id;
-			$ret["location"] = $row->location;
+			$ret["location_id"] = $row->location_id;
 			$ret["date"] = $row->date;
 			$ret["time"] = $row->time;
 			$ret["description"] = $row->description;
@@ -268,35 +289,6 @@
 		return $ret;
 	}
 	
-	function getRandAmb ($number){
-		$ret = array();
-		
-		$abfrage= "SELECT * FROM ambience ORDER BY RAND() LIMIT ".$number;
-		$result = mysql_query($abfrage);
-		$index=0;
-		while($row = mysql_fetch_object($result)){
-			$ret[$index]["id"] = $row->id;
-			$ret[$index]["format_id"] = $row->format_id;
-			$ret[$index]["filename"] = $row->filename;
-			$ret[$index]["size"] = $row->size;
-			$ret[$index]["length"] = $row->length;
-			$ret[$index]["name"] = $row->name;
-			$ret[$index]["user_id"] = $row->user_id;
-			$ret[$index]["location"] = $row->location;
-			$ret[$index]["date"] = $row->date;
-			$ret[$index]["time"] = $row->time;
-			$ret[$index]["description"] = $row->description;
-			$ret[$index]["category_id"] = $row->category_id;
-			$ret[$index]["picture"] = $row->picture;
-			$ret[$index]["rating"] = $row->rating;
-			$ret[$index]["date_added"] = $row->date_added;
-			$ret[$index]["orig"] = $row->originator;
-			$index++;
-		}
-		
-		return $ret;
-	}
-	
 	function setPic ($file, $amb_id){
 		$check = getimagesize($file['tmp_name']);
 		if (!$check){
@@ -322,8 +314,20 @@
 		$abfrage = "UPDATE ambience SET name='".$details_array['name']."' WHERE id=".$amb_id;
 		mysql_query($abfrage);
 		
-		if ($details_array['location'] != NULL && $details_array['location'] != ""){
-			$abfrage = "UPDATE ambience SET location='".$details_array['location']."' WHERE id=".$amb_id;
+		if ($details_array['locName'] != NULL && $details_array['locName'] != ""){
+			$locID = get_location_id($details_array);
+			echo $locID;
+			if (!isset($locID)){
+				$abfrage = "INSERT INTO location (name, land, latitude, longitude) ";
+				$abfrage.= "VALUES ('".$details_array['locName']."', '".$details_array['locLand']."', ".$details_array['locLat'].", ".$details_array['locLng'].")";
+				mysql_query($abfrage);
+				
+				echo $abfrage;
+				
+				$locID = get_location_id($details_array);
+			}
+			
+			$abfrage = "UPDATE ambience SET location_id='".$locID."' WHERE id=".$amb_id;
 			mysql_query($abfrage);
 		}
 		
@@ -350,6 +354,9 @@
 	
 	function update_amb($ambID, $updateArray){
 		$ambArray = get_ambience_by_ID($ambID);
+		if ($updateArray != ""){
+			$locID = get_location_id($updateArray);
+		}
 		
 		if (check_detail_Input($updateArray)){
 			if ($updateArray['name'] != $ambArray['name']){
@@ -358,6 +365,17 @@
 			}
 			if ($updateArray['category'] != $ambArray['category_id']){
 				$abfrage = "UPDATE ambience SET category_id='".$updateArray['category']."' WHERE id=".$ambID;
+				mysql_query($abfrage);
+			}
+			if (!isset($locID) || $locID != $ambArray['location_id']){
+				if (!isset($locID)){
+					$abfrage = "INSERT INTO location (name, land, latitude, longitude) ";
+					$abfrage.= "VALUES ('".$updateArray['locName']."', '".$updateArray['locLand']."', ".$updateArray['locLat'].", ".$updateArray['locLng'].")";
+					mysql_query($abfrage);
+					
+					$locID = get_location_id($updateArray);
+				}
+				$abfrage = "UPDATE ambience SET location_id='".$locID."' WHERE id=".$ambID;
 				mysql_query($abfrage);
 			}
 			if ($updateArray['date'] != $ambArray['date']){

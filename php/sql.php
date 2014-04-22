@@ -223,7 +223,7 @@
 			$ret[$index]["length"] = $row->length;
 			$ret[$index]["name"] = $row->name;
 			$ret[$index]["user_id"] = $row->user_id;
-			$ret[$index]["location"] = $row->location;
+			$ret[$index]["location_id"] = $row->location_id;
 			$ret[$index]["date"] = $row->date;
 			$ret[$index]["time"] = $row->time;
 			$ret[$index]["description"] = $row->description;

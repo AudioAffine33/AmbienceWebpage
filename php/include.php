@@ -26,7 +26,6 @@
 			$infoArray = get_audio_info($info, $file);
 			$filename_new = add_amb($infoArray, $userid);
 			upload_audio($file, $filename_new);
-			echo $filename_new;
 		
 			$amb_id_act = get_ambience_id($filename_new);
 		

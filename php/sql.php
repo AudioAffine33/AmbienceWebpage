@@ -16,13 +16,19 @@
 			$format_id = get_format_id($infoArray);
 		}
 		
+		$ext = pathinfo($infoArray['filename'], PATHINFO_EXTENSION);	
+		$ersetzen = array( 'ä' => 'ae', 'ö' => 'oe', 'ü' => 'ue', 'ß' => 'ss', ' ' => '_', '\\' => '-', '/' => '-', '|' => '-', '*' => '-' , ',' => '_');
+		$nameNeu = strtr( strtolower( pathinfo($infoArray['filename'], PATHINFO_FILENAME) ), $ersetzen );
+		$nameNeu = substr($nameNeu, 0, 40);
+		$filename_neu = $nameNeu.".".$ext;
+		
 		$abfrage  = "INSERT INTO ambience (format_id, filename, size, length, user_id, date_added, name) VALUES ";
-		$abfrage .= "(".$format_id.", '".$infoArray['filename']."', ".$infoArray['filesize'].", ".$infoArray['length'].", ";
+		$abfrage .= "(".$format_id.", '".$filename_neu."', ".$infoArray['filesize'].", ".$infoArray['length'].", ";
 		$abfrage .= $userid.", CURDATE(),'".substr($infoArray['filename'], 0, strrpos($infoArray['filename'], '.'))."')";
 		
 		mysql_query($abfrage);
 		
-		$amb_id = get_ambience_id($infoArray['filename']);
+		$amb_id = get_ambience_id($filename_neu);
 		
 		//Description
 		if (isset($infoArray['riffDescr'])){
@@ -55,11 +61,8 @@
 			mysql_query($abfrage);
 		}
 		
-		$ext = pathinfo($infoArray['filename'], PATHINFO_EXTENSION);	
-		$ersetzen = array( 'ä' => 'ae', 'ö' => 'oe', 'ü' => 'ue', 'ß' => 'ss', ' ' => '_', '\\' => '-', '/' => '-', '|' => '-', '*' => '-' );
-		$nameNeu = strtr( strtolower( pathinfo($infoArray['filename'], PATHINFO_FILENAME) ), $ersetzen );
-		$filename_neu = $amb_id."_".$nameNeu.".".$ext;	
-		echo $filename_neu;
+		$ext = pathinfo($filename_neu, PATHINFO_EXTENSION);	
+		$filename_neu = $amb_id."_".$filename_neu;
 		$abfrage = "UPDATE ambience SET filename='".$filename_neu."' WHERE id=".$amb_id.";";
 		
 		

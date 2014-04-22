@@ -9,6 +9,11 @@
 	//Get ID3
 	require('getid3/getid3.php');
 	
+	//GoogleMaps API
+	?>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBeZ-iwEnYMBb5cke9oBkkYf-5WqCGhxf8&sensor=false&libraries=places"></script>
+	<?php
+	
 	//Verbindung zu PHP-Skripten
 	require_once("sql.php");
 	require_once("upload.php");

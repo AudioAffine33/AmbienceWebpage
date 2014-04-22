@@ -65,8 +65,10 @@
 					$found = mysql_num_rows($result);
 					$index = 0;
 					while ($row = mysql_fetch_object($result)){
+						$locationArray = getLocation_by_ID($row->location_id);
+						$format_act = getFormat_by_ID($row->format_id);
 						if ($index%2 == 0){
-							$format_act = getFormat_by_ID($row->format_id);
+							
 				?>
             	<tr>
             		<td>
@@ -75,7 +77,7 @@
                     <td>
                     	<h1><?php echo $row->name; ?></h1>
                         <ul>
-                        	<li><?php echo $row->location; ?></li>
+                        	<li><?php if (isset($locationArray['name'])){echo $locationArray['name']; } ?></li>
                             <li><?php echo date("G:i", strtotime($row->time)) ?></li>
                             <li><?php echo $format_act['bitdepth']." bit , ".$format_act['samplerate']." kHz"; ?></li>
                        	</ul>
@@ -93,7 +95,7 @@
                     <td>
                     	<h1><?php echo $row->name; ?></h1>
                         <ul>
-                        	<li><?php echo $row->location; ?></li>
+                        	<li><?php if (isset($locationArray['name'])){echo $locationArray['name']; } ?></li>
                             <li><?php echo date("G:i", strtotime($row->time)); ?></li>
                             <li><?php echo $format_act['bitdepth']." bit , ".$format_act['samplerate']." kHz"; ?></li>
                        	</ul>

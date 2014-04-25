@@ -7,26 +7,40 @@
 	<?php
 		include('php/include.php');
 		
+		require_once('php/recaptcha/recaptchalib.php');
+		$publickey = "6Ld2fPISAAAAAJ_gnn-6FYe3xrndT79zYts3-XH2";
+		$privatekey = "6Ld2fPISAAAAAJrM7PcZsHwqb8mvPcrAggomSnuu";
+		
 		$errorLog;
 		$errorReg;
 		
 		if (isset($_POST['regName'])){
-			$errorReg = addUser($_POST);
+			$resp = recaptcha_check_answer ($privatekey,
+                                $_SERVER["REMOTE_ADDR"],
+                                $_POST["recaptcha_challenge_field"],
+                                $_POST["recaptcha_response_field"]);
 			
-			if ($errorReg['new']){
+			
+				if (!$resp->is_valid) {
+					echo "The reCAPTCHA wasn't entered correctly. Go back and try it again." .
+						 "(reCAPTCHA said: " . $resp->error . ")";
+				} else {
+					$errorReg = addUser($_POST);
+					if ($errorReg['new']){
 				?>
                 	<script type="text/javascript">
 						parent.$.fancybox.close();
 					</script>
                 <?php
-			}
+					}
+				}
 		}
 	?>
 </head>
 
 <body>
-	<table>
-        <form method="POST">
+  	<form method="POST">
+    	<table>
         	<tr>
             	<td>Name:</td>
             	<td><input type="text" name="regName" <?php if(isset($errorReg['name'])){ ?> style="background-color:#F00" <?php } ?> /></td>
@@ -47,8 +61,16 @@
                 <td><?php if(isset($errorReg['mail'])){ echo $errorReg['mail']; } ?></td>
         	</tr>
             <tr>
+            	<td colspan="2">
+                	<?php
+					  echo recaptcha_get_html($publickey);
+					?>
+                </td>
+            </tr>
+            <tr>
             	<td colspan="2"><input type="submit" value="Registrieren" /></td>
         	</tr>
-        </form>
+        </table>
+	</form>   	
 </body>
 </html>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 22. Apr 2014 um 21:04
+-- Erstellungszeit: 25. Apr 2014 um 17:34
 -- Server Version: 5.6.16
 -- PHP-Version: 5.5.9
 
@@ -29,20 +29,20 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `ambience` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `format_id` int(11) NOT NULL,
-  `filename` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `filename` varchar(50) CHARACTER SET utf8 NOT NULL,
   `size` int(11) NOT NULL,
   `length` int(11) NOT NULL,
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `name` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
   `user_id` int(11) NOT NULL,
   `location_id` int(11) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `time` time DEFAULT NULL,
-  `description` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `description` varchar(200) CHARACTER SET utf8 DEFAULT NULL,
   `category_id` int(11) NOT NULL,
-  `picture` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `picture` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
   `rating` int(11) DEFAULT NULL,
   `date_added` date NOT NULL,
-  `originator` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `originator` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `filename` (`filename`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=61 ;
@@ -69,7 +69,7 @@ INSERT INTO `ambience` (`id`, `format_id`, `filename`, `size`, `length`, `name`,
 
 CREATE TABLE IF NOT EXISTS `category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `ambience_id` int(11) NOT NULL,
-  `inhalt` varchar(500) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `inhalt` varchar(500) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
 
 CREATE TABLE IF NOT EXISTS `format` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `codec` varchar(50) NOT NULL,
+  `codec` varchar(50) CHARACTER SET utf8 NOT NULL,
   `bitdepth` int(11) DEFAULT NULL,
   `samplerate` int(11) NOT NULL,
   `bitrate` int(11) DEFAULT NULL,
@@ -137,8 +137,8 @@ INSERT INTO `format` (`id`, `codec`, `bitdepth`, `samplerate`, `bitrate`, `chann
 
 CREATE TABLE IF NOT EXISTS `location` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `land` varchar(40) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `land` varchar(40) CHARACTER SET utf8 NOT NULL,
   `latitude` decimal(18,14) NOT NULL,
   `longitude` decimal(18,14) NOT NULL,
   PRIMARY KEY (`id`)
@@ -184,8 +184,8 @@ CREATE TABLE IF NOT EXISTS `report` (
   `gemeldet_ambience_id` int(11) DEFAULT NULL,
   `gemeldet_kommentar_id` int(11) DEFAULT NULL,
   `gemeldet_user_id` int(11) DEFAULT NULL,
-  `grund_kategorie` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `grund_freitext` varchar(500) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `grund_kategorie` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `grund_freitext` varchar(500) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -197,12 +197,12 @@ CREATE TABLE IF NOT EXISTS `report` (
 
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(10) NOT NULL,
-  `pass` varchar(40) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `about` varchar(500) DEFAULT NULL,
-  `picture` varchar(100) DEFAULT NULL,
-  `rights` varchar(20) NOT NULL,
+  `name` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `pass` varchar(40) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `email` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `about` varchar(500) CHARACTER SET utf8 DEFAULT NULL,
+  `picture` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `rights` varchar(20) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;

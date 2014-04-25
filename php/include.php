@@ -55,4 +55,50 @@
 		$rootPath = str_replace("\\php", "", dirname(__FILE__));
 		return $rootPath;
 	}
+	
+	function createSiteNav($array){
+		$gesamt = getNumElements($_GET);
+		
+		$sites = ceil($gesamt / $array['limit']);
+		//if ($sites > 10){
+			$actDez = floor($array['page']/10);
+			$dezCount = $sites - $actDez * 10;
+			if ($dezCount > 10) {$dezCount = 10;}
+			if ($actDez != 0){
+				if (isset($array['query'])){
+					echo "<a href='overview.php?limit=".$array['limit']."&page=1&query=".$array['query']."'>Erste</a>";
+				} else {
+					echo "<a href='overview.php?limit=".$array['limit']."&page=1'>Erste</a>";
+				}
+			}
+			if ($_GET['page'] != 1){
+				if (isset($array['query'])){
+					echo "<a href='overview.php?limit=".$array['limit']."&page=".($_GET['page']-1)."&query=".$array['query']."'><</a>";
+				} else {
+					echo "<a href='overview.php?limit=".$array['limit']."&page=".($_GET['page']-1)."'><</a>";
+				}
+			}
+			for ($i = 1; $i<=$dezCount; $i++){
+				if (isset($array['query'])){
+					echo "<a href='overview.php?limit=".$array['limit']."&page=".($actDez+$i)."&query=".$array['query']."'>".($actDez+$i)."</a> ";
+				} else {
+					echo "<a href='overview.php?limit=".$array['limit']."&page=".($actDez+$i)."'>".($actDez+$i)."</a> ";
+				}
+			}
+			if ($_GET['page'] != $sites){
+				if (isset($array['query'])){
+					echo "<a href='overview.php?limit=".$array['limit']."&page=".($_GET['page']+1)."&query=".$array['query']."'>></a>";
+				} else {
+					echo "<a href='overview.php?limit=".$array['limit']."&page=".($_GET['page']+1)."'>></a>";
+				}
+			}
+			if ($actDez != floor($sites/10)){
+				if (isset($array['query'])){
+					echo "<a href='overview.php?limit=".$array['limit']."&page=".$sites."&query=".$array['query']."'><</a>";
+				} else {
+					echo "<a href='overview.php?limit=".$array['limit']."&page=".$sites."'><</a>";
+				}
+			}
+		//}
+	}
 ?>

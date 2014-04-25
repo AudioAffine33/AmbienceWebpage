@@ -465,4 +465,45 @@
 		$abfrage = "DELETE FROM report WHERE gemeldet_ambience_id =".$id;
 		mysql_query($abfrage);
 	}
+	
+	function createSearch ($array){
+		$ret  = "SELECT * FROM ambience ";
+		$limit;
+		
+		if (isset($array['query'])){
+			$query = $array['query'];
+			$ret .= "WHERE name LIKE '%".$query."%' ";
+		}
+		
+		if (isset($array['limit'])){
+			$limit = $array['limit'];
+			if (isset($array['page'])){
+				$page = $array['page'];
+				$ret .= "LIMIT ".($limit*($page-1)).", ".$limit;
+			} else {
+				$ret .= "LIMIT 0, ".$limit;
+			}
+		} else {
+			$ret .= "LIMIT 0, 10";
+		}
+		
+		return $ret;
+	}
+	
+	function getNumElements ($array){
+		$ret = 0;
+		$string  = "SELECT COUNT(*) AS 'count' FROM ambience ";
+		
+		if (isset($array['query'])){
+			$query = $array['query'];
+			$ret .= "WHERE name LIKE '%".$query."%' ";
+		}
+		$result = mysql_query($string);
+		
+		while ($row = mysql_fetch_object($result)){
+			$ret = $row->count;
+		}
+			
+		return $ret;
+	}
 ?>

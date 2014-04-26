@@ -75,7 +75,7 @@ body{
 	}
 #AmbiencesAnzeige{
 	float:left;
-	width:1100px;
+	width:1250px;
 	background-color:#FFF;
 	margin-left:2%;
 	margin-top:2%;
@@ -85,18 +85,29 @@ body{
 	width:300px;
 	height:225px;	
 	}
+#AmbiencePic{
+	float:left;
+	
+	}
+#AmbienceDescription{
+	width:300px;
+	height:225px;
+	float:left;
+	}
+	
 #Ambiences{
 	float:left;
 	margin:2%;
 	}
+	
 #Registrierung{
 	float:left;
 	width:1100px;
 	background-color:#FFF;
 	margin:2%;
 	text-align:center;
-	
 	}
+
 #Userbild{
 	float:left;
 	margin:2%;

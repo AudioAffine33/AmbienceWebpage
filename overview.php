@@ -54,7 +54,7 @@
     </div>
   </div>
   <div id="AmbiencesAnzeige">
-    <table id="Ambiences">
+    <div id="Ambiences">
       <?php
 					$abfrage = createSearch($_GET);
 					$result = mysql_query($abfrage);
@@ -66,36 +66,28 @@
 						if ($index%2 == 0){
 							
 				?>
-      <tr>
-        <td><img src="media/pics_ambiences/thumb/<?php echo $row->picture;  ?>" class="AmbiencePic" /></td>
-        <td><h1><?php echo $row->name; ?></h1>
+      
+       <div id="AmbiencePic"> <img src="media/pics_ambiences/thumb/<?php echo $row->picture;  ?>" class="AmbiencePic" /> </div>
+      <div id="AmbienceDescription">
+        <h1><?php echo $row->name; ?></h1>
           <ul>
             <li>
               <?php if (isset($locationArray['name'])){echo $locationArray['name']; } ?>
             </li>
             <li><?php echo date("G:i", strtotime($row->time)) ?></li>
             <li><?php echo $format_act['bitdepth']." bit , ".$format_act['samplerate']." kHz"; ?></li>
-          </ul></td>
+          </ul>
+       </div>
         <?php
 							if ($result == ($index -1)) {
 								?>
-      </tr>
+      
       <?php
 							}
 							$index ++;
 						} else {
 				?>
       
-        <td><img src="media/pics_ambiences/thumb/<?php echo $row->picture;  ?>" class="AmbiencePic" /></td>
-        <td><h1><?php echo $row->name; ?></h1>
-          <ul>
-            <li>
-              <?php if (isset($locationArray['name'])){echo $locationArray['name']; } ?>
-            </li>
-            <li><?php echo date("G:i", strtotime($row->time)); ?></li>
-            <li><?php echo $format_act['bitdepth']." bit , ".$format_act['samplerate']." kHz"; ?></li>
-          </ul></td>
-      </tr>
       <?php
 						$index++;
 						}
@@ -103,15 +95,9 @@
 				if (getNumElements($_GET) > $_GET['limit']){
 					
 				?>
-    	<tr>
-        	<td colspan="2">
-            <?php
-				createSiteNav($_GET);
-			?>
-            </td>
-        </tr>
         <?php } ?>
-    </table>
+  
+    </div>
   </div>
 </div>
 </body>

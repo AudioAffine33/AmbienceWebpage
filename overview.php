@@ -32,7 +32,12 @@
                     ?>
       </a> </div>
     <br>
-    <div id="SucheHeader"><form method="GET"><input type="text" name="query" /></form></div>
+  	<div id="SucheHeader">
+    	<form method="GET">
+        	<input type="hidden" name="limit" value="<?php echo $_GET['limit']; ?>" />
+    		<input type="text" name="query" />
+        </form>
+   	</div>
   </div>
   <div id="ObereNavigation">
     <div id="Button1" class="ButtonNavigation">Ambiences</div>

@@ -496,7 +496,7 @@
 		
 		if (isset($array['query'])){
 			$query = $array['query'];
-			$ret .= "WHERE name LIKE '%".$query."%' ";
+			$string .= "WHERE name LIKE '%".$query."%' ";
 		}
 		$result = mysql_query($string);
 		

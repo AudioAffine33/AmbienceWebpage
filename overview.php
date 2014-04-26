@@ -56,48 +56,37 @@
   <div id="AmbiencesAnzeige">
     <div id="Ambiences">
       <?php
-					$abfrage = createSearch($_GET);
-					$result = mysql_query($abfrage);
-					$found = mysql_num_rows($result);
-					$index = 0;
-					while ($row = mysql_fetch_object($result)){
-						$locationArray = getLocation_by_ID($row->location_id);
-						$format_act = getFormat_by_ID($row->format_id);
-						if ($index%2 == 0){
-							
+		$abfrage = createSearch($_GET);
+		$result = mysql_query($abfrage);
+		$found = mysql_num_rows($result);
+		$index = 0;
+		while ($row = mysql_fetch_object($result)){
+			$locationArray = getLocation_by_ID($row->location_id);
+			$format_act = getFormat_by_ID($row->format_id);							
 				?>
       
-       <div id="AmbiencePic"> <img src="media/pics_ambiences/thumb/<?php echo $row->picture;  ?>" class="AmbiencePic" /> </div>
-      <div id="AmbienceDescription">
-        <h1><?php echo $row->name; ?></h1>
-          <ul>
-            <li>
-              <?php if (isset($locationArray['name'])){echo $locationArray['name']; } ?>
-            </li>
+       	<div id="AmbiencePic"> 
+       		<img src="media/pics_ambiences/thumb/<?php echo $row->picture;  ?>" class="AmbiencePic" />
+    	</div>
+      	<div id="AmbienceDescription">
+        	<h1><?php echo $row->name; ?></h1>
+          		<ul>
+            		<li>
+           	  			<?php if (isset($locationArray['name'])){echo $locationArray['name']; } ?>
+            		</li>
             <li><?php echo date("G:i", strtotime($row->time)) ?></li>
             <li><?php echo $format_act['bitdepth']." bit , ".$format_act['samplerate']." kHz"; ?></li>
           </ul>
-       </div>
-        <?php
-							if ($result == ($index -1)) {
-								?>
-      
-      <?php
-							}
-							$index ++;
-						} else {
-				?>
-      
-      <?php
-						$index++;
-						}
-					}
-				if (getNumElements($_GET) > $_GET['limit']){
-					
-				?>
-        <?php } ?>
-  
+       	</div>
     </div>
+    <div id="SeitenNav">
+      	<?php
+		}
+			if (getNumElements($_GET) > $_GET['limit']){
+				createSiteNav($_GET);
+			} 
+		?>
+ 	</div>
   </div>
 </div>
 </body>

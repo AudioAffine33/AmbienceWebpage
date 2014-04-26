@@ -35,7 +35,7 @@
   	<div id="SucheHeader">
     	<form method="GET">
         	<input type="hidden" name="limit" value="<?php echo $_GET['limit']; ?>" />
-    		<input type="text" name="query" />
+    		<input type="text" name="name" />
         </form>
    	</div>
   </div>

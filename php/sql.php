@@ -470,9 +470,9 @@
 		$ret  = "SELECT * FROM ambience ";
 		$limit;
 		
-		if (isset($array['query'])){
-			$query = $array['query'];
-			$ret .= "WHERE name LIKE '%".$query."%' ";
+		if (isset($array['name'])){
+			$name = $array['name'];
+			$ret .= "WHERE name LIKE '%".$name."%' ";
 		}
 		
 		if (isset($array['limit'])){
@@ -494,9 +494,9 @@
 		$ret = 0;
 		$string  = "SELECT COUNT(*) AS 'count' FROM ambience ";
 		
-		if (isset($array['query'])){
-			$query = $array['query'];
-			$string .= "WHERE name LIKE '%".$query."%' ";
+		if (isset($array['name'])){
+			$name = $array['name'];
+			$string .= "WHERE name LIKE '%".$name."%' ";
 		}
 		$result = mysql_query($string);
 		

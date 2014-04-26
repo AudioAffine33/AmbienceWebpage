@@ -73,7 +73,6 @@
     
    	 	<div id="MidRight"><img src="media/pics_ambiences/<?php echo $randPics[4]['picture'] ?>" class="AmbienceFoto desaturate grey" /></div>
    </div>
- 
 
    	<div id="Bot">
     

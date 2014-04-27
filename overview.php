@@ -54,7 +54,6 @@
     </div>
   </div>
   <div id="AmbiencesAnzeige">
-    <div class="Ambiences">
       <?php
 		$abfrage = createSearch($_GET);
 		$result = mysql_query($abfrage);
@@ -64,7 +63,7 @@
 			$locationArray = getLocation_by_ID($row->location_id);
 			$format_act = getFormat_by_ID($row->format_id);							
 				?>
-      
+      <div class="Ambiences">
        	<div id="AmbiencePic"> 
        		<img src="media/pics_ambiences/thumb/<?php echo $row->picture;  ?>" class="AmbiencePic" />
     	</div>
@@ -78,10 +77,11 @@
             <li><?php echo $format_act['bitdepth']." bit , ".$format_act['samplerate']." kHz"; ?></li>
           </ul>
        	</div>
-    </div>
+  	</div>
+        <?php
+		} ?>
     <div id="SeitenNav">
-      	<?php
-		}
+    	<?php
 			if (getNumElements($_GET) > $_GET['limit']){
 				createSiteNav($_GET);
 			} 

@@ -54,7 +54,7 @@
     </div>
   </div>
   <div id="AmbiencesAnzeige">
-    <div id="Ambiences">
+    <div class="Ambiences">
       <?php
 		$abfrage = createSearch($_GET);
 		$result = mysql_query($abfrage);

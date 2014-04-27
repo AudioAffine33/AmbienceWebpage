@@ -63,11 +63,10 @@
 			$locationArray = getLocation_by_ID($row->location_id);
 			$format_act = getFormat_by_ID($row->format_id);							
 				?>
-      <div class="Ambiences">
-       	<div id="AmbiencePic"> 
+      
        		<img src="media/pics_ambiences/thumb/<?php echo $row->picture;  ?>" class="AmbiencePic" />
-    	</div>
-      	<div id="AmbienceDescription">
+            
+      	<div class="AmbienceDescription">
         	<h1><?php echo $row->name; ?></h1>
           		<ul>
             		<li>
@@ -77,11 +76,9 @@
             <li><?php echo $format_act['bitdepth']." bit , ".$format_act['samplerate']." kHz"; ?></li>
           </ul>
        	</div>
-  	</div>
-        <?php
-		} ?>
     <div id="SeitenNav">
-    	<?php
+      	<?php
+		}
 			if (getNumElements($_GET) > $_GET['limit']){
 				createSiteNav($_GET);
 			} 

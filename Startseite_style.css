@@ -28,15 +28,17 @@ img.desaturate{
 	filter: url(desaturate.svg#greyscale);
 	filter: gray;
 	-webkit-filter: grayscale(1);
+	box-shadow: 0px 0px 30px 10px #000;
 	}
 
 img.grey:hover {
-filter: grayscale(0%);
--webkit-filter: grayscale(0%);
--moz-filter: grayscale(0%);
--ms-filter: grayscale(0%);
--o-filter: grayscale(0%);
-filter: none;
+	filter: grayscale(0%);
+	-webkit-filter: grayscale(0%);
+	-moz-filter: grayscale(0%);
+	-ms-filter: grayscale(0%);
+	-o-filter: grayscale(0%);
+	filter: none;
+	box-shadow: 0px 0px 30px 10px #063506;
 	}
 	
 	
@@ -61,6 +63,8 @@ filter: none;
 	}
 
 #TopLeft{
+	width:300px;
+	height:225px;
 	margin:3%;
 	clear:both;
 	float:left;

@@ -7,10 +7,10 @@
 <?php
 		include('php/include.php');
 		
-		if (!isset($_GET['limit'])){
+		if (!isset($_GET['limit']) || !is_int($_GET['limit'])){
 			$_GET['limit']=10;
 		}
-		if (!isset($_GET['page'])){
+		if (!isset($_GET['page']) || !is_int($_GET['page'])){
 			$_GET['page']=1;
 		}
 	?>
@@ -63,22 +63,25 @@
 			$locationArray = getLocation_by_ID($row->location_id);
 			$format_act = getFormat_by_ID($row->format_id);							
 				?>
-      
-       		<img src="media/pics_ambiences/thumb/<?php echo $row->picture;  ?>" class="AmbiencePic" />
+      <div class="Ambiences">
+       		<img src="media/pics_ambiences/thumb/<?php echo htmlentities($row->picture);  ?>" class="AmbiencePic" />
             
       	<div class="AmbienceDescription">
         	<h1><?php echo $row->name; ?></h1>
           		<ul>
             		<li>
-           	  			<?php if (isset($locationArray['name'])){echo $locationArray['name']; } ?>
+           	  			<?php if (isset($locationArray['name'])){echo htmlentities($locationArray['name']); } ?>
             		</li>
             <li><?php echo date("G:i", strtotime($row->time)) ?></li>
-            <li><?php echo $format_act['bitdepth']." bit , ".$format_act['samplerate']." kHz"; ?></li>
+            <li><?php echo htmlentities($format_act['bitdepth'])." bit , ".htmlentities($format_act['samplerate'])." kHz"; ?></li>
           </ul>
        	</div>
-    <div id="SeitenNav">
-      	<?php
+  	</div>
+    <?php
 		}
+	?>
+    <div id="SeitenNav">
+    	<?php
 			if (getNumElements($_GET) > $_GET['limit']){
 				createSiteNav($_GET);
 			} 

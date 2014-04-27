@@ -2,7 +2,7 @@
 /* CSS Document */
 
 body{
-	background-color:#000;
+	background-color:#FFF;
 	width:1920px;
 	height:1080px;
 	padding:0;
@@ -16,8 +16,8 @@ body{
 .AmbienceFoto{
 	width:300px; 
 	height:225px;
-
 	}
+
 	
 img.desaturate{
 	filter: grayscale(100%);
@@ -43,18 +43,19 @@ filter: none;
 #LoginBox{
 	width:350px;
 	height:275px;
-	background-color:#03C;
+	/*background-color:#03C;*/
 	margin:1.5%;
 	float:left;
+	background-image:url(media/Design_Vorlagen/Startseite/Login_box_raw.png);
 	}
 #LoginTop{
-	position:relative;
-	width:100%;
+	position::relative;
+	width:350px;
 	height:133px;
 	text-align:center;
 	}
 #LoginBottom{
-	width:100%;
+	width:350px;
 	height:133px;
 	text-align:center;
 	}
@@ -101,7 +102,21 @@ filter: none;
 	margin:3%;
 	float:left;
 	}
-
+#LoginBut{
+	width:100px;
+	height:50px;
+	float:right;
+	margin-top:5%;
+	margin-right:8%;
+	
+	}
+#Reg {
+	float:left;
+	width:150px;
+	height:50px;
+	margin-left:2%
+	
+	}
 
 		
 	

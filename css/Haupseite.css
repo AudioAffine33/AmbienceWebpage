@@ -93,13 +93,15 @@ body{
 	}
 #LinkeNavKat ul ul {
 	display:none;
-	
 	}
+	
 #LinkeNavKat ul li:hover ul {
-	display:block;	
+	display:block;
+	padding:10%;
 	}
+
+
 .OberKat {
-	
 	margin:10%;
 	margin-left:0%;
 	background-color:#FFF;

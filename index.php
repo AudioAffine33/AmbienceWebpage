@@ -65,7 +65,7 @@
                     <input type="password" name="loginPass" <?php if(isset($errorLog['pass'])){ ?> style="background-color:#F00" <?php } ?>/>
                    <br /><div id="LoginBut"><input type="submit" value="Einloggen"/></div><br />
                 </form>
-              	 <div id="Reg"><a id="regFrame" data-fancybox-type="iframe" href="register.php" title="Registrieren">Neuer User</a> </div>
+              	 <div id="Reg"><a id="regFrame" data-fancybox-type="iframe" href="register.php" title="Registrieren"><img src="media/Design_Vorlagen/Startseite/01b_startseite_registrieren.png" /></a> </div>
           	</div>
         
         	<div id="LoginBottom" href="overview.php">

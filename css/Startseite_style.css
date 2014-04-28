@@ -44,23 +44,27 @@ img.grey:hover {
 	
 	
 #LoginBox{
-	width:350px;
-	height:275px;
+	width:360px;
+	height:289px;
 	/*background-color:#03C;*/
 	margin:1.5%;
 	float:left;
-	background-image:url(media/Design_Vorlagen/Startseite/Login_box_raw.png);
+	background-image:url(../media/Design_Vorlagen/Startseite/01b_startseite_gruen.png);
 	}
 #LoginTop{
-	position::relative;
+	margin-left:2.5%;
 	width:350px;
-	height:133px;
+	height:157px;
 	text-align:center;
+	background-image:url(../media/Design_Vorlagen/Startseite/01b_startseite_login_gruen.png);
 	}
 #LoginBottom{
+	float:left;
+	margin-left:2.2%;
 	width:350px;
-	height:133px;
+	height:101px;
 	text-align:center;
+	background-image:url(../media/Design_Vorlagen/Startseite/01b_startseite_button_braun.png);
 	}
 
 #TopLeft{
@@ -111,16 +115,16 @@ img.grey:hover {
 	width:100px;
 	height:50px;
 	float:right;
-	margin-top:5%;
-	margin-right:8%;
-	
+	margin-top:5.5%;
+	margin-right:13%;
+	background-image:url(../media/Design_Vorlagen/Startseite/01b_startseite_login.png);
+	background-repeat:no-repeat;
 	}
 #Reg {
 	float:left;
 	width:150px;
 	height:50px;
-	margin-left:2%
-	
+	margin-left:8%;
 	}
 
 		

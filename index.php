@@ -3,8 +3,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>AmbienceWebsite_Startseite</title>
+	<link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
 	
-	<link rel="stylesheet" href="Startseite_style.css" type="text/css" />
+	<link rel="stylesheet" href="css/Startseite_style.css" type="text/css" />
     
     <script type="text/javascript" src="js/jquery-1.11.0.js"></script>
     <script type="text/javascript" src="js/fancyBox/source/jquery.fancybox.pack.js"></script>
@@ -40,7 +42,9 @@
 
 	<div id="Top">
 
-		<div id="TopLeft"><img src="media/pics_ambiences/<?php echo $randPics[0]['picture'] ?>" class="AmbienceFoto desaturate grey"/></div>
+		<div id="TopLeft"><img src="media/pics_ambiences/<?php echo $randPics[0]['picture'] ?>" class="AmbienceFotoFade AmbienceFoto desaturate grey"/>
+       
+         </div>
     
     	<div id="TopCenter"><img src="media/pics_ambiences/<?php echo $randPics[1]['picture'] ?>" class="AmbienceFoto desaturate grey"/></div>
     

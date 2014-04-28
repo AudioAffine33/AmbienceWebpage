@@ -6,3 +6,10 @@
 .idea/misc.xml
 .idea/encodings.xml
 .idea/AmbienceWebpage.iml
+.idea/dataSources.ids
+.idea/dataSources.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/sqldialects.xml
+mysqlConnector/mysql-connector-java-5.1.29-bin.jar
+mysqlConnector/mysql-connector-license.txt

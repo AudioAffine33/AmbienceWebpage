@@ -7,10 +7,11 @@
 <?php
 		include('php/include.php');
 		
-		if (!isset($_GET['limit']) || !is_int($_GET['limit'])){
+		if (!isset($_GET['limit']) || !is_numeric($_GET['limit'])){
 			$_GET['limit']=10;
+            $_GET['page']=1;
 		}
-		if (!isset($_GET['page']) || !is_int($_GET['page'])){
+		if (!isset($_GET['page']) || !is_numeric($_GET['page'])){
 			$_GET['page']=1;
 		}
 	?>
@@ -55,24 +56,24 @@
   </div>
   <div id="AmbiencesAnzeige">
       <?php
-		$abfrage = createSearch($_GET);
-		$result = mysql_query($abfrage);
-		$found = mysql_num_rows($result);
-		$index = 0;
-		while ($row = mysql_fetch_object($result)){
-			$locationArray = getLocation_by_ID($row->location_id);
-			$format_act = getFormat_by_ID($row->format_id);							
+		$query = createSearch($_GET);
+        $query->execute();
+		//$found = $query->rowCount();
+		//$index = 0;
+		while ($row = $query->fetch()){
+			$locationArray = getLocation_by_ID($row['location_id']);
+			$format_act = getFormat_by_ID($row['format_id']);
 				?>
       <div class="Ambiences">
-       		<img src="media/pics_ambiences/thumb/<?php echo htmlentities($row->picture);  ?>" class="AmbiencePic" />
+       		<img src="media/pics_ambiences/thumb/<?php echo htmlentities($row['picture']);  ?>" class="AmbiencePic" />
             
       	<div class="AmbienceDescription">
-        	<h1><?php echo $row->name; ?></h1>
+        	<h1><?php echo htmlentities($row['name']); ?></h1>
           		<ul>
             		<li>
            	  			<?php if (isset($locationArray['name'])){echo htmlentities($locationArray['name']); } ?>
             		</li>
-            <li><?php echo date("G:i", strtotime($row->time)) ?></li>
+            <li><?php echo date("G:i", strtotime($row['time'])) ?></li>
             <li><?php echo htmlentities($format_act['bitdepth'])." bit , ".htmlentities($format_act['samplerate'])." kHz"; ?></li>
           </ul>
        	</div>

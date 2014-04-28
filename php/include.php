@@ -1,12 +1,29 @@
 <?php	
 	//MySQL
-	$connection = 	mysql_connect("localhost","root","")
+	/*$connection = 	mysql_connect("localhost","root","")
 					or die ("keine Verbindung möglich. Benutzername oder Passwort sind falsch");
 
 	mysql_select_db("ambienceproj")
 					or die ("Die Datenbank existiert nicht.");
 					
-	mysql_query("SET NAMES 'utf8'");
+	mysql_query("SET NAMES 'utf8'");*/
+
+	try {
+		$db = new PDO(
+					'mysql:host=localhost; dbname=ambienceproj', 
+					'root', 
+					'', 
+					array( 
+						PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+						PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+						PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+					)
+				);
+	} catch (Exception $e){
+		die ('Datenbankfehler!');
+	}
+
+    global $db;
 	
 	//Get ID3
 	require('getid3/getid3.php');

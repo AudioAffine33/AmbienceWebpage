@@ -3,18 +3,15 @@
 		$format_id = get_format_id($infoArray);
 		
 		if (is_null($format_id)){
-			$query = $db->prepare("INSERT INTO format (codec, bitdepth, samplerate, bitrate, channels) VALUES (:format, :bitdepth, :samplerate, :bitrate, :channels);");
-			$query->bindValue(':format', $infoArray['format']);
-			$query->bindValue(':samplerate', $infoArray['samplerate']);
-			$query->bindValue(':bitrate', $infoArray['bitrate']);
-			$query->bindValue(':channels', $infoArray['channels']);
 			if (isset($infoArray['bits_per_sample'])){
-				$query->bindValue(':bitdepth', $infoArray['formbitdepthat']);
+				$abfrage  = "INSERT INTO format (codec, bitdepth, samplerate, bitrate, channels) VALUES ('";
+				$abfrage .= $infoArray['format']."', ".$infoArray['bits_per_sample'].", ".$infoArray['samplerate'].", ".$infoArray['bitrate'].", ".$infoArray['channels'].");";
 			} else {
-				$query->bindValue(':bitdepth', NULL);
+				$abfrage  = "INSERT INTO format (codec, samplerate, bitrate, channels) VALUES ('";
+				$abfrage .= $infoArray['format']."', ".$infoArray['samplerate'].", ".$infoArray['bitrate'].", ".$infoArray['channels'].");";
 			}
 			
-			$query->execute();
+			mysql_query($abfrage);
 			
 			$format_id = get_format_id($infoArray);
 		}
@@ -25,59 +22,51 @@
 		$nameNeu = substr($nameNeu, 0, 40);
 		$filename_neu = $nameNeu.".".$ext;
 		
-		$query = $db->prepare("INSERT INTO ambience (format_id, filename, size, length, user_id, date_added, name) VALUES (:format_id, :filename, :size, :length, :user_id, :date_added, :name);");
-		$query->bindValue(':format_id', $format_id);
-		$query->bindValue(':filename', $filename_neu);
-		$query->bindValue(':size', $infoArray['filesize']);
-		$query->bindValue(':length', $infoArray['length']);
-		$query->bindValue(':user_id', $userid);
-		$query->bindValue(':date_added', "CURDATE()");
-		$query->bindValue(':name', substr($infoArray['filename'], 0, strrpos($infoArray['filename'])));		
+		$abfrage  = "INSERT INTO ambience (format_id, filename, size, length, user_id, date_added, name) VALUES ";
+		$abfrage .= "(".$format_id.", '".$filename_neu."', ".$infoArray['filesize'].", ".$infoArray['length'].", ";
+		$abfrage .= $userid.", CURDATE(),'".substr($infoArray['filename'], 0, strrpos($infoArray['filename'], '.'))."')";
 		
-		$query->execute();
+		mysql_query($abfrage);
 		
 		$amb_id = get_ambience_id($filename_neu);
 		
 		//Description
-		$query = $db->prepare("IUPDATE ambience SET description=:descr, date=:date, time=:time, originator=:orig WHERE id=:id;");
-		$query->bindValue(':id', $amb_id);
-		
 		if (isset($infoArray['riffDescr'])){
-			$query->bindValue(':descr', $infoArray['riffDescr']);
-		} else if (isset($infoArray['id3title'])){
-			$query->bindValue(':descr', $infoArray['id3title']);
-		} else {
-			$query->bindValue(':descr', NULL);
+			$abfrage = "UPDATE ambience SET description='".$infoArray['riffDescr']."' WHERE id=".$amb_id.";";
+
+			mysql_query($abfrage);
+		}
+		if (isset($infoArray['id3title'])){
+			$abfrage = "UPDATE ambience SET description='".$infoArray['id3title']."' WHERE id=".$amb_id.";";
+
+			mysql_query($abfrage);
 		}
 		
 		//Date, Time
 		if (isset($infoArray['date'])){
-			$query->bindValue(':date', $infoArray['date']);
-		} else {
-			$query->bindValue(':date', NULL);
+			$abfrage = "UPDATE ambience SET date='".$infoArray['date']."' WHERE id=".$amb_id.";";
+
+			mysql_query($abfrage);
 		}
 		if (isset($infoArray['time'])){
-			$query->bindValue(':time', $infoArray['time']);
-		} else {
-			$query->bindValue(':time', NULL);
+			$abfrage = "UPDATE ambience SET time='".$infoArray['time']."' WHERE id=".$amb_id.";";
+
+			mysql_query($abfrage);
 		}
 		
 		//Originator
 		if (isset($infoArray['orig'])){
-			$query->bindValue(':orig', $infoArray['orig']);
-		} else {
-			$query->bindValue(':orig', NULL);
+			$abfrage = "UPDATE ambience SET originator='".$infoArray['orig']."' WHERE id=".$amb_id.";";
+
+			mysql_query($abfrage);
 		}
-		
-		$query->execute();
 		
 		$ext = pathinfo($filename_neu, PATHINFO_EXTENSION);	
 		$filename_neu = $amb_id."_".$filename_neu;
-		$query = $db->prepare("UPDATE ambience SET filename=:filename_neu WHERE id=:id;");
-		$query->bindValue(':filname_neu', $filename_neu);
-		$query->bindValue(':id', $amb_id);
+		$abfrage = "UPDATE ambience SET filename='".$filename_neu."' WHERE id=".$amb_id.";";
 		
-		$query->execute();
+		
+		mysql_query($abfrage);
 		
 		
 		return $filename_neu;
@@ -86,12 +75,8 @@
 	function addUser ($userArray){
 		$array = checkUser($userArray);
 		if ($array['new']){
-			$query = $db->prepare("INSERT INTO user (name, pass, email, rights) VALUES (:regName, :regPass, :regMail, 'user');");
-			$query->bindValue(':regName', $userArray['regName']);
-			$query->bindValue(':regPass', md5($userArray['regPass1']));
-			$query->bindValue(':regMail', $userArray['regMail']);
-			
-			$query->execute();
+			$abfrage = "INSERT INTO user (name, pass, email, rights) VALUES ('".$userArray['regName']."', '".md5($userArray['regPass1'])."', '".$userArray['regMail']."', 'user');";
+			mysql_query($abfrage);
 			return $array;
 		}
 		else {
@@ -102,11 +87,9 @@
 	function checkUser ($userArray){
 		$error = array ('new' => true);
 		
-		$query = $db->prepare("SELECT * FROM user WHERE name=:regName;");
-		$query->bindValue(':regName'. $userArray['regName']);
-		$query->execute();
-		
-		$numRows = $query->rowCount();
+		$abfrage = "SELECT * FROM user WHERE name='".$userArray['regName']."'";
+		$ergebnis = mysql_query($abfrage);
+		$numRows = mysql_num_rows($ergebnis);
 		if ($numRows > 0){
 			$error['name'] ="Der Benutzername \"".$userArray['regName']."\" ist bereits vergeben<br />";
 			$error['new'] = false;	
@@ -135,23 +118,22 @@
 		$error;
 		$error['correct'] = false;
 		
-		$query = $db->prepare("SELECT * FROM user WHERE name=:loginName;");
-		$query->bindValue(':loginName', $loginArray['loginName']);
-		$query->execute();
+		$abfrage = "SELECT * FROM user WHERE name='".$loginArray['loginName']."';";
+		$ergebnis = mysql_query($abfrage);
 		
-		$numrows = $query->rowCount();
+		$numrows = mysql_num_rows($ergebnis);
 		if ($numrows < 1){
 			$error['name'] = "Der Benutzername existiert nicht!";	
-		} else {		
-			while ($row = $query->fetch()){
-				if (md5($loginArray['loginPass']) == $row['pass']){
-					//session_start();
-					$_SESSION['name'] = $row['name'];
-					$_SESSION['id'] = $row['id'];
-					$error['correct'] = true;
-				} else {
-					$error['pass'] = "Das angegebene Passwort ist nicht korrekt";
-				}
+		}
+		
+		while ($row = mysql_fetch_object($ergebnis)){
+			if (md5($loginArray['loginPass']) == $row->pass){
+				//session_start();
+				$_SESSION['name'] = $row->name;
+				$_SESSION['id'] = $row->id;
+				$error['correct'] = true;
+			} else {
+				$error['pass'] = "Das angegebene Passwort ist nicht korrekt";
 			}
 		}
 		return $error;
@@ -160,42 +142,47 @@
 	function get_categories(){
 		$ret = array();
 		
-		$query = $db->query("SELECT * FROM category;");		
-		$query->execute();		
-		while($row = $query->fetch()){
-			$ret[$row['id']] = $row['name'];
+		$abfrage = "SELECT * FROM category;";		
+		$result = mysql_query($abfrage);		
+		while($row = mysql_fetch_object($result)){
+			$ret[$row->id] = $row->name;
 		}
 		
 		return $ret;
 	}
 	
 	function get_category_by_ID($id){
+		$ret = array();
 		
-		$query = $db->prepare("SELECT * FROM category WHERE id=:id;");
-		$query->bindValue(":id", $id);
-		$query->execute();
+		$abfrage = "SELECT * FROM category WHERE id=".$id;
+		$result = mysql_query($abfrage);
+		while ($row = mysql_fetch_object($result)){
+			$ret['id'] = $row->id;
+			$ret['name'] = $row->name;
+		}
 		
-		return $query->fetch();
+		return $ret;
 	}
 	
 	function get_format_id($infoArray){
 		$ret = NULL;
 		
-		$query  = $db->prepare("SELECT id FROM format WHERE codec=:format AND bitdepth=:bitdepth AND samplerate=:samplerate AND bitrate=:bitrate AND channels=:channels;");
-		$query->bindValue(':format', $infoArray['format']);
-		$query->bindValue(':samplerate', $infoArray['samplerate']);
-		$query->bindValue(':bitrate', $infoArray['bitrate']);
-		$query->bindValue(':channels', $infoArray['channels']);
+		$abfrage  = "SELECT id FROM format " ;
+		$abfrage .= "WHERE codec='".$infoArray['format']."' ";
 		
 		if (isset ($infoArray['bits_per_sample'])){
-			$query->bindValue(':bitdepth', $infoArray['bits_per_sample']);
-		} else {$query->bindValue(':bitdepth', NULL);}
+			$abfrage .= "AND bitdepth=".$infoArray['bits_per_sample']." ";
+		}
+		$abfrage .= "AND samplerate=".$infoArray['samplerate']." ";
+		$abfrage .= "AND bitrate=".round($infoArray['bitrate'], 0)." ";
+		$abfrage .= "AND channels=".$infoArray['channels'].";";
 		
-		$query->execute();
-		$result = $query->fetch();
+		$ergebnis = mysql_query($abfrage);
 		
-		if (isset($result)){
-   			$ret = $result['id'];
+		if (isset($ergebnis)){
+			while($row = mysql_fetch_object($ergebnis)){
+   					$ret = $row->id;
+  			}
 		}
 		
 		return $ret;
@@ -204,17 +191,19 @@
 	function get_location_id($infoArray){
 		$ret = NULL;
 		
-		$query = $db->prepare('SELECT id FROM location WHERE name=:locName AND land=:locLand AND latitude=:locLat AND longitude=:locLat;');
-		$query->bindValue(':locName', $infoArray['locName']);
-		$query->bindValue(':locLand', $infoArray['locLand']);
-		$query->bindValue(':locLat', $infoArray['locLat']);
-		$query->bindValue(':locLat', $infoArray['locLat']);
+		$abfrage  = "SELECT id FROM location " ;
+		$abfrage .= "WHERE name='".$infoArray['locName']."' ";
+		$abfrage .= "AND land='".$infoArray['locLand']."' ";
+		$abfrage .= "AND latitude=".$infoArray['locLat']." ";
+		$abfrage .= "AND longitude=".$infoArray['locLng']." ";
 		
-		$query->execute();
-		$result = $query->fetch();
+		print_r($abfrage);
+		$ergebnis = mysql_query($abfrage);
 		
-		if (isset($result)){
-   			$ret = $result['id'];
+		if (isset($ergebnis)){
+			while($row = mysql_fetch_object($ergebnis)){
+   					$ret = $row->id;
+  			}
 		}
 		
 		return $ret;
@@ -223,11 +212,30 @@
 		function getRandAmb ($number){
 		$ret = array();
 		
-		$query = $db->prepare('SELECT * FROM ambience ORDER BY RAND() LIMIT :number;');
-		$query->bindValue(':number', $number);
-		$query->execute();
+		$abfrage= "SELECT * FROM ambience ORDER BY RAND() LIMIT ".$number;
+		$result = mysql_query($abfrage);
+		$index=0;
+		while($row = mysql_fetch_object($result)){
+			$ret[$index]["id"] = $row->id;
+			$ret[$index]["format_id"] = $row->format_id;
+			$ret[$index]["filename"] = $row->filename;
+			$ret[$index]["size"] = $row->size;
+			$ret[$index]["length"] = $row->length;
+			$ret[$index]["name"] = $row->name;
+			$ret[$index]["user_id"] = $row->user_id;
+			$ret[$index]["location_id"] = $row->location_id;
+			$ret[$index]["date"] = $row->date;
+			$ret[$index]["time"] = $row->time;
+			$ret[$index]["description"] = $row->description;
+			$ret[$index]["category_id"] = $row->category_id;
+			$ret[$index]["picture"] = $row->picture;
+			$ret[$index]["rating"] = $row->rating;
+			$ret[$index]["date_added"] = $row->date_added;
+			$ret[$index]["orig"] = $row->originator;
+			$index++;
+		}
 		
-		return $query->fetchAll();
+		return $ret;
 	}
 
 	

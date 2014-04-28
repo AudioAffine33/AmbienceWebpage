@@ -27,21 +27,20 @@
 		$nameNeu = substr($nameNeu, 0, 40);
 		$filename_neu = $nameNeu.".".$ext;
 		
-		$query = $db->prepare("INSERT INTO ambience (format_id, filename, size, length, user_id, date_added, name) VALUES (:format_id, :filename, :size, :length, :user_id, :date_added, :nam);");
+		$query = $db->prepare("INSERT INTO ambience (format_id, filename, size, length, user_id, date_added, name) VALUES (:format_id, :filename, :size, :length, :user_id, CURDATE(), :nam);");
 		$query->bindValue(':format_id', $format_id, PDO::PARAM_INT);
 		$query->bindValue(':filename', $filename_neu, PDO::PARAM_STR);
 		$query->bindValue(':size', $infoArray['filesize'], PDO::PARAM_INT);
 		$query->bindValue(':length', $infoArray['length'], PDO::PARAM_INT);
 		$query->bindValue(':user_id', $userid, PDO::PARAM_INT);
-		$query->bindValue(':date_added', "CURDATE()", PDO::PARAM_STR);
 		$query->bindValue(':nam', (substr($infoArray['filename'], 0, strrpos($infoArray['filename'], "."))));
 		
 		$query->execute();
 		
 		$amb_id = get_ambience_id($filename_neu);
-		
+
 		//Description
-		$query = $db->prepare("IUPDATE ambience SET description=:descr, date=:date, time=:time, originator=:orig WHERE id=:id;");
+		$query = $db->prepare("UPDATE ambience SET description=:descr, date=:date, time=:time, originator=:orig WHERE id=:id;");
 		$query->bindValue(':id', $amb_id, PDO::PARAM_INT);
 		
 		if (isset($infoArray['riffDescr'])){
@@ -54,12 +53,12 @@
 		
 		//Date, Time
 		if (isset($infoArray['date'])){
-			$query->bindValue(':date', $infoArray['date'], PDO::PARAM_STR);
+			$query->bindValue(':date', $infoArray['date']);
 		} else {
 			$query->bindValue(':date', NULL, PDO::PARAM_NULL);
 		}
 		if (isset($infoArray['time'])){
-			$query->bindValue(':time', $infoArray['time'], PDO::PARAM_STR);
+			$query->bindValue(':time', $infoArray['time']);
 		} else {
 			$query->bindValue(':time', NULL, PDO::PARAM_NULL);
 		}
@@ -75,7 +74,7 @@
 
 		$filename_neu = $amb_id."_".$filename_neu;
 		$query = $db->prepare("UPDATE ambience SET filename=:filename_neu WHERE id=:id;");
-		$query->bindValue(':filname_neu', $filename_neu, PDO::PARAM_STR);
+		$query->bindValue(':filename_neu', $filename_neu, PDO::PARAM_STR);
 		$query->bindValue(':id', $amb_id, PDO::PARAM_INT);
 		
 		$query->execute();
@@ -211,12 +210,12 @@
         global $db;
 		$ret = NULL;
 		
-		$query = $db->prepare('SELECT id FROM location WHERE name=:locName AND land=:locLand AND latitude=:locLat AND longitude=:locLat;');
+		$query = $db->prepare('SELECT id FROM location WHERE name=:locName AND land=:locLand AND latitude=:locLat AND longitude=:locLng;');
 		$query->bindValue(':locName', $infoArray['locName'], PDO::PARAM_STR);
 		$query->bindValue(':locLand', $infoArray['locLand'], PDO::PARAM_STR);
-		$query->bindValue(':locLat', $infoArray['locLat'], PDO::PARAM_STR);
-		$query->bindValue(':locLat', $infoArray['locLat'], PDO::PARAM_STR);
-		
+		$query->bindValue(':locLat', $infoArray['locLat']);
+		$query->bindValue(':locLng', $infoArray['locLng']);
+
 		$query->execute();
 		$result = $query->fetch();
 		
@@ -329,13 +328,17 @@
 	function set_ambience_details($details_array, $amb_id){
         global $db;
 
-        $query = $db->prepare("UPDATE ambience SET name=:name, location_id=:locID, date=:date, time=:time, description=:descr, category_id=:cat_id WHERE id=:amb_id;");
-        $query->bindValue(':name', $details_array['name'], PDO::PARAM_STR);
-        $query->bindValue(':id', $amb_id, PDO::PARAM_INT);
-		
-		if ($details_array['locName'] != NULL && $details_array['locName'] != ""){
-			$locID = get_location_id($details_array);
-			if (!isset($locID)){
+        if ($details_array['name'] != NULL && $details_array['name'] != ""){
+            $query = $db->prepare("UPDATE ambience SET name=:nam WHERE id=:amb_id;");
+            $query->bindValue(':nam', $details_array['name'], PDO::PARAM_STR);
+            $query->bindValue(':amb_id', $amb_id, PDO::PARAM_INT);
+            $query->execute();
+        }
+
+        if ($details_array['locName'] != NULL && $details_array['locName'] != ""){
+            //print_r( $details_array);
+            $locID = get_location_id($details_array);
+            if (!isset($locID)){
                 $query2 = $db->prepare("INSERT INTO location (name, land, latitude, longitude) VALUES (:locName, :locLand, :locLat, :locLng);");
                 $query2->bindValue(':locName', $details_array['locName'], PDO::PARAM_STR);
                 $query2->bindValue(':locLand', $details_array['locLand'], PDO::PARAM_STR);
@@ -343,45 +346,50 @@
                 $query2->bindValue(':locLng', $details_array['locLng']);
 
                 $query2->execute();
-				
-				$locID = get_location_id($details_array);
-			}
+
+                $locID = get_location_id($details_array);
+            }
+            echo $locID;
+            $query = $db->prepare("UPDATE ambience SET location_id=:locID WHERE id=:amb_id;");
             $query->bindValue(':locID', $locID, PDO::PARAM_INT);
-		} else {
-            $query->bindValue(':locID', NULL, PDO::PARAM_NULL);
-        }
-		
-		if ($details_array['date'] != NULL && $details_array['date'] != ""){
-            $query->bindValue(':date', $details_array['date'], PDO::PARAM_STR);
-        } else {
-            $query->bindValue(':date', NULL, PDO::PARAM_NULL);
-		}
-		
-		if ($details_array['time'] != NULL && $details_array['time'] != ""){
-            $query->bindValue(':time', $details_array['time'], PDO::PARAM_STR);
-		} else {
-            $query->bindValue(':time', NULL, PDO::PARAM_NULL);
-        }
-		
-		if ($details_array['description'] != NULL && $details_array['description'] != ""){
-            $query->bindValue(':descr', $details_array['description'], PDO::PARAM_STR);
-		} else {
-            $query->bindValue(':descr', NULL, PDO::PARAM_NULL);
-        }
-		
-		if ($details_array['category'] != NULL && $details_array['category'] != ""){
-            $query->bindValue(':cat_id', $details_array['category'], PDO::PARAM_INT);
-		} else {
-            $query->bindValue(':cat_id', NULL, PDO::PARAM_NULL);
+            $query->bindValue(':amb_id', $amb_id, PDO::PARAM_INT);
+            $query->execute();
         }
 
-        $query->execute();
+        if ($details_array['date'] != NULL && $details_array['date'] != ""){
+            $query = $db->prepare("UPDATE ambience SET date=:date WHERE id=:amb_id;");
+            $query->bindValue(':date', $details_array['date'], PDO::PARAM_STR);
+            $query->bindValue(':amb_id', $amb_id, PDO::PARAM_INT);
+            $query->execute();
+        }
+
+        if ($details_array['time'] != NULL && $details_array['time'] != ""){
+            $query = $db->prepare("UPDATE ambience SET time=:time WHERE id=:amb_id;");
+            $query->bindValue(':time', $details_array['time'], PDO::PARAM_STR);
+            $query->bindValue(':amb_id', $amb_id, PDO::PARAM_INT);
+            $query->execute();
+
+        }
+
+        if ($details_array['description'] != NULL && $details_array['description'] != ""){
+            $query = $db->prepare("UPDATE ambience SET description=:descr WHERE id=:amb_id;");
+            $query->bindValue(':descr', $details_array['description'], PDO::PARAM_STR);
+            $query->bindValue(':amb_id', $amb_id, PDO::PARAM_INT);
+            $query->execute();
+        }
+
+        if ($details_array['category'] != NULL && $details_array['category'] != ""){
+            $query = $db->prepare("UPDATE ambience SET category_id=:cat_id WHERE id=:amb_id;");
+            $query->bindValue(':cat_id', $details_array['category'], PDO::PARAM_STR);
+            $query->bindValue(':amb_id', $amb_id, PDO::PARAM_INT);
+            $query->execute();
+        }
 	}
 	
 	function update_amb($ambID, $updateArray){
         global $db;
 		$ambArray = get_ambience_by_ID($ambID);
-		if ($updateArray != ""){
+		if ($updateArray["locName"] != ""){
 			$locID = get_location_id($updateArray);
 		}
 		if (check_detail_Input($updateArray)){
@@ -399,11 +407,15 @@
 			}
 			if (!isset($locID) || $locID != $ambArray['location_id']){
 				if (!isset($locID)){
+                    $updateArray['locLat'] = round($updateArray['locLat'], 14);
+                    $updateArray['locLng'] = round($updateArray['locLng'], 14);
+
                     $query = $db->prepare("INSERT INTO location (name, land, latitude, longitude) VALUES (:locName, :locLand, :locLat, :locLng);");
                     $query->bindValue(':locName', $updateArray['locName'], PDO::PARAM_STR);
                     $query->bindValue(':locLand', $updateArray['locLand'], PDO::PARAM_STR);
                     $query->bindValue(':locLat', $updateArray['locLat']);
                     $query->bindValue(':locLng', $updateArray['locLng']);
+                    $query->execute();
 					
 					$locID = get_location_id($updateArray);
 				}
@@ -414,13 +426,13 @@
 			}
 			if ($updateArray['date'] != $ambArray['date']){
                 $query = $db->prepare("UPDATE ambience SET date=:date WHERE id=:id;");
-                $query->bindValue(":date", $updateArray['date'], PDO::PARAM_STR);
+                $query->bindValue(":date", $updateArray['date']);
                 $query->bindValue(":id", $ambID, PDO::PARAM_INT);
                 $query->execute();
 			}
 			if ($updateArray['time'] != $ambArray['time']){
                 $query = $db->prepare("UPDATE ambience SET time=:time WHERE id=:id;");
-                $query->bindValue(":time", $updateArray['time'], PDO::PARAM_STR);
+                $query->bindValue(":time", $updateArray['time']);
                 $query->bindValue(":id", $ambID, PDO::PARAM_INT);
                 $query->execute();
 			}

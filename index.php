@@ -5,7 +5,7 @@
 <title>AmbienceWebsite_Startseite</title>
 	<link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
-	
+	<link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/Startseite_style.css" type="text/css" />
     
     <script type="text/javascript" src="js/jquery-1.11.0.js"></script>

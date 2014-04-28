@@ -106,7 +106,7 @@
 		$error = array ('new' => true);
 		
 		$query = $db->prepare("SELECT * FROM user WHERE name=:regName;");
-		$query->bindValue(':regName'. $userArray['regName'], PDO::PARAM_STR);
+		$query->bindValue(':regName', $userArray['regName'], PDO::PARAM_STR);
 		$query->execute();
 		
 		$numRows = $query->rowCount();

@@ -29,7 +29,7 @@
       <?php
                         if (!isset($_SESSION['name'])){
                     ?>
-      Login
+      <img src="media/Design_Vorlagen/Hauptseite/02c_entdecke_login.png" />
       <?php
                         } else {
                             echo $_SESSION['name'];
@@ -52,6 +52,13 @@
         	<input type="hidden" name="limit" value="<?php echo $_GET['limit']; ?>" />
     		<input type="text" name="name" />
         </form>
+        </div>
+        <div id="SuchBut"></div>
+        <div id="SortBut">
+        	<div id="SortBut1"></div>        
+        	<div id="SortBut2"></div> 
+        	<div id="SortBut3"></div> 
+        
         </div>
    	</div>
   
@@ -104,6 +111,10 @@
     </div>
   </div>
   <div id="AmbiencesAnzeige">
+  		<div class="AnzeigeBut">
+        	<div id="AButfwd"></div>
+        	<div id="AButbkw"></div>
+      	</div>
       <?php
 		$query = createSearch($_GET);
         $query->execute();
@@ -115,7 +126,7 @@
 				?>
       <div class="Ambiences">
        		<img src="media/pics_ambiences/thumb/<?php echo htmlentities($row['picture']);  ?>" class="AmbiencePic" />
-      	<div class="AmbienceDescription">
+      		<div class="AmbienceDescription">
         	<h1><?php echo htmlentities($row['name']); ?></h1>
           		<ul>
             		<li>
@@ -124,16 +135,21 @@
             <li><?php echo date("G:i", strtotime($row['time'])) ?></li>
             <li><?php echo htmlentities($format_act['bitdepth'])." bit , ".htmlentities($format_act['samplerate'])." kHz"; ?></li>
           </ul>
-       	</div>
-    <div id="SeitenNav">
+       		</div>
+    	<div id="SeitenNav">
       	<?php
 		}
 			if (getNumElements($_GET) > $_GET['limit']){
 				createSiteNav($_GET);
 			} 
 		?>
- 	</div>
-  </div>
+ 		</div>
+  	</div>
+	<div class="AnzeigeBut">
+    	<div id="AButfwd"></div>
+        <div id="AButbkw"></div>    
+    </div>	
+
 </div>
 </body>
 </html>

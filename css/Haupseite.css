@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* CSS Document */
 body{
-	background-color:#000;
+	background-color:#FFF;
 	width:1920px;
 	height:1080px;
 	padding:0;
@@ -12,11 +12,12 @@ body{
 	
 	}
 #Header{
-	width:1550px;
-	height:150px;
-	background-color:#FFF;
+	width:1020px;
+	height:87px;
 	margin:2%;
-	margin-bottom:0;
+	margin-bottom:0%;
+	background-image:url(../media/Design_Vorlagen/Hauptseite/02c_entdecke_header.png);
+	
 	}
 #LogoHeader{
 	float:left;
@@ -31,21 +32,65 @@ body{
 	width:100px;
 	height:25px;
 	margin-right:1%;
-	margin-top:2%;
-	background-color:#393;
+	margin-top:1%;
 	}
+	
 #SucheHeader{
 	float:left;
-	width:1550px;
-	height:25px;
-	margin:2%;
-	background-color:#393;
-	
+	width:1020px;
+	height:40px;
+	margin:1%;
+	margin-left:2%;
+	background-image:url(../media/Design_Vorlagen/Hauptseite/02c_entdecke_suchleiste2.png);
 	}
+	
 #Suche{
+	width:200px;
+	padding-top:1.5%;
+	margin-left:30%;
+	float:left;
+	}
+#SuchBut{
+	float:left;
+	width:64px;
+	height:31px;
 	margin-left:3%;
+	margin-top:0.9%;
+	background-image:url(../media/Design_Vorlagen/Hauptseite/02c_entdecke_lupe.png);
 	
 	}
+	
+#SortBut{
+	width:150px;
+	height:40px;
+	float:right;
+	margin-right:10%;
+	}
+	
+#SortBut1{
+	width:40px;
+	height:40px;
+	float:left;
+	margin:2%;
+	background-image:url(../media/Design_Vorlagen/Hauptseite/02c_entdecke_ansicht_liste.png);
+	}
+	
+#SortBut2{
+	width:40px;
+	height:40px;
+	float:left;
+	margin:2%;
+	background-image:url(../media/Design_Vorlagen/Hauptseite/02c_entdecke_ansicht_kacheln.png);
+	}
+	
+#SortBut3{
+	width:40px;
+	height:40px;
+	float:left;
+	margin:2%;
+	background-image:url(../media/Design_Vorlagen/Hauptseite/02c_entdecke_ansicht_detail.png);
+	}
+	
 #ObereNavigation{
 	width:250px;
 	height:30px;
@@ -80,8 +125,9 @@ body{
 #LinkeNavKat {
 	width:200px;
 	height:500px;
-	background-color:#393;
+	background-color:#F2E6C7;
 	margin:10%;
+	margin-left:0%;
 	float:left;	
 	}
 	
@@ -111,13 +157,37 @@ body{
  
 #AmbiencesAnzeige{
 	float:left;
-	width:1250px;
+	width:721px;
 	background-color:#FFF;
 	margin-left:2%;
-	margin-top:2%;
 	
 	}
+	
+.AnzeigeBut{
+	clear:both;
+	float:left;
+	margin:1%;
+	width:300px;
+	height:40px;	
+	}
+#AButfwd{
+	float:right;
+	width:41px;
+	height:40px;
+	background-image:url(../media/Design_Vorlagen/Hauptseite/02c_entdecke_pfeil_rechts.png);
+	}
+	
+#AButbkw{
+	float:left;
+	width:41px;
+	height:40px;
+	background-image:url(../media/Design_Vorlagen/Hauptseite/02c_entdecke_pfeil_links.png);
+	
+	}
+
 .AmbiencePic{
+	clear:both;
+	float:left;
 	width:300px;
 	height:225px;
 	float:left;	

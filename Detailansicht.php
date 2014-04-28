@@ -46,12 +46,6 @@
         </form>
         </div>
         <div id="SuchBut"></div>
-        <div id="SortBut">
-        	<div id="SortBut1"></div>        
-        	<div id="SortBut2"></div> 
-        	<div id="SortBut3"></div> 
-        
-        </div>
    	</div>
   <div id="Detailansicht">
   	

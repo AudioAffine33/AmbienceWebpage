@@ -232,6 +232,13 @@ body{
 	}
 	
 /*Detailansicht */
+#SucheDetail{
+	width:200px;
+	padding-top:1.5%;
+	margin-left:2%;
+	float:left;
+	}
+	
 #AmbienceBildBut{
 	width:350px;
 	height:30px;
@@ -276,15 +283,12 @@ body{
 	
 	}
 #BkwdtoHauptseitebtn{
-	background-color:#0F0;
 	clear:both;
 	width:250px;
-	height:50px;
+	height:25px;
 	float:left;
-	margin-left:10%;
-	margin-top:1%
-	
+	margin-left:2%;
+	margin-top:1.5%;
 	}
-
 
 

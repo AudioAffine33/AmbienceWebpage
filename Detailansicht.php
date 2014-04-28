@@ -26,18 +26,33 @@
                     ?>
       </a> </div>
     <br>
-  	<div id="SucheHeader">
-    	<form method="GET">
-        	<input type="hidden" name="limit" value="<?php echo $_GET['limit']; ?>" />
-    		<input type="text" name="name" />
-        </form>
-   	</div>
+    
   </div>
   <div id="ObereNavigation">
     <div id="Button1" class="ButtonNavigation">Ambiences</div>
     <div id="Button2" class="ButtonNavigation">FAQ</div>
     <div id="Button3" class="ButtonNavigation">Kontakt</div>
   </div>
+	<div id="SucheHeader">
+       <div id="BkwdtoHauptseitebtn">
+    
+    		<a href="overview.php"><< zurück zur Übersicht </a>
+    
+    </div>
+  		<div id="SucheDetail">
+    	<form method="GET">
+        	<input type="hidden" name="limit" value="<?php echo $_GET['limit']; ?>" />
+    		<input type="text" name="name" />
+        </form>
+        </div>
+        <div id="SuchBut"></div>
+        <div id="SortBut">
+        	<div id="SortBut1"></div>        
+        	<div id="SortBut2"></div> 
+        	<div id="SortBut3"></div> 
+        
+        </div>
+   	</div>
   <div id="Detailansicht">
   	
     <div id="AmbienceBildBut">
@@ -67,11 +82,7 @@
     
   	<div id="AmbiencePlayer"> PLAYER </div>
     
-  	<div id="BkwdtoHauptseitebtn">
-    
-    		<a href="overview.php"> zurück zur Übersicht </a>
-    
-    </div>
+  	
   
   
   

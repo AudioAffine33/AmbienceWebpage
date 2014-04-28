@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Registrierung</title>
 <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="Haupseite.css" type="text/css" />
+<link rel="stylesheet" href="css/Haupseite.css" type="text/css" />
 <?php
 		include('php/include.php');
 		

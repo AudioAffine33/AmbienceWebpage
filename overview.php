@@ -3,10 +3,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Hauptseite_uneingeloggt</title>
-<link rel="stylesheet" href="Haupseite.css" type="text/css" />
+<link rel="stylesheet" href="css/foundation.css" />
+<script src="js/vendor/modernizr.js"></script>
+<link rel="stylesheet" href="css/Haupseite.css" type="text/css" />
 <?php
 		include('php/include.php');
 		
+
 		if (!isset($_GET['limit']) || !is_numeric($_GET['limit'])){
 			$_GET['limit']=10;
             $_GET['page']=1;
@@ -66,23 +69,19 @@
 				?>
       <div class="Ambiences">
        		<img src="media/pics_ambiences/thumb/<?php echo htmlentities($row['picture']);  ?>" class="AmbiencePic" />
-            
       	<div class="AmbienceDescription">
         	<h1><?php echo htmlentities($row['name']); ?></h1>
           		<ul>
             		<li>
-           	  			<?php if (isset($locationArray['name'])){echo htmlentities($locationArray['name']); } ?>
+           	  			<?php if (isset($locationArray['name'])){echo $locationArray['name']; } ?>
             		</li>
             <li><?php echo date("G:i", strtotime($row['time'])) ?></li>
             <li><?php echo htmlentities($format_act['bitdepth'])." bit , ".htmlentities($format_act['samplerate'])." kHz"; ?></li>
           </ul>
        	</div>
-  	</div>
-    <?php
-		}
-	?>
     <div id="SeitenNav">
-    	<?php
+      	<?php
+		}
 			if (getNumElements($_GET) > $_GET['limit']){
 				createSiteNav($_GET);
 			} 

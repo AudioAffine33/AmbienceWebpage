@@ -57,9 +57,48 @@
   <div id="LinkeNavigation">
     <div id="LinkeNavKat">
       <ul>
-        <li>Ort</li>
-        <li>Tageszeit</li>
-        <li>Qualität</li>
+        <li class="OberKat">
+        	<a href="#">Orte</a>
+            <ul>
+            	<li class="Unterpunkt"><a href="">Europa</a></li>
+                <li class="Unterpunkt"><a href="">Asien</a></li>
+                <li class="Unterpunkt"><a href="">Afrika</a></li>
+                <li class="Unterpunkt"><a href="">Amerika</a></li>
+        
+        	</ul>
+        </li>
+        <li class="OberKat">
+        	<a href="#">Dauer</a>
+        	<ul>
+        		<li class="Unterpunkt"><a href=""> < 0:30 Min </a></li>
+        		<li class="Unterpunkt"><a href=""> 30sec - 1 Min</a></li>
+        		<li class="Unterpunkt"><a href=""> 1min - 1:30 Min</a></li>
+                <li class="Unterpunkt"><a href=""> 1:30 Min - 2 Min</a></li>
+            </ul>
+       	</li>
+        
+        <li class="OberKat">
+        	<a href="#">Qualität</a>
+            <ul>
+            	<li class="OberKat"><a href="#">bit</a>
+                	<ul>
+                    	<li class="Unterpunkt"><a href="">4-8 bit</a></li>
+                    	<li class="Unterpunkt"><a href="">8-16 bit</a></li>
+                    </ul>
+                </li>
+               
+               	<li class="OberKat"><a href="#">Kilohertz</a>
+        			<ul>
+                		<li class="Unterpunkt"><a href="">8Khz</a></li>
+                    	<li class="Unterpunkt"><a href="">16Khz</a></li>
+                		<li class="Unterpunkt"><a href="">44.1Khz</a></li>
+                    	<li class="Unterpunkt"><a href="">48Khz</a></li>
+                        <li class="Unterpunkt"><a href="">96Khz</a></li>
+                	</ul>
+                </li>
+        	</ul>
+      	</li>
+
       </ul>
     </div>
   </div>

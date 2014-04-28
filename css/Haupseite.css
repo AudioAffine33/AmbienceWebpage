@@ -70,17 +70,42 @@ body{
 #LinkeNavigation{
 	clear:both;
 	float:left;
-	width:150px;
+	width:260px;
 	height:600px;
 	background-color:#FFF;
 	margin-left:2%;
 	}
-#LinkeNavKat{
-	width:120px;
+	
+#LinkeNavKat {
+	width:200px;
 	height:500px;
 	background-color:#393;
 	margin:10%;
+	float:left;	
 	}
+	
+#LinkeNavKat ul,li {
+	list-style:none;
+	
+	}
+#LinkeNavKat ul {
+
+	}
+#LinkeNavKat ul ul {
+	display:none;
+	
+	}
+#LinkeNavKat ul li:hover ul {
+	display:block;	
+	}
+.OberKat {
+	
+	margin:10%;
+	margin-left:0%;
+	background-color:#FFF;
+	}
+
+ 
 #AmbiencesAnzeige{
 	float:left;
 	width:1250px;

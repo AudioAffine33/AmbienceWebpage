@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="css/Haupseite.css" type="text/css" />
 <?php
 		include('php/include.php');
+        $_SESSION['query_Array'] = array();
+        $_SESSION['query'] = array();
 		
 
 		if (!isset($_GET['limit']) || !is_numeric($_GET['limit'])){
@@ -112,22 +114,31 @@
   </div>
   <div id="AmbiencesAnzeige">
   		<div class="AnzeigeBut">
-        	<div id="AButfwd"></div>
-        	<div id="AButbkw"></div>
+            <?php
+                if (getNumElements($_GET) > $_GET['limit']){
+                    createSiteNav($_GET);
+                }
+            ?>
       	</div>
       <?php
 		$query = createSearch($_GET);
         $query->execute();
-		//$found = $query->rowCount();
-		//$index = 0;
+
+        unset($_SESSION['query_Array']);
+        $index = 0;
 		while ($row = $query->fetch()){
+            $_SESSION['query_Array'][$index] = $row['id'];
 			$locationArray = getLocation_by_ID($row['location_id']);
 			$format_act = getFormat_by_ID($row['format_id']);
 				?>
       <div class="Ambiences">
-       		<img src="media/pics_ambiences/thumb/<?php echo htmlentities($row['picture']);  ?>" class="AmbiencePic" />
+       		<a href="detail.php?id=<?php echo $index; ?>">
+                <img src="media/pics_ambiences/thumb/<?php echo htmlentities($row['picture']);?>"  class="AmbiencePic" />
+            </a>
       		<div class="AmbienceDescription">
-        	<h1><?php echo htmlentities($row['name']); ?></h1>
+                <a href="detail.php?id=<?php echo $index; ?>">
+                    <h1><?php echo htmlentities($row['name']); ?></h1>
+                </a>
           		<ul>
             		<li>
            	  			<?php if (isset($locationArray['name'])){echo $locationArray['name']; } ?>
@@ -138,18 +149,23 @@
        		</div>
     	<div id="SeitenNav">
       	<?php
+            $index++;
 		}
-			if (getNumElements($_GET) > $_GET['limit']){
-				createSiteNav($_GET);
-			} 
+
 		?>
  		</div>
   	</div>
 	<div class="AnzeigeBut">
-    	<div id="AButfwd"></div>
-        <div id="AButbkw"></div>    
+        <?php
+            if (getNumElements($_GET) > $_GET['limit']){
+                createSiteNav($_GET);
+            }
+        ?>
     </div>	
 
 </div>
+    <?php
+        parse_str($_SERVER['QUERY_STRING'], $_SESSION['query']);
+    ?>
 </body>
 </html>

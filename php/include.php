@@ -42,6 +42,9 @@
 	
 	//Session starten
 	session_start();
+
+    //
+    $query_Array = array();
 	
 	//Audio auf Server laden und in DB eintragen
 	function upload_audio_inDB_onServer ($file, $userid){
@@ -90,7 +93,7 @@
 			}
 			if ($_GET['page'] != 1){
 				$query_act['page']= $_GET['page']-1;
-				echo "<a href='overview.php?".http_build_query($query_act)."'><</a>";
+				echo "<a href='overview.php?".http_build_query($query_act)."'><div id='AButbkw''></div></a>";
 			}
 			for ($i = 1; $i<=$dezCount; $i++){
 				$query_act['page']= ($actDez+$i);
@@ -98,11 +101,11 @@
 			}
 			if ($_GET['page'] != $sites){
 				$query_act['page']= $_GET['page']+1;
-				echo "<a href='overview.php?".http_build_query($query_act)."'>></a>";
+				echo "<a href='overview.php?".http_build_query($query_act)."'><div id='AButfwd'></div></a>";
 			}
 			if ($actDez != floor($sites/10)){
 				$query_act['page']= $sites;
-				echo "<a href='overview.php?".http_build_query($query_act)."'><</a>";
+				echo "<a href='overview.php?".http_build_query($query_act)."'>Letzte</a>";
 			}
 		//}
 	}

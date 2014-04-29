@@ -339,12 +339,18 @@
             //print_r( $details_array);
             $locID = get_location_id($details_array);
             if (!isset($locID)){
-                $query2 = $db->prepare("INSERT INTO location (name, land, latitude, longitude) VALUES (:locName, :locLand, :locLat, :locLng);");
+                global $CONTINENTS;
+                global $COUNTRY_CONTINENTS;
+
+                $continent = $CONTINENTS[$COUNTRY_CONTINENTS[$details_array['countryCode']]];
+
+                $query2 = $db->prepare("INSERT INTO location (name, land, latitude, longitude, countrycode, continent) VALUES (:locName, :locLand, :locLat, :locLng, :cc, :continent);");
                 $query2->bindValue(':locName', $details_array['locName'], PDO::PARAM_STR);
                 $query2->bindValue(':locLand', $details_array['locLand'], PDO::PARAM_STR);
+                $query2->bindValue(':cc', $details_array['countryCode'], PDO::PARAM_STR);
+                $query2->bindValue(':continent', $continent, PDO::PARAM_STR);
                 $query2->bindValue(':locLat', $details_array['locLat']);
                 $query2->bindValue(':locLng', $details_array['locLng']);
-
                 $query2->execute();
 
                 $locID = get_location_id($details_array);
@@ -410,9 +416,16 @@
                     $updateArray['locLat'] = round($updateArray['locLat'], 14);
                     $updateArray['locLng'] = round($updateArray['locLng'], 14);
 
-                    $query = $db->prepare("INSERT INTO location (name, land, latitude, longitude) VALUES (:locName, :locLand, :locLat, :locLng);");
+                    global $CONTINENTS;
+                    global $COUNTRY_CONTINENTS;
+
+                    $continent = $CONTINENTS[$COUNTRY_CONTINENTS[$updateArray['countryCode']]];
+
+                    $query = $db->prepare("INSERT INTO location (name, land, latitude, longitude, countrycode, continent) VALUES (:locName, :locLand, :locLat, :locLng, :cc, :continent);");
                     $query->bindValue(':locName', $updateArray['locName'], PDO::PARAM_STR);
                     $query->bindValue(':locLand', $updateArray['locLand'], PDO::PARAM_STR);
+                    $query->bindValue(':cc', $updateArray['countryCode'], PDO::PARAM_STR);
+                    $query2->bindValue(':continent', $continent, PDO::PARAM_STR);
                     $query->bindValue(':locLat', $updateArray['locLat']);
                     $query->bindValue(':locLng', $updateArray['locLng']);
                     $query->execute();

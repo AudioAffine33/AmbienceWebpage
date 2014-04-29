@@ -27,6 +27,9 @@
 	
 	//Get ID3
 	require('getid3/getid3.php');
+
+    //Countrys&Continents
+    require('CountryContinents.php');
 	
 	//GoogleMaps API
 	?>

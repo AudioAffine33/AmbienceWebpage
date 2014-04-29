@@ -1,13 +1,5 @@
 <?php	
 	//MySQL
-	/*$connection = 	mysql_connect("localhost","root","")
-					or die ("keine Verbindung möglich. Benutzername oder Passwort sind falsch");
-
-	mysql_select_db("ambienceproj")
-					or die ("Die Datenbank existiert nicht.");
-					
-	mysql_query("SET NAMES 'utf8'");*/
-
 	try {
 		$db = new PDO(
 					'mysql:host=localhost; dbname=ambienceproj', 

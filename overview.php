@@ -9,9 +9,17 @@
 <link rel="stylesheet" href="css/Haupseite.css" type="text/css" />
 <?php
 		include('php/include.php');
+
         $_SESSION['query_Array'] = array();
         $_SESSION['query'] = array();
-		
+        parse_str($_SERVER['QUERY_STRING'], $_SESSION['query']);
+
+        include('php/filters.php');
+
+        if (isset($_POST['cont'])){
+            header('Location: overview.php?'.http_build_query(createContinentFilter($_POST)));
+            exit;
+        }
 
 		if (!isset($_GET['limit']) || !is_numeric($_GET['limit'])){
 			$_GET['limit']=10;
@@ -70,11 +78,36 @@
         <li class="OberKat">
         	<a href="#">Orte</a>
             <ul>
-            	<li class="Unterpunkt"><a href="">Europa</a></li>
-                <li class="Unterpunkt"><a href="">Asien</a></li>
-                <li class="Unterpunkt"><a href="">Afrika</a></li>
-                <li class="Unterpunkt"><a href="">Amerika</a></li>
-        
+            	<li class="Unterpunkt">
+                    <form method="POST">
+                        <input type="checkbox" name="cont" value="eu"
+                                onchange="this.form.submit();"
+                                <?php if (isset($_GET['cont']) && checkContinentFilter('eu')){ echo ' checked=/"checked/"';} ?>>
+                        Europa
+                    </form></li>
+            	<li class="Unterpunkt">
+                    <form method="POST">
+                        <input type="checkbox" name="cont" value="as"
+                               onchange="this.form.submit();"
+                                <?php if (isset($_GET['cont']) && checkContinentFilter('as')){ echo ' checked=/"checked/"';} ?>>
+                        Asien
+                    </form>
+                </li>
+            	<li class="Unterpunkt">
+                    <form method="POST">
+                        <input type="checkbox" name="cont" value="af"
+                               onchange="this.form.submit();"
+                                <?php if (isset($_GET['cont']) && checkContinentFilter('af')){ echo ' checked=/"checked/"';} ?>>
+                        Afrika
+                    </form>
+                </li>
+            	<li class="Unterpunkt">
+                    <form method="POST"><input type="checkbox" name="cont" value="am"
+                                               onchange="this.form.submit();"
+                                <?php if (isset($_GET['cont']) && checkContinentFilter('am')){ echo ' checked=/"checked/"';} ?>>
+                        Amerika
+                    </form>
+                </li>
         	</ul>
         </li>
         <li class="OberKat">
@@ -164,8 +197,5 @@
     </div>	
 
 </div>
-    <?php
-        parse_str($_SERVER['QUERY_STRING'], $_SESSION['query']);
-    ?>
 </body>
 </html>

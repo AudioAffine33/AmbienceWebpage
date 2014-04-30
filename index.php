@@ -7,13 +7,14 @@
     <script src="js/vendor/modernizr.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/Startseite_style.css" type="text/css" />
-    
-    <script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+
+    <?php
+        include('php/include.php');
+    ?>
     <script type="text/javascript" src="js/fancyBox/source/jquery.fancybox.pack.js"></script>
     <link rel="stylesheet" href="js/fancyBox/source/jquery.fancybox.css" media="screen" />
     
     <?php
-		include('php/include.php');
 		
 		$randPics = getRandAmb(8);
 		

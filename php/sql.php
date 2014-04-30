@@ -505,7 +505,14 @@
             $limit = 10;
 		}
 
-        $qr_string = "SELECT * FROM ambience WHERE name LIKE :name LIMIT ".$start.",".$limit.";";
+        if (isset($array['cont']) && $array['cont'] != ""){
+            $strCont = $array['cont'];
+            $arrayCont = explode('-', $strCont);
+        }
+
+
+        //Abfrage aufbauen und durchführen
+        $qr_string = "SELECT ".globalAliasString()." FROM ambience JOIN location ON ambience.location_id = location.id WHERE ambience.name LIKE :name AND (continent LIKE :loc1 OR  continent LIKE :loc2 OR  continent LIKE :loc3 OR  continent LIKE :loc4) LIMIT ".$start.",".$limit.";";
 
         $query = $db->prepare($qr_string);
 
@@ -515,18 +522,67 @@
             $query->bindValue(':name', "%%", PDO::PARAM_STR);
         }
 
+        if (isset($arrayCont[0])){
+            $query->bindValue(':loc1', '%'.$arrayCont[0].'%', PDO::PARAM_STR);
+        } else {
+            $query->bindValue(':loc1', "%%", PDO::PARAM_STR);
+        }
+
+        if (isset($arrayCont[1])){
+            $query->bindValue(':loc2', '%'.$arrayCont[1].'%', PDO::PARAM_STR);
+        } else {
+            $query->bindValue(':loc2', "%qzxy%", PDO::PARAM_STR);
+        }
+        if (isset($arrayCont[2])){
+            $query->bindValue(':loc3', '%'.$arrayCont[2].'%', PDO::PARAM_STR);
+        } else {
+            $query->bindValue(':loc3', "%qzxy%", PDO::PARAM_STR);
+        }
+        if (isset($arrayCont[3])){
+            $query->bindValue(':loc4', '%'.$arrayCont[3].'%', PDO::PARAM_STR);
+        } else {
+            $query->bindValue(':loc4', "%qzxy%", PDO::PARAM_STR);
+        }
+
         return $query;
 	}
 	
 	function getNumElements ($array){
         global $db;
         $ret=0;
-        $query = $db->prepare("SELECT COUNT(*) AS 'count' FROM ambience WHERE name LIKE :name ");
+
+        if (isset($array['cont']) && $array['cont'] != ""){
+            $strCont = $array['cont'];
+            $arrayCont = explode('-', $strCont);
+        }
+
+        $query = $db->prepare("SELECT COUNT(*) AS 'count' FROM ambience JOIN location ON ambience.location_id = location.id WHERE ambience.name LIKE :name AND (continent LIKE :loc1 OR  continent LIKE :loc2 OR  continent LIKE :loc3 OR  continent LIKE :loc4);");
 		
 		if (isset($array['name'])){
             $query->bindValue(':name', '%'.$array['name'].'%', PDO::PARAM_STR);
 		} else {
             $query->bindValue(':name', '%%', PDO::PARAM_STR);
+        }
+        if (isset($arrayCont[0])){
+            $query->bindValue(':loc1', '%'.$arrayCont[0].'%', PDO::PARAM_STR);
+        } else {
+            $query->bindValue(':loc1', "%%", PDO::PARAM_STR);
+        }
+
+        if (isset($arrayCont[1])){
+            $query->bindValue(':loc2', '%'.$arrayCont[1].'%', PDO::PARAM_STR);
+        } else {
+            $query->bindValue(':loc2', "%qzxy%", PDO::PARAM_STR);
+        }
+        if (isset($arrayCont[2])){
+            $query->bindValue(':loc3', '%'.$arrayCont[2].'%', PDO::PARAM_STR);
+        } else {
+            $query->bindValue(':loc3', "%qzxy%", PDO::PARAM_STR);
+        }
+        if (isset($arrayCont[3])){
+            $query->bindValue(':loc4', '%'.$arrayCont[3].'%', PDO::PARAM_STR);
+        } else {
+            $query->bindValue(':loc4', "%qzxy%", PDO::PARAM_STR);
         }
 		$query->execute();
 		
@@ -536,4 +592,27 @@
 			
 		return $ret;
 	}
+
+    function globalAliasString(){
+
+        $ret = "";
+        $ret.= "ambience.id AS 'id', ";
+        $ret.= "ambience.format_id AS 'format_id', ";
+        $ret.= "ambience.filename AS 'filename', ";
+        $ret.= "ambience.size AS 'size', ";
+        $ret.= "ambience.length AS 'length', ";
+        $ret.= "ambience.name AS 'name', ";
+        $ret.= "ambience.user_id AS 'user_id', ";
+        $ret.= "ambience.location_id AS 'location_id', ";
+        $ret.= "ambience.date AS 'date', ";
+        $ret.= "ambience.time AS 'time', ";
+        $ret.= "ambience.description AS 'description', ";
+        $ret.= "ambience.category_id AS 'category_id', ";
+        $ret.= "ambience.picture AS 'picture', ";
+        $ret.= "ambience.rating AS 'rating', ";
+        $ret.= "ambience.date_added AS 'date_added', ";
+        $ret.= "ambience.originator AS 'originator'";
+
+        return $ret;
+    }
 ?>

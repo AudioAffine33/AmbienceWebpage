@@ -25,8 +25,9 @@
 	
 	//GoogleMaps API
 	?>
+    <script type="text/javascript" src="js/jquery-1.11.0.js"></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBeZ-iwEnYMBb5cke9oBkkYf-5WqCGhxf8&sensor=false&libraries=places"></script>
-    <script type="text/javascript" src="JS/functions.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
 	<?php
 	
 	//Verbindung zu PHP-Skripten

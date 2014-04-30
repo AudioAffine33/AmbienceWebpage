@@ -79,33 +79,30 @@
         	<a href="#">Orte</a>
             <ul>
             	<li class="Unterpunkt">
-                    <form method="POST">
-                        <input type="checkbox" name="cont" value="eu"
-                                onchange="this.form.submit();"
-                                <?php if (isset($_GET['cont']) && checkContinentFilter('eu')){ echo ' checked=/"checked/"';} ?>>
-                        Europa
+                    <form method="POST" id="continents">
+                        <?php if (isset($_GET['cont']) && checkContinentFilter('eu')){ echo 'x';} ?>
+                        <input type="hidden" name="cont" value="eu" >
+                        <a onclick="$(this).closest('form').submit()">Europa</a>
                     </form></li>
             	<li class="Unterpunkt">
                     <form method="POST">
-                        <input type="checkbox" name="cont" value="as"
-                               onchange="this.form.submit();"
-                                <?php if (isset($_GET['cont']) && checkContinentFilter('as')){ echo ' checked=/"checked/"';} ?>>
-                        Asien
+                        <?php if (isset($_GET['cont']) && checkContinentFilter('as')){ echo 'x';} ?>
+                        <input type="hidden" name="cont" value="as" >
+                        <a onclick="$(this).closest('form').submit()">Asien</a>
                     </form>
                 </li>
             	<li class="Unterpunkt">
                     <form method="POST">
-                        <input type="checkbox" name="cont" value="af"
-                               onchange="this.form.submit();"
-                                <?php if (isset($_GET['cont']) && checkContinentFilter('af')){ echo ' checked=/"checked/"';} ?>>
-                        Afrika
+                        <?php if (isset($_GET['cont']) && checkContinentFilter('af')){ echo 'x';} ?>
+                        <input type="hidden" name="cont" value="af" >
+                        <a onclick="$(this).closest('form').submit()">Afrika</a>
                     </form>
                 </li>
             	<li class="Unterpunkt">
-                    <form method="POST"><input type="checkbox" name="cont" value="am"
-                                               onchange="this.form.submit();"
-                                <?php if (isset($_GET['cont']) && checkContinentFilter('am')){ echo ' checked=/"checked/"';} ?>>
-                        Amerika
+                    <form method="POST">
+                        <?php if (isset($_GET['cont']) && checkContinentFilter('am')){ echo 'x';} ?>
+                        <input type="hidden" name="cont" value="am" >
+                        <a onclick="$(this).closest('form').submit()">Amerika</a>
                     </form>
                 </li>
         	</ul>

@@ -84,9 +84,9 @@
     </div>
     
     
-    <div id="AmbienceBildGroß">
-        <img src="media/pics_ambiences/<?php echo $amb['picture']; ?>"></img>
-    </div>
+
+        <img src="media/pics_ambiences/<?php echo $amb['picture']; ?>" id="AmbienceBildGroß"></img>
+
   	
     
     <div id="AmbienceDescript">

@@ -34,7 +34,19 @@ body{
 	margin-right:1%;
 	margin-top:1%;
 	}
+#LogoutHeader{
+	float:right;
+	width:100px;
+	height:25px;
+	margin-top:1%;
+	}	
+#RegistrHeader{
+	clear:both;
+	float:right;
+	width:100px;
+	height:25px;
 	
+	}
 #SucheHeader{
 	float:left;
 	width:1020px;
@@ -241,6 +253,7 @@ body{
 	}
 	
 #AmbienceBildBut{
+	clear:both;
 	width:350px;
 	height:30px;
 	float:left;
@@ -248,18 +261,18 @@ body{
 	margin-top:1%;
 	}
 #BkwButton{
-	background-color:#0F0;
+
 	float:left;
 	width:60px;
 	
 	}
 #FwdButton{
-	background-color:#0F0;
+
 	float:right;
 	width:60px;
 	}
 #AmbienceBildGroß{
-	background-color:#0F0;
+
 	clear:both;
 	width:350px;
 	height:300px;
@@ -268,14 +281,15 @@ body{
 	
 	}
 #AmbienceDescript{
-	background-color:#0F0;
+
 	width:350px;
 	height:300px;
 	float:left;
+	margin-left:2%;
 	
 	}
 #AmbiencePlayer{
-	background-color:#0F0;
+
 	clear:both;
 	width:250px;
 	height:50px;

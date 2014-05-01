@@ -505,29 +505,54 @@
             $limit = 10;
 		}
 
+        //Abfrage nach gesetztem Kontinent-Filter und String-Explode
         if (isset($array['cont']) && $array['cont'] != ""){
             $strCont = $array['cont'];
             $arrayCont = explode('-', $strCont);
         }
-
+        //Abfrage nach gesetztem Format-Filter und String-Explode
+        if (isset($array['cdc']) && $array['cdc'] != ""){
+            $strCdc = $array['cdc'];
+            $arrayCdc = explode('-', $strCdc);
+        }
+        //Abfrage nach gesetztem Auflösungs-Filter und String-Explode
+        if (isset($array['bd']) && $array['bd'] != ""){
+            $strBd = $array['bd'];
+            $arrayBd = explode('-', $strBd);
+        }
+        //Abfrage nach gesetztem Abstast-Filter und String-Explode
+        if (isset($array['sf']) && $array['sf'] != ""){
+            $strFreq = $array['sf'];
+            $arrayFreq = explode('-', $strFreq);
+        }
 
         //Abfrage aufbauen und durchführen
-        $qr_string = "SELECT ".globalAliasString()." FROM ambience JOIN location ON ambience.location_id = location.id WHERE ambience.name LIKE :name AND (continent LIKE :loc1 OR  continent LIKE :loc2 OR  continent LIKE :loc3 OR  continent LIKE :loc4) LIMIT ".$start.",".$limit.";";
+        $qr_string = "SELECT ".globalAliasString()." FROM ambience ";
+        $qr_string.= "JOIN location ON ambience.location_id = location.id ";
+        $qr_string.= "JOIN format  ON ambience.format_id = format.id ";
+        $qr_string.= "WHERE ambience.name LIKE :name ";
+        $qr_string.= "AND (continent LIKE :loc1 OR  continent LIKE :loc2 OR  continent LIKE :loc3 OR  continent LIKE :loc4) ";
+        $qr_string.= "AND (codec LIKE :fm1 OR  codec LIKE :fm2 OR  codec LIKE :fm3) ";
+        $qr_string.= "AND (bitdepth = :bd1 OR bitdepth = :bd2 OR bitdepth = :bd3 OR 1 = :bdh) ";
+        $qr_string.= "AND (samplerate = :freq1 OR samplerate = :freq2 OR samplerate = :freq3 OR 1 = :freqh) ";
+        $qr_string.= "AND (ambience.length BETWEEN :minLgt AND :maxLgt) ";
+        $qr_string.= "LIMIT ".$start.",".$limit.";";
 
         $query = $db->prepare($qr_string);
 
+        //Name
         if (isset($array['name'])){
             $query->bindValue(':name', '%'.$array['name'].'%', PDO::PARAM_STR);
         } else {
             $query->bindValue(':name', "%%", PDO::PARAM_STR);
         }
 
+        //Kontinent
         if (isset($arrayCont[0])){
             $query->bindValue(':loc1', '%'.$arrayCont[0].'%', PDO::PARAM_STR);
         } else {
             $query->bindValue(':loc1', "%%", PDO::PARAM_STR);
         }
-
         if (isset($arrayCont[1])){
             $query->bindValue(':loc2', '%'.$arrayCont[1].'%', PDO::PARAM_STR);
         } else {
@@ -542,6 +567,73 @@
             $query->bindValue(':loc4', '%'.$arrayCont[3].'%', PDO::PARAM_STR);
         } else {
             $query->bindValue(':loc4', "%qzxy%", PDO::PARAM_STR);
+        }
+
+        //Format
+        if (isset($arrayCdc[0])){
+            $query->bindValue(':fm1', '%'.$arrayCdc[0].'%', PDO::PARAM_STR);
+        } else {
+            $query->bindValue(':fm1', "%%", PDO::PARAM_STR);
+        }
+        if (isset($arrayCdc[1])){
+            $query->bindValue(':fm2', '%'.$arrayCdc[1].'%', PDO::PARAM_STR);
+        } else {
+            $query->bindValue(':fm2', "%qzxy%", PDO::PARAM_STR);
+        }
+        if (isset($arrayCdc[2])){
+            $query->bindValue(':fm3', '%'.$arrayCdc[2].'%', PDO::PARAM_STR);
+        } else {
+            $query->bindValue(':fm3', "%qzxy%", PDO::PARAM_STR);
+        }
+
+        //Auflösung
+        if (isset($arrayBd[0])){
+            $query->bindValue(':bd1', $arrayBd[0], PDO::PARAM_INT);
+            $query->bindValue(':bdh', 2, PDO::PARAM_INT);
+        } else {
+            $query->bindValue(':bd1', 0, PDO::PARAM_INT);
+            $query->bindValue(':bdh', 1, PDO::PARAM_INT);
+        }
+        if (isset($arrayBd[1])){
+            $query->bindValue(':bd2', $arrayBd[1], PDO::PARAM_INT);
+        } else {
+            $query->bindValue(':bd2', 0, PDO::PARAM_INT);
+        }
+        if (isset($arrayBd[2])){
+            $query->bindValue(':bd3', $arrayBd[2], PDO::PARAM_INT);
+        } else {
+            $query->bindValue(':bd3', 0, PDO::PARAM_INT);
+        }
+
+        //Samplerate
+        if (isset($arrayFreq[0])){
+            $query->bindValue(':freq1', $arrayFreq[0], PDO::PARAM_INT);
+            $query->bindValue(':freqh', 2, PDO::PARAM_INT);
+        } else {
+            $query->bindValue(':freq1', 0, PDO::PARAM_INT);
+            $query->bindValue(':freqh', 1, PDO::PARAM_INT);
+        }
+        if (isset($arrayBd[1])){
+            $query->bindValue(':freq2', $arrayFreq[1], PDO::PARAM_INT);
+        } else {
+            $query->bindValue(':freq2', 0, PDO::PARAM_INT);
+        }
+        if (isset($arrayBd[2])){
+            $query->bindValue(':freq3', $arrayFreq[2], PDO::PARAM_INT);
+        } else {
+            $query->bindValue(':freq3', 0, PDO::PARAM_INT);
+        }
+
+        //Dauer
+        if (isset($array['minLgt'])){
+            $query->bindValue(':minLgt', $array['minLgt'], PDO::PARAM_INT);
+        } else {
+            $query->bindValue(':minLgt', 0, PDO::PARAM_INT);
+        }
+        if (isset($array['maxLgt']) && $array['maxLgt'] != ""){
+            $query->bindValue(':maxLgt', $array['maxLgt'], PDO::PARAM_INT);
+        } else {
+            $query->bindValue(':maxLgt', 2147483646, PDO::PARAM_INT);
         }
 
         return $query;
@@ -555,20 +647,45 @@
             $strCont = $array['cont'];
             $arrayCont = explode('-', $strCont);
         }
+        if (isset($array['cdc']) && $array['cdc'] != ""){
+            $strCdc = $array['cdc'];
+            $arrayCdc = explode('-', $strCdc);
+        }
+        //Abfrage nach gesetztem Auflösungs-Filter und String-Explode
+        if (isset($array['bd']) && $array['bd'] != ""){
+            $strBd = $array['bd'];
+            $arrayBd = explode('-', $strBd);
+        }
+        //Abfrage nach gesetztem Abstast-Filter und String-Explode
+        if (isset($array['sf']) && $array['sf'] != ""){
+            $strFreq = $array['sf'];
+            $arrayFreq = explode('-', $strFreq);
+        }
 
-        $query = $db->prepare("SELECT COUNT(*) AS 'count' FROM ambience JOIN location ON ambience.location_id = location.id WHERE ambience.name LIKE :name AND (continent LIKE :loc1 OR  continent LIKE :loc2 OR  continent LIKE :loc3 OR  continent LIKE :loc4);");
+        //Abfrage aufbauen und durchführen
+        $qr_string = "SELECT COUNT(*) AS 'count' FROM ambience ";
+        $qr_string.= "JOIN location ON ambience.location_id = location.id ";
+        $qr_string.= "JOIN format  ON ambience.format_id = format.id ";
+        $qr_string.= "WHERE ambience.name LIKE :name ";
+        $qr_string.= "AND (continent LIKE :loc1 OR  continent LIKE :loc2 OR  continent LIKE :loc3 OR  continent LIKE :loc4) ";
+        $qr_string.= "AND (codec LIKE :fm1 OR  codec LIKE :fm2 OR  codec LIKE :fm3) ";
+        $qr_string.= "AND (bitdepth = :bd1 OR bitdepth = :bd2 OR bitdepth = :bd3 OR 1 = :bdh) ";
+        $qr_string.= "AND (samplerate = :freq1 OR samplerate = :freq2 OR samplerate = :freq3 OR 1 = :freqh) ";
+        $qr_string.= "AND (ambience.length BETWEEN :minLgt AND :maxLgt);";
+
+        $query = $db->prepare($qr_string);
 		
 		if (isset($array['name'])){
             $query->bindValue(':name', '%'.$array['name'].'%', PDO::PARAM_STR);
 		} else {
             $query->bindValue(':name', '%%', PDO::PARAM_STR);
         }
+
         if (isset($arrayCont[0])){
             $query->bindValue(':loc1', '%'.$arrayCont[0].'%', PDO::PARAM_STR);
         } else {
             $query->bindValue(':loc1', "%%", PDO::PARAM_STR);
         }
-
         if (isset($arrayCont[1])){
             $query->bindValue(':loc2', '%'.$arrayCont[1].'%', PDO::PARAM_STR);
         } else {
@@ -583,6 +700,71 @@
             $query->bindValue(':loc4', '%'.$arrayCont[3].'%', PDO::PARAM_STR);
         } else {
             $query->bindValue(':loc4', "%qzxy%", PDO::PARAM_STR);
+        }
+
+        if (isset($arrayCdc[0])){
+            $query->bindValue(':fm1', '%'.$arrayCdc[0].'%', PDO::PARAM_STR);
+        } else {
+            $query->bindValue(':fm1', "%%", PDO::PARAM_STR);
+        }
+        if (isset($arrayCdc[1])){
+            $query->bindValue(':fm2', '%'.$arrayCdc[1].'%', PDO::PARAM_STR);
+        } else {
+            $query->bindValue(':fm2', "%qzxy%", PDO::PARAM_STR);
+        }
+        if (isset($arrayCdc[2])){
+            $query->bindValue(':fm3', '%'.$arrayCdc[2].'%', PDO::PARAM_STR);
+        } else {
+            $query->bindValue(':fm3', "%qzxy%", PDO::PARAM_STR);
+        }
+
+        //Auflösung
+        if (isset($arrayBd[0])){
+            $query->bindValue(':bd1', $arrayBd[0], PDO::PARAM_INT);
+            $query->bindValue(':bdh', 2, PDO::PARAM_INT);
+        } else {
+            $query->bindValue(':bd1', 0, PDO::PARAM_INT);
+            $query->bindValue(':bdh', 1, PDO::PARAM_INT);
+        }
+        if (isset($arrayBd[1])){
+            $query->bindValue(':bd2', $arrayBd[1], PDO::PARAM_INT);
+        } else {
+            $query->bindValue(':bd2', 0, PDO::PARAM_INT);
+        }
+        if (isset($arrayBd[2])){
+            $query->bindValue(':bd3', $arrayBd[2], PDO::PARAM_INT);
+        } else {
+            $query->bindValue(':bd3', 0, PDO::PARAM_INT);
+        }
+
+        //Samplerate
+        if (isset($arrayFreq[0])){
+            $query->bindValue(':freq1', $arrayFreq[0], PDO::PARAM_INT);
+            $query->bindValue(':freqh', 2, PDO::PARAM_INT);
+        } else {
+            $query->bindValue(':freq1', 0, PDO::PARAM_INT);
+            $query->bindValue(':freqh', 1, PDO::PARAM_INT);
+        }
+        if (isset($arrayBd[1])){
+            $query->bindValue(':freq2', $arrayFreq[1], PDO::PARAM_INT);
+        } else {
+            $query->bindValue(':freq2', 0, PDO::PARAM_INT);
+        }
+        if (isset($arrayBd[2])){
+            $query->bindValue(':freq3', $arrayFreq[2], PDO::PARAM_INT);
+        } else {
+            $query->bindValue(':freq3', 0, PDO::PARAM_INT);
+        }
+
+        if (isset($array['minLgt'])){
+            $query->bindValue(':minLgt', $array['minLgt'], PDO::PARAM_INT);
+        } else {
+            $query->bindValue(':minLgt', 0, PDO::PARAM_INT);
+        }
+        if (isset($array['maxLgt'])){
+            $query->bindValue(':maxLgt', $array['maxLgt'], PDO::PARAM_INT);
+        } else {
+            $query->bindValue(':maxLgt', 2147483646, PDO::PARAM_INT);
         }
 		$query->execute();
 		

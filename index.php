@@ -13,11 +13,49 @@
     ?>
     <script type="text/javascript" src="js/fancyBox/source/jquery.fancybox.pack.js"></script>
     <link rel="stylesheet" href="js/fancyBox/source/jquery.fancybox.css" media="screen" />
+    <script type="text/javascript" src="js/Soundmanager2/script/soundmanager2.js"></script>
     
     <?php
 		
 		$randPics = getRandAmb(8);
-		
+	?>
+    <script type="text/javascript">
+        soundManager.url="js/Soundmanager2/swf/soundmanager2.swf";
+        var randPicsJSON = '<?php echo json_encode($randPics); ?>';
+        var randPics = JSON.parse(randPicsJSON);
+        var playing = false;
+        var playingID;
+
+        soundManager.onload = function() {
+            for (var i = 0; i< 8; i++){
+                soundManager.createSound({
+                    id: randPics[i].id,
+                    url: 'media/audio/'+randPics[i].filename,
+                    onfinish:function()  {
+                        window.location.href='index.php'
+                    }});
+            }
+        };
+
+        function buttonClick(soundID){
+            if (!playing){
+                soundManager.play(soundID);
+                playing = true;
+                playingID = soundID;
+            } else {
+                if (playingID == soundID){
+                    soundManager.stopAll();
+                    playing=false;
+                    playingID = null;
+                } else {
+                    soundManager.stopAll();
+                    soundManager.play(soundID);
+                    playingID = soundID;
+                }
+            }
+        }
+    </script>
+    <?php
 		$errorLog;
 		
 		if (isset($_POST['loginName'])){
@@ -57,19 +95,19 @@
 
 	<div id="Top">
 
-		<div id="TopLeft"><img src="media/pics_ambiences/<?php echo $randPics[0]['picture'] ?>" class="AmbienceFotoFade AmbienceFoto desaturate grey"/>
+		<div id="TopLeft"><img src="media/pics_ambiences/<?php echo $randPics[0]['picture'] ?>" class="AmbienceFotoFade AmbienceFoto desaturate grey" onclick="buttonClick('<?php echo $randPics[0]['id'] ?>')"/>
        
          </div>
     
-    	<div id="TopCenter"><img src="media/pics_ambiences/<?php echo $randPics[1]['picture'] ?>" class="AmbienceFoto desaturate grey"/></div>
+    	<div id="TopCenter"><img src="media/pics_ambiences/<?php echo $randPics[1]['picture'] ?>" class="AmbienceFoto desaturate grey" onclick="buttonClick('<?php echo $randPics[1]['id'] ?>')"/></div>
     
-    	<div id="TopRight"><img src="media/pics_ambiences/<?php echo $randPics[2]['picture'] ?>" class="AmbienceFoto desaturate grey" /></div>
+    	<div id="TopRight"><img src="media/pics_ambiences/<?php echo $randPics[2]['picture'] ?>" class="AmbienceFoto desaturate grey" onclick="buttonClick('<?php echo $randPics[2]['id'] ?>')"/></div>
     
     </div>
 
 	<div id="Center">
   
-    	<div id="MidLeft"><img src="media/pics_ambiences/<?php echo $randPics[3]['picture'] ?>" class="AmbienceFoto desaturate grey" /></div>
+    	<div id="MidLeft"><img src="media/pics_ambiences/<?php echo $randPics[3]['picture'] ?>" class="AmbienceFoto desaturate grey" onclick="buttonClick('<?php echo $randPics[3]['id'] ?>')"/></div>
     
    		<div id="LoginBox">
         	<div id="LoginTop"> 
@@ -90,16 +128,16 @@
             </div>
 	</div>
     
-   	 	<div id="MidRight"><img src="media/pics_ambiences/<?php echo $randPics[4]['picture'] ?>" class="AmbienceFoto desaturate grey" /></div>
+   	 	<div id="MidRight"><img src="media/pics_ambiences/<?php echo $randPics[4]['picture'] ?>" class="AmbienceFoto desaturate grey" onclick="buttonClick('<?php echo $randPics[4]['id'] ?>')"/></div>
    </div>
 
    	<div id="Bot">
     
-  		<div id="BotLeft"><img src="media/pics_ambiences/<?php echo $randPics[5]['picture'] ?>" class="AmbienceFoto desaturate grey" /></div>
+  		<div id="BotLeft"><img src="media/pics_ambiences/<?php echo $randPics[5]['picture'] ?>" class="AmbienceFoto desaturate grey" onclick="buttonClick('<?php echo $randPics[5]['id'] ?>')"/></div>
     
-    	<div id="BotCenter" ><img src="media/pics_ambiences/<?php echo $randPics[6]['picture'] ?>" class="AmbienceFoto desaturate grey"/></div>
+    	<div id="BotCenter" ><img src="media/pics_ambiences/<?php echo $randPics[6]['picture'] ?>" class="AmbienceFoto desaturate grey" onclick="buttonClick('<?php echo $randPics[6]['id'] ?>')"/></div>
     
-    	<div id="BotRight" ><img src="media/pics_ambiences/<?php echo $randPics[7]['picture'] ?>" class="AmbienceFoto desaturate grey" /></div>
+    	<div id="BotRight" ><img src="media/pics_ambiences/<?php echo $randPics[7]['picture'] ?>" class="AmbienceFoto desaturate grey" onclick="buttonClick('<?php echo $randPics[7]['id'] ?>')"/></div>
 	</div>
 
 </div>

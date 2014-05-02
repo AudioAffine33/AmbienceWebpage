@@ -33,8 +33,22 @@
     
     <script type="text/javascript">
 		$(document).ready(function() {
-			$("#regFrame").fancybox();
+			$("#regFrame").fancybox({
+                'type' : 'iframe',
+                'titlePosition' : 'over',
+                'padding' : 0,
+                'margin' : 0,
+                'width' : 310,
+                'height': 523,
+                'scrolling' : 'no',
+                'fitToView' : false,
+                'autoSize' : false,
+                'closeBtn' : false
+            });
+            $(".fancybox-iframe").attr('scrolling', 'no');
+            $(".fancybox-iframe").attr("src", $(".fancybox-iframe").attr("src"));
 		});
+
 	</script>
 </head>
 

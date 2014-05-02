@@ -25,6 +25,7 @@
 	
 	//GoogleMaps API
 	?>
+    <link rel="stylesheet" href="css/normalize/normalize.css" type="text/css" />
     <script type="text/javascript" src="js/jquery-1.11.0.js"></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBeZ-iwEnYMBb5cke9oBkkYf-5WqCGhxf8&sensor=false&libraries=places"></script>
     <script type="text/javascript" src="js/functions.js"></script>

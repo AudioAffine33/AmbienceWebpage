@@ -613,12 +613,12 @@
             $query->bindValue(':freq1', 0, PDO::PARAM_INT);
             $query->bindValue(':freqh', 1, PDO::PARAM_INT);
         }
-        if (isset($arrayBd[1])){
+        if (isset($arrayFreq[1])){
             $query->bindValue(':freq2', $arrayFreq[1], PDO::PARAM_INT);
         } else {
             $query->bindValue(':freq2', 0, PDO::PARAM_INT);
         }
-        if (isset($arrayBd[2])){
+        if (isset($arrayFreq[2])){
             $query->bindValue(':freq3', $arrayFreq[2], PDO::PARAM_INT);
         } else {
             $query->bindValue(':freq3', 0, PDO::PARAM_INT);

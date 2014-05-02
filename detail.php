@@ -6,7 +6,14 @@
 <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/foundation.css" />
 <script src="js/vendor/modernizr.js"></script>
+<script src="js/audiojs/audio.min.js"></script>
 <link rel="stylesheet" href="css/Haupseite.css" type="text/css" />
+<script type="text/javascript">
+    var a = audiojs;
+    a.events.ready(function() {
+        var a1 = a.createAll();
+    });
+</script>
 
     <?php
         include('php/include.php');
@@ -99,7 +106,7 @@
     </div>
     
   	<div id="AmbiencePlayer">
-        <embed src="media/audio/<?php echo $amb['filename']; ?>"></embed>
+        <audio src="media/audio/<?php echo $amb['filename']; ?>" preload="auto"></audio>
   	</div>
     
   	

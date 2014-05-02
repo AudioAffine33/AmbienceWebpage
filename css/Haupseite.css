@@ -297,6 +297,12 @@ body{
 	margin-left:10%;
 	
 	}
+
+.audiojs{
+    height: 22px;
+    width: 250px;
+}
+
 #BkwdtoHauptseitebtn{
 	clear:both;
 	width:250px;

@@ -65,8 +65,18 @@ img {
     width: 100%;
     position: absolute;
 }
-.picframe:hover img {
-    display: block;
+
+.buttonPause {
+    position: absolute;
+    width:300px;
+    height:225px;
+    z-index: 3;
+}
+.buttonPause img {
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
 	
 #LoginBox{

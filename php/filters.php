@@ -3,14 +3,17 @@
     function createContinentFilter($action){
         if (!isset($_SESSION['query']['cont']) || $_SESSION['query']['cont'] == "" ){
             $_SESSION['query']['cont'] = $action['cont'];
+            $_SESSION['query']['page'] = 1;
         } else {
             $contArr = explode("-",$_SESSION['query']['cont']);
 
             if (is_numeric(array_search($action['cont'], $contArr))){
                 unset($contArr[array_search($action['cont'], $contArr)]);
                 $_SESSION['query']['cont'] = implode("-", $contArr);
+                $_SESSION['query']['page'] = 1;
             } else {
                 $_SESSION['query']['cont'] = implode("-", $contArr)."-".$action['cont'];
+                $_SESSION['query']['page'] = 1;
             }
         }
 
@@ -28,14 +31,17 @@
     function createFormatFilter($action){
         if (!isset($_SESSION['query']['cdc']) || $_SESSION['query']['cdc'] == "" ){
             $_SESSION['query']['cdc'] = $action['cdc'];
+            $_SESSION['query']['page'] = 1;
         } else {
             $lgtArr = explode("-",$_SESSION['query']['cdc']);
 
             if (is_numeric(array_search($action['cdc'], $lgtArr))){
                 unset($lgtArr[array_search($action['cdc'], $lgtArr)]);
                 $_SESSION['query']['cdc'] = implode("-", $lgtArr);
+                $_SESSION['query']['page'] = 1;
             } else {
                 $_SESSION['query']['cdc'] = implode("-", $lgtArr)."-".$action['cdc'];
+                $_SESSION['query']['page'] = 1;
             }
         }
 
@@ -53,14 +59,17 @@
     function createDepthFilter($action){
         if (!isset($_SESSION['query']['bd']) || $_SESSION['query']['bd'] == "" ){
             $_SESSION['query']['bd'] = $action['bd'];
+            $_SESSION['query']['page'] = 1;
         } else {
             $lgtArr = explode("-",$_SESSION['query']['bd']);
 
             if (is_numeric(array_search($action['bd'], $lgtArr))){
                 unset($lgtArr[array_search($action['bd'], $lgtArr)]);
                 $_SESSION['query']['bd'] = implode("-", $lgtArr);
+                $_SESSION['query']['page'] = 1;
             } else {
                 $_SESSION['query']['bd'] = implode("-", $lgtArr)."-".$action['bd'];
+                $_SESSION['query']['page'] = 1;
             }
         }
 
@@ -78,14 +87,17 @@
     function createFreqFilter($action){
         if (!isset($_SESSION['query']['sf']) || $_SESSION['query']['sf'] == "" ){
             $_SESSION['query']['sf'] = $action['sf'];
+            $_SESSION['query']['page'] = 1;
         } else {
             $lgtArr = explode("-",$_SESSION['query']['sf']);
 
             if (is_numeric(array_search($action['sf'], $lgtArr))){
                 unset($lgtArr[array_search($action['sf'], $lgtArr)]);
                 $_SESSION['query']['sf'] = implode("-", $lgtArr);
+                $_SESSION['query']['page'] = 1;
             } else {
                 $_SESSION['query']['sf'] = implode("-", $lgtArr)."-".$action['sf'];
+                $_SESSION['query']['page'] = 1;
             }
         }
 

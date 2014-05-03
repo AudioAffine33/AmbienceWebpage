@@ -11,7 +11,7 @@
 			$query->bindValue(':bitrate', $infoArray['bitrate'], PDO::PARAM_INT);
 			$query->bindValue(':channels', $infoArray['channels'], PDO::PARAM_INT);
 			if (isset($infoArray['bits_per_sample'])){
-				$query->bindValue(':bitdepth', $infoArray['formbitdepthat'], PDO::PARAM_INT);
+				$query->bindValue(':bitdepth', $infoArray['bitdepth'], PDO::PARAM_INT);
 			} else {
 				$query->bindValue(':bitdepth', NULL, PDO::PARAM_NULL);
 			}
@@ -625,15 +625,15 @@
         }
 
         //Dauer
-        if (isset($array['minLgt'])){
+        if (isset($array['minLgt'])&& $array['minLgt'] != ""){
             $query->bindValue(':minLgt', $array['minLgt'], PDO::PARAM_INT);
         } else {
             $query->bindValue(':minLgt', 0, PDO::PARAM_INT);
         }
-        if (isset($array['maxLgt']) && $array['maxLgt'] != ""){
+        if (isset($array['maxLgt']) && is_numeric($array['maxLgt'])){
             $query->bindValue(':maxLgt', $array['maxLgt'], PDO::PARAM_INT);
         } else {
-            $query->bindValue(':maxLgt', 2147483646, PDO::PARAM_INT);
+            $query->bindValue(':maxLgt', 2147483, PDO::PARAM_INT);
         }
 
         return $query;

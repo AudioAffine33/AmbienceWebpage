@@ -73,7 +73,7 @@
             </tr>
             <tr>
             	<td id="regbut"><input type="submit" value="Registrieren" /></td>
-                <td id="abbut"></td>
+                <td id="abbut" onclick="parent.jQuery.fancybox.close();"></td>
         	</tr>
         </table>
    	</form> 

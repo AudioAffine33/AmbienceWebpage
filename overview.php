@@ -23,6 +23,18 @@
             exit;
         }
 
+        if (isset($_POST['minLgt'])){
+            $_SESSION['query']['minLgt'] = $_POST['minLgt'];
+            if ($_POST['maxLgt'] != ""){
+                $_SESSION['query']['maxLgt'] = $_POST['maxLgt'];
+            } else {
+                unset($_SESSION['query']['maxLgt']);
+            }
+
+            header('Location: overview.php?'.http_build_query($_SESSION['query']));
+            exit;
+        }
+
         if (isset($_POST['cont'])){
             header('Location: overview.php?'.http_build_query(createContinentFilter($_POST)));
             exit;
@@ -129,7 +141,7 @@
         <li class="OberKat">
         	<a>Dauer</a>
         	<ul>
-                <form method="GET">
+                <form method="POST">
                     <li class="Unterpunkt">
                         Min:
                         <input onchange="$(this).closest('form').submit()" type="text" name="minLgt" value="<?php if (isset($_GET['minLgt'])) { echo $_GET['minLgt'];} else { echo 0;} ?>" />

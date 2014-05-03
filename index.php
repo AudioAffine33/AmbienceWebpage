@@ -16,6 +16,18 @@
     <script type="text/javascript" src="js/Soundmanager2/script/soundmanager2.js"></script>
     
     <?php
+
+    $errorLog;
+
+    if (isset($_POST['loginName'])){
+        $errorLog = login($_POST);
+
+
+        if($errorLog['correct']){
+            header('Location: overview.php');
+            exit;
+        }
+    }
 		
 		$randPics = getRandAmb(8);
 	?>
@@ -54,22 +66,7 @@
                 }
             }
         }
-    </script>
-    <?php
-		$errorLog;
-		
-		if (isset($_POST['loginName'])){
-			$errorLog = login($_POST);
-			
-			
-			if($errorLog['correct']){
-				header('Location: overview.php'); 
-				exit;
-			}
-		}
-	?>	
-    
-    <script type="text/javascript">
+
 		$(document).ready(function() {
 			$("#regFrame").fancybox({
                 'type' : 'iframe',

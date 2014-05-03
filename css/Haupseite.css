@@ -154,11 +154,11 @@ body{
 #LinkeNavKat ul ul {
 	display:none;
 	}
-	
-#LinkeNavKat ul li:hover ul {
+
+/*#LinkeNavKat ul li:hover ul {
 	display:block;
 	padding:10%;
-	}
+	}*/
 
 
 .OberKat {

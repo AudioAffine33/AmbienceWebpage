@@ -60,6 +60,18 @@
 			$_GET['page']=1;
 		}
 	?>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".OberKat").click(function(){
+                if ($(this).children("ul").css('display') != 'block'){
+                    $(this).children("ul").css('display', 'block').css('padding', '10%');
+                } else {
+                    $(this).children("ul").css('display', 'none').css('padding', '');
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>

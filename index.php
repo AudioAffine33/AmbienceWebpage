@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="js/fancyBox/source/jquery.fancybox.css" media="screen" />
     <script type="text/javascript" src="js/Soundmanager2/script/soundmanager2.js"></script>
     <script type="text/javascript" src="js/spin.js"></script>
-    
+
     <?php
 
     $errorLog;

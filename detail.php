@@ -106,7 +106,7 @@
     </div>
     
   	<div id="AmbiencePlayer">
-        <audio src="media/audio/<?php echo $amb['filename']; ?>" preload="auto"></audio>
+        <audio src="media/audio/<?php echo $amb['filename']; ?>" preload="none"></audio>
   	</div>
     
   	

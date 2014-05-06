@@ -118,7 +118,7 @@
     <div id="LinkeNavKat">
       <ul>
         <li class="OberKat">
-        	<a>Orte</a>
+        	<a class="CursorAen">Orte</a>
             <ul>
                 <li class="Unterpunkt">
                     <form method="POST">
@@ -151,7 +151,7 @@
         	</ul>
         </li>
         <li class="OberKat">
-        	<a>Dauer</a>
+        	<a class="CursorAen">Dauer</a>
         	<ul>
                 <form method="POST">
                     <li class="Unterpunkt">
@@ -168,7 +168,7 @@
             </ul>
        	</li>
         <li class="OberKat">
-            <a>Format</a>
+            <a class="CursorAen">Format</a>
             <ul>
                 <li class="Unterpunkt">
                     <form method="POST">
@@ -194,7 +194,7 @@
             </ul>
         </li>
         <li class="OberKat">
-        	<a>Auflösung</a>
+        	<a class="CursorAen">Auflösung</a>
                 <ul>
                     <li class="Unterpunkt">
                         <form method="POST">
@@ -220,7 +220,7 @@
                 </ul>
         </li>
         <li class="OberKat">
-              <a href="#">Abstastrate</a>
+              <a class="CursorAen">Abstastrate</a>
         		<ul>
                     <li class="Unterpunkt">
                         <form method="POST">

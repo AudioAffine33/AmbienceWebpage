@@ -78,6 +78,10 @@ body{
 	float:right;
 	margin-right:10%;
 	}
+#SortBut:hover{
+	cursor:pointer;
+	
+	}
 	
 #SortBut1{
 	width:40px;
@@ -141,25 +145,33 @@ body{
 	margin:10%;
 	margin-top:0%;
 	margin-left:0%;
-	float:left;	
+	float:left;
 	}
 	
 #LinkeNavKat ul,li {
 	list-style:none;
 	
 	}
-#LinkeNavKat ul {
 
-	}
 #LinkeNavKat ul ul {
 	display:none;
 	}
 
-/*#LinkeNavKat ul li:hover ul {
-	display:block;
-	padding:10%;
-	}*/
+#LinkeNavKat ul ul li:hover {
+	cursor:pointer;
+	cursor:hand; /* IE 5 */
+	}
 
+#LinkeNavKat ul ul li {
+	border-spacing:1px;
+	
+	}
+
+.CursorAen:hover{
+	cursor:s-resize;
+	
+	
+	}
 
 .OberKat {
 	margin:10%;

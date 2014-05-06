@@ -43,7 +43,7 @@
       <?php
                         if (!isset($_SESSION['name'])){
                     ?>
-      Login
+      <img src="media/Design_Vorlagen/Detailansicht/02c_entdecke_login.png" />
       <?php
                         } else {
                             echo $_SESSION['name'];

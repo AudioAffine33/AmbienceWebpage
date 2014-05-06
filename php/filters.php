@@ -1,5 +1,33 @@
 <?php
 
+    function createCatFilter($action){
+        if (!isset($_SESSION['query']['cat']) || $_SESSION['query']['cat'] == "" ){
+            $_SESSION['query']['cat'] = $action['cat'];
+            $_SESSION['query']['page'] = 1;
+        } else {
+            $contArr = explode("-",$_SESSION['query']['cat']);
+
+            if (is_numeric(array_search($action['cat'], $contArr))){
+                unset($contArr[array_search($action['cat'], $contArr)]);
+                $_SESSION['query']['cat'] = implode("-", $contArr);
+                $_SESSION['query']['page'] = 1;
+            } else {
+                $_SESSION['query']['cat'] = implode("-", $contArr)."-".$action['cat'];
+                $_SESSION['query']['page'] = 1;
+            }
+        }
+
+        return  $_SESSION['query'];
+    }
+
+    function checkCatFilter($str){
+        if (is_numeric(array_search($str, explode("-",$_GET['cat'])))){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function createContinentFilter($action){
         if (!isset($_SESSION['query']['cont']) || $_SESSION['query']['cont'] == "" ){
             $_SESSION['query']['cont'] = $action['cont'];

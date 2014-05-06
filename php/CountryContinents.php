@@ -4,6 +4,17 @@
  * CountryContinents.php
  */
 
+
+$CONTINENTS_GERMAN = array(
+    "AS" => "Asien",
+    "AN" => "Antarktis",
+    "AF" => "Afrika",
+    "SA" => "Südamerika",
+    "EU" => "Europa",
+    "OC" => "Ozeanien",
+    "NA" => "Nordamerika"
+);
+
 /*
  * Map a two-letter continent code onto the name of the continent.
  */

@@ -154,9 +154,9 @@ body{
 	}
 
 #LinkeNavKat ul ul {
-	display:none;
 	}
 
+<<<<<<< HEAD
 #LinkeNavKat ul ul li:hover {
 	cursor:pointer;
 	cursor:hand; /* IE 5 */
@@ -173,6 +173,8 @@ body{
 	
 	}
 
+=======
+>>>>>>> FETCH_HEAD
 .OberKat {
 	margin:10%;
 	margin-left:0%;

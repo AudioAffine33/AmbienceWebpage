@@ -176,8 +176,8 @@
                           <li class="Unterpunkt">
                               <form method="POST">
                                   <?php if (isset($_GET['cat']) && checkCatFilter($x)){ echo 'x';} ?>
-                                  <input type="hidden" name="cat" value="<?php echo $x; ?>" >
-                                  <a onclick="$(this).closest('form').submit()"><?php echo $x; ?></a>
+                                  <input type="hidden" name="cat" value="<?php echo htmlentities($x); ?>" >
+                                  <a onclick="$(this).closest('form').submit()"><?php echo htmlentities($x); ?></a>
                               </form>
                           </li>
                       <?php
@@ -198,8 +198,8 @@
                             <li class="Unterpunkt">
                                 <form method="POST">
                                     <?php if (isset($_GET['cont']) && checkContinentFilter($x['code'])){ echo 'x';} ?>
-                                    <input type="hidden" name="cont" value="<?php echo $x['code']; ?>" >
-                                    <a onclick="$(this).closest('form').submit()"><?php echo $x['german']; ?></a>
+                                    <input type="hidden" name="cont" value="<?php echo htmlentities($x['code']); ?>" >
+                                    <a onclick="$(this).closest('form').submit()"><?php echo htmlentities($x['german']); ?></a>
                                 </form>
                             </li>
                             <?php
@@ -215,12 +215,12 @@
                 <form method="POST">
                     <li class="Unterpunkt">
                         Min:
-                        <input onchange="$(this).closest('form').submit()" type="text" name="minLgt" value="<?php if (isset($_GET['minLgt'])) { echo $_GET['minLgt'];} else { echo 0;} ?>" />
+                        <input onchange="$(this).closest('form').submit()" type="text" name="minLgt" value="<?php if (isset($_GET['minLgt'])) { echo htmlentities($_GET['minLgt']);} else { echo 0;} ?>" />
                         s
                     </li>
                     <li>
                         Max:
-                        <input onchange="$(this).closest('form').submit()" type="text" name="maxLgt" value="<?php if (isset($_GET['maxLgt'])) { echo $_GET['maxLgt'];}?>" />
+                        <input onchange="$(this).closest('form').submit()" type="text" name="maxLgt" value="<?php if (isset($_GET['maxLgt'])) { echo htmlentities($_GET['maxLgt']);}?>" />
                         s
                     </li>
                 </form>
@@ -239,10 +239,10 @@
                         <li class="Unterpunkt">
                             <form method="POST">
                                 <?php if (isset($_GET['cdc']) && checkFormatFilter($x['codec'])){ echo 'x';} ?>
-                                <input type="hidden" name="cdc" value="<?php echo $x['codec']; ?>" >
+                                <input type="hidden" name="cdc" value="<?php echo htmlentities($x['codec']); ?>" >
                                 <a onclick="$(this).closest('form').submit()"><?php
                                     if ($x['codec'] != "riff"){
-                                        echo $x['codec'];
+                                        echo htmlentities($x['codec']);
                                     } else {
                                         echo "WAV";
                                     }
@@ -269,8 +269,8 @@
                         <li class="Unterpunkt">
                             <form method="POST">
                                 <?php if (isset($_GET['bd']) && checkDepthFilter($x['bitdepth'])){ echo 'x';} ?>
-                                <input type="hidden" name="bd" value="<?php echo $x['bitdepth']; ?>" >
-                                <a onclick="$(this).closest('form').submit()"><?php echo $x['bitdepth']." bit";?>
+                                <input type="hidden" name="bd" value="<?php echo htmlentities($x['bitdepth']); ?>" >
+                                <a onclick="$(this).closest('form').submit()"><?php echo htmlentities($x['bitdepth'])." bit";?>
                                 </a>
                             </form>
                         </li>
@@ -293,8 +293,8 @@
                             <li class="Unterpunkt">
                                 <form method="POST">
                                     <?php if (isset($_GET['sf']) && checkFreqFilter($x['samplerate'])){ echo 'x';} ?>
-                                    <input type="hidden" name="sf" value="<?php echo $x['samplerate']; ?>" >
-                                    <a onclick="$(this).closest('form').submit()"><?php echo ($x['samplerate']/1000)." kHz";?>
+                                    <input type="hidden" name="sf" value="<?php echo htmlentities($x['samplerate']); ?>" >
+                                    <a onclick="$(this).closest('form').submit()"><?php echo (htmlentities($x['samplerate']/1000))." kHz";?>
                                     </a>
                                 </form>
                             </li>
@@ -340,7 +340,7 @@
            	  			<?php if (isset($locationArray['name'])){echo $locationArray['name']; } ?>
             		</li>
             <li><?php echo date("G:i", strtotime($row['time'])) ?></li>
-            <li><?php echo htmlentities($format_act['bitdepth'])." bit , ".htmlentities($format_act['samplerate'])." kHz"; ?></li>
+            <li><?php echo htmlentities($format_act['bitdepth'])." bit , ".(htmlentities($format_act['samplerate'])/1000)." kHz"; ?></li>
           </ul>
        		</div>
     	<div id="SeitenNav">

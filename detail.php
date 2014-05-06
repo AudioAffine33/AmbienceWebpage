@@ -79,12 +79,12 @@
         <?php
             if ($_GET['id'] != 0){
         ?>
-        <a href="detail.php?id=<?php echo $_GET['id']-1;?>"><div id="BkwButton">Vorheriges</div></a>
+        <a href="detail.php?id=<?php echo htmlentities($_GET['id'])-1;?>"><div id="BkwButton">Vorheriges</div></a>
   	    <?php
             }
             if ($_GET['id'] != count($_SESSION['query_Array'])-1){
         ?>
-        <a href="detail.php?id=<?php echo $_GET['id']+1;?>"><div id="FwdButton">Nächstes</div></a>
+        <a href="detail.php?id=<?php echo htmlentities($_GET['id'])+1;?>"><div id="FwdButton">Nächstes</div></a>
         <?php
             }
         ?>
@@ -97,16 +97,16 @@
   	
     
     <div id="AmbienceDescript">
-    		<h1><?php echo $amb['name']; ?></h1>
+    		<h1><?php echo htmlentities($amb['name']); ?></h1>
     		<ul>
-            	<li><?php echo $loc['land']; ?></li>
-            	<li><?php echo $format['samplerate']/1000; ?> Khz</li>
-            	<li><?php echo $format['codec']; ?></li>
+            	<li><?php echo htmlentities($loc['land']); ?></li>
+            	<li><?php echo htmlentities($format['samplerate']/1000); ?> Khz</li>
+            	<li><?php echo htmlentities($format['codec']); ?></li>
             </ul>
     </div>
     
   	<div id="AmbiencePlayer">
-        <audio src="media/audio/<?php echo $amb['filename']; ?>" preload="none"></audio>
+        <audio src="media/audio/<?php echo htmlentities($amb['filename']); ?>" preload="none"></audio>
   	</div>
     
   	

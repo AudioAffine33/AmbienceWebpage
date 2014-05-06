@@ -23,6 +23,18 @@
             exit;
         }
 
+        if (isset($_POST['lgt'])){
+            if (!isset($_GET['lgt'])){
+                $_SESSION['query']['lgt'] = $_POST['lgt'];
+                header('Location: overview.php?'.http_build_query($_SESSION['query']));
+                exit;
+            } else {
+                unset ($_SESSION['query']['lgt']);
+                header('Location: overview.php?'.http_build_query($_SESSION['query']));
+                exit;
+            }
+        }
+
         if (isset($_POST['minLgt'])){
             $_SESSION['query']['minLgt'] = $_POST['minLgt'];
             if ($_POST['maxLgt'] != ""){
@@ -35,21 +47,56 @@
             exit;
         }
 
+        if (isset($_POST['cat'])){
+            if (!isset($_GET['cat']) || $_POST['cat'] != ""){
+                header('Location: overview.php?'.http_build_query(createCatFilter($_POST)));
+                exit;
+            } else {
+                unset($_SESSION['query']['cat']);
+                header('Location: overview.php?'.http_build_query($_SESSION['query']));
+                exit;
+            }
+        }
+
         if (isset($_POST['cont'])){
-            header('Location: overview.php?'.http_build_query(createContinentFilter($_POST)));
-            exit;
+            if (!isset($_GET['cont']) || $_POST['cont'] != ""){
+                header('Location: overview.php?'.http_build_query(createContinentFilter($_POST)));
+                exit;
+            } else {
+                unset($_SESSION['query']['cont']);
+                header('Location: overview.php?'.http_build_query($_SESSION['query']));
+                exit;
+            }
         }
         if (isset($_POST['cdc'])){
-            header('Location: overview.php?'.http_build_query(createFormatFilter($_POST)));
-            exit;
+            if (!isset($_GET['cdc']) || $_POST['cdc'] != ""){
+                header('Location: overview.php?'.http_build_query(createFormatFilter($_POST)));
+                exit;
+            } else {
+                unset($_SESSION['query']['cdc']);
+                header('Location: overview.php?'.http_build_query($_SESSION['query']));
+                exit;
+            }
         }
         if (isset($_POST['bd'])){
-            header('Location: overview.php?'.http_build_query(createDepthFilter($_POST)));
-            exit;
+            if (!isset($_GET['bd']) || $_POST['bd'] != ""){
+                header('Location: overview.php?'.http_build_query(createDepthFilter($_POST)));
+                exit;
+            } else {
+                unset($_SESSION['query']['bd']);
+                header('Location: overview.php?'.http_build_query($_SESSION['query']));
+                exit;
+            }
         }
         if (isset($_POST['sf'])){
-            header('Location: overview.php?'.http_build_query(createFreqFilter($_POST)));
-            exit;
+            if (!isset($_GET['sf']) || $_POST['sf'] != ""){
+                header('Location: overview.php?'.http_build_query(createFreqFilter($_POST)));
+                exit;
+            } else {
+                unset($_SESSION['query']['sf']);
+                header('Location: overview.php?'.http_build_query($_SESSION['query']));
+                exit;
+            }
         }
 
 		if (!isset($_GET['limit']) || !is_numeric($_GET['limit'])){
@@ -64,11 +111,11 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $(".OberKat").click(function(){
-                if ($(this).children("ul").css('display') != 'block'){
-                    $(this).children("ul").css('display', 'block').css('padding', '10%');
-                } else {
-                    $(this).children("ul").css('display', 'none').css('padding', '');
-                }
+                //if ($(this).children("ul").css('display') != 'block'){
+                   // $(this).children("ul").css('display', 'block').css('padding', '10%');
+                //} else {
+                   // $(this).children("ul").css('display', 'none').css('padding', '');
+                //}
             });
         });
     </script>
@@ -91,15 +138,15 @@
       </a> </div>
     <br>
   </div>
-  
+
   <div id="ObereNavigation">
     <div id="Button1" class="ButtonNavigation">Ambiences</div>
     <div id="Button2" class="ButtonNavigation">FAQ</div>
     <div id="Button3" class="ButtonNavigation">Kontakt</div>
   </div>
-  
+
   <div id="SucheHeader">
-  
+
   		<div id="Suche">
     	<form method="POST">
     		<input type="text" name="name" />
@@ -107,52 +154,64 @@
         </div>
         <div id="SuchBut"></div>
         <div id="SortBut">
-        	<div id="SortBut1"></div>        
-        	<div id="SortBut2"></div> 
-        	<div id="SortBut3"></div> 
-        
+        	<div id="SortBut1"></div>
+        	<div id="SortBut2"></div>
+        	<div id="SortBut3"></div>
+
         </div>
    	</div>
-  
+
   <div id="LinkeNavigation">
     <div id="LinkeNavKat">
       <ul>
+          <li class="OberKat">
+              <form method="POST"><input type="hidden" name="cat" value="" /><a onclick="$(this).closest('form').submit()">Kategorien</a></form>
+              <ul>
+                  <?php
+                  if (isset($_GET['cat'])){
+                      $catArray = get_categories();
+
+                      foreach ($catArray as $x){
+                          ?>
+                          <li class="Unterpunkt">
+                              <form method="POST">
+                                  <?php if (isset($_GET['cat']) && checkCatFilter($x)){ echo 'x';} ?>
+                                  <input type="hidden" name="cat" value="<?php echo $x; ?>" >
+                                  <a onclick="$(this).closest('form').submit()"><?php echo $x; ?></a>
+                              </form>
+                          </li>
+                      <?php
+                      }
+                  }
+                  ?>
+              </ul>
+          </li>
         <li class="OberKat">
-        	<a>Orte</a>
+        	<form method="POST"><input type="hidden" name="cont" value="" /><a onclick="$(this).closest('form').submit()">Orte</a></form>
             <ul>
-                <li class="Unterpunkt">
-                    <form method="POST">
-                        <?php if (isset($_GET['cont']) && checkContinentFilter('eu')){ echo 'x';} ?>
-                        <input type="hidden" name="cont" value="eu" >
-                        <a onclick="$(this).closest('form').submit()">Europa</a>
-                    </form>
-                </li>
-            	<li class="Unterpunkt">
-                    <form method="POST">
-                        <?php if (isset($_GET['cont']) && checkContinentFilter('as')){ echo 'x';} ?>
-                        <input type="hidden" name="cont" value="as" >
-                        <a onclick="$(this).closest('form').submit()">Asien</a>
-                    </form>
-                </li>
-            	<li class="Unterpunkt">
-                    <form method="POST">
-                        <?php if (isset($_GET['cont']) && checkContinentFilter('af')){ echo 'x';} ?>
-                        <input type="hidden" name="cont" value="af" >
-                        <a onclick="$(this).closest('form').submit()">Afrika</a>
-                    </form>
-                </li>
-            	<li class="Unterpunkt">
-                    <form method="POST">
-                        <?php if (isset($_GET['cont']) && checkContinentFilter('am')){ echo 'x';} ?>
-                        <input type="hidden" name="cont" value="am" >
-                        <a onclick="$(this).closest('form').submit()">Amerika</a>
-                    </form>
-                </li>
+                <?php
+                    if (isset($_GET['cont'])){
+                        $contArray = getAllContinentsGerman();
+
+                        foreach ($contArray as $x){
+                            ?>
+                            <li class="Unterpunkt">
+                                <form method="POST">
+                                    <?php if (isset($_GET['cont']) && checkContinentFilter($x['code'])){ echo 'x';} ?>
+                                    <input type="hidden" name="cont" value="<?php echo $x['code']; ?>" >
+                                    <a onclick="$(this).closest('form').submit()"><?php echo $x['german']; ?></a>
+                                </form>
+                            </li>
+                            <?php
+                        }
+                    }
+                ?>
         	</ul>
         </li>
         <li class="OberKat">
-        	<a>Dauer</a>
+            <form method="POST"><input type="hidden" name="lgt" value="" /><a onclick="$(this).closest('form').submit()">Dauer</a></form>
         	<ul>
+                <?php if(isset($_GET['lgt'])){ ?>
                 <form method="POST">
                     <li class="Unterpunkt">
                         Min:
@@ -165,85 +224,85 @@
                         s
                     </li>
                 </form>
+                <?php } ?>
             </ul>
        	</li>
         <li class="OberKat">
-            <a>Format</a>
+            <form method="POST"><input type="hidden" name="cdc" value="" /><a onclick="$(this).closest('form').submit()">Format</a></form>
             <ul>
-                <li class="Unterpunkt">
-                    <form method="POST">
-                        <?php if (isset($_GET['cdc']) && checkFormatFilter('riff')){ echo 'x';} ?>
-                        <input type="hidden" name="cdc" value="riff" >
-                        <a onclick="$(this).closest('form').submit()">WAV</a>
-                    </form>
-                </li>
-                <li class="Unterpunkt">
-                    <form method="POST">
-                        <?php if (isset($_GET['cdc']) && checkFormatFilter('mp3')){ echo 'x';} ?>
-                        <input type="hidden" name="cdc" value="mp3" >
-                        <a onclick="$(this).closest('form').submit()">mp3</a>
-                    </form>
-                </li>
-                <li class="Unterpunkt">
-                    <form method="POST">
-                        <?php if (isset($_GET['cdc']) && checkFormatFilter('mp4')){ echo 'x';} ?>
-                        <input type="hidden" name="cdc" value="mp4" >
-                        <a onclick="$(this).closest('form').submit()">mp4</a>
-                    </form>
-                </li>
+                <?php
+                if (isset($_GET['cdc'])){
+                    $formArray = getAllFormats();
+
+                    foreach ($formArray as $x){
+                        ?>
+                        <li class="Unterpunkt">
+                            <form method="POST">
+                                <?php if (isset($_GET['cdc']) && checkFormatFilter($x['codec'])){ echo 'x';} ?>
+                                <input type="hidden" name="cdc" value="<?php echo $x['codec']; ?>" >
+                                <a onclick="$(this).closest('form').submit()"><?php
+                                    if ($x['codec'] != "riff"){
+                                        echo $x['codec'];
+                                    } else {
+                                        echo "WAV";
+                                    }
+                                    ?>
+                                </a>
+                            </form>
+                        </li>
+                    <?php
+                    }
+                }
+                ?>
             </ul>
         </li>
         <li class="OberKat">
-        	<a>Auflösung</a>
-                <ul>
-                    <li class="Unterpunkt">
-                        <form method="POST">
-                            <?php if (isset($_GET['bd']) && checkDepthFilter('16')){ echo 'x';} ?>
-                            <input type="hidden" name="bd" value="16" >
-                            <a onclick="$(this).closest('form').submit()">16 bit</a>
-                        </form>
-                    </li>
-                    <li class="Unterpunkt">
-                        <form method="POST">
-                            <?php if (isset($_GET['bd']) && checkDepthFilter('24')){ echo 'x';} ?>
-                            <input type="hidden" name="bd" value="24" >
-                            <a onclick="$(this).closest('form').submit()">24 bit</a>
-                        </form>
-                    </li>
-                    <li class="Unterpunkt">
-                        <form method="POST">
-                            <?php if (isset($_GET['bd']) && checkDepthFilter('32')){ echo 'x';} ?>
-                            <input type="hidden" name="bd" value="32" >
-                            <a onclick="$(this).closest('form').submit()">32 bit</a>
-                        </form>
-                    </li>
-                </ul>
+            <form method="POST"><input type="hidden" name="bd" value="" /><a onclick="$(this).closest('form').submit()">Auflösung</a></form>
+            <ul>
+                <?php
+                if (isset($_GET['bd'])){
+                    $bdArray = getAllBitdepths();
+
+                    foreach ($bdArray as $x){
+                        if (isset($x['bitdepth']) && $x['bitdepth'] != NULL && $x['bitdepth'] != ""){
+                        ?>
+                        <li class="Unterpunkt">
+                            <form method="POST">
+                                <?php if (isset($_GET['bd']) && checkDepthFilter($x['bitdepth'])){ echo 'x';} ?>
+                                <input type="hidden" name="bd" value="<?php echo $x['bitdepth']; ?>" >
+                                <a onclick="$(this).closest('form').submit()"><?php echo $x['bitdepth']." bit";?>
+                                </a>
+                            </form>
+                        </li>
+                    <?php
+                        }
+                    }
+                }
+                ?>
+            </ul>
         </li>
         <li class="OberKat">
-              <a href="#">Abstastrate</a>
-        		<ul>
-                    <li class="Unterpunkt">
-                        <form method="POST">
-                            <?php if (isset($_GET['sf']) && checkFreqFilter('44100')){ echo 'x';} ?>
-                            <input type="hidden" name="sf" value="44100" >
-                            <a onclick="$(this).closest('form').submit()">44.1 kHz</a>
-                        </form>
-                    </li>
-                    <li class="Unterpunkt">
-                        <form method="POST">
-                            <?php if (isset($_GET['sf']) && checkFreqFilter('48000')){ echo 'x';} ?>
-                            <input type="hidden" name="sf" value="48000" >
-                            <a onclick="$(this).closest('form').submit()">48 kHz</a>
-                        </form>
-                    </li>
-                    <li class="Unterpunkt">
-                        <form method="POST">
-                            <?php if (isset($_GET['sf']) && checkFreqFilter('96000')){ echo 'x';} ?>
-                            <input type="hidden" name="sf" value="96000" >
-                            <a onclick="$(this).closest('form').submit()">96 kHz</a>
-                        </form>
-                    </li>
-                </ul>
+            <form method="POST"><input type="hidden" name="sf" value="" /><a onclick="$(this).closest('form').submit()">Abtastrate</a></form>
+            <ul>
+                <?php
+                if (isset($_GET['sf'])){
+                    $bdArray = getAllFreqs();
+
+                    foreach ($bdArray as $x){
+                            ?>
+                            <li class="Unterpunkt">
+                                <form method="POST">
+                                    <?php if (isset($_GET['sf']) && checkFreqFilter($x['samplerate'])){ echo 'x';} ?>
+                                    <input type="hidden" name="sf" value="<?php echo $x['samplerate']; ?>" >
+                                    <a onclick="$(this).closest('form').submit()"><?php echo ($x['samplerate']/1000)." kHz";?>
+                                    </a>
+                                </form>
+                            </li>
+                    <?php
+                    }
+                }
+                ?>
+            </ul>
         </li>
 
       </ul>

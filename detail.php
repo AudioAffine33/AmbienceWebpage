@@ -27,6 +27,7 @@
             $format = getFormat_by_ID($amb['format_id']);
             $loc = getLocation_by_ID($amb['location_id']);
             $cat = get_category_by_ID($amb['category_id']);
+            $user = get_user_by_ID($amb['user_id']);
         } else {
             header('Location: overview.php');
             exit;
@@ -98,10 +99,20 @@
     
     <div id="AmbienceDescript">
     		<h1><?php echo htmlentities($amb['name']); ?></h1>
+            <a href="""><?php echo htmlentities($user['name']); ?></a> (<?php echo date("d.m.y", strtotime(htmlentities($amb['date_added']))); ?>)
     		<ul>
+                <li><?php echo date("d.m.y", strtotime(htmlentities($amb['date']))); ?></li>
+                <li><?php echo date("H:i", strtotime(htmlentities($amb['time']))); ?></li>
+                <li><?php echo htmlentities($cat['name']); ?></li>
+                <li><?php echo htmlentities($amb['description']); ?></li>
             	<li><?php echo htmlentities($loc['land']); ?></li>
-            	<li><?php echo htmlentities($format['samplerate']/1000); ?> Khz</li>
-            	<li><?php echo htmlentities($format['codec']); ?></li>
+
+            </ul>
+            <ul>
+                <li><?php echo htmlentities($format['codec']); ?></li>
+                <li><?php echo gmdate("i:s", htmlentities($amb['length'])); ?> Min</li>
+                <li><?php echo htmlentities($format['samplerate']/1000); ?> Khz, <?php echo htmlentities($format['bitdepth']); ?> bit</li>
+                <li><?php echo round(htmlentities($amb['size'])/1024/1024, 1); ?> MB</li>
             </ul>
     </div>
     

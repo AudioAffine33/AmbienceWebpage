@@ -299,6 +299,18 @@
 
         return $result;
 	}
+
+    function get_user_by_ID($id){
+        global $db;
+
+        $query = $db->prepare("SELECT * FROM user WHERE id =:id;");
+        $query->bindValue(':id', $id, PDO::PARAM_INT);
+        $query->execute();
+
+        $result = $query->fetch();;
+
+        return $result;
+    }
 	
 	function setPic ($file, $amb_id){
         global $db;

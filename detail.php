@@ -16,6 +16,7 @@
 </script>
 
     <?php
+
         include('php/include.php');
         $id;
         $amb;
@@ -32,6 +33,8 @@
             header('Location: overview.php');
             exit;
         }
+
+
     ?>
 </head>
 
@@ -114,6 +117,13 @@
                 <li><?php echo htmlentities($format['samplerate']/1000); ?> Khz, <?php echo htmlentities($format['bitdepth']); ?> bit</li>
                 <li><?php echo round(htmlentities($amb['size'])/1024/1024, 1); ?> MB</li>
             </ul>
+    </div>
+
+    <div id="DownloadButton">
+        <form method="POST" action="php/download.php">
+            <input type="hidden" name="filename" value="<?php echo htmlentities($amb['filename']); ?>" />
+            <input  type="submit" value="Download" />
+        </form>
     </div>
     
   	<div id="AmbiencePlayer">

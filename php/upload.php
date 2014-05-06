@@ -188,4 +188,8 @@
 				imagewbmp($thumb, $filename);
 			}
 	}
+
+    function download($amb){
+
+    }
 ?>

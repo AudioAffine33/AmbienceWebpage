@@ -165,7 +165,7 @@
     <div id="LinkeNavKat">
       <ul>
           <li class="OberKat">
-              <form method="POST"><input type="hidden" name="cat" value="" /><a onclick="$(this).closest('form').submit()">Kategorien</a></form>
+              <form method="POST"><input type="hidden" name="cat" value="" /><a class="CursorAen" onclick="$(this).closest('form').submit()">Kategorien</a></form>
               <ul>
                   <?php
                   if (isset($_GET['cat'])){
@@ -187,11 +187,7 @@
               </ul>
           </li>
         <li class="OberKat">
-<<<<<<< HEAD
-        	<a class="CursorAen">Orte</a>
-=======
-        	<form method="POST"><input type="hidden" name="cont" value="" /><a onclick="$(this).closest('form').submit()">Orte</a></form>
->>>>>>> FETCH_HEAD
+        	<form method="POST"><input type="hidden" name="cont" value="" /><a class="CursorAen" onclick="$(this).closest('form').submit()">Orte</a></form>
             <ul>
                 <?php
                     if (isset($_GET['cont'])){
@@ -213,11 +209,7 @@
         	</ul>
         </li>
         <li class="OberKat">
-<<<<<<< HEAD
-        	<a class="CursorAen">Dauer</a>
-=======
-            <form method="POST"><input type="hidden" name="lgt" value="" /><a onclick="$(this).closest('form').submit()">Dauer</a></form>
->>>>>>> FETCH_HEAD
+            <form method="POST"><input type="hidden" name="lgt" value="" /><a class="CursorAen" onclick="$(this).closest('form').submit()">Dauer</a></form>
         	<ul>
                 <?php if(isset($_GET['lgt'])){ ?>
                 <form method="POST">
@@ -236,11 +228,7 @@
             </ul>
        	</li>
         <li class="OberKat">
-<<<<<<< HEAD
-            <a class="CursorAen">Format</a>
-=======
-            <form method="POST"><input type="hidden" name="cdc" value="" /><a onclick="$(this).closest('form').submit()">Format</a></form>
->>>>>>> FETCH_HEAD
+            <form method="POST"><input type="hidden" name="cdc" value="" /><a class="CursorAen" onclick="$(this).closest('form').submit()">Format</a></form>
             <ul>
                 <?php
                 if (isset($_GET['cdc'])){
@@ -269,59 +257,7 @@
             </ul>
         </li>
         <li class="OberKat">
-<<<<<<< HEAD
-        	<a class="CursorAen">Auflösung</a>
-                <ul>
-                    <li class="Unterpunkt">
-                        <form method="POST">
-                            <?php if (isset($_GET['bd']) && checkDepthFilter('16')){ echo 'x';} ?>
-                            <input type="hidden" name="bd" value="16" >
-                            <a onclick="$(this).closest('form').submit()">16 bit</a>
-                        </form>
-                    </li>
-                    <li class="Unterpunkt">
-                        <form method="POST">
-                            <?php if (isset($_GET['bd']) && checkDepthFilter('24')){ echo 'x';} ?>
-                            <input type="hidden" name="bd" value="24" >
-                            <a onclick="$(this).closest('form').submit()">24 bit</a>
-                        </form>
-                    </li>
-                    <li class="Unterpunkt">
-                        <form method="POST">
-                            <?php if (isset($_GET['bd']) && checkDepthFilter('32')){ echo 'x';} ?>
-                            <input type="hidden" name="bd" value="32" >
-                            <a onclick="$(this).closest('form').submit()">32 bit</a>
-                        </form>
-                    </li>
-                </ul>
-        </li>
-        <li class="OberKat">
-              <a class="CursorAen">Abstastrate</a>
-        		<ul>
-                    <li class="Unterpunkt">
-                        <form method="POST">
-                            <?php if (isset($_GET['sf']) && checkFreqFilter('44100')){ echo 'x';} ?>
-                            <input type="hidden" name="sf" value="44100" >
-                            <a onclick="$(this).closest('form').submit()">44.1 kHz</a>
-                        </form>
-                    </li>
-                    <li class="Unterpunkt">
-                        <form method="POST">
-                            <?php if (isset($_GET['sf']) && checkFreqFilter('48000')){ echo 'x';} ?>
-                            <input type="hidden" name="sf" value="48000" >
-                            <a onclick="$(this).closest('form').submit()">48 kHz</a>
-                        </form>
-                    </li>
-                    <li class="Unterpunkt">
-                        <form method="POST">
-                            <?php if (isset($_GET['sf']) && checkFreqFilter('96000')){ echo 'x';} ?>
-                            <input type="hidden" name="sf" value="96000" >
-                            <a onclick="$(this).closest('form').submit()">96 kHz</a>
-                        </form>
-                    </li>
-                </ul>
-=======
-            <form method="POST"><input type="hidden" name="bd" value="" /><a onclick="$(this).closest('form').submit()">Auflösung</a></form>
+            <form method="POST"><input type="hidden" name="bd" value="" /><a class="CursorAen" onclick="$(this).closest('form').submit()">Auflösung</a></form>
             <ul>
                 <?php
                 if (isset($_GET['bd'])){
@@ -346,7 +282,7 @@
             </ul>
         </li>
         <li class="OberKat">
-            <form method="POST"><input type="hidden" name="sf" value="" /><a onclick="$(this).closest('form').submit()">Abtastrate</a></form>
+            <form method="POST"><input type="hidden" name="sf" value="" /><a class="CursorAen" onclick="$(this).closest('form').submit()">Abtastrate</a></form>
             <ul>
                 <?php
                 if (isset($_GET['sf'])){
@@ -367,7 +303,6 @@
                 }
                 ?>
             </ul>
->>>>>>> FETCH_HEAD
         </li>
 
       </ul>

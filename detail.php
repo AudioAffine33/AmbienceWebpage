@@ -98,10 +98,21 @@
                 </tr>
             </table>
     </div>
-
+	
+    <div id="AmbiencePlayer">
+        <audio src="media/audio/<?php echo htmlentities($amb['filename']); ?>" preload="none"></audio>
+  	</div>
+    
+  	
 
     <?php if (isset($_SESSION['name'])){ ?>
         <div id="downloadarea">
+        	<div id="DownloadButton">
+                <form method="POST" action="php/download.php">
+                    <input type="hidden" name="filename" value="<?php echo htmlentities($amb['filename']); ?>" />
+                    <input  type="submit" value="Download" />
+                </form>
+            </div>
             <div id="fileinfos">
                 <table>
                     <tr>
@@ -119,30 +130,15 @@
                     </tr>
                 </table>
             </div>
-            <div id="DownloadButton">
-                <form method="POST" action="php/download.php">
-                    <input type="hidden" name="filename" value="<?php echo htmlentities($amb['filename']); ?>" />
-                    <input  type="submit" value="Download" />
-                </form>
-            </div>
+            
         </div>
     <?php } ?>
 
 
-  	<div id="AmbiencePlayer">
-        <audio src="media/audio/<?php echo htmlentities($amb['filename']); ?>" preload="none"></audio>
-  	</div>
-    
-  	
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  	<div id="Useranzeige">
+    	<div id="UserBild">Bild</div>
+        <div id="Username">UserHeinz</div>
+    </div>
   </div>
 
 

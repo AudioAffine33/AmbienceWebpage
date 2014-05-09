@@ -140,23 +140,20 @@ body{
 	}
 	
 #ObereNavigation{
-	width:250px;
+	width:800px;
 	height:30px;
 	margin-left:14%;
-	background-color:#FFF;
+	background-color:#A67329;
 	}
-.ButtonNavigation{
-	margin:2%;
-	background-color:#393;
-	}
-#Button1{
+.ButtonNavigationNU{
+	font-color:#fff;
 	float:left;
+	margin-left:2%;
 	}
-#Button2{
-	float:left;
-	}
-#Button3{
-	float:left;
+.ButtonNavigationU{
+	font-color:#fff;
+	float:right;
+	margin-right:2%;
 	}
 	
 /*Hauptseite */
@@ -351,6 +348,11 @@ body{
 	margin-left:2%;
 	
 	}
+	
+#AmbienceDescript table tr{
+	padding:2px;
+	
+	}
 #AmbiencePlayer{
 
 	clear:both;
@@ -368,6 +370,27 @@ body{
 	float:left;
 	margin-left:2%;
 	margin-top:1.5%;
+	}
+#downloadarea{
+	clear:both;
+	float:left;
+	margin-top:5%;
+	margin-left:10%;
+	width:500px;
+	}
+#DownloadButton{
+	float:left;
+	width:170px;
+	height:41px;
+	background-image:url(../media/Design_Vorlagen/Detailansicht/04_detailansicht_download.png);
+	}
+#fileinfos{
+	float:left;
+	margin-left:2%;
+	
+	}
+#Useranzeige{
+	float:right;
 	}
 
 

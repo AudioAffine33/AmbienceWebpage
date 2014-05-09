@@ -37,11 +37,13 @@
 </div>
 
 <div id="ObereNavigation">
-    <div id="Button1" class="ButtonNavigation"><a href="overview.php">Ambiences</a></div>
-    <div id="Button2" class="ButtonNavigation"><a href="">FAQ</a></div>
-    <div id="Button3" class="ButtonNavigation"><a href="">Kontakt</a></div>
+    <div class="ButtonNavigationNU"><a href="overview.php">|Ambiences</a></div>
+    <div class="ButtonNavigationNU"><a href="">|Top Files</a></div>
+    <div class="ButtonNavigationNU"><a href="">|FAQ</a></div>
+    <div class="ButtonNavigationNU"><a href="">|Kontakt</a></div>
     <?php if (isset($_SESSION['name'])){ ?>
-        <div id="Button4" class="ButtonNavigation"><a href="">Upload</a></div>
+        <div class="ButtonNavigationU"><a href="">|Upload</a></div>
+        <div class="ButtonNavigationU"><a href="">|Userseite</a></div>
     <?php } ?>
 </div>
 

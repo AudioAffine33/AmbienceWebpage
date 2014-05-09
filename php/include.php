@@ -55,12 +55,6 @@
 
     if (isset($_POST['loginName'])){
         $errorLog = login($_POST);
-
-
-        if($errorLog['correct']){
-            header('Location: overview.php');
-            exit;
-        }
     }
 	
 	//Audio auf Server laden und in DB eintragen

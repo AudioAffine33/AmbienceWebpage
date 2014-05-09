@@ -27,6 +27,8 @@
 	?>
     <link rel="stylesheet" href="css/normalize/normalize.css" type="text/css" />
     <script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="js/fancyBox/source/jquery.fancybox.pack.js"></script>
+    <link rel="stylesheet" href="js/fancyBox/source/jquery.fancybox.css" media="screen" />
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBeZ-iwEnYMBb5cke9oBkkYf-5WqCGhxf8&sensor=false&libraries=places"></script>
     <script type="text/javascript" src="js/functions.js"></script>
 	<?php
@@ -42,6 +44,24 @@
 
     //
     $query_Array = array();
+
+    //ggf. Session löschen
+    if (isset($_POST['logout'])){
+        session_destroy();
+    }
+
+    //login überprüfen
+    $errorLog;
+
+    if (isset($_POST['loginName'])){
+        $errorLog = login($_POST);
+
+
+        if($errorLog['correct']){
+            header('Location: overview.php');
+            exit;
+        }
+    }
 	
 	//Audio auf Server laden und in DB eintragen
 	function upload_audio_inDB_onServer ($file, $userid){

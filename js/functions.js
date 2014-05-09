@@ -39,3 +39,19 @@ function print_r(arr, level) {
 	return dumped_text;
  
 }
+
+function displayLoginMenu(){
+    if ($("#LoginMenu").css("display") == "none") {
+        $("#LoginMenu").css("display", "block");
+    } else {
+        $("#LoginMenu").css("display", "none");
+    }
+}
+
+function displayUserMenu(){
+    if ($("#UserMenu").css("display") == "none") {
+        $("#UserMenu").css("display", "block");
+    } else {
+        $("#UserMenu").css("display", "none");
+    }
+}

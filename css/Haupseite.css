@@ -36,6 +36,36 @@ body{
 	margin-right:1%;
 	margin-top:1%;
 	}
+
+#LoginMenu{
+    display: none;
+    padding: 3px;
+    width: 200px;
+    background-color: #393;
+    position:absolute;
+    top: 30px;
+    right: 0px;
+}
+
+.loginText{
+    margin-left: 10px;
+    width: 130px;
+}
+
+.loginButton{
+    width: 95px;
+}
+
+#UserMenu{
+    display: none;
+    padding: 3px;
+    width: 100px;
+    background-color: #393;
+    position:absolute;
+    top: 30px;
+    right: 10px;
+}
+
 #LogoutHeader{
 	float:right;
 	width:100px;

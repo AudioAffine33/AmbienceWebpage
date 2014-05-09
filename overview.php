@@ -109,14 +109,21 @@
 	?>
 
     <script type="text/javascript">
-        $(document).ready(function(){
-            $(".OberKat").click(function(){
-                //if ($(this).children("ul").css('display') != 'block'){
-                   // $(this).children("ul").css('display', 'block').css('padding', '10%');
-                //} else {
-                   // $(this).children("ul").css('display', 'none').css('padding', '');
-                //}
+        $(document).ready(function() {
+            $("#regFrame").fancybox({
+                'type' : 'iframe',
+                'titlePosition' : 'over',
+                'padding' : 0,
+                'margin' : 0,
+                'width' : 310,
+                'height': 523,
+                'scrolling' : 'no',
+                'fitToView' : false,
+                'autoSize' : false,
+                'closeBtn' : false
             });
+            $(".fancybox-iframe").attr('scrolling', 'no');
+            $(".fancybox-iframe").attr("src", $(".fancybox-iframe").attr("src"));
         });
     </script>
 </head>

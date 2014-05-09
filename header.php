@@ -4,14 +4,36 @@
             <?php
             if (!isset($_SESSION['name'])){
                 ?>
-                <img src="media/Design_Vorlagen/Hauptseite/02c_entdecke_login.png" />
+                <a onclick="displayLoginMenu()"><img src="media/Design_Vorlagen/Hauptseite/02c_entdecke_login.png" /></a>
             <?php
             } else {
-                echo $_SESSION['name'];
+                echo "<a onclick='displayUserMenu()'>".$_SESSION['name']."</a>";
             }
             ?>
         </a> </div>
     <br>
+</div>
+
+
+<div id="LoginMenu">
+    <form method="POST">
+        <table>
+            <tr>
+                <td>Login:</td> <td><input type="text" class="loginText" name="loginName" /></td>
+            </tr>
+            <tr>
+                <td>Pass:</td> <td><input type="password" class="loginText" name="loginPass" /></td>
+            </tr>
+        </table>
+        <input class="loginButton" type="submit" value="Login" />
+        <button class="loginButton" id="regFrame" data-fancybox-type="iframe" href="register.php" target="_blank" title="Registrieren">Neu?</button>
+    </form>
+</div>
+
+<div id="UserMenu">
+    <a href="">Profil</a><br />
+    <form method="POST" action="php/logout.php"><input type="submit" name="logout" value="Logout" /></form>
+
 </div>
 
 <div id="ObereNavigation">

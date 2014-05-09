@@ -179,24 +179,24 @@
 
 		<div id="TopLeft">
             <div class="picframe"  id="<?php echo $randPics[0]['id'] ?>" onclick="buttonClick('<?php echo $randPics[0]['id'] ?>')">
-                <div class="buttonPlay"><img src="media/buttonPlay.png" /></div>
-                <div class="buttonPause"><img src="media/buttonPause.png" /></div>
+                <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
+                <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
                 <img src="media/pics_ambiences/<?php echo $randPics[0]['picture'] ?>" class="AmbienceFotoFade AmbienceFoto desaturate grey" />
             </div>
         </div>
     
     	<div id="TopCenter">
             <div class="picframe" id="<?php echo $randPics[1]['id'] ?>"  onclick="buttonClick('<?php echo $randPics[1]['id'] ?>')">
-                <div class="buttonPlay"><img src="media/buttonPlay.png" /></div>
-                <div class="buttonPause"><img src="media/buttonPause.png" /></div>
+                <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
+                <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
                 <img src="media/pics_ambiences/<?php echo $randPics[1]['picture'] ?>" class="AmbienceFoto desaturate grey"/>
             </div>
         </div>
     
     	<div id="TopRight">
             <div class="picframe" id="<?php echo $randPics[2]['id'] ?>"  onclick="buttonClick('<?php echo $randPics[2]['id'] ?>')">
-                <div class="buttonPlay"><img src="media/buttonPlay.png" /></div>
-                <div class="buttonPause"><img src="media/buttonPause.png" /></div>
+                <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
+                <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
                 <img src="media/pics_ambiences/<?php echo $randPics[2]['picture'] ?>" class="AmbienceFoto desaturate grey"/>
             </div>
         </div>
@@ -207,8 +207,8 @@
   
     	<div id="MidLeft">
             <div class="picframe" id="<?php echo $randPics[3]['id'] ?>"  onclick="buttonClick('<?php echo $randPics[3]['id'] ?>')">
-                <div class="buttonPlay"><img src="media/buttonPlay.png" /></div>
-                <div class="buttonPause"><img src="media/buttonPause.png" /></div>
+                <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
+                <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
                 <img src="media/pics_ambiences/<?php echo $randPics[3]['picture'] ?>" class="AmbienceFoto desaturate grey"/>
             </div>
         </div>
@@ -234,8 +234,8 @@
     
    	 	<div id="MidRight">
             <div class="picframe" id="<?php echo $randPics[4]['id'] ?>" onclick="buttonClick('<?php echo $randPics[4]['id'] ?>')">
-                <div class="buttonPlay"><img src="media/buttonPlay.png" /></div>
-                <div class="buttonPause"><img src="media/buttonPause.png" /></div>
+                <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
+                <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
                 <img src="media/pics_ambiences/<?php echo $randPics[4]['picture'] ?>" class="AmbienceFoto desaturate grey"/>
             </div>
         </div>
@@ -245,24 +245,24 @@
     
   		<div id="BotLeft">
             <div class="picframe" id="<?php echo $randPics[5]['id'] ?>"  onclick="buttonClick('<?php echo $randPics[5]['id'] ?>')">
-                <div class="buttonPlay"><img src="media/buttonPlay.png" /></div>
-                <div class="buttonPause"><img src="media/buttonPause.png" /></div>
+                <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
+                <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
                 <img src="media/pics_ambiences/<?php echo $randPics[5]['picture'] ?>" class="AmbienceFoto desaturate grey"/>
             </div>
         </div>
     
     	<div id="BotCenter" >
             <div class="picframe"  id="<?php echo $randPics[6]['id'] ?>" onclick="buttonClick('<?php echo $randPics[6]['id'] ?>')">
-                <div class="buttonPlay"><img src="media/buttonPlay.png" /></div>
-                <div class="buttonPause"><img src="media/buttonPause.png" /></div>
+                <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
+                <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
                 <img src="media/pics_ambiences/<?php echo $randPics[6]['picture'] ?>" class="AmbienceFoto desaturate grey"/>
             </div>
         </div>
     
     	<div id="BotRight" >
             <div class="picframe" id="<?php echo $randPics[7]['id'] ?>" onclick="buttonClick('<?php echo $randPics[7]['id'] ?>')">
-                <div class="buttonPlay"><img src="media/buttonPlay.png" /></div>
-                <div class="buttonPause"><img src="media/buttonPause.png" /></div>
+                <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
+                <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
                 <img src="media/pics_ambiences/<?php echo $randPics[7]['picture'] ?>" class="AmbienceFoto desaturate grey"/>
             </div>
         </div>

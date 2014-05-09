@@ -29,6 +29,7 @@
             $loc = getLocation_by_ID($amb['location_id']);
             $cat = get_category_by_ID($amb['category_id']);
             $user = get_user_by_ID($amb['user_id']);
+            header('title: '.htmlentities($amb['name']).'');
         } else {
             header('Location: overview.php');
             exit;
@@ -41,42 +42,12 @@
 <body>
 
 <div id="Content">
-  <div id="Header">
-    <div id="LogoHeader">Logo</div>
-    <div id="LoginHeader"> <a href="">
-      <?php
-                        if (!isset($_SESSION['name'])){
-                    ?>
-      <img src="media/Design_Vorlagen/Hauptseite/02c_entdecke_login.png" />
-      <?php
-                        } else {
-                            echo $_SESSION['name'];
-                        }
-                    ?>
-      </a> </div>
-    <br>
-    
-  </div>
-  <div id="ObereNavigation">
-    <div id="Button1" class="ButtonNavigation">Ambiences</div>
-    <div id="Button2" class="ButtonNavigation">FAQ</div>
-    <div id="Button3" class="ButtonNavigation">Kontakt</div>
-  </div>
-	<div id="SucheHeader">
-       <div id="BkwdtoHauptseitebtn">
-    
-    		<a href="overview.php?<?php echo http_build_query($_SESSION['query']) ?>"><< zurück zur Übersicht </a>
-    
-    </div>
-  		<div id="SucheDetail">
-    	<form method="GET">
-        	<input type="hidden" name="limit" value="<?php echo $_GET['limit']; ?>" />
-    		<input type="text" name="name" />
-        </form>
-        </div>
-        <div id="SuchBut"></div>
-   	</div>
-  <div id="Detailansicht">
+  <?php include ("header.php"); ?>
+
+    <div id="BkwdtoHauptseitebtn"><a href="overview.php?<?php echo http_build_query($_SESSION['query']) ?>"><< zurück zur Übersicht </a></div>
+
+
+    <div id="Detailansicht">
   	
     <div id="AmbienceBildBut">
 
@@ -102,27 +73,51 @@
     
     <div id="AmbienceDescript">
     		<h1><?php echo htmlentities($amb['name']); ?></h1>
-            <a href="""><?php echo htmlentities($user['name']); ?></a> (<?php echo date("d.m.y", strtotime(htmlentities($amb['date_added']))); ?>)
-    		<ul>
-                <li><?php echo date("d.m.y", strtotime(htmlentities($amb['date']))); ?></li>
-                <li><?php echo date("H:i", strtotime(htmlentities($amb['time']))); ?></li>
-                <li><?php echo htmlentities($cat['name']); ?></li>
-                <li><?php echo htmlentities($amb['description']); ?></li>
-            	<li><?php echo htmlentities($loc['land']); ?></li>
+            <a href="""><?php echo htmlentities($user['name']); ?></a> (<?php echo date("d.m.y", strtotime(htmlentities($amb['date_added']))); ?>)<br />
 
-            </ul>
+            <table>
+                <tr>
+                    <td>Dauer:</td>
+                    <td><?php echo gmdate("i:s", htmlentities($amb['length'])); ?> Min</td>
+                </tr>
+                <tr>
+                    <td>Aufgenommen:</td>
+                    <td><b><?php echo date("d.m.y", strtotime(htmlentities($amb['date']))); ?></b> um <b><?php echo date("H:i", strtotime(htmlentities($amb['time']))); ?></b> Uhr</td>
+                </tr>
+                <tr>
+                    <td>Kategorie:</td>
+                    <td><?php echo htmlentities($cat['name']); ?></td>
+                </tr>
+                <tr>
+                    <td>Beschreibung:</td>
+                    <td><?php echo htmlentities($amb['description']); ?></td>
+                </tr>
+                <tr>
+                    <td>Ort:</td>
+                    <td><?php echo htmlentities($loc['name']); ?>, <?php echo htmlentities($loc['land']); ?></td>
+                </tr>
+            </table>
     </div>
 
 
     <?php if (isset($_SESSION['name'])){ ?>
         <div id="downloadarea">
             <div id="fileinfos">
-                <ul>
-                    <li><?php echo htmlentities($format['codec']); ?></li>
-                    <li><?php echo gmdate("i:s", htmlentities($amb['length'])); ?> Min</li>
-                    <li><?php echo htmlentities($format['samplerate']/1000); ?> Khz, <?php echo htmlentities($format['bitdepth']); ?> bit</li>
-                    <li><?php echo round(htmlentities($amb['size'])/1024/1024, 1); ?> MB</li>
-                </ul>
+                <table>
+                    <tr>
+                        <td>Format:</td>
+                        <td><?php echo htmlentities($format['codec']); ?></td>
+                    </tr>
+
+                    <tr>
+                        <td>Qualität:</td>
+                        <td><?php echo htmlentities($format['samplerate']/1000); ?> Khz, <?php echo htmlentities($format['bitdepth']); ?> bit</td>
+                    </tr>
+                    <tr>
+                        <td>Dateigröße:</td>
+                        <td><?php echo round(htmlentities($amb['size'])/1024/1024, 1); ?> MB</td>
+                    </tr>
+                </table>
             </div>
             <div id="DownloadButton">
                 <form method="POST" action="php/download.php">

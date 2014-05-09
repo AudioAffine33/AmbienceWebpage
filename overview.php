@@ -273,13 +273,13 @@
     </div>
   </div>
   <div id="AmbiencesAnzeige">
-  		<div class="AnzeigeBut">
             <?php
                 if (getNumElements($_GET) > $_GET['limit']){
-                    createSiteNav($_GET);
+                    ?> <div class="AnzeigeBut"><?php
+                        createSiteNav($_GET);
+                        ?> </div> <?php
                 }
             ?>
-      	</div>
       <?php
 		$query = createSearch($_GET);
         $query->execute();
@@ -291,7 +291,7 @@
 			$locationArray = getLocation_by_ID($row['location_id']);
 			$format_act = getFormat_by_ID($row['format_id']);
 				?>
-      <div class="Ambiences">
+          <div class="Ambience">
        		<a href="detail.php?id=<?php echo $index; ?>">
                 <img src="media/pics_ambiences/thumb/<?php echo htmlentities($row['picture']);?>"  class="AmbiencePic" />
             </a>
@@ -300,28 +300,28 @@
                     <h1><?php echo htmlentities($row['name']); ?></h1>
                 </a>
           		<ul>
-            		<li>
-           	  			<?php if (isset($locationArray['name'])){echo $locationArray['name']; } ?>
-            		</li>
-            <li><?php echo date("G:i", strtotime($row['time'])) ?></li>
-            <li><?php echo htmlentities($format_act['bitdepth'])." bit , ".(htmlentities($format_act['samplerate'])/1000)." kHz"; ?></li>
-          </ul>
+            		<li><?php if (isset($locationArray['name'])){echo $locationArray['name']; } ?></li>
+                    <li><?php echo date("G:i", strtotime($row['time'])) ?></li>
+                    <li><?php echo htmlentities($format_act['bitdepth'])." bit , ".(htmlentities($format_act['samplerate'])/1000)." kHz"; ?></li>
+                </ul>
        		</div>
-    	<div id="SeitenNav">
+        </div>
       	<?php
             $index++;
 		}
-
 		?>
- 		</div>
-  	</div>
-	<div class="AnzeigeBut">
+
         <?php
             if (getNumElements($_GET) > $_GET['limit']){
+                ?>
+                <div class="NavField">
+                <div class="AnzeigeBut"><?php
                 createSiteNav($_GET);
+                ?>
+                </div>
+                </div> <?php
             }
         ?>
-    </div>	
 
 </div>
 </body>

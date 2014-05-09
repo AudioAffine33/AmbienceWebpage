@@ -9,12 +9,14 @@ body{
 	font-family: 'Oxygen', 'sans-serif';
 	}
 #Content{
-	
+    position: relative;
+	margin-left: auto;
+    margin-right: auto;
+    width: 1020px;
 	}
 #Header{
 	width:1020px;
 	height:87px;
-	margin:2%;
 	margin-bottom:0%;
 	background-image:url(../media/Design_Vorlagen/Hauptseite/02c_entdecke_header.png);
 	
@@ -52,7 +54,7 @@ body{
 	width:1020px;
 	height:40px;
 	margin:1%;
-	margin-left:2%;
+	margin-left:0%;
 	background-image:url(../media/Design_Vorlagen/Hauptseite/02c_entdecke_suchleiste2.png);
 	}
 	
@@ -132,15 +134,15 @@ body{
 #LinkeNavigation{
 	clear:both;
 	float:left;
-	width:260px;
+	width:20%;
 	height:600px;
 	background-color:#FFF;
-	margin-left:2%;
+	margin-left:0%;
 	}
 	
 #LinkeNavKat {
 	width:200px;
-	height:500px;
+	height:700px;
 	background-color:#F2E6C7;
 	margin:10%;
 	margin-top:0%;
@@ -181,18 +183,23 @@ body{
  
 #AmbiencesAnzeige{
 	float:left;
-	width:721px;
+	width:80%;
 	background-color:#FFF;
-	margin-left:2%;
+	margin-left:0%;
 	
 	}
-	
+
+.NavField{
+    width:100%;
+    clear:both;
+    float:left;
+}
+
 .AnzeigeBut{
-	clear:both;
-	float:left;
-	margin:1%;
+	margin-left: auto;
+    margin-right: auto;
 	width:300px;
-	height:40px;	
+	height:40px;
 	}
 #AButfwd{
 	float:right;
@@ -209,22 +216,37 @@ body{
 	
 	}
 
+.Ambience{
+    width: 360px;
+    height: 187px;
+    margin: 5px;
+    float:left;
+}
+
 .AmbiencePic{
-	clear:both;
 	float:left;
-	width:300px;
-	height:225px;
+	width:240px;
+	height:180px;
 	float:left;	
 	margin:1%;
 	}
 .AmbienceDescription{
-	width:225px;
+	width:100px;
 	height:225px;
 	float:left;
 	margin:1%
 	}
+
+.AmbienceDescription h1{
+    font-size: 12pt;
+}
+
+.AmbienceDescription ul{
+    padding:0px;
+}
 	
 .Ambiences{
+    width: 100%;
 	}
 	
 /*Registrierungsseite */

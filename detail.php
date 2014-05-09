@@ -47,7 +47,7 @@
       <?php
                         if (!isset($_SESSION['name'])){
                     ?>
-      <img src="media/Design_Vorlagen/Detailansicht/02c_entdecke_login.png" />
+      <img src="media/Design_Vorlagen/Hauptseite/02c_entdecke_login.png" />
       <?php
                         } else {
                             echo $_SESSION['name'];
@@ -111,21 +111,29 @@
             	<li><?php echo htmlentities($loc['land']); ?></li>
 
             </ul>
-            <ul>
-                <li><?php echo htmlentities($format['codec']); ?></li>
-                <li><?php echo gmdate("i:s", htmlentities($amb['length'])); ?> Min</li>
-                <li><?php echo htmlentities($format['samplerate']/1000); ?> Khz, <?php echo htmlentities($format['bitdepth']); ?> bit</li>
-                <li><?php echo round(htmlentities($amb['size'])/1024/1024, 1); ?> MB</li>
-            </ul>
     </div>
 
-    <div id="DownloadButton">
-        <form method="POST" action="php/download.php">
-            <input type="hidden" name="filename" value="<?php echo htmlentities($amb['filename']); ?>" />
-            <input  type="submit" value="Download" />
-        </form>
-    </div>
-    
+
+    <?php if (isset($_SESSION['name'])){ ?>
+        <div id="downloadarea">
+            <div id="fileinfos">
+                <ul>
+                    <li><?php echo htmlentities($format['codec']); ?></li>
+                    <li><?php echo gmdate("i:s", htmlentities($amb['length'])); ?> Min</li>
+                    <li><?php echo htmlentities($format['samplerate']/1000); ?> Khz, <?php echo htmlentities($format['bitdepth']); ?> bit</li>
+                    <li><?php echo round(htmlentities($amb['size'])/1024/1024, 1); ?> MB</li>
+                </ul>
+            </div>
+            <div id="DownloadButton">
+                <form method="POST" action="php/download.php">
+                    <input type="hidden" name="filename" value="<?php echo htmlentities($amb['filename']); ?>" />
+                    <input  type="submit" value="Download" />
+                </form>
+            </div>
+        </div>
+    <?php } ?>
+
+
   	<div id="AmbiencePlayer">
         <audio src="media/audio/<?php echo htmlentities($amb['filename']); ?>" preload="none"></audio>
   	</div>

@@ -149,7 +149,7 @@
 
   		<div id="Suche">
     	<form method="POST">
-    		<input type="text" name="name" />
+    		<input type="text" name="name" <?php if (isset($_GET['name'])){ echo "value='".htmlentities($_GET['name'])."'";} ?>/>
         </form>
         </div>
         <div id="SuchBut"></div>

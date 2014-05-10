@@ -471,7 +471,6 @@ body{
 	width:600px;
 	height:220px;
 	float:left;
-	overflow:scroll;
 	}
 .Datenname{
 	width:50px;
@@ -480,6 +479,14 @@ body{
 #Benutzerdetails table tr td{
 	padding:2%;
 	
+	}
+#pwChangeBut{
+	margin:2%;
+	margin-top:3.5%;
+	
+	}
+#showEmail{
+	margin:2%;
 	}
 #Uploadanzeige{
 	clear:both;

@@ -121,6 +121,7 @@
                 </tr>
             </table>
         </div>
+        <?php if($user['id'] == $_SESSION['id']){ ?>
         <div id="pwChangeBut">
             <a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=pw" target="_blank" title="Über mich">Passwort ändern</a>
         </div>
@@ -131,6 +132,7 @@
                 <?php if($user['emailShown']){ echo "X";} ?>
             </form>
         </div>
+        <?php } ?>
 	</div>
     <div id="Uploadanzeige">
     	<h1>Uploads</h1>

@@ -73,7 +73,7 @@
     
     <div id="AmbienceDescript">
     		<h1><?php echo htmlentities($amb['name']); ?></h1>
-            <a href="""><?php echo htmlentities($user['name']); ?></a> (<?php echo date("d.m.y", strtotime(htmlentities($amb['date_added']))); ?>)<br />
+            (<?php echo date("d.m.y", strtotime(htmlentities($amb['date_added']))); ?>)<br />
 
             <table>
                 <tr>
@@ -136,8 +136,12 @@
 
 
   	<div id="Useranzeige">
-    	<div id="UserBild">Bild</div>
-        <div id="Username">UserHeinz</div>
+    	<div id="UserBild">
+            <?php if (isset($user['picture']) && $user['picture'] != ""){   ?>
+                <a href="user.php?id=<?php echo htmlentities($user['id']); ?>"><img src="media/pics_user/<?php echo htmlentities($user['picture']); ?>" /></a>
+            <?php } ?>
+        </div>
+        <div id="Username"><a href="user.php?id=<?php echo htmlentities($user['id']); ?>"><?php echo htmlentities($user['name']); ?></a></div>
     </div>
   </div>
 

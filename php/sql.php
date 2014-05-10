@@ -264,11 +264,21 @@
 		return $result;
 	}
 
-    function get_ambience_by_user($userID){
+    function get_ambience_by_user($array){
         global $db;
 
-        $query = $db->prepare("SELECT * FROM ambience WHERE user_id = :user_id");
-        $query->bindValue(':user_id', $userID, PDO::PARAM_INT);
+        $limit = 5;
+        if (isset($array['page'])){
+            $page = $array['page'];
+            $start = ($limit*($page-1));
+        } else {
+            $start = 0;
+        }
+
+        $string = "SELECT * FROM ambience WHERE user_id = :user_id ORDER BY date_added DESC LIMIT ".$start.", 5;";
+
+        $query = $db->prepare($string);
+        $query->bindValue(':user_id', $array['id'], PDO::PARAM_INT);
         $query->execute();
 
         $result = $query->fetchAll();
@@ -893,6 +903,23 @@
 
 		return $ret;
 	}
+
+    function get_numElements_by_user($array){
+        global $db;
+        $id = $array['id'];
+
+        $string = "SELECT COUNT(*) AS 'count' FROM ambience WHERE user_id = :user_id;";
+
+        $query = $db->prepare($string);
+        $query->bindValue(':user_id', $id, PDO::PARAM_INT);
+        $query->execute();
+
+        while ($row = $query->fetch()){
+            $ret = $row['count'];
+        }
+
+        return $ret;
+    }
 
     function globalAliasString(){
 

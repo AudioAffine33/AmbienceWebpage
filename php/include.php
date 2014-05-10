@@ -120,4 +120,38 @@
 			}
 		//}
 	}
+
+    function createUserSiteNav($array){
+        $query_act = array();
+        parse_str($_SERVER['QUERY_STRING'], $query_act);
+
+        $gesamt = get_numElements_by_user($query_act);
+
+        $sites = ceil($gesamt / 5);
+        //if ($sites > 10){
+        $actDez = floor($array['page']/10);
+        $dezCount = $sites - $actDez * 10;
+        if ($dezCount > 10) {$dezCount = 10;}
+        if ($actDez != 0){
+            $query_act['page']=1;
+            echo "<a href='user.php?".http_build_query($query_act)."'>Erste</a>";
+        }
+        if ($_GET['page'] != 1){
+            $query_act['page']= $_GET['page']-1;
+            echo "<a href='user.php?".http_build_query($query_act)."'><div id='AButbkw''></div></a>";
+        }
+        for ($i = 1; $i<=$dezCount; $i++){
+            $query_act['page']= ($actDez+$i);
+            echo "<a href='user.php?".http_build_query($query_act)."'>".($actDez+$i)."</a> ";
+        }
+        if ($_GET['page'] != $sites){
+            $query_act['page']= $_GET['page']+1;
+            echo "<a href='user.php?".http_build_query($query_act)."'><div id='AButfwd'></div></a>";
+        }
+        if ($actDez != floor($sites/10)){
+            $query_act['page']= $sites;
+            echo "<a href='user.php?".http_build_query($query_act)."'>Letzte</a>";
+        }
+        //}
+    }
 ?>

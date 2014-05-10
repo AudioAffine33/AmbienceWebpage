@@ -437,6 +437,14 @@ body{
 	height:200px;
 	background-color:#FFC;
 	}
+
+#map-canvas{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
 #Uploaddetails{
 	float:left;
 	width:300px;

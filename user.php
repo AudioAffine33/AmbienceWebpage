@@ -74,11 +74,11 @@
                         $cat_act = get_category_by_ID($amb['category_id']);
                 ?>
                     <div class = "AmbienceUser">
-                        <div class = "AmbienceUserPic">
+                                      
                             <a href="detail.php?id=<?php echo $index; ?>">
-                                <img src="media/pics_ambiences/thumb/<?php echo htmlentities($amb['picture']); ?>" />
+                                <img src="media/pics_ambiences/thumb/<?php echo htmlentities($amb['picture']); ?>" class="UserAmPic" />
                             </a>
-                        </div>
+      
                         <div class = "AmbienceUserDescr">
                             <a href="detail.php?id=<?php echo $index; ?>"><h3><?php echo htmlentities($amb['name']); ?></h3></a>
                             <table>
@@ -119,6 +119,9 @@
     	</div>
     </div>
     
+</div>
+</body>
+</html>
 </div>
 </body>
 </html>

@@ -256,7 +256,6 @@ body{
 	float:left;
 	width:240px;
 	height:180px;
-	float:left;	
 	margin:1%;
 	}
 .AmbienceDescription{
@@ -418,6 +417,7 @@ body{
 	width:400px;
 	height:220px;
 	float:left;
+	overflow:scroll;
 	}
 #Uploadanzeige{
 	clear:both;
@@ -428,7 +428,6 @@ body{
 #UploadALinks{
 	float:left;
 	width:300px;
-	height:600px;
 	}
 #GoogleMaps{
 	float:left;
@@ -446,25 +445,45 @@ body{
 #Uploaddetails{
 	float:left;
 	width:300px;
-	height:400px;
+	height:900px;
 	background-color:#f3e5c8;
 	}
 #UploadARechts{
 	float:left;
-	width:500px;
 	height:600px;
+	width:720px;
 	}
+
 #AmbiencesUserAnzeige{
-	width:400px;
-	height:500px;
 	float:left;
-	margin:2%;
+	margin-left:2%;
 	}
-#NavigationUploads{
+.AmbienceUser{
+	width:500px;
 	float:left;
+	}
+.UserAmPic{
 	width:200px;
+	height:200px;
+	float:left;
+	}
+.AmbienceUserDescr{
+	width:200px;
+	height:225px;
+	float:left;
+	}
+.AmbienceUserDescr h3 {
+	margin-left:4%;
+	}
+.AmbienceUserDescr table tr td{
+	padding-left:4%;
+	}
+.NavigationUploads{
+	clear:both;
+	float:left;
+	width:100px;
 	height:60px;
-	margin:2%;
+	margin-left:2%;
 	}
 /*Upload */	
 

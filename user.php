@@ -82,13 +82,13 @@
             <?php } else { ?>
             <img src="media/Design_Vorlagen/Userseite/standardUser.jpg" />
             <?php } ?>
-            <?php if($user['id'] == $_SESSION['id']){ ?>
+            <?php if(isset($_SESSION['id']) && $user['id'] == $_SESSION['id']){ ?>
                 <a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=pic" target="_blank" title="Bild">Bild ändern</a>
             <?php } ?>
         </div>
 		<div id="Benutzerdetails">
             <table>
-                <?php if($user['id'] == $_SESSION['id']){ ?>
+                <?php if(isset($_SESSION['id']) && $user['id'] == $_SESSION['id']){ ?>
                 <tr>
                     <td>E-Mail:</td>
                     <td>
@@ -117,13 +117,13 @@
                             <?php echo htmlentities($user['about']); ?>
                         </div>
                     </td>
-                    <?php if($user['id'] == $_SESSION['id']){ ?>
+                    <?php if(isset($_SESSION['id']) && $user['id'] == $_SESSION['id']){ ?>
                     <td><a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=about" target="_blank" title="Über mich">Ändern</a></td>
                     <?php }?>
                 </tr>
             </table>
         </div>
-        <?php if($user['id'] == $_SESSION['id']){ ?>
+        <?php if(isset($_SESSION['id']) && $user['id'] == $_SESSION['id']){ ?>
         <div id="pwChangeBut">
             <a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=pw" target="_blank" title="Über mich">Passwort ändern</a>
         </div>

@@ -31,8 +31,13 @@
 </div>
 
 <div id="UserMenu">
+<<<<<<< HEAD
     <div id="ProfilButton"><a href=""><img src="media/Design_Vorlagen/Hauptseite/05_header_profil.png" /></a></div>
     <div id="LogoutHeader"><form method="POST" action="php/logout.php"><input type="submit" name="logout" value="Logout" /></form></div>
+=======
+    <a href="user.php?id=<?php echo $_SESSION['id']?>">Profil</a><br />
+    <form method="POST" action="php/logout.php"><input type="submit" name="logout" value="Logout" /></form>
+>>>>>>> FETCH_HEAD
 
 </div>
 

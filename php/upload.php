@@ -15,6 +15,14 @@
 			img_createSmallerVers($uploadfile);
 		}
 	}
+
+    function upload_pic_user ($file, $filename_neu){
+    $uploadfile = getRoot().'\\media\\pics_user\\'.$filename_neu;
+
+            if (move_uploaded_file($file['tmp_name'], $uploadfile)){
+                img_createSmallerVersUser($uploadfile);
+            }
+        }
 	
 	//Audio-Info
 	
@@ -189,7 +197,55 @@
 			}
 	}
 
-    function download($amb){
+    function img_createSmallerVersUser($uploadfile){
+        $filetype = getimagesize($uploadfile);
 
+        if ($filetype['mime'] == 'image/jpg' || $filetype['mime'] == 'image/jpeg') {
+            $image = imagecreatefromjpeg($uploadfile);
+        }
+        else if ($filetype['mime'] == 'image/png') {
+            $image = imagecreatefrompng($uploadfile);
+        }
+        else if ($filetype['mime'] == 'image/gif') {
+            $image = imagecreatefromgif($uploadfile);
+        }
+        else if ($filetype['mime'] == 'image/wbmp') {
+            $image = imagecreatefromwbmp($uploadfile);
+        }
+        $pathparts = pathinfo ($uploadfile);
+        $filename = $pathparts['dirname']."/".$pathparts['filename'].".".$pathparts['extension'];
+
+        $width = imagesx($image);
+        $height = imagesy($image);
+
+        $original_aspect = $width / $height;
+
+        // If image is wider than thumbnail (in aspect ratio sense)
+        $new_height = 220;
+        $new_width = 220;
+
+
+        $thumb = imagecreatetruecolor( $new_width, $new_height );
+
+        // Resize and crop
+        imagecopyresampled($thumb,
+            $image,
+            0, // Center the image horizontally
+            0, // Center the image vertically
+            0, 0,
+            $new_width, $new_height,
+            $width, $height);
+        if ($filetype['mime'] == 'image/jpg' || $filetype['mime'] == 'image/jpeg') {
+            imagejpeg($thumb, $filename, 80);
+        }
+        else if ($filetype['mime'] == 'image/png') {
+            imagepng($thumb, $filename);
+        }
+        else if ($filetype['mime'] == 'image/gif') {
+            imagegif($thumb, $filename);
+        }
+        else if ($filetype['mime'] == 'image/wbmp') {
+            imagewbmp($thumb, $filename);
+        }
     }
 ?>

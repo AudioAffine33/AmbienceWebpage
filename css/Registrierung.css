@@ -23,11 +23,21 @@
 	background-image:url(../media/Design_Vorlagen/Registrierung/03_registrierung_button_bestaetigen.png);
 	background-repeat:no-repeat;
 	}
+#regbut input{
+	width:129px;
+	height:31px;
+	background:none;
+	border:none;
+	text-indent:-99999px;	
+	}
 #abbut{
 	width:129px;
 	height:31px;
 	background-image:url(../media/Design_Vorlagen/Registrierung/03_registrierung_button_abbrechen.png);
 	background-repeat:no-repeat;
+	}
+#abbut:hover{
+	cursor:pointer;
 	}
 .eingabe{
 	padding-top:5%;

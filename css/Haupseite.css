@@ -349,8 +349,8 @@ body{
 	
 	}
 	
-#AmbienceDescript table tr{
-	padding:2px;
+#AmbienceDescript table tr td{
+	padding:1%;
 	
 	}
 #AmbiencePlayer{

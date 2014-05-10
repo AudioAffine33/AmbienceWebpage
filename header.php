@@ -42,8 +42,8 @@
     <div class="ButtonNavigationNU"><a href="">|FAQ</a></div>
     <div class="ButtonNavigationNU"><a href="">|Kontakt</a></div>
     <?php if (isset($_SESSION['name'])){ ?>
-        <div class="ButtonNavigationU"><a href="">|Upload</a></div>
-        <div class="ButtonNavigationU"><a href="">|Userseite</a></div>
+        <div class="ButtonNavigationU"><a href="Upload_Datei.php">|Upload</a></div>
+        <div class="ButtonNavigationU"><a href="Userseite.php">|Userseite</a></div>
     <?php } ?>
 </div>
 

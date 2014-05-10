@@ -457,7 +457,49 @@ body{
 	background-color:#C90;
 	margin:2%;
 	}
+/*Upload */	
 
+#Upload{
+	margin-top:5%;
+	clear:both;
+	float:left;
+	width:1020px;
+}
+#Dateiupload{
+	clear:both;
+	float:left;
+	
+	}
+#Upload a {
+	clear:both;
+	float:left;
+	
+	}
+
+
+/*Upload Detail */
+	
+#UploadBild{
+	float:left;
+	width:400px;
+	height:400px;
+	background-color:#3C3;
+	
+	}
+#UploadDaten{
+	float:left;
+	margin-left:2%;
+	width:500px;
+	}
+#UploadDaten table tr td{
+	padding-left:10%;
+	padding-bottom:10%;
+	} 
+#UploadButton{
+	float:right;	
+	margin:10%;
+	margin-top:200px;
+	}
 	
 
 

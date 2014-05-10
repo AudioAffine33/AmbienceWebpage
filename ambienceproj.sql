@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 10. Mai 2014 um 17:26
+-- Erstellungszeit: 10. Mai 2014 um 20:10
 -- Server Version: 5.6.16
 -- PHP-Version: 5.5.9
 
@@ -206,17 +206,20 @@ CREATE TABLE IF NOT EXISTS `user` (
   `about` varchar(500) DEFAULT NULL,
   `picture` varchar(100) DEFAULT NULL,
   `rights` varchar(20) NOT NULL,
+  `emailShown` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Daten für Tabelle `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `pass`, `email`, `about`, `picture`, `rights`) VALUES
-(3, 'Marco', 'f5888d0bb58d611107e11f7cbc41c97a', 'marco@lunaarte.de', 'Every time a rug is micturated upon in this fair city, I have to compensate. Dolor sit amet, consectetur adipiscing elit praesent ac magna justo pellentesque ac. Uh-huh. Well, I still jerk off manually. Lectus quis elit blandit fringilla a ut. When will you find these guys? I mean, do you have any promising leads? Turpis praesent felis ligula, malesuada suscipit malesuada non, ultrices non urna sed.', '01.png', 'admin'),
-(4, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@ambience.com', 'Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that''s what you see at a toy store. And you must think you''re in a toy store, because you''re here shopping for an infant named Jeb.', '02.jpg', 'admin');
+INSERT INTO `user` (`id`, `name`, `pass`, `email`, `about`, `picture`, `rights`, `emailShown`) VALUES
+(3, 'Marco', 'f5888d0bb58d611107e11f7cbc41c97a', 'marco@exvision.de', 'Lorem Ipsum', '', 'admin', 0),
+(4, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@ambie.nce', 'Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that''s what you see at a toy store. And you must think you''re in a toy store, because you''re here shopping for an infant named Jeb.', '', 'admin', 0),
+(5, 'sebastian', 'c2d628ba98ed491776c9335e988e2e3b', 'sebastian@sebastian.de', 'wort tulip glass saccharification aerobic. grainy, all-malt krausen additive primary fermentation; mash length lagering aau alcohol goblet. shelf life; enzymes cold filter krausen, " trappist acid rest grainy hydrometer enzymes balthazar." balthazar, malt lauter sparge specific gravity lambic length. draft (draught) carboy grainy alpha acid seidel, units of bitterness? grainy filter ale anaerobic balthazar; carboy terminal gravity wort alpha acid. units of bitterness bottle conditioning; mead kr', NULL, 'user', 0),
+(6, 'markus', '23c496d2ee2494b3f380a2bd7380b811', 'markus@markus.de', 'Zombie ipsum brains reversus ab cerebellum viral inferno, brein nam rick mend grimes malum cerveau cerebro. De carne cerebro lumbering animata cervello corpora quaeritis. Summus thalamus brains sit​​, morbo basal ganglia vel maleficia? De braaaiiiins apocalypsi gorger omero prefrontal cortex undead survivor fornix dictum mauris. Hi brains mindless mortuis limbic cortex soulless creaturas optic nerve, imo evil braaiinns stalking monstra hypothalamus adventus resi hippocampus dentevil vultus brain', NULL, 'user', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

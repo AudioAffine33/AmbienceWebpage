@@ -25,14 +25,14 @@
                 <td>Pass:</td> <td><input type="password" class="loginText" name="loginPass" /></td>
             </tr>
         </table>
-        <input class="loginButton" type="submit" value="Login" />
-        <button class="loginButton" id="regFrame" data-fancybox-type="iframe" href="register.php" target="_blank" title="Registrieren">Neu?</button>
+        <div id="LoginButton"><input class="loginButton" type="submit" value="Login" /></div>
+       	<div id="RegButton"><button class="loginButton" id="regFrame" data-fancybox-type="iframe" href="register.php" target="_blank" title="Registrieren"></button></div>
     </form>
 </div>
 
 <div id="UserMenu">
-    <a href="">Profil</a><br />
-    <form method="POST" action="php/logout.php"><input type="submit" name="logout" value="Logout" /></form>
+    <div id="ProfilButton"><a href=""><img src="media/Design_Vorlagen/Hauptseite/05_header_profil.png" /></a></div>
+    <div id="LogoutHeader"><form method="POST" action="php/logout.php"><input type="submit" name="logout" value="Logout" /></form></div>
 
 </div>
 

@@ -42,12 +42,42 @@ body{
 #LoginMenu{
     display: none;
     padding: 3px;
-    width: 200px;
-    background-color: #393;
+    width: 220px;
+    background-color:#F2E6C7;
     position:absolute;
     top: 30px;
     right: 0px;
 }
+#LoginButton{
+	margin-top:3%;
+	width:100px;
+	height:30px;
+	clear:both;
+	float:left;
+	}
+#LoginButton input{
+	text-indent:-99999px;
+	width:100px;
+	height:30px;
+	border:none;
+	background:none;
+	background-image:url(../media/Design_Vorlagen/Hauptseite/01b_header_login.png);
+	background-repeat:no-repeat;
+	}
+#RegButton{
+	margin-top:3%;
+	width:120px;
+	height:30px;
+	float:left;
+	}
+#RegButton button{
+	width:120px;
+	height:30px;
+	border:none;
+	background:none;
+	background-image:url(../media/Design_Vorlagen/Hauptseite/01b_header_registrieren.png);
+	background-repeat:no-repeat;
+	}
 
 .loginText{
     margin-left: 10px;
@@ -62,24 +92,38 @@ body{
     display: none;
     padding: 3px;
     width: 100px;
-    background-color: #393;
+	height:50px;
+    background-color:#F2E6C7;
     position:absolute;
     top: 30px;
     right: 10px;
 }
 
+#ProfilButton{
+	width:90px;
+	height:22px;
+	float:left;
+	margin:2%
+	}
+#ProfilButton a{
+	width:90px;
+	height:22px;
+	}
 #LogoutHeader{
-	float:right;
-	width:100px;
-	height:25px;
-	margin-top:1%;
-	}	
-#RegistrHeader{
 	clear:both;
-	float:right;
-	width:100px;
-	height:25px;
-	
+	float:left;
+	margin:2%;
+	width:90px;
+	height:22px;
+	}
+#LogoutHeader input{
+	width:90px;
+	height:22px;
+	text-indent:-99999px;
+	border:none;
+	background:none;
+	background-image:url(../media/Design_Vorlagen/Hauptseite/05_header_logout.png);
+	background-repeat:no-repeat;
 	}
 #SucheHeader{
 	float:left;
@@ -388,7 +432,16 @@ body{
 	float:left;
 	width:170px;
 	height:41px;
+	
+	}
+#DownloadButton input{
+	width:170px;
+	height:41px;
+	border:none;
+	background:none;
+	background-repeat:no-repeat;
 	background-image:url(../media/Design_Vorlagen/Detailansicht/04_detailansicht_download.png);
+	text-indent:-99999px;
 	}
 #fileinfos{
 	float:left;

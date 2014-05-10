@@ -82,7 +82,9 @@
             <?php } else { ?>
             <img src="media/Design_Vorlagen/Userseite/standardUser.jpg" />
             <?php } ?>
-            <a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=pic" target="_blank" title="Bild">Bild ändern</a>
+            <?php if($user['id'] == $_SESSION['id']){ ?>
+                <a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=pic" target="_blank" title="Bild">Bild ändern</a>
+            <?php } ?>
         </div>
 		<div id="Benutzerdetails">
             <table>

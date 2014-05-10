@@ -103,7 +103,14 @@
         <audio src="media/audio/<?php echo htmlentities($amb['filename']); ?>" preload="none"></audio>
   	</div>
     
-  	
+  	<div id="Useranzeige">
+    	<div id="UserBild">
+            <?php if (isset($user['picture']) && $user['picture'] != ""){   ?>
+                <a href="user.php?id=<?php echo htmlentities($user['id']); ?>"><img src="media/pics_user/<?php echo htmlentities($user['picture']); ?>" /></a>
+            <?php } ?>
+        </div>
+        <div id="Username"><a href="user.php?id=<?php echo htmlentities($user['id']); ?>"><?php echo htmlentities($user['name']); ?></a></div>
+    </div>
 
     <?php if (isset($_SESSION['name'])){ ?>
         <div id="downloadarea">
@@ -135,14 +142,7 @@
     <?php } ?>
 
 
-  	<div id="Useranzeige">
-    	<div id="UserBild">
-            <?php if (isset($user['picture']) && $user['picture'] != ""){   ?>
-                <a href="user.php?id=<?php echo htmlentities($user['id']); ?>"><img src="media/pics_user/<?php echo htmlentities($user['picture']); ?>" /></a>
-            <?php } ?>
-        </div>
-        <div id="Username"><a href="user.php?id=<?php echo htmlentities($user['id']); ?>"><?php echo htmlentities($user['name']); ?></a></div>
-    </div>
+  	
   </div>
 
 

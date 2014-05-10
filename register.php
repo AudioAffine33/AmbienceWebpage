@@ -73,7 +73,7 @@
             </tr>
             <tr>
             	<td id="regbut"><input type="submit" value="Registrieren" /></td>
-                <td id="abbut" onclick="parent.jQuery.fancybox.close();"></td>
+                <td id="abbut" onclick="parent.jQuery.fancybox.close();"><img src="media/Design_Vorlagen/Registrierung/03_registrierung_button_abbrechen.png" /></td>
         	</tr>
         </table>
    	</form> 

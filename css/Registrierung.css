@@ -18,22 +18,25 @@
 		
 	}
 #regbut{
+	padding-left:4%;
 	width:129px;
 	height:31px;
-	background-image:url(../media/Design_Vorlagen/Registrierung/03_registrierung_button_bestaetigen.png);
-	background-repeat:no-repeat;
+	
 	}
 #regbut input{
+	padding-left:4%;
 	width:129px;
 	height:31px;
 	background:none;
+	background-image:url(../media/Design_Vorlagen/Registrierung/03_registrierung_button_bestaetigen.png);
+	background-repeat:no-repeat;
 	border:none;
 	text-indent:-99999px;	
 	}
 #abbut{
+	padding-left:5%;
 	width:129px;
 	height:31px;
-	background-image:url(../media/Design_Vorlagen/Registrierung/03_registrierung_button_abbrechen.png);
 	background-repeat:no-repeat;
 	}
 #abbut:hover{

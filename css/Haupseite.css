@@ -445,7 +445,7 @@ body{
 	float:left;
 	width:500px;
 	background-color:#C30;
-	height:800px;
+	height:600px;
 	}
 #AmbiencesUserAnzeige{
 	width:400px;
@@ -457,7 +457,7 @@ body{
 #NavigationUploads{
 	float:left;
 	width:200px;
-	height:80px;
+	height:60px;
 	background-color:#C90;
 	margin:2%;
 	}

@@ -52,12 +52,12 @@
         	</tr>
             <tr>
             	<td class="eingabe">Passwort:</td>
-            	<td><input type="password" name="regPass1"<?php if(isset($errorReg['mail'])){ ?> style='background-color:#F00'<?php } ?> /></td>
+            	<td><input type="password" name="regPass1"<?php if(isset($errorReg['pass'])){ ?> style='background-color:#F00'<?php } ?> /></td>
                 <td><?php if(isset($errorReg['pass'])){ echo $errorReg['pass']; } ?></td>
         	</tr>
             <tr>
             	<td class="eingabe">Passwort wdh.:</td>
-            	<td><input type="password" name="regPass2"<?php if(isset($errorReg['mail'])){ ?> style='background-color:#F00'<?php } ?> /></td>
+            	<td><input type="password" name="regPass2"<?php if(isset($errorReg['pass'])){ ?> style='background-color:#F00'<?php } ?> /></td>
         	</tr>
             <tr>
             	<td class="eingabe">Email:</td>

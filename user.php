@@ -28,8 +28,42 @@
     } else {
         header("Location: overview.php");
     }
+
+    if (isset($_POST['showMail'])){
+        if($user['emailShown']){
+            setUserShowMail(false);
+            header("Location: user.php?id=".$_SESSION['id']);
+        } else {
+            setUserShowMail(true);
+            header("Location: user.php?id=".$_SESSION['id']);
+        }
+    }
+
 ?>
 <script type="text/javascript">
+    $(document).ready(function() {
+        $("#changeFrame").fancybox({
+            'type' : 'iframe',
+            'titlePosition' : 'over',
+            'padding' : 0,
+            'margin' : 0,
+            'width' : 500,
+            'height': 300,
+            'scrolling' : 'no',
+            'fitToView' : false,
+            'autoSize' : false,
+            'closeBtn' : false
+        });
+        $(".fancybox-iframe").attr('scrolling', 'no');
+        $(".fancybox-iframe").attr("src", $(".fancybox-iframe").attr("src"));
+
+        $(".picframe").hover(function(){
+            $(this).children(".buttonPlay").children("img").css('display', 'block');
+        }, function() {
+            $(this).children(".buttonPlay").children("img").css('display', 'none');
+        });
+    });
+
     var locsJSON = '<?php echo json_encode($allLocs); ?>';
     var locs = JSON.parse(locsJSON);
 </script>
@@ -41,14 +75,62 @@
   	<?php include("header.php"); ?>
 
 	<div id="Benutzerprofil">
-    	<h1><?php echo htmlentities($user['name']); ?><h1>
+    	<h1><?php echo htmlentities($user['name']); ?></h1>
 		<div id="Benutzerbild">
-            <?php if (isset($user['picture'])){ ?>
+            <?php if (isset($user['picture']) && $user['picture'] != ""){ ?>
                 <img src="media/pics_user/<?php echo htmlentities($user['picture']); ?>" />
+            <?php } else { ?>
+            <img src="media/Design_Vorlagen/Userseite/standardUser.jpg" />
             <?php } ?>
+            <a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=pic" target="_blank" title="Bild">Bild ändern</a>
         </div>
-		<div id="Benutzerdetails"><?php echo htmlentities($user['about']); ?></div>
-
+		<div id="Benutzerdetails">
+            <table>
+                <?php if($user['id'] == $_SESSION['id']){ ?>
+                <tr>
+                    <td>E-Mail:</td>
+                    <td>
+                        <div id="mail">
+                            <?php echo htmlentities($user['email']); ?>
+                        </div>
+                    </td>
+                    <td><a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=mail" target="_blank" title="E-Mail">Ändern</a></td>
+                <tr>
+                <?php }
+                elseif($user['emailShown']){ ?>
+                    <tr>
+                        <td>E-Mail:</td>
+                        <td>
+                            <div id="mail">
+                                <a href="mailto:<?php echo htmlentities($user['email']); ?>"><?php echo htmlentities($user['email']); ?></a>
+                            </div>
+                        </td>
+                    </tr>
+                <?php } ?>
+                </tr>
+                <tr>
+                    <td>Über mich:</td>
+                    <td>
+                        <div id="about">
+                            <?php echo htmlentities($user['about']); ?>
+                        </div>
+                    </td>
+                    <?php if($user['id'] == $_SESSION['id']){ ?>
+                    <td><a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=about" target="_blank" title="Über mich">Ändern</a></td>
+                    <?php }?>
+                </tr>
+            </table>
+        </div>
+        <div id="pwChangeBut">
+            <a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=pw" target="_blank" title="Über mich">Passwort ändern</a>
+        </div>
+        <div id="showEmail">
+            <form method="POST">
+                <input type="hidden" name="showMail">
+                <a onclick="$(this).closest('form').submit()">E-Mail-Addresse anzeigen</a>
+                <?php if($user['emailShown']){ echo "X";} ?>
+            </form>
+        </div>
 	</div>
     <div id="Uploadanzeige">
     	<h1>Uploads</h1>

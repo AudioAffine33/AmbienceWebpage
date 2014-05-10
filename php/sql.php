@@ -132,6 +132,34 @@
 		
 		return $error;
 	}
+
+
+
+    function checkPWChange ($pwArray){
+        global $db;
+
+        $error=array();
+
+        $query = $db->prepare("SELECT * FROM user WHERE id=:id;");
+        $query->bindValue(':id', $_SESSION['id'], PDO::PARAM_STR);
+        $query->execute();
+
+        $result = $query->fetch();
+
+
+        if (md5($pwArray['oldPass']) != $result['pass']){
+            $error['passOld'] = "Passwort ist nicht korrekt<br /> ";
+        }
+
+        if ($pwArray['newPass1'] != $pwArray['newPass2']){
+            $error['passNew'] = "Passwörter stimmen nicht überein<br /> ";
+        }
+        if ($pwArray['newPass1'] == "" || $pwArray['newPass2'] == ""){
+            $error['passNew'] = "Bitte geben Sie ein Passwort an!<br /> ";
+        }
+
+        return $error;
+    }
 	
 	function login($loginArray){
         global $db;
@@ -335,29 +363,92 @@
     }
 	
 	function setPic ($file, $amb_id){
+    global $db;
+    $check = getimagesize($file['tmp_name']);
+    if (!$check){
+        throw new Exception('Kein gültiges Bild');
+    } else {
+        $amb = get_ambience_by_ID($amb_id);
+        if ($amb['picture'] != ""){
+            unlink(getRoot()."\\media\\pics_ambiences\\".$amb['picture']);
+        }
+        $filename_audio = $amb['filename'];
+        $arr_audio = explode(".", $filename_audio);
+        $filename_pic = basename($file['name']);
+        $arr_pic = explode(".", $filename_pic);
+        $filename_neu = $arr_audio[0].".".$arr_pic[1];
+
+
+        $query = $db->prepare("UPDATE ambience SET picture=:pic WHERE id=:id;");
+        $query->bindValue(':id', $amb_id, PDO::PARAM_INT);
+        $query->bindValue(':pic', $filename_neu, PDO::PARAM_STR);
+        $query->execute();
+
+        upload_pic_amb($file, $filename_neu);
+        }
+    }
+
+function setUserPic ($file, $user_id){
+    global $db;
+    $check = getimagesize($file['tmp_name']);
+    if (!$check){
+        throw new Exception('Kein gültiges Bild');
+    } else {
+        $user = get_user_by_ID($user_id);
+        if ($user['picture'] != ""){
+            unlink(getRoot()."\\media\\pics_user\\".$user['picture']);
+        }
+        $userName = $_SESSION['name'];
+        $filename_pic = basename($file['name']);
+        $arr_pic = explode(".", $filename_pic);
+        $filename_neu = $_SESSION['id']."_".$userName.".".$arr_pic[1];
+
+        $query = $db->prepare("UPDATE user SET picture=:pic WHERE id=:id;");
+        $query->bindValue(':id', $user_id, PDO::PARAM_INT);
+        $query->bindValue(':pic', $filename_neu, PDO::PARAM_STR);
+        $query->execute();
+
+        upload_pic_user($file, $filename_neu);
+    }
+}
+
+    function setUserPass($pass){
         global $db;
-		$check = getimagesize($file['tmp_name']);
-		if (!$check){
-			throw new Exception('Kein gültiges Bild');
-		} else {
-			$amb = get_ambience_by_ID($amb_id);
-			if ($amb['picture'] != ""){
-				unlink(dirname(__FILE__)."\\pics_ambiences\\".$amb['picture']);
-			}
-			$filename_audio = $amb['filename'];
-			$arr_audio = explode(".", $filename_audio);
-			$filename_pic = basename($file['name']);
-			$arr_pic = explode(".", $filename_pic);
-			$filename_neu = $arr_audio[0].".".$arr_pic[1];
 
-            $query = $db->prepare("UPDATE ambience SET picture=:pic WHERE id=:id;");
-            $query->bindValue(':id', $amb_id, PDO::PARAM_INT);
-            $query->bindValue(':pic', $filename_neu, PDO::PARAM_STR);
-            $query->execute();
+        $pass_new = md5($pass);
 
-			upload_pic_amb($file, $filename_neu);
-		}
-	}
+        $query = $db->prepare("UPDATE user SET pass = :pass WHERE id = :id;");
+        $query->bindValue(":pass", $pass_new, PDO::PARAM_STR);
+        $query->bindValue(":id", $_SESSION['id'], PDO::PARAM_INT);
+        $query->execute();
+    }
+
+    function setUserMail($mail){
+        global $db;
+
+        $query = $db->prepare("UPDATE user SET email = :mail WHERE id = :id;");
+        $query->bindValue(":mail", $mail, PDO::PARAM_STR);
+        $query->bindValue(":id", $_SESSION['id'], PDO::PARAM_INT);
+        $query->execute();
+    }
+
+    function setUserAbout($about){
+        global $db;
+
+        $query = $db->prepare("UPDATE user SET about = :about WHERE id = :id;");
+        $query->bindValue(":about", $about, PDO::PARAM_STR);
+        $query->bindValue(":id", $_SESSION['id'], PDO::PARAM_INT);
+        $query->execute();
+    }
+
+    function setUserShowMail($bool){
+        global $db;
+
+        $query = $db->prepare("UPDATE user SET emailShown = :bool WHERE id = :id;");
+        $query->bindValue(":bool", $bool, PDO::PARAM_BOOL);
+        $query->bindValue(":id", $_SESSION['id'], PDO::PARAM_INT);
+        $query->execute();
+    }
 	
 	function set_ambience_details($details_array, $amb_id){
         global $db;
@@ -459,7 +550,7 @@
                     $query->bindValue(':locName', $updateArray['locName'], PDO::PARAM_STR);
                     $query->bindValue(':locLand', $updateArray['locLand'], PDO::PARAM_STR);
                     $query->bindValue(':cc', $updateArray['countryCode'], PDO::PARAM_STR);
-                    $query2->bindValue(':continent', $continent, PDO::PARAM_STR);
+                    $query->bindValue(':continent', $continent, PDO::PARAM_STR);
                     $query->bindValue(':locLat', $updateArray['locLat']);
                     $query->bindValue(':locLng', $updateArray['locLng']);
                     $query->execute();

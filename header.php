@@ -31,7 +31,7 @@
 </div>
 
 <div id="UserMenu">
-    <a href="">Profil</a><br />
+    <a href="user.php?id=<?php echo $_SESSION['id']?>">Profil</a><br />
     <form method="POST" action="php/logout.php"><input type="submit" name="logout" value="Logout" /></form>
 
 </div>

@@ -263,6 +263,18 @@
 		
 		return $result;
 	}
+
+    function get_ambience_by_user($userID){
+        global $db;
+
+        $query = $db->prepare("SELECT * FROM ambience WHERE user_id = :user_id");
+        $query->bindValue(':user_id', $userID, PDO::PARAM_INT);
+        $query->execute();
+
+        $result = $query->fetchAll();
+
+        return $result;
+    }
 	
 	function getUser_by_ID ($id){
         global $db;

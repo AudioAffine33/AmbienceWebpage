@@ -7,6 +7,15 @@
 <link rel="stylesheet" href="css/foundation.css" />
 <link rel="stylesheet" href="css/Haupseite.css" type="text/css" />
 <script src="js/vendor/modernizr.js"></script>
+<?php
+    include('php/include.php');
+    if (isset($_GET['id']) and is_numeric($_GET['id'])){
+        $user = getUser_by_ID($_GET['id']);
+
+    } else {
+        header("Location: overview.php");
+    }
+?>
 </head>
 
 <body>
@@ -14,9 +23,9 @@
   	<?php include("header.php"); ?>
 
 	<div id="Benutzerprofil">
-    	<h1>Benutzerhorst<h1>
+    	<h1><?php echo htmlentities($user['name']); ?><h1>
 		<div id="Benutzerbild"><img src="media/Design_Vorlagen/Userseite/Userbild.png" /></div>
-		<div id="Benutzerdetails"></div>
+		<div id="Benutzerdetails"><?php echo htmlentities($user['about']); ?></div>
 
 	</div>
     <div id="Uploadanzeige">
@@ -29,7 +38,8 @@
         </div>
         
         <div id="UploadARechts">
-        	<div id="AmbiencesUserAnzeige">	
+        	<div id="AmbiencesUserAnzeige">
+
        		</div>
             <div id="NavigationUploads"></div>
     	</div>

@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="css/foundation.css" />
 <link rel="stylesheet" href="css/Haupseite.css" type="text/css" />
 <script src="js/vendor/modernizr.js"></script>
+    <?php
+    include('php/include.php');
+    ?>
 </head>
 <div id="Content">
   	<?php include("header.php"); ?>

@@ -90,7 +90,7 @@
             <table>
                 <?php if(isset($_SESSION['id']) && $user['id'] == $_SESSION['id']){ ?>
                 <tr>
-                    <td>E-Mail:</td>
+                    <td class="Datenname">E-Mail:</td>
                     <td>
                         <div id="mail">
                             <?php echo htmlentities($user['email']); ?>
@@ -101,7 +101,7 @@
                 <?php }
                 elseif($user['emailShown']){ ?>
                     <tr>
-                        <td>E-Mail:</td>
+                        <td class="Datenname">E-Mail:</td>
                         <td>
                             <div id="mail">
                                 <a href="mailto:<?php echo htmlentities($user['email']); ?>"><?php echo htmlentities($user['email']); ?></a>
@@ -111,7 +111,7 @@
                 <?php } ?>
                 </tr>
                 <tr>
-                    <td>Über mich:</td>
+                    <td class="Datenname">Über mich:</td>
                     <td>
                         <div id="about">
                             <?php echo htmlentities($user['about']); ?>

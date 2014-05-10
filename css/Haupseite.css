@@ -468,10 +468,18 @@ body{
 	}
 #Benutzerdetails{
 	margin-left:1%;
-	width:500px;
+	width:600px;
 	height:220px;
 	float:left;
 	overflow:scroll;
+	}
+.Datenname{
+	width:50px;
+	
+	}
+#Benutzerdetails table tr td{
+	padding:2%;
+	
 	}
 #Uploadanzeige{
 	clear:both;

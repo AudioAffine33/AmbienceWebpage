@@ -378,6 +378,10 @@ body{
 	margin-left:10%;
 	width:500px;
 	}
+#fileinfos table tr td{
+	padding-left:4%;
+	
+	}
 #DownloadButton{
 	float:left;
 	width:170px;

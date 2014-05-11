@@ -17,9 +17,13 @@
 
     if (isset($_FILES['pic'])){
         $amb_id_act = $_POST['amb_id'];
-        try {
-            setPic($_FILES['pic'], $_POST['amb_id']);
-            $errorPic = false;
+        if ($_FILES['pic'] != ""){
+            try {
+                setPic($_FILES['pic'], $_POST['amb_id']);
+                $errorPic = false;
+            } catch (Exception $e){
+                $errorPic = true;
+            }
 
             $_POST['locLat'] = round($_POST['locLat'], 14);
             $_POST['locLng'] = round($_POST['locLng'], 14);
@@ -27,11 +31,10 @@
             if (check_detail_input($_POST)){
                 set_ambience_details($_POST, $_POST['amb_id']);
             }
-            header('Location: overview.php');
-            exit;
-        } catch (Exception $e){
-            $errorPic = true;
         }
+        header('Location: overview.php');
+        exit;
+
     }
     ?>
 <script type="text/javascript" src="js/googleMapsUpload.js"></script>

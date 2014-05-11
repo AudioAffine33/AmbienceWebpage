@@ -43,7 +43,7 @@
                		}
            		}
          	}	
-        	return 'Unknown';
+        	return '';
 		}
 		
 		function getLocality(component){
@@ -54,12 +54,12 @@
              	address = geocoderAddressComponent["long_name"];
              	addressComponentTypes = geocoderAddressComponent["types"];
              	for (var k = 0; k < addressComponentTypes.length; k++) {
-					  if (addressComponentTypes[k] == 'locality' || addressComponentTypes[k] == 'sublocality' || addressComponentTypes[k] == 'administrative_area_level_2' || addressComponentTypes[k] == 'administrative_area_level_1') {
+					  if (addressComponentTypes[k] == 'locality' || addressComponentTypes[k] == 'sublocality' || addressComponentTypes[k] == 'administrative_area_level_2' || addressComponentTypes[k] == 'administrative_area_level_1' || addressComponentTypes[k] == 'postal_code' || addressComponentTypes[k] == 'country') {
                 		return address;
                		}
            		}
          	}	
-        	return 'Unknown';
+        	return '';
 		}
 
         function getCountryCode(component){
@@ -74,5 +74,5 @@
                     }
                 }
             }
-            return 'Unknown';
+            return '';
         }

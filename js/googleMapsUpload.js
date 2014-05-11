@@ -6,8 +6,8 @@
 				new google.maps.LatLng(85, -180),           // top left corner of map
 				new google.maps.LatLng(-85, 180)            // bottom right corner
 			);
-			autocomplete.setBounds(strictBounds);
-			autocomplete.setTypes(['(cities)']);
+			//autocomplete.setBounds(strictBounds);
+			autocomplete.setTypes(['(regions)']);
 			var infowindow = new google.maps.InfoWindow();
 			
 			var service = new google.maps.places.PlacesService(input);
@@ -48,12 +48,13 @@
 		
 		function getLocality(component){
 			var geocoderAddressComponent,addressComponentTypes,address;
+            console.log(component);
          	for (var i = 0; i < component.length; i++) {
 				geocoderAddressComponent = component[i];
              	address = geocoderAddressComponent["long_name"];
              	addressComponentTypes = geocoderAddressComponent["types"];
              	for (var k = 0; k < addressComponentTypes.length; k++) {
-					  if (addressComponentTypes[k] == 'locality') {
+					  if (addressComponentTypes[k] == 'locality' || addressComponentTypes[k] == 'sublocality' || addressComponentTypes[k] == 'administrative_area_level_2' || addressComponentTypes[k] == 'administrative_area_level_1') {
                 		return address;
                		}
            		}

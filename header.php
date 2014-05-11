@@ -31,12 +31,8 @@
 </div>
 
 <div id="UserMenu">
-<<<<<<< HEAD
     <div id="ProfilButton"><a href=""><img src="media/Design_Vorlagen/Hauptseite/05_header_profil.png" /></a></div>
     <div id="LogoutHeader"><form method="POST" action="php/logout.php"><input type="submit" name="logout" value="Logout" /></form></div>
-=======
->>>>>>> FETCH_HEAD
-
 </div>
 
 <div id="ObereNavigation">
@@ -45,7 +41,7 @@
     <div class="ButtonNavigationNU"><a href="">|FAQ</a></div>
     <div class="ButtonNavigationNU"><a href="">|Kontakt</a></div>
     <?php if (isset($_SESSION['name'])){ ?>
-        <div class="ButtonNavigationU"><a href="Upload_Datei.php">|Upload</a></div>
+        <div class="ButtonNavigationU"><a href="uploadData.php">|Upload</a></div>
         <div class="ButtonNavigationU"><a href="user.php?id=<?php echo $_SESSION['id']?>" >|Userseite</a></div>
     <?php } ?>
 </div>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 10. Mai 2014 um 20:10
+-- Erstellungszeit: 11. Mai 2014 um 11:57
 -- Server Version: 5.6.16
 -- PHP-Version: 5.5.9
 
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `ambience` (
   `originator` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `filename` (`filename`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=61 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=82 ;
 
 --
 -- Daten für Tabelle `ambience`
@@ -58,7 +58,8 @@ INSERT INTO `ambience` (`id`, `format_id`, `filename`, `size`, `length`, `name`,
 (17, 37, '17_country_ambience_06_country__ambience_co.wav', 6770716, 69, 'Country Ambience', 4, 55, '2005-05-02', '01:00:00', 'COUNTRY, AMBIENCE COUNTRY: BIRDS, COWS, ROOSTER, TRACTOR IN B/G', 2, '17_country_ambience_06_country__ambience_co.jpg', NULL, '2014-04-22', 'NetMixPro'),
 (19, 36, '19_park_city_03_park__city_city_rumble__fou.wav', 49044920, 242, 'PARK CITY', 4, 50, '2005-05-03', '01:00:00', 'PARK, CITY CITY RUMBLE, FOUNTAIN, PEDESTRIANS AMBIENCE', 1, '19_park_city_03_park__city_city_rumble__fou.jpg', NULL, '2014-04-22', 'NetMixPro'),
 (20, 36, '20_mountain_day_11_mountain__day_wind_throu.wav', 48144882, 245, 'Mountain Day', 4, 51, '2005-05-03', '01:00:00', 'MOUNTAIN, DAY WIND THROUGH TREES, BIRD CHIRPS AND CAWS AMBIENCE', 1, '20_mountain_day_11_mountain__day_wind_throu.jpg', NULL, '2014-04-22', 'NetMixPro'),
-(60, 36, '60_city_medium_06_city__medium_traffic_and_.wav', 49466226, 244, 'Walk Of Fame', 4, 61, '2005-05-02', '12:00:00', 'CITY, MEDIUM TRAFFIC AND PEDESTRIANS, CITY RUMBLE AMBIENCE', 1, '60_city_medium_06_city__medium_traffic_and_.jpg', NULL, '2014-04-22', 'NetMixPro');
+(60, 36, '60_city_medium_06_city__medium_traffic_and_.wav', 49466226, 244, 'Walk Of Fame', 4, 61, '2005-05-02', '12:00:00', 'CITY, MEDIUM TRAFFIC AND PEDESTRIANS, CITY RUMBLE AMBIENCE', 1, '60_city_medium_06_city__medium_traffic_and_.jpg', NULL, '2014-04-22', 'NetMixPro'),
+(81, 36, '81_city_heavy_17_city__heavy_traffic_and_ci.wav', 46492132, 242, 'City Heavy 17 CITY, HEAVY TRAFFIC AND CITY RUMBLE ', 3, 68, '2005-05-02', '01:00:00', 'CITY, HEAVY TRAFFIC AND CITY RUMBLE FROM BALCONY AMBIENCE', 1, '81_city_heavy_17_city__heavy_traffic_and_ci.jpg', NULL, '2014-05-11', 'NetMixPro');
 
 -- --------------------------------------------------------
 
@@ -71,13 +72,14 @@ CREATE TABLE IF NOT EXISTS `category` (
   `name` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Daten für Tabelle `category`
 --
 
 INSERT INTO `category` (`id`, `name`) VALUES
+(0, ''),
 (1, 'City'),
 (3, 'Forrest'),
 (5, 'Office'),
@@ -143,13 +145,14 @@ CREATE TABLE IF NOT EXISTS `location` (
   `longitude` decimal(18,14) NOT NULL,
   `countrycode` varchar(5) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=62 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=69 ;
 
 --
 -- Daten für Tabelle `location`
 --
 
 INSERT INTO `location` (`id`, `continent`, `name`, `land`, `latitude`, `longitude`, `countrycode`) VALUES
+(1, '', '', '', '0.00000000000000', '0.00000000000000', ''),
 (50, 'Europe', 'Marseille', 'Frankreich', '43.29648200000000', '5.36978000000000', 'FR'),
 (51, 'North America', 'Dallas', 'USA', '32.78013990000000', '-96.80045110000000', 'US'),
 (52, 'Europe', 'Amberg', 'Deutschland', '49.44031980000000', '11.86334450000000', 'DE'),
@@ -158,7 +161,9 @@ INSERT INTO `location` (`id`, `continent`, `name`, `land`, `latitude`, `longitud
 (55, 'Europe', 'Gambais', 'Frankreich', '48.77384300000000', '1.67579700000000', 'FR'),
 (56, 'Europe', 'Nürnberg', 'Deutschland', '49.45203000000000', '11.07675000000000', 'DE'),
 (57, 'North America', 'Dallas', 'USA', '32.78013990000000', '-96.80045110000000', 'US'),
-(61, 'Europe', 'Brüssel', 'Belgien', '50.85033960000000', '4.35171030000000', 'BE');
+(61, 'Europe', 'Brüssel', 'Belgien', '50.85033960000000', '4.35171030000000', 'BE'),
+(67, 'Asia', 'Unknown', 'Japan', '35.68948750000000', '139.69170640000000', 'JP'),
+(68, 'Asia', 'Tokio', 'Japan', '35.68948750000000', '139.69170640000000', 'JP');
 
 -- --------------------------------------------------------
 
@@ -209,7 +214,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `emailShown` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Daten für Tabelle `user`

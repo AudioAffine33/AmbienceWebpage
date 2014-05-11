@@ -62,7 +62,7 @@
 		} else {
 			$query->bindValue(':time', NULL, PDO::PARAM_NULL);
 		}
-		
+
 		//Originator
 		if (isset($infoArray['orig'])){
 			$query->bindValue(':orig', $infoArray['orig'], PDO::PARAM_STR);
@@ -71,6 +71,16 @@
 		}
 		
 		$query->execute();
+
+        //Loc-Dummy
+        $query = $db->prepare("UPDATE ambience SET location_id=1 WHERE id=:id;");
+        $query->bindValue(':id', $amb_id, PDO::PARAM_INT);
+        $query->execute();
+
+        //Cat-Dummy
+        $query = $db->prepare("UPDATE ambience SET category_id=0 WHERE id=:id;");
+        $query->bindValue(':id', $amb_id, PDO::PARAM_INT);
+        $query->execute();
 
 		$filename_neu = $amb_id."_".$filename_neu;
 		$query = $db->prepare("UPDATE ambience SET filename=:filename_neu WHERE id=:id;");
@@ -195,7 +205,9 @@
 		$query = $db->query("SELECT * FROM category;");		
 		$query->execute();		
 		while($row = $query->fetch()){
-			$ret[$row['id']] = $row['name'];
+            if ($row['name'] != ""){
+			    $ret[$row['id']] = $row['name'];
+            }
 		}
 		
 		return $ret;
@@ -1047,11 +1059,13 @@ function setUserPic ($file, $user_id){
 
         $index=0;
         while($row = $query->fetch()){
+            if ($row['countrycode'] !=""){
             $continentCode = $COUNTRY_CONTINENTS[$row['countrycode']];
             $continentGerman = $CONTINENTS_GERMAN[$continentCode];
             $ret[$index]['code'] = $continentCode;
             $ret[$index]['german'] = $continentGerman;
             $index ++;
+            }
         }
 
         return $ret;

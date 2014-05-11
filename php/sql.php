@@ -381,6 +381,43 @@
 
         return $result;
     }
+
+    function get_rating($user, $ambience){
+        global $db;
+
+        $query = $db->prepare("SELECT * FROM rating WHERE user_id =:user_id AND ambience_id = :amb_id;");
+        $query->bindValue(':user_id', $user['id'], PDO::PARAM_INT);
+        $query->bindValue(':amb_id', $ambience['id'], PDO::PARAM_INT);
+        $query->execute();
+
+        $result = $query->fetch();;
+
+        return $result['rating'];
+    }
+
+    function getAverageRating($ambience){
+        global $db;
+
+        $query = $db->prepare("SELECT AVG(rating) AS 'average' FROM rating WHERE ambience_id = :amb_id;");
+        $query->bindValue(':amb_id', $ambience['id'], PDO::PARAM_INT);
+        $query->execute();
+
+        $result = $query->fetch();;
+
+        return $result['average'];
+    }
+
+    function getAverageUserRating($user){
+        global $db;
+
+        $query = $db->prepare("SELECT AVG(rating.rating) AS 'average' FROM rating JOIN ambience ON rating.ambience_id = ambience.id WHERE ambience.user_id=:user_id;");
+        $query->bindValue(':user_id', $user['id'], PDO::PARAM_INT);
+        $query->execute();
+
+        $result = $query->fetch();;
+
+        return $result['average'];
+    }
 	
 	function setPic ($file, $amb_id){
     global $db;
@@ -600,6 +637,24 @@ function setUserPic ($file, $user_id){
             $query->execute();
         }
 	}
+
+    function rate($user, $amb, $rating){
+        global $db;
+
+        if(get_rating($user, $amb) != "" && get_rating($user, $amb) != NULL){
+            $query = $db->prepare("UPDATE rating SET rating=:rating WHERE user_id=:user_id AND ambience_id = :amb_id;");
+            $query->bindValue(":rating", $rating, PDO::PARAM_INT);
+            $query->bindValue(":user_id", $user['id'], PDO::PARAM_INT);
+            $query->bindValue(":amb_id", $amb['id'], PDO::PARAM_INT);
+            $query->execute();
+        } else {
+            $query = $db->prepare("INSERT INTO rating (user_id, ambience_id, rating) VALUES (:user_id, :amb_id, :rating);");
+            $query->bindValue(":rating", $rating, PDO::PARAM_INT);
+            $query->bindValue(":user_id", $user['id'], PDO::PARAM_INT);
+            $query->bindValue(":amb_id", $amb['id'], PDO::PARAM_INT);
+            $query->execute();
+        }
+    }
 	
 	//check Inputs
 	function check_detail_Input($detail_array){

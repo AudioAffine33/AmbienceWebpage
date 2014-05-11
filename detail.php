@@ -29,13 +29,18 @@
             $loc = getLocation_by_ID($amb['location_id']);
             $cat = get_category_by_ID($amb['category_id']);
             $user = get_user_by_ID($amb['user_id']);
+
             header('title: '.htmlentities($amb['name']).'');
         } else {
             header('Location: overview.php');
             exit;
         }
 
+        if(isset($_POST['rate'])){
+            rate(get_user_by_ID($_SESSION['id']), $amb, $_POST['rate']);
+        }
 
+        $rating = get_rating(get_user_by_ID($_SESSION['id']), $amb);
     ?>
 <script type="text/javascript">
     $(document).ready(function() {
@@ -97,7 +102,34 @@
     		<h1><?php echo htmlentities($amb['name']); ?></h1>
             (<?php echo date("d.m.y", strtotime(htmlentities($amb['date_added']))); ?>)<br />
 
+            <div id="rating">
+                <?php
+                for($i = 0; $i < $rating; $i++){
+                ?>
+                    <form class="rateBut" method="POST">
+                        <input type="hidden" name="rate" value="<?php echo $i+1; ?>">
+                        <img onclick="$(this).closest('form').submit()" src="media/Design_Vorlagen/Detailansicht/bewertung_gruen_true.png" />
+                    </form>
+                <?php
+                }
+                if ($rating < 5){
+                    for ($i = 0; $i < 5-$rating; $i++){
+                        ?>
+                        <form class="rateBut" method="POST">
+                            <input type="hidden" name="rate" value="<?php echo $rating+$i+1; ?>">
+                            <img onclick="$(this).closest('form').submit()" src="media/Design_Vorlagen/Detailansicht/bewertung_khaki_false.png" />
+                        </form>
+                <?php
+                    }
+                }
+                ?>
+            </div>
+
             <table>
+                <tr>
+                    <td>Durchschnittsbewertung:</td>
+                    <td><?php echo round(getAverageRating($amb), 2); ?></td>
+                </tr>
                 <tr>
                     <td>Dauer:</td>
                     <td><?php echo gmdate("i:s", htmlentities($amb['length'])); ?> Min</td>

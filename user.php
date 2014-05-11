@@ -146,8 +146,14 @@
             <div id="GoogleMaps"><div id="map-canvas"></div></div>
 
     		<div id="Uploaddetails">
-                Uploads:<br />
-                <?php echo get_numElements_by_user($_GET); ?>
+                <div id="countUploads">
+                    Uploads:<br />
+                    <?php echo get_numElements_by_user($_GET); ?>
+                </div>
+                <div id="avgRating">
+                    Durchschnittliche Bewertung:<br />
+                    <?php echo getAverageUserRating($user); ?>
+                </div>
     		</div>
     	
         </div>

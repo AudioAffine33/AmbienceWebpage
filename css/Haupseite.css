@@ -399,6 +399,13 @@ body{
 	padding:1%;
 	
 	}
+
+.rateBut {
+    width: 17px;
+    margin: 0%;
+    display:inline;
+}
+
 #AmbiencePlayer{
 
 	clear:both;

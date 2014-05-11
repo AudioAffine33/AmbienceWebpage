@@ -80,6 +80,14 @@
 		delete_ambience_fromDB($id);
 		delete_ambience_from_Server($infoArray);
 	}
+
+    function delete_user_fromDBandServer($id){
+        $infoArray = get_user_by_ID($id);
+
+        unlink(getRoot()."\\media\\pics_user\\".$infoArray['picture']);
+
+        deleteUserFromDB($id);
+    }
 	
 	//Pfadvariablen
 	function getRoot(){

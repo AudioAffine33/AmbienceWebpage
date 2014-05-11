@@ -15,7 +15,7 @@
     }
 
     if (isset($_GET['id']) and is_numeric($_GET['id'])){
-        $user = getUser_by_ID($_GET['id']);
+        $user = get_user_by_ID($_GET['id']);
         $ambArray = get_ambience_by_user($_GET);
         $allLocs = array();
         $index = 0;
@@ -133,6 +133,9 @@
                 <a onclick="$(this).closest('form').submit()">E-Mail-Addresse anzeigen</a>
                 <?php if($user['emailShown']){ echo "X";} ?>
             </form>
+        </div>
+        <div id="deleteUserBut">
+            <td><a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=del" target="_blank" title="Account wirklich löschen?">Account löschen</a></td>
         </div>
         <?php } ?>
 	</div>

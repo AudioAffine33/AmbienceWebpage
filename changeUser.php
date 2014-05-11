@@ -11,7 +11,7 @@
     $errorReg = array();
     $exceptionPic;
 
-    $user = getUser_by_ID($_SESSION['id']);
+    $user = get_user_by_ID($_SESSION['id']);
 
     if (isset($_FILES['pic'])){
         try {
@@ -60,6 +60,20 @@
             <script type="text/javascript">
                 parent.$.fancybox.close();
                 parent.location.reload(true);
+            </script>
+        <?php
+        }
+    }
+
+    if (isset($_POST['passDel'])){
+        $errorReg = array();
+        $errorReg = checkPW($_POST['passDel']);
+        if (!isset($errorReg['pass'])){
+            deleteUserFromDB($_SESSION['id']);
+            ?>
+            <script type="text/javascript">
+                parent.$.fancybox.close();
+                parent.window.location.href = "php/logout.php";
             </script>
         <?php
         }
@@ -139,6 +153,23 @@
                 </tr>
                 <tr>
                     <td><input id="submitButton" type="submit" value="Ändern" /></td>
+                    <td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>
+                </tr>
+            </table>
+        </form>
+    <?php } ?>
+    <?php if($_GET['ch']=="del"){ ?>
+        <h1>Account löschen</h1>
+        <form method="POST">
+            Bitte gib dein Passwort ein, um das Löschen des Accounts zu bestätigen.
+            <table>
+                <tr>
+                    <td class="eingabe">Passwort:</td>
+                    <td><input type="password" name="passDel"<?php if(isset($errorReg['pass'])){ ?> style='background-color:#F00'<?php } ?> /></td>
+                    <td><?php if(isset($errorReg['pass'])){ echo $errorReg['pass']; } ?></td>
+                </tr>
+                <tr>
+                    <td><input id="submitButton" type="submit" value="Löschen" /></td>
                     <td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>
                 </tr>
             </table>

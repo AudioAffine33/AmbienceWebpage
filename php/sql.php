@@ -170,6 +170,25 @@
 
         return $error;
     }
+
+    function checkPW ($pw){
+        global $db;
+
+        $error=array();
+
+        $query = $db->prepare("SELECT * FROM user WHERE id=:id;");
+        $query->bindValue(':id', $_SESSION['id'], PDO::PARAM_STR);
+        $query->execute();
+
+        $result = $query->fetch();
+
+
+        if (md5($pw) != $result['pass']){
+            $error['pass'] = "Passwort ist nicht korrekt<br /> ";
+        }
+
+        return $error;
+    }
 	
 	function login($loginArray){
         global $db;
@@ -325,18 +344,6 @@
 
         return $result;
     }
-	
-	function getUser_by_ID ($id){
-        global $db;
-
-        $query = $db->prepare("SELECT * FROM user WHERE id =:id;");
-        $query->bindValue(':id', $id, PDO::PARAM_INT);
-        $query->execute();
-		
-		$result = $query->fetch();;
-		
-		return $result;
-	}
 	
 	function getFormat_by_ID ($id){
         global $db;
@@ -625,6 +632,30 @@ function setUserPic ($file, $user_id){
         $query->bindValue(":id", $id, PDO::PARAM_INT);
         $query->execute();
 	}
+
+    function deleteUserFromDB($id){
+        global $db;
+
+        $query = $db->prepare("DELETE FROM user WHERE id =:id;");
+        $query->bindValue(":id", $id, PDO::PARAM_INT);
+        $query->execute();
+
+        $query = $db->prepare("DELETE FROM rating WHERE user_id =:id;");
+        $query->bindValue(":id", $id, PDO::PARAM_INT);
+        $query->execute();
+
+        $query = $db->prepare("DELETE FROM comment WHERE user_id =:id;");
+        $query->bindValue(":id", $id, PDO::PARAM_INT);
+        $query->execute();
+
+        $query = $db->prepare("DELETE FROM report WHERE gemeldet_user_id =:id;");
+        $query->bindValue(":id", $id, PDO::PARAM_INT);
+        $query->execute();
+
+        $query = $db->prepare("DELETE FROM report WHERE melder_id =:id;");
+        $query->bindValue(":id", $id, PDO::PARAM_INT);
+        $query->execute();
+    }
 	
 	function createSearch ($array){
         global $db;

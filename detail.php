@@ -157,7 +157,13 @@
                 </tr>
                 <tr>
                     <td>Ort:</td>
-                    <td><?php echo htmlentities($loc['name']); ?>, <?php echo htmlentities($loc['land']); ?></td>
+                    <td>
+                        <?php
+                        if ($loc['name'] != "dummy"){
+                            echo htmlentities($loc['name']); ?>, <?php echo htmlentities($loc['land']);
+                        }
+                        ?>
+                    </td>
                     <?php if(isset($_SESSION['id']) && ($amb['user_id'] == $_SESSION['id'] || $_SESSION['rights'] == 'admin' )){ ?>
                         <td><a id="changeAmbFrame" data-fancybox-type="iframe" href="changeAmb.php?ch=loc&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Ort">Ändern</a></td>
                     <?php } ?>

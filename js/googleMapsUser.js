@@ -10,13 +10,14 @@ function initialize() {
         mapOptions);
 
     for (var i = 0; i<locs.length; i++){
-        var Latlng = new google.maps.LatLng(locs[i]['location']['latitude'],locs[i]['location']['longitude']);
-
-        var marker = new google.maps.Marker({
-            position: Latlng,
-            map: map,
-            title: locs[i]['ambience']['name']
-        });
+        if (locs[i]['ambience']['name'] != "dummy"){
+            var Latlng = new google.maps.LatLng(locs[i]['location']['latitude'],locs[i]['location']['longitude']);
+            var marker = new google.maps.Marker({
+                position: Latlng,
+                map: map,
+                title: locs[i]['ambience']['name']
+            });
+        }
     }
 }
 

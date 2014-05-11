@@ -17,9 +17,10 @@
     if (isset($_GET['id']) and is_numeric($_GET['id'])){
         $user = get_user_by_ID($_GET['id']);
         $ambArray = get_ambience_by_user($_GET);
+        $ambArrayForLocs = get_ambience_by_user_noLim($_GET);
         $allLocs = array();
         $index = 0;
-            foreach($ambArray as $amb){
+            foreach($ambArrayForLocs as $amb){
                 $locationArray = getLocation_by_ID($amb['location_id']);
                 $allLocs[$index]['location'] = $locationArray;
                 $allLocs[$index]['ambience'] = $amb;
@@ -99,7 +100,7 @@
                     <td><a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=mail" target="_blank" title="E-Mail">Ändern</a></td>
                 <tr>
                 <?php }
-                elseif($user['emailShown'] || $_SESSION['rights'] == 'admin'){ ?>
+                elseif($user['emailShown'] || (isset($_SESSION['rights']) && $_SESSION['rights'] == 'admin')){ ?>
                     <tr>
                         <td class="Datenname">E-Mail:</td>
                         <td>

@@ -345,6 +345,28 @@
 
         return $result;
     }
+
+    function get_ambience_by_user_noLim($array){
+            global $db;
+
+            $limit = 5;
+            if (isset($array['page'])){
+                $page = $array['page'];
+                $start = ($limit*($page-1));
+            } else {
+                $start = 0;
+            }
+
+            $string = "SELECT * FROM ambience WHERE user_id = :user_id ORDER BY date_added DESC";
+
+            $query = $db->prepare($string);
+            $query->bindValue(':user_id', $array['id'], PDO::PARAM_INT);
+            $query->execute();
+
+            $result = $query->fetchAll();
+
+            return $result;
+        }
 	
 	function getFormat_by_ID ($id){
         global $db;

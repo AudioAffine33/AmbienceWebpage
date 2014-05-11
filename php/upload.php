@@ -75,8 +75,10 @@
 	//Delete Ambience
 	function delete_ambience_from_Server($fileArray){
 		unlink(getRoot()."\\media\\audio\\".$fileArray['filename']);
-		unlink(getRoot()."\\media\\pics_ambiences\\".$fileArray['picture']);
-		unlink(getRoot()."\\media\\pics_ambiences\\thumb\\".$fileArray['picture']);
+        if ($fileArray['picture'] != ""){
+            unlink(getRoot()."\\media\\pics_ambiences\\".$fileArray['picture']);
+            unlink(getRoot()."\\media\\pics_ambiences\\thumb\\".$fileArray['picture']);
+        }
 	}
 	
 	function img_createThumb($uploadfile){

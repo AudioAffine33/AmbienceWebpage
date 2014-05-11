@@ -37,6 +37,25 @@
 
 
     ?>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#changeAmbFrame").fancybox({
+            'type' : 'iframe',
+            'titlePosition' : 'over',
+            'padding' : 0,
+            'margin' : 0,
+            'width' : 500,
+            'height': 300,
+            'scrolling' : 'no',
+            'fitToView' : false,
+            'autoSize' : false,
+            'closeBtn' : false
+        });
+        $(".fancybox-iframe").attr('scrolling', 'no');
+        $(".fancybox-iframe").attr("src", $(".fancybox-iframe").attr("src"));
+    });
+</script>
+
 </head>
 
 <body>
@@ -67,7 +86,10 @@
     
     
 
-        <img src="media/pics_ambiences/<?php echo $amb['picture']; ?>" id="AmbienceBildGroß"></img>
+        <img src="media/pics_ambiences/<?php echo $amb['picture']; ?>" id="AmbienceBildGroß" />
+        <?php if(isset($_SESSION['id']) && ($amb['user_id'] == $_SESSION['id'] || $_SESSION['rights'] == 'admin' )){ ?>
+            <td><a id="changeAmbFrame" data-fancybox-type="iframe" href="changeAmb.php?ch=pic&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Bild">Bild ändern</a></td>
+        <?php } ?>
 
   	
     
@@ -83,20 +105,38 @@
                 <tr>
                     <td>Aufgenommen:</td>
                     <td><b><?php echo date("d.m.y", strtotime(htmlentities($amb['date']))); ?></b> um <b><?php echo date("H:i", strtotime(htmlentities($amb['time']))); ?></b> Uhr</td>
+                    <?php if(isset($_SESSION['id']) && ($amb['user_id'] == $_SESSION['id'] || $_SESSION['rights'] == 'admin' )){ ?>
+                        <td><a id="changeAmbFrame" data-fancybox-type="iframe" href="changeAmb.php?ch=datetime&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Datum/Uhrzeit">Ändern</a></td>
+                    <?php } ?>
                 </tr>
                 <tr>
                     <td>Kategorie:</td>
                     <td><?php echo htmlentities($cat['name']); ?></td>
+                    <?php if(isset($_SESSION['id']) && ($amb['user_id'] == $_SESSION['id'] || $_SESSION['rights'] == 'admin' )){ ?>
+                        <td><a id="changeAmbFrame" data-fancybox-type="iframe" href="changeAmb.php?ch=cat&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Kategorie">Ändern</a></td>
+                    <?php } ?>
                 </tr>
                 <tr>
                     <td>Beschreibung:</td>
                     <td><?php echo htmlentities($amb['description']); ?></td>
+                    <?php if(isset($_SESSION['id']) && ($amb['user_id'] == $_SESSION['id'] || $_SESSION['rights'] == 'admin' )){ ?>
+                        <td><a id="changeAmbFrame" data-fancybox-type="iframe" href="changeAmb.php?ch=descr&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Beschreibung">Ändern</a></td>
+                    <?php } ?>
                 </tr>
                 <tr>
                     <td>Ort:</td>
                     <td><?php echo htmlentities($loc['name']); ?>, <?php echo htmlentities($loc['land']); ?></td>
+                    <?php if(isset($_SESSION['id']) && ($amb['user_id'] == $_SESSION['id'] || $_SESSION['rights'] == 'admin' )){ ?>
+                        <td><a id="changeAmbFrame" data-fancybox-type="iframe" href="changeAmb.php?ch=loc&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Ort">Ändern</a></td>
+                    <?php } ?>
                 </tr>
             </table>
+    </div>
+
+    <div id="delAmbBut">
+        <?php if(isset($_SESSION['id']) && ($amb['user_id'] == $_SESSION['id'] || $_SESSION['rights'] == 'admin' )){ ?>
+            <td><a id="changeAmbFrame" data-fancybox-type="iframe" href="changeAmb.php?ch=del&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Ambience wirklich löschen?">Ambience löschen</a></td>
+        <?php } ?>
     </div>
 	
     <div id="AmbiencePlayer">

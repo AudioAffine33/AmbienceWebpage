@@ -99,7 +99,7 @@
                     <td><a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=mail" target="_blank" title="E-Mail">Ändern</a></td>
                 <tr>
                 <?php }
-                elseif($user['emailShown']){ ?>
+                elseif($user['emailShown'] || $_SESSION['rights'] == 'admin'){ ?>
                     <tr>
                         <td class="Datenname">E-Mail:</td>
                         <td>

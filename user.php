@@ -152,7 +152,7 @@
                 </div>
                 <div id="avgRating">
                     Durchschnittliche Bewertung:<br />
-                    <?php echo getAverageUserRating($user); ?>
+                    <?php echo round(getAverageUserRating($user), 2); ?>
                 </div>
     		</div>
     	

@@ -218,8 +218,19 @@
         
        			<h1>Login</h1> 
    				<form method="POST">
-                	<input type="text" name="loginName" <?php if(isset($errorLog['name'])){ ?> style="background-color:#F00" <?php } ?>/>
+                	<input id="logName" type="text" name="loginName" <?php if(isset($errorLog['name'])){ ?> style="background-color:#F00" <?php } ?> value="<?php if(isset($_POST['loginName']) && isset($errorLog['pass'])){ echo $_POST['loginName'];} ?>"/>
                     <input type="password" name="loginPass" <?php if(isset($errorLog['pass'])){ ?> style="background-color:#F00" <?php } ?>/>
+                    <?php
+                        if (isset($errorLog['name'])){
+                            ?><div id="error"><?php
+                            echo $errorLog['name'];
+                            ?></div><?php
+                        } elseif (isset($errorLog['pass'])){
+                            ?><div id="error"><?php
+                            echo $errorLog['pass'];
+                            ?></div><?php
+                        }
+                    ?>
                    <br /><div id="LoginBut"><input type="submit" value="Einloggen"/></div><br />
                 </form>
               	 <div id="Reg"><a id="regFrame" data-fancybox-type="iframe" href="register.php" target="_blank" title="Registrieren"><img src="media/Design_Vorlagen/Startseite/01b_startseite_registrieren.png" /></a> </div>

@@ -55,6 +55,15 @@
 
     if (isset($_POST['loginName'])){
         $errorLog = login($_POST);
+        if(!$errorLog['correct']){
+            ?>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $("#LoginMenu").css("display", "block");
+                });
+            </script>
+            <?php
+        }
     }
 	
 	//Audio auf Server laden und in DB eintragen

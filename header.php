@@ -7,7 +7,17 @@
                 <a onclick="displayLoginMenu()"><img src="media/Design_Vorlagen/Hauptseite/02c_entdecke_login.png" /></a>
             <?php
             } else {
-                echo "<a onclick='displayUserMenu()'>".$_SESSION['name']."</a>";
+                echo "<a onclick='displayUserMenu()'>";
+                if(isset(get_user_by_ID($_SESSION['id'])['picture']) && get_user_by_ID($_SESSION['id'])['picture'] != ""){
+                ?>
+                        <img src="media/pics_user/<?php echo get_user_by_ID($_SESSION['id'])['picture']; ?>" width="30px" height="30px" />
+                <?php
+                }else {
+                    ?>
+                    <img src="media/Design_Vorlagen/Userseite/standardUser.jpg" width="30px" height="30px" />
+                <?php
+                }
+                echo $_SESSION['name']."</a>";
             }
             ?>
         </a> </div>
@@ -19,10 +29,10 @@
     <form method="POST">
         <table>
             <tr>
-                <td>Login:</td> <td><input id="logName" type="text" class="loginText" name="loginName" /></td>
+                <td>Login:</td> <td><input id="logName" type="text" class="loginText" name="loginName" <?php if(isset($errorLog['name'])){ ?> style="background-color:#F00" <?php } ?> value="<?php if(isset($_POST['loginName']) && !isset($errorLog['name'])){ echo $_POST['loginName'];} ?>"/></td>
             </tr>
             <tr>
-                <td>Pass:</td> <td><input type="password" class="loginText" name="loginPass" /></td>
+                <td>Pass:</td> <td><input type="password" class="loginText" name="loginPass" <?php if(isset($errorLog['pass'])){ ?> style="background-color:#F00" <?php } ?> /></td>
             </tr>
         </table>
         <div id="LoginButton"><input class="loginButton" type="submit" value="Login" /></div>

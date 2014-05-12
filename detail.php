@@ -43,6 +43,11 @@
         if (isset($_SESSION['id'])){
             $rating = get_rating(get_user_by_ID($_SESSION['id']), $amb);
         }
+
+        if(isset($_POST['filename'])){
+            addDownload($amb);
+            header("Location: php/download.php?filename=".$_POST['filename']);
+        }
     ?>
 <script type="text/javascript">
     $(document).ready(function() {
@@ -135,6 +140,10 @@
                     <td><?php echo round(getAverageRating($amb), 2); ?></td>
                 </tr>
                 <tr>
+                    <td>Heruntergeladen:</td>
+                    <td><?php echo $amb['downloaded']; ?></td>
+                </tr>
+                <tr>
                     <td>Dauer:</td>
                     <td><?php echo gmdate("i:s", htmlentities($amb['length'])); ?> Min</td>
                 </tr>
@@ -197,7 +206,7 @@
     <?php if (isset($_SESSION['name'])){ ?>
         <div id="downloadarea">
         	<div id="DownloadButton">
-                <form method="POST" action="php/download.php">
+                <form method="POST" >
                     <input type="hidden" name="filename" value="<?php echo htmlentities($amb['filename']); ?>" />
                     <input  type="submit" value="Download" />
                 </form>

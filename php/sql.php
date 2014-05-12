@@ -1257,4 +1257,13 @@ function setUserPic ($file, $user_id){
 
         return $query->fetchAll();
     }
+
+    function addDownload($amb){
+        global $db;
+
+        $query = $db->prepare("UPDATE ambience SET downloaded=:down WHERE id=:amb_id;");
+        $query->bindValue(":down", $amb['downloaded']+1, PDO::PARAM_INT);
+        $query->bindValue(":amb_id", $amb['id'], PDO::PARAM_INT);
+        $query->execute();
+    }
 ?>

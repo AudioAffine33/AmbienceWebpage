@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 12. Mai 2014 um 17:55
+-- Erstellungszeit: 12. Mai 2014 um 19:30
 -- Server Version: 5.6.16
 -- PHP-Version: 5.5.9
 
@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS `ambience` (
   `rating` float DEFAULT NULL,
   `date_added` date NOT NULL,
   `originator` varchar(100) DEFAULT NULL,
+  `downloaded` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `filename` (`filename`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=84 ;
@@ -51,15 +52,15 @@ CREATE TABLE IF NOT EXISTS `ambience` (
 -- Daten für Tabelle `ambience`
 --
 
-INSERT INTO `ambience` (`id`, `format_id`, `filename`, `size`, `length`, `name`, `user_id`, `location_id`, `date`, `time`, `description`, `category_id`, `picture`, `rating`, `date_added`, `originator`) VALUES
-(13, 36, '13_birds_various_28_01_birds__various_count.wav', 29520914, 150, 'BIRDS VARIOUS', 4, 52, '2012-09-04', '01:00:00', 'BIRDS, VARIOUS COUNTRY AMBIENCE, EARLY MORNING, RESIDENTIAL', 2, '13_birds_various_28_01_birds__various_count.jpg', 1.5, '2014-04-22', 'NetMixPro'),
-(14, 36, '14_city_heavy_17_city__heavy_traffic_and_ci.wav', 46492132, 242, 'City Heavy', 4, 53, '2005-05-02', '01:00:00', 'CITY, HEAVY TRAFFIC AND CITY RUMBLE FROM BALCONY AMBIENCE', 1, '14_city_heavy_17_city__heavy_traffic_and_ci.jpg', NULL, '2014-04-22', 'NetMixPro'),
-(16, 36, '16_city_medium_06_city__medium_traffic_and_.wav', 49466226, 244, 'City Medium', 4, 54, '2005-05-02', '12:00:00', 'CITY, MEDIUM TRAFFIC AND PEDESTRIANS, CITY RUMBLE AMBIENCE', 1, '16_city_medium_06_city__medium_traffic_and_.jpg', 4, '2014-04-22', 'NetMixPro'),
-(17, 37, '17_country_ambience_06_country__ambience_co.wav', 6770716, 69, 'Country Ambience', 4, 55, '2005-05-02', '01:00:00', 'COUNTRY, AMBIENCE COUNTRY: BIRDS, COWS, ROOSTER, TRACTOR IN B/G', 2, '17_country_ambience_06_country__ambience_co.jpg', NULL, '2014-04-22', 'NetMixPro'),
-(19, 36, '19_park_city_03_park__city_city_rumble__fou.wav', 49044920, 242, 'PARK CITY', 4, 50, '2005-05-03', '01:00:00', 'PARK, CITY CITY RUMBLE, FOUNTAIN, PEDESTRIANS AMBIENCE', 1, '19_park_city_03_park__city_city_rumble__fou.jpg', NULL, '2014-04-22', 'NetMixPro'),
-(20, 36, '20_mountain_day_11_mountain__day_wind_throu.wav', 48144882, 245, 'Mountain Day', 4, 51, '2005-05-03', '01:00:00', 'MOUNTAIN, DAY WIND THROUGH TREES, BIRD CHIRPS AND CAWS AMBIENCE', 1, '20_mountain_day_11_mountain__day_wind_throu.jpg', NULL, '2014-04-22', 'NetMixPro'),
-(60, 36, '60_city_medium_06_city__medium_traffic_and_.wav', 49466226, 244, 'Walk Of Fame', 4, 61, '2005-05-02', '12:00:00', 'CITY, MEDIUM TRAFFIC AND PEDESTRIANS, CITY RUMBLE AMBIENCE', 1, '60_city_medium_06_city__medium_traffic_and_.jpg', NULL, '2014-04-22', 'NetMixPro'),
-(81, 36, '81_city_heavy_17_city__heavy_traffic_and_ci.wav', 46492132, 242, 'City Heavy 17 CITY, HEAVY TRAFFIC AND CITY RUMBLE ', 3, 68, '2005-05-02', '01:00:00', 'CITY, HEAVY TRAFFIC AND CITY RUMBLE FROM BALCONY AMBIENCE', 1, '81_city_heavy_17_city__heavy_traffic_and_ci.jpg', NULL, '2014-05-11', 'NetMixPro');
+INSERT INTO `ambience` (`id`, `format_id`, `filename`, `size`, `length`, `name`, `user_id`, `location_id`, `date`, `time`, `description`, `category_id`, `picture`, `rating`, `date_added`, `originator`, `downloaded`) VALUES
+(13, 36, '13_birds_various_28_01_birds__various_count.wav', 29520914, 150, 'BIRDS VARIOUS', 4, 52, '2012-09-04', '01:00:00', 'BIRDS, VARIOUS COUNTRY AMBIENCE, EARLY MORNING, RESIDENTIAL', 2, '13_birds_various_28_01_birds__various_count.jpg', 1.5, '2014-04-22', 'NetMixPro', 2),
+(14, 36, '14_city_heavy_17_city__heavy_traffic_and_ci.wav', 46492132, 242, 'City Heavy', 4, 53, '2005-05-02', '01:00:00', 'CITY, HEAVY TRAFFIC AND CITY RUMBLE FROM BALCONY AMBIENCE', 1, '14_city_heavy_17_city__heavy_traffic_and_ci.jpg', NULL, '2014-04-22', 'NetMixPro', 0),
+(16, 36, '16_city_medium_06_city__medium_traffic_and_.wav', 49466226, 244, 'City Medium', 4, 54, '2005-05-02', '12:00:00', 'CITY, MEDIUM TRAFFIC AND PEDESTRIANS, CITY RUMBLE AMBIENCE', 1, '16_city_medium_06_city__medium_traffic_and_.jpg', 4, '2014-04-22', 'NetMixPro', 0),
+(17, 37, '17_country_ambience_06_country__ambience_co.wav', 6770716, 69, 'Country Ambience', 4, 55, '2005-05-02', '01:00:00', 'COUNTRY, AMBIENCE COUNTRY: BIRDS, COWS, ROOSTER, TRACTOR IN B/G', 2, '17_country_ambience_06_country__ambience_co.jpg', NULL, '2014-04-22', 'NetMixPro', 0),
+(19, 36, '19_park_city_03_park__city_city_rumble__fou.wav', 49044920, 242, 'PARK CITY', 4, 50, '2005-05-03', '01:00:00', 'PARK, CITY CITY RUMBLE, FOUNTAIN, PEDESTRIANS AMBIENCE', 1, '19_park_city_03_park__city_city_rumble__fou.jpg', NULL, '2014-04-22', 'NetMixPro', 0),
+(20, 36, '20_mountain_day_11_mountain__day_wind_throu.wav', 48144882, 245, 'Mountain Day', 4, 51, '2005-05-03', '01:00:00', 'MOUNTAIN, DAY WIND THROUGH TREES, BIRD CHIRPS AND CAWS AMBIENCE', 1, '20_mountain_day_11_mountain__day_wind_throu.jpg', NULL, '2014-04-22', 'NetMixPro', 0),
+(60, 36, '60_city_medium_06_city__medium_traffic_and_.wav', 49466226, 244, 'Walk Of Fame', 4, 61, '2005-05-02', '12:00:00', 'CITY, MEDIUM TRAFFIC AND PEDESTRIANS, CITY RUMBLE AMBIENCE', 1, '60_city_medium_06_city__medium_traffic_and_.jpg', NULL, '2014-04-22', 'NetMixPro', 0),
+(81, 36, '81_city_heavy_17_city__heavy_traffic_and_ci.wav', 46492132, 242, 'City Heavy 17 CITY, HEAVY TRAFFIC AND CITY RUMBLE ', 3, 68, '2005-05-02', '01:00:00', 'CITY, HEAVY TRAFFIC AND CITY RUMBLE FROM BALCONY AMBIENCE', 1, '81_city_heavy_17_city__heavy_traffic_and_ci.jpg', NULL, '2014-05-11', 'NetMixPro', 0);
 
 -- --------------------------------------------------------
 

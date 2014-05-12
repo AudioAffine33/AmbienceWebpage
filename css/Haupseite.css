@@ -408,6 +408,10 @@ body{
     margin: 0%;
     display:inline;
 }
+.rateBut:hover{
+	cursor:pointer;
+	
+	}
 
 #AmbiencePlayer{
 

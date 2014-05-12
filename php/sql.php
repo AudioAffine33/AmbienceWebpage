@@ -1219,7 +1219,7 @@ function setUserPic ($file, $user_id){
 
         $index=0;
         while($row = $query->fetch()){
-            if ($row['countrycode'] !=""){
+            if ($row['countrycode'] !="dummy"){
             $continentCode = $COUNTRY_CONTINENTS[$row['countrycode']];
             $continentGerman = $CONTINENTS_GERMAN[$continentCode];
             $ret[$index]['code'] = $continentCode;

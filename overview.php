@@ -165,15 +165,17 @@
                         $contArray = getAllContinentsGerman();
 
                         foreach ($contArray as $x){
-                            ?>
-                            <li class="Unterpunkt">
-                                <form method="POST">
-                                    <?php if (isset($_GET['cont']) && checkContinentFilter($x['code'])){ echo 'x';} ?>
-                                    <input type="hidden" name="cont" value="<?php echo htmlentities($x['code']); ?>" >
-                                    <a onclick="$(this).closest('form').submit()"><?php echo htmlentities($x['german']); ?></a>
-                                </form>
-                            </li>
-                            <?php
+                            if ($x['code'] != "dummy"){
+                                ?>
+                                <li class="Unterpunkt">
+                                    <form method="POST">
+                                        <?php if (isset($_GET['cont']) && checkContinentFilter($x['code'])){ echo 'x';} ?>
+                                        <input type="hidden" name="cont" value="<?php echo htmlentities($x['code']); ?>" >
+                                        <a onclick="$(this).closest('form').submit()"><?php echo htmlentities($x['german']); ?></a>
+                                    </form>
+                                </li>
+                                <?php
+                            }
                         }
                     }
                 ?>

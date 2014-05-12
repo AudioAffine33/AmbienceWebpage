@@ -155,6 +155,10 @@
                     Durchschnittliche Bewertung:<br />
                     <?php echo round(getAverageUserRating($user), 2); ?>
                 </div>
+                <div id="countDownloads">
+                    Gedownloaded:<br />
+                    <?php echo htmlentities(getDownloadCountByUser($user)); ?>
+                </div>
     		</div>
     	
         </div>

@@ -1266,4 +1266,15 @@ function setUserPic ($file, $user_id){
         $query->bindValue(":amb_id", $amb['id'], PDO::PARAM_INT);
         $query->execute();
     }
+
+function getDownloadCountByUser($user){
+    global $db;
+
+    $query = $db->prepare("SELECT SUM(downloaded) AS 'sum' FROM ambience WHERE user_id = :user_id");
+    $query->bindValue(":user_id", $user['id'], PDO::PARAM_INT);
+    $query->execute();
+
+    $result = $query->fetch();
+    return $result['sum'];
+}
 ?>

@@ -587,14 +587,77 @@ body{
 #Dateiupload{
 	clear:both;
 	float:left;
-	
+	width:1020px;
 	}
 #Upload a {
 	clear:both;
 	float:left;
 	
 	}
-
+#userfile{
+	float:left;
+	margin:2%;
+	width:100px;
+	height:100px;
+	background:url(../media/Design_Vorlagen/Upload/06_music_button.png);
+	overflow:hidden;	
+	}
+#userfile:hover{
+	cursor:pointer;
+	
+	}	
+	
+#userfile input{
+	display: block;
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+    overflow: hidden;
+	
+	}
+#filetext{
+	float:left;
+	text-decoration:underline;
+	}
+	
+#Dateipfad{
+	float:left;
+	}
+#weiterbutton{
+	clear:both;
+	float:left;
+	margin:2%;
+	margin-top:5%;
+	width:100px;
+	height:100px;
+	background:url(../media/Design_Vorlagen/Upload/06_forward_button.png);
+	overflow:hidden;
+	
+	}
+#weiterbutton:hover{
+	cursor:pointer;
+	}
+#weiterbutton input{
+	display: block;
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+    overflow: hidden;
+	
+	}
+#ErrorFile{
+	position:absolute;
+	height:20px;
+	width:150px;
+	background-color:#F00;
+	text-align:center;
+	}
+#WeiterText{
+	margin-top:6%;
+	float:left;
+	text-decoration:underline;
+	
+	}
 
 /*Upload Detail */
 	

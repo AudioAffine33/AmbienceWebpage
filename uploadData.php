@@ -34,10 +34,13 @@
         <h1>Datei zum Upload:</h1>
         <form enctype="multipart/form-data" method="POST">
             <input type="hidden" name="MAX_FILE_SIZE" value="1000000000" />
-            <input name="userfile" type="file" <?php if ($errorFile){ echo "style='background-color:#F00'";} ?> />
-            <input type="submit" value="Weiter und Details angeben" />
+            <div id="userfile"><input name="userfile" type="file" <?php if ($errorFile){ echo "style='background-color:#F00'";} ?> /></div>
+            <div id="filetext"><h2>Audiodatei auswählen</h2>
+            <div id="Dateipfad">C:/asdkalsjd/asdlkjasd.wav</div></div>
+            <div id="weiterbutton"><input type="submit" value="Weiter und Details angeben" />			</div>
+            <div id="WeiterText"><h2>Weiter und Details angeben</h2></div>
         </form>
-        <?php if ($errorFile){ echo "<br>Ungültige Datei";} ?>
+        <div id="ErrorFile"><?php if ($errorFile){ echo "Ungültige Datei";} ?></div>
         </div>
     
     </div>

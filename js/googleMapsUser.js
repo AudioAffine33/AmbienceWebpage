@@ -4,7 +4,10 @@ function initialize() {
 
     var mapOptions = {
         zoom: 3,
-        center: new google.maps.LatLng(locs[locs.length-1]['location']['latitude'],locs[locs.length-1]['location']['longitude'])
+        center: new google.maps.LatLng(locs[0]['location']['latitude'],locs[0]['location']['longitude']),
+        streetViewControl: false,
+        mapTypeControl : false,
+        mapTypeId: google.maps.MapTypeId.HYBRID
     };
     map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);

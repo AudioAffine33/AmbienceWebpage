@@ -107,6 +107,9 @@
     
     <div id="AmbienceDescript">
     		<h1><?php echo htmlentities($amb['name']); ?></h1>
+            <?php if(isset($_SESSION['id']) && ($amb['user_id'] == $_SESSION['id'] || $_SESSION['rights'] == 'admin' )){ ?>
+                <td><a id="changeAmbFrame" data-fancybox-type="iframe" href="changeAmb.php?ch=name&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Name">Ändern</a></td>
+            <?php } ?>
             (<?php echo date("d.m.y", strtotime(htmlentities($amb['date_added']))); ?>)<br />
 
             <?php if (isset($_SESSION['id'])){ ?>

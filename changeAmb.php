@@ -28,14 +28,22 @@
         }
     }
 
-    if (isset($_POST['date'])){
-        update_amb($_GET['id'], $_POST);
-        ?>
-        <script type="text/javascript">
-            parent.$.fancybox.close();
-            parent.location.reload(true);
-        </script>
+    if (isset($_POST['name'])){
+        if (strlen($_POST['name']) <= 80 && strlen($_POST['name']) > 0){
+            update_amb($_GET['id'], $_POST);
+            ?>
+            <script type="text/javascript">
+                parent.$.fancybox.close();
+                parent.location.reload(true);
+            </script>
         <?php
+        } else {
+            if (strlen($_POST['name']) > 80){
+                $errorName = "Der Name darf maximal 80 Zeichen lang sein";
+            } elseif(strlen($_POST['name']) <=0) {
+                $errorName = "Geben Sie einen Namen an!";
+            }
+        }
     }
 
     if (isset($_POST['date']) || isset($_POST['category']) || isset($_POST['locName'])){
@@ -92,6 +100,22 @@
                 <tr>
                     <td>Bild auswählen</td>
                     <td><input name="pic" type="file" <?php if ($errorPic){ echo "style='background-color:#F00'";} ?> /></td>
+                </tr>
+                <tr>
+                    <td><input id="submitButton" type="submit" value="Ändern" /></td>
+                    <td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>
+                </tr>
+            </table>
+        </form>
+    <?php } ?>
+    <?php if($_GET['ch']=="name"){ ?>
+        <h1>Datum/Uhrzeit ändern</h1>
+        <form method="POST">
+            <table>
+                <tr>
+                    <td class="eingabe">Name:</td>
+                    <td><input type="text" name="name" <?php if(isset($errorName)){ ?> style='background-color:#F00'<?php } ?> value="<?php echo $amb['name']; ?>"/></td>
+                    <td><?php if(isset($errorName)){ echo $errorName; } ?></td>
                 </tr>
                 <tr>
                     <td><input id="submitButton" type="submit" value="Ändern" /></td>

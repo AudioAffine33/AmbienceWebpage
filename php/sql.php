@@ -712,6 +712,13 @@ function setUserPic ($file, $user_id){
             $query->bindValue(":amb_id", $amb['id'], PDO::PARAM_INT);
             $query->execute();
         }
+
+        $avgRating = round(getAverageRating($amb), 10);
+
+        $query = $db->prepare("UPDATE ambience SET rating=:avgRating WHERE id=:amb_id;");
+        $query->bindValue(":avgRating", $avgRating, PDO::PARAM_STR);
+        $query->bindValue(":amb_id", $amb['id'], PDO::PARAM_INT);
+        $query->execute();
     }
 	
 	//check Inputs

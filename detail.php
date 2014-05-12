@@ -184,7 +184,7 @@
   	<div id="Useranzeige">
     	<div id="UserBild">
             <?php if (isset($user['picture']) && $user['picture'] != ""){   ?>
-                <a href="user.php?id=<?php echo htmlentities($user['id']); ?>"><img src="media/pics_user/<?php echo htmlentities($user['picture']); ?>" /></a>
+                <a href="user.php?id=<?php echo htmlentities($user['id']); ?>"><img src="media/pics_user/<?php echo htmlentities($user['picture']); ?>" width="100px" height="80px" /></a>
             <?php } ?>
         </div>
         <div id="Username"><a href="user.php?id=<?php echo htmlentities($user['id']); ?>"><?php echo htmlentities($user['name']); ?></a></div>

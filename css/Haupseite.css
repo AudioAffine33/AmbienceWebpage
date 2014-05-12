@@ -394,10 +394,13 @@ body{
 	margin-left:2%;
 	
 	}
-	
+#AmbienceDescript h1{
+	margin-top:0px;
+	font-size:22px;
+	}	
 #AmbienceDescript table tr td{
 	padding:1%;
-	
+	font-size:14px;
 	}
 
 .rateBut {
@@ -457,6 +460,14 @@ body{
 	}
 #Useranzeige{
 	float:right;
+	}
+#UserBild{
+	width:100px;
+	height:80px;
+	}
+#changeAmbFrame{
+	float:right;
+	
 	}
 	
 /*Userseite */

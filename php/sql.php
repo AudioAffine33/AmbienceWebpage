@@ -123,18 +123,38 @@
 			$error['name'] ="Der Benutzername \"".$userArray['regName']."\" ist bereits vergeben<br />";
 			$error['new'] = false;	
 		}
-		if ($userArray['regName'] == ""){
-			$error['name'] = "Bitte geben Sie einen Namen an!<br /> ";	
+		if (strlen($userArray['regName']) < 2){
+			$error['name'] = "Der Benutzername muss mindestens 2 Zeichen lang sein.";
 			$error['new'] = false;
 		}
+        if (strlen($userArray['regName']) > 20){
+            $error['name'] = "Der Benutzername darf maximal 20 Zeichen lang sein.";
+            $error['new'] = false;
+        }
 		if ($userArray['regPass1'] != $userArray['regPass2']){
 			$error['pass'] = "Passwörter stimmen nicht überein<br /> ";	
 			$error['new'] = false;
 		}
 		if ($userArray['regPass1'] == "" || $userArray['regPass2'] == ""){
-			$error['pass'] = "Bitte geben Sie ein Passwort an!<br /> ";	
-			$error['new'] = false;
-		}
+            $error['pass'] = "Bitte geben Sie ein Passwort an!<br /> ";
+            $error['new'] = false;
+        }
+        if (strlen($userArray['regPass1']) < 5 || strlen($userArray['regPass2']) < 5){
+            $error['pass'] = "Das Passwort muss mindestens 5 Zeichen lang sein";
+            $error['new'] = false;
+        }
+        if (strlen($userArray['regPass1']) > 20 || strlen($userArray['regPass2']) > 20){
+            $error['pass'] = "Das Passwort darf höchstens 20 Zeichen lang sein";
+            $error['new'] = false;
+        }
+        if (is_numeric(strpos($userArray['regPass1'], "1234")) || is_numeric(strpos($userArray['regPass2'], "1234"))){
+            $error['pass'] = "Das Passwort darf die Zeichenkette '1234' nicht enthalten";
+            $error['new'] = false;
+        }
+        if (is_numeric(strpos($userArray['regPass1'], "passwort")) || is_numeric(strpos($userArray['regPass2'], "passwort"))){
+            $error['pass'] = "Das Passwort darf die Zeichenkette 'passwort' nicht enthalten";
+            $error['new'] = false;
+        }
 		if ($userArray['regMail'] == ""){
 			$error['mail'] = "E-Mail-Addresse nicht korrekt<br />";
 			$error['new'] = false;
@@ -166,6 +186,22 @@
         }
         if ($pwArray['newPass1'] == "" || $pwArray['newPass2'] == ""){
             $error['passNew'] = "Bitte geben Sie ein Passwort an!<br /> ";
+        }
+        if (strlen($pwArray['newPass1']) < 5 || strlen($pwArray['newPass2']) < 5){
+            $error['passNew'] = "Das Passwort muss mindestens 5 Zeichen lang sein";
+            $error['new'] = false;
+        }
+        if (strlen($pwArray['newPass1']) > 20 || strlen($pwArray['newPass2']) > 20){
+            $error['passNew'] = "Das Passwort darf höchstens 20 Zeichen lang sein";
+            $error['new'] = false;
+        }
+        if (is_numeric(strpos($pwArray['newPass1'], "1234")) || is_numeric(strpos($pwArray['newPass2'], "1234"))){
+            $error['passNew'] = "Das Passwort darf die Zeichenkette '1234' nicht enthalten";
+            $error['new'] = false;
+        }
+        if (is_numeric(strpos($pwArray['newPass1'], "passwort")) || is_numeric(strpos($pwArray['newPass2'], "passwort"))){
+            $error['passNew'] = "Das Passwort darf die Zeichenkette 'passwort' nicht enthalten";
+            $error['new'] = false;
         }
 
         return $error;
@@ -680,11 +716,23 @@ function setUserPic ($file, $user_id){
 	
 	//check Inputs
 	function check_detail_Input($detail_array){
+        $error = array();
+        $error['correct'] = true;
 		
 		if ($detail_array['name'] == NULL || $detail_array['name'] == ""){
-			return false;	
+            $error['name'] = "Es muss ein Name angegeben werden.";
+            $error['correct'] = false;
 		}
-		else { return true;}
+        if (strlen($detail_array['name']) > 80){
+            $error['name'] = "Der Name darf nicht länger als 80 Zeichen sein.";
+            $error['correct'] = false;
+        }
+        if (strlen($detail_array['description']) > 500){
+            $error['descr'] = "Die Beschreibung darf nicht länger als 500 Zeichen sein.";
+            $error['correct'] = false;
+        }
+
+		return $error;
 	}
 	
 	function delete_ambience_fromDB($id){

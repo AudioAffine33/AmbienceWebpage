@@ -42,13 +42,18 @@
         }
     }
     if (isset($_POST['about'])){
-        setUserAbout($_POST['about']);
-        ?>
-        <script type="text/javascript">
-            parent.$.fancybox.close();
-            parent.location.reload(true);
-        </script>
-    <?php
+        if (strlen($_POST['about']) <= 1000){
+            setUserAbout($_POST['about']);
+            ?>
+            <script type="text/javascript">
+                parent.$.fancybox.close();
+                parent.location.reload(true);
+            </script>
+        <?php
+        } else {
+            $errorAbout = "Der Text darf höchstens 1000 Wörter lang sein";
+        }
+
     }
 
     if (isset($_POST['oldPass'])){
@@ -123,8 +128,9 @@
                 <tr>
                     <td class="eingabe">Über mich:</td>
                     <td>
-                        <textarea rows="7" cols="40" name="about" ><?php echo htmlentities($user['about']); ?></textarea>
+                        <textarea rows="7" cols="40" name="about" <?php if(isset($errorAbout)){ ?> style='background-color:#F00'<?php } ?>><?php echo htmlentities($user['about']); ?></textarea>
                     </td>
+                    <td><?php if(isset($errorAbout)){ echo $errorAbout; } ?></td>
                 </tr>
                 <tr>
                     <td><input id="submitButton" type="submit" value="Ändern" /></td>

@@ -19,7 +19,7 @@
     <form method="POST">
         <table>
             <tr>
-                <td>Login:</td> <td><input type="text" class="loginText" name="loginName" /></td>
+                <td>Login:</td> <td><input id="logName" type="text" class="loginText" name="loginName" /></td>
             </tr>
             <tr>
                 <td>Pass:</td> <td><input type="password" class="loginText" name="loginPass" /></td>

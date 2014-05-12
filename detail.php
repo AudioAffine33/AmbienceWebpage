@@ -40,7 +40,9 @@
             rate(get_user_by_ID($_SESSION['id']), $amb, $_POST['rate']);
         }
 
-        $rating = get_rating(get_user_by_ID($_SESSION['id']), $amb);
+        if (isset($_SESSION['id'])){
+            $rating = get_rating(get_user_by_ID($_SESSION['id']), $amb);
+        }
     ?>
 <script type="text/javascript">
     $(document).ready(function() {
@@ -102,6 +104,7 @@
     		<h1><?php echo htmlentities($amb['name']); ?></h1>
             (<?php echo date("d.m.y", strtotime(htmlentities($amb['date_added']))); ?>)<br />
 
+            <?php if (isset($_SESSION['id'])){ ?>
             <div id="rating">
                 <?php
                 for($i = 0; $i < $rating; $i++){
@@ -124,6 +127,7 @@
                 }
                 ?>
             </div>
+            <?php } ?>
 
             <table>
                 <tr>

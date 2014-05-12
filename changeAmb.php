@@ -38,7 +38,7 @@
         <?php
     }
 
-    if (isset($_POST['date']) || isset($_POST['category']) || isset($_POST['description']) || isset($_POST['locName'])){
+    if (isset($_POST['date']) || isset($_POST['category']) || isset($_POST['locName'])){
         update_amb($_GET['id'], $_POST);
         ?>
         <script type="text/javascript">
@@ -48,6 +48,21 @@
     <?php
     }
 
+    if (isset($_POST['description'])){
+        if (strlen($_POST['description']) < 500){
+            update_amb($_GET['id'], $_POST);
+            ?>
+            <script type="text/javascript">
+                parent.$.fancybox.close();
+                parent.location.reload(true);
+            </script>
+        <?php
+        } else {
+            $errorDescr = "Die Beschreibung darf höchstens 500 Zeichen lang sein.";
+        }
+
+    }
+
     if (isset($_POST['passDel'])){
         $errorReg = array();
         $errorReg = checkPW($_POST['passDel']);
@@ -55,8 +70,8 @@
             delete_audio_fromDB_andServer($_GET['id']);
             ?>
             <script type="text/javascript">
-                //parent.$.fancybox.close();
-                //parent.window.location.href = "overview.php";
+                parent.$.fancybox.close();
+                parent.window.location.href = "overview.php";
             </script>
         <?php
         }
@@ -137,7 +152,8 @@
             <table>
                 <tr>
                     <td class="eingabe">Beschreibung:</td>
-                    <td><textarea name="description" rows="5"><?php echo $amb['description']; ?></textarea></td>
+                    <td><textarea name="description" rows="5" <?php if(isset($errorDescr)){ ?> style='background-color:#F00'<?php } ?>><?php echo $amb['description']; ?></textarea></td>
+                    <td><?php if(isset($errorDescr)){ echo $errorDescr; } ?></td>
                 </tr>
                 <tr>
                     <td><input id="submitButton" type="submit" value="Ändern" /></td>

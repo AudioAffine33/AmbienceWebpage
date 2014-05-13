@@ -40,6 +40,17 @@
     }
     ?>
 <script type="text/javascript" src="js/googleMapsUpload.js"></script>
+<script type="text/javascript">
+    $(document).ready( function(){
+    $('input[type="file"]').change(function () {
+
+    var file = $(this).val();
+    var fileArray = file.split("\\");
+    $("#Dateipfad").html(fileArray[fileArray.length-1]);
+    });
+    });
+
+</script>
 </head>
 <div id="Content">
   	<?php include("header.php"); ?>
@@ -53,7 +64,8 @@
                         <input type="hidden" name="amb_id" value="<?php echo $_GET['id']; ?>" />
                         <input type="hidden" name="MAX_FILE_SIZE" value="1000000000" />
                         <td id="AmbPicUpl"><input name="pic" type="file" <?php if ($errorPic){ echo "style='background-color:#F00'";} ?> /></td>
-                        <td id="BiUpTe"> <h2>Bild auswählen</h2> </td>
+                        <td id="BiUpTe"> <h2>Bild auswählen</h2><div id="Dateipfad"></div></td>
+
                     </tr>
                     <tr>
                         <td><?php if ($errorPic){ echo "Angegebene Datei hat das falsche Format";} ?></td>

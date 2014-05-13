@@ -307,7 +307,9 @@
                     <h1><?php echo htmlentities($row['name']); ?></h1>
                 </a>
           		<ul>
-            		<li><?php if (isset($locationArray['name'])){echo $locationArray['name']; } ?></li>
+                    <?php if ($locationArray['name'] != "dummy"){ ?>
+            		    <li><?php if (isset($locationArray['name'])){echo $locationArray['name']; } ?></li>
+                    <?php } ?>
                     <li><?php echo date("G:i", strtotime($row['time'])) ?></li>
                     <li><?php echo htmlentities($format_act['bitdepth'])." bit , ".(htmlentities($format_act['samplerate'])/1000)." kHz"; ?></li>
                 </ul>

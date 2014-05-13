@@ -18,12 +18,23 @@
             $errorFile = false;
             header("Location: uploadDetails.php?id=".$amb_id_act);
         } catch (Exception $e){
-            print_r($e);
+            //print_r($e);
             $errorFile = true;
         }
     }
 
     ?>
+<script type="text/javascript">
+    $(document).ready( function(){
+        $('input[type="file"]').change(function () {
+
+            var file = $(this).val();
+            var fileArray = file.split("\\");
+            $("#Dateipfad").html(fileArray[fileArray.length-1]);
+        });
+    });
+
+</script>
 </head>
 <div id="Content">
   	<?php include("header.php"); ?>
@@ -34,13 +45,15 @@
         <h1>Datei zum Upload:</h1>
         <form enctype="multipart/form-data" method="POST">
             <input type="hidden" name="MAX_FILE_SIZE" value="1000000000" />
-            <div id="userfile"><input name="userfile" type="file" <?php if ($errorFile){ echo "style='background-color:#F00'";} ?> /></div>
+            <div id="userfile">
+                <input name="userfile" type="file" <?php if ($errorFile){ echo "style='background-color:#F00'";} ?> />
+            </div>
             <div id="filetext"><h2>Audiodatei auswählen</h2>
-            <div id="Dateipfad">C:/asdkalsjd/asdlkjasd.wav</div></div>
-            <div id="weiterbutton"><input type="submit" value="Weiter und Details angeben" />			</div>
+            <div id="Dateipfad"></div></div>
+            <div id="weiterbutton"><input type="submit" value="Weiter und Details angeben" /></div>
             <div id="WeiterText"><h2>Weiter und Details angeben</h2></div>
         </form>
-        <div id="ErrorFile"><?php if ($errorFile){ echo "Ungültige Datei";} ?></div>
+        <?php if ($errorFile){ echo "<div id='ErrorFile'>Ungültige Datei</div>";} ?>
         </div>
     
     </div>

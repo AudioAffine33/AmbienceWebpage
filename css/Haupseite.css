@@ -633,10 +633,6 @@ body{
 	background:url(../media/Design_Vorlagen/Upload/06_music_button.png);
 	overflow:hidden;	
 	}
-#userfile:hover{
-	cursor:pointer;
-	
-	}	
 	
 #userfile input{
 	display: block;
@@ -645,6 +641,9 @@ body{
     opacity: 0;
     overflow: hidden;
 	
+	}
+#userfile input:hover{
+	cursor:pointer;
 	}
 #filetext{
 	float:left;

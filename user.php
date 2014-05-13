@@ -135,9 +135,7 @@
                 <?php if($user['emailShown']){ echo "X";} ?>
             </form>
         </div>
-        <div id="deleteUserBut">
-            <td><a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=del" target="_blank" title="Account wirklich löschen?">Account löschen</a></td>
-        </div>
+        
         <?php } ?>
 	</div>
     <div id="Uploadanzeige">
@@ -216,9 +214,13 @@
                 </div> <?php
             }
             ?>
-    	</div>
-    </div>
     
+    	</div>
+                
+    </div>
+    <div id="deleteUserBut">
+            <td><a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=del" target="_blank" title="Account wirklich löschen?"></a></td>
+        </div>
 </div>
 </body>
 </html>

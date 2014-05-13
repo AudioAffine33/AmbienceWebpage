@@ -13,12 +13,20 @@ function initialize() {
         mapOptions);
 
     for (var i = 0; i<locs.length; i++){
+        var marker;
+        var Latlng;
         if (locs[i]['ambience']['name'] != "dummy"){
-            var Latlng = new google.maps.LatLng(locs[i]['location']['latitude'],locs[i]['location']['longitude']);
-            var marker = new google.maps.Marker({
+
+            Latlng = new google.maps.LatLng(locs[i]['location']['latitude'],locs[i]['location']['longitude']);
+            marker = new google.maps.Marker({
                 position: Latlng,
                 map: map,
                 title: locs[i]['ambience']['name']
+            });
+
+            google.maps.event.addListener(marker, "dblclick", function () {
+                map.setCenter(this.position);
+                map.setZoom(8);
             });
         }
     }

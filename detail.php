@@ -229,6 +229,7 @@
         <?php if(isset($_SESSION['id']) && ($amb['user_id'] == $_SESSION['id'] || $_SESSION['rights'] == 'admin' )){ ?>
              <a id="changeAmbFrame" data-fancybox-type="iframe" href="changeAmb.php?ch=del&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Ambience wirklich löschen?"><div id="AmbienceDel"></div></a>
             <?php } ?>
+            
     </div>
   </div>
 

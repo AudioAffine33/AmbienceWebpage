@@ -433,6 +433,7 @@ body{
 	width:250px;
 	height:25px;
 	float:left;
+	margin:2%;
 	margin-left:2%;
 	margin-top:1.5%;
 	}
@@ -480,19 +481,15 @@ body{
 	}
 #BildChange{
 	clear:both;
-	float:left;
-	margin-left:10%;
-	margin-top:3%;
+	float:right;
 	}
 #AmbienceDel{
-	clear:both;
-	float:left;
+	float:right;
 	width:171px;
 	height:30px;
 	background:url(../media/Design_Vorlagen/Detailansicht/04_ambienceloeschen.png);
 	background-repeat:no-repeat;
-	margin-top:1%;
-	margin-left:10%;
+	margin:5%;
 	
 	}
 
@@ -654,9 +651,6 @@ body{
 	text-decoration:underline;
 	}
 	
-#Dateipfad{
-	float:left;
-	}
 #weiterbutton{
 	clear:both;
 	float:left;
@@ -681,10 +675,11 @@ body{
 	}
 #ErrorFile{
 	position:absolute;
+	float:left;
 	height:20px;
 	width:150px;
-	background-color:#F00;
 	text-align:center;
+	color:#F00;
 	}
 #WeiterText{
 	margin-top:6%;
@@ -696,15 +691,24 @@ body{
 /*Upload Detail */
 	
 #UploadBild{
+	margin-left:5%;
 	float:left;
 	width:400px;
-	height:400px;
-	background-color:#3C3;
+	height:100px;
+	
+	}
+#UploadBild h2{
+	text-decoration:underline;
+	}
+#BiUpTe{
+	padding-left:3%;
 	
 	}
 #UploadDaten{
+	clear:both;
 	float:left;
-	margin-left:2%;
+	margin:2%;
+	margin-top:10%;
 	width:500px;
 	}
 #UploadDaten table tr td{
@@ -715,6 +719,25 @@ body{
 	float:right;	
 	margin:10%;
 	margin-top:200px;
+	}
+#AmbPicUpl{
+	clear:both;
+	float:left;
+	width:102px;
+	height:100px;
+	background:url(../media/Design_Vorlagen/Upload/06_foto_button.png);
+	background-repeat:no-repeat;
+	}
+#AmbPicUpl:hover{
+	cursor:pointer;
+	
+	}
+#AmbPicUpl input{
+	display: block;
+    width: 102px;
+    height: 100px;
+    opacity: 0;
+    overflow: hidden;
 	}
 	
 

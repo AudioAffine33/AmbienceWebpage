@@ -501,6 +501,15 @@ body{
 	float:left;
 	width:1020px;
 	}
+#Benutzerprofil h1{
+	text-align:center;
+	background:-moz-linear-gradient(top, #fff, #C28956); 
+	background:-webkit-linear-gradient(top, #fff, #C28956);
+	background:-o-linear-gradient(top, #fff, #C28956); 
+	background:-ms-linear-gradient(top, #fff, #C28956); 
+	background:linear-gradient(top, #fff, #C289567); 
+	width:220px;
+	}
 #Benutzerbild{
 	float:left;
 	width:220px;

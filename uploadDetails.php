@@ -48,12 +48,12 @@
 	<div id="Upload">
         <form enctype="multipart/form-data" method="POST">
             <div id="UploadBild">
-                Wählen Sie ein Bild aus
                 <table>
                     <tr>
                         <input type="hidden" name="amb_id" value="<?php echo $_GET['id']; ?>" />
                         <input type="hidden" name="MAX_FILE_SIZE" value="1000000000" />
-                        <td><input name="pic" type="file" <?php if ($errorPic){ echo "style='background-color:#F00'";} ?> /></td>
+                        <td id="AmbPicUpl"><input name="pic" type="file" <?php if ($errorPic){ echo "style='background-color:#F00'";} ?> /></td>
+                        <td id="BiUpTe"> <h2>Bild auswählen</h2> </td>
                     </tr>
                     <tr>
                         <td><?php if ($errorPic){ echo "Angegebene Datei hat das falsche Format";} ?></td>
@@ -110,10 +110,11 @@
                     </tr>
                 </table>
 
-                <div id="UploadButton">
+                
+            </div>
+            <div id="UploadButton">
                     <input type="submit" value="Send File" />
                 </div>
-            </div>
         </form>
     
     

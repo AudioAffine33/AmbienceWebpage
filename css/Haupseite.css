@@ -708,17 +708,36 @@ body{
 	clear:both;
 	float:left;
 	margin:2%;
-	margin-top:10%;
+	margin-top:5%;
 	width:500px;
+	background-color:#f3e5c8;
+	}
+#UploadDaten table{
+	margin:3%;
 	}
 #UploadDaten table tr td{
-	padding-left:10%;
-	padding-bottom:10%;
+	padding:5%;
 	} 
 #UploadButton{
-	float:right;	
-	margin:10%;
-	margin-top:200px;
+	clear:both;
+	float:left;	
+	margin-left:2%;
+	width:339px;
+	height:100px;
+	background:url(../media/Design_Vorlagen/Upload/06_fertig_button.png);
+	background-repeat:no-repeat;
+	}
+#UploadButton:hover{
+	cursor:pointer;
+	
+	}
+#UploadButton input{
+	display: block;
+    width: 339px;
+    height: 100px;
+    opacity: 0;
+    overflow: hidden;
+	
 	}
 #AmbPicUpl{
 	clear:both;
@@ -739,6 +758,7 @@ body{
     opacity: 0;
     overflow: hidden;
 	}
+
 	
 
 

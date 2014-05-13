@@ -20,6 +20,10 @@
 
     $errorLog;
 
+    if (isset($_SESSION['name'])){
+        header("Location: overview.php");
+    }
+
     if (isset($_POST['loginName'])){
         $errorLog = login($_POST);
 

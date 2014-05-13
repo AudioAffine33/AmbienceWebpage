@@ -369,13 +369,18 @@ body{
 #BkwButton{
 
 	float:left;
-	width:60px;
-	
+	width:110px;
+	height:31px;
+	background:url(../media/Design_Vorlagen/Detailansicht/04_detailansicht_button_vorheriges.png);
+	background-repeat:no-repeat;
 	}
 #FwdButton{
 
 	float:right;
-	width:60px;
+	width:110px;
+	height:31px;
+	background:url(../media/Design_Vorlagen/Detailansicht/04_detailansicht_button_naechstes.png);
+	background-repeat:no-repeat;
 	}
 #AmbienceBildGroß{
 
@@ -473,7 +478,24 @@ body{
 	float:right;
 	
 	}
+#BildChange{
+	clear:both;
+	float:left;
+	margin-left:10%;
+	margin-top:3%;
+	}
+#AmbienceDel{
+	clear:both;
+	float:left;
+	width:171px;
+	height:30px;
+	background:url(../media/Design_Vorlagen/Detailansicht/04_ambienceloeschen.png);
+	background-repeat:no-repeat;
+	margin-top:1%;
+	margin-left:10%;
 	
+	}
+
 /*Userseite */
 
 #Benutzerprofil{

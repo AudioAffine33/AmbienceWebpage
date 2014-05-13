@@ -85,12 +85,12 @@
         <?php
             if ($_GET['id'] != 0){
         ?>
-        <a href="detail.php?id=<?php echo htmlentities($_GET['id'])-1;?>"><div id="BkwButton">Vorheriges</div></a>
+        <a href="detail.php?id=<?php echo htmlentities($_GET['id'])-1;?>"><div id="BkwButton"></div></a>
   	    <?php
             }
             if ($_GET['id'] != count($_SESSION['query_Array'])-1){
         ?>
-        <a href="detail.php?id=<?php echo htmlentities($_GET['id'])+1;?>"><div id="FwdButton">Nächstes</div></a>
+        <a href="detail.php?id=<?php echo htmlentities($_GET['id'])+1;?>"><div id="FwdButton"></div></a>
         <?php
             }
         ?>
@@ -99,9 +99,7 @@
     
 
         <img src="media/pics_ambiences/<?php echo $amb['picture']; ?>" id="AmbienceBildGroß" />
-        <?php if(isset($_SESSION['id']) && ($amb['user_id'] == $_SESSION['id'] || $_SESSION['rights'] == 'admin' )){ ?>
-            <td><a id="changeAmbFrame" data-fancybox-type="iframe" href="changeAmb.php?ch=pic&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Bild">Bild ändern</a></td>
-        <?php } ?>
+        
 
   	
     
@@ -187,11 +185,7 @@
             </table>
     </div>
 
-    <div id="delAmbBut">
-        <?php if(isset($_SESSION['id']) && ($amb['user_id'] == $_SESSION['id'] || $_SESSION['rights'] == 'admin' )){ ?>
-            <td><a id="changeAmbFrame" data-fancybox-type="iframe" href="changeAmb.php?ch=del&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Ambience wirklich löschen?">Ambience löschen</a></td>
-        <?php } ?>
-    </div>
+   
 	
     <div id="AmbiencePlayer">
         <audio src="media/audio/<?php echo htmlentities($amb['filename']); ?>" preload="none"></audio>
@@ -234,6 +228,21 @@
             
         </div>
     <?php } ?>
+	<?php if(isset($_SESSION['id']) && ($amb['user_id'] == $_SESSION['id'] || $_SESSION['rights'] == 'admin' )){ ?>
+            <td><a id="BildChange" data-fancybox-type="iframe" href="changeAmb.php?ch=pic&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Bild">Bild ändern</a></td>
+        <?php } ?>
+
+  	 <div id="delAmbBut">
+        <?php if(isset($_SESSION['id']) && ($amb['user_id'] == $_SESSION['id'] || $_SESSION['rights'] == 'admin' )){ ?>
+            <td><a id="AmbienceDel" data-fancybox-type="iframe" href="changeAmb.php?ch=del&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Ambience wirklich löschen?"></a></td>
+        <?php } ?>
+    </div>
+  </div>
+
+
+</div>
+</body>
+</html>?>
 
 
   	

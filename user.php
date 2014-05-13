@@ -218,9 +218,9 @@
     	</div>
                 
     </div>
-    <div id="deleteUserBut">
-            <td><a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=del" target="_blank" title="Account wirklich löschen?"></a></td>
-        </div>
+
+    <a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=del" target="_blank" title="Account wirklich löschen?"><div id="deleteUserBut"></div></a>
+
 </div>
 </body>
 </html>

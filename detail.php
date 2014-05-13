@@ -229,23 +229,16 @@
         </div>
     <?php } ?>
 	<?php if(isset($_SESSION['id']) && ($amb['user_id'] == $_SESSION['id'] || $_SESSION['rights'] == 'admin' )){ ?>
-            <td><a id="BildChange" data-fancybox-type="iframe" href="changeAmb.php?ch=pic&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Bild">Bild ändern</a></td>
+        <div id="BildChange">
+            <a id="changeAmbFrame" data-fancybox-type="iframe" href="changeAmb.php?ch=pic&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Bild">Bild ändern</a>
+        </div>
         <?php } ?>
 
   	 <div id="delAmbBut">
         <?php if(isset($_SESSION['id']) && ($amb['user_id'] == $_SESSION['id'] || $_SESSION['rights'] == 'admin' )){ ?>
-            <td><a id="AmbienceDel" data-fancybox-type="iframe" href="changeAmb.php?ch=del&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Ambience wirklich löschen?"></a></td>
-        <?php } ?>
+             <a id="changeAmbFrame" data-fancybox-type="iframe" href="changeAmb.php?ch=del&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Ambience wirklich löschen?"><div id="AmbienceDel"></div></a>
+            <?php } ?>
     </div>
-  </div>
-
-
-</div>
-</body>
-</html>?>
-
-
-  	
   </div>
 
 

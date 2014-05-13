@@ -73,9 +73,13 @@
 <body>
 
 <div id="Content">
-  <?php include ("header.php"); ?>
+  <?php include ("header.php");
 
-    <?php if (isset($_SESSION['query'])) { ?>
+  if (is_numeric(strpos($_SERVER['HTTP_REFERER'],"user.php"))){ ?>
+      <div id="BkwdtoHauptseitebtn"><a href="<?php echo $_SERVER['HTTP_REFERER'] ?>"><< zurück zu User </a></div>
+  <?php }
+
+  elseif (isset($_SESSION['query'])) { ?>
         <div id="BkwdtoHauptseitebtn"><a href="overview.php?<?php echo http_build_query($_SESSION['query']) ?>"><< zurück zur Übersicht </a></div>
     <?php } else { ?>
         <div id="BkwdtoHauptseitebtn"><a href="overview.php"><< zurück zur Übersicht </a></div>

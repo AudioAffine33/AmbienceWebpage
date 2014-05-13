@@ -166,19 +166,19 @@
                 <?php
                     $index=0;
                     foreach($ambArray as $amb){
-                        $_SESSION['query_Array'][$index] = $amb['id'];
+
                         $locationArray = getLocation_by_ID($amb['location_id']);
                         $format_act = getFormat_by_ID($amb['format_id']);
                         $cat_act = get_category_by_ID($amb['category_id']);
                 ?>
                     <div class = "AmbienceUser">
                                       
-                            <a href="detail.php?id=<?php echo $index; ?>">
+                            <a href="detail.php?id=<?php echo $amb['id'] ?>">
                                 <img src="media/pics_ambiences/thumb/<?php echo htmlentities($amb['picture']); ?>" class="UserAmPic" />
                             </a>
       
                         <div class = "AmbienceUserDescr">
-                            <a href="detail.php?id=<?php echo $index; ?>"><h3><?php echo htmlentities($amb['name']); ?></h3></a>
+                            <a href="detail.php?id=<?php echo $amb['id'] ?>"><h3><?php echo htmlentities($amb['name']); ?></h3></a>
                             <table>
                                 <tr>
                                     <td>Kategorie</td>

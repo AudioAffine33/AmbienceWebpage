@@ -10,7 +10,6 @@
 <?php
 		include('php/include.php');
 
-        $_SESSION['query_Array'] = array();
         $_SESSION['query'] = array();
         parse_str($_SERVER['QUERY_STRING'], $_SESSION['query']);
 
@@ -296,16 +295,15 @@
         unset($_SESSION['query_Array']);
         $index = 0;
 		while ($row = $query->fetch()){
-            $_SESSION['query_Array'][$index] = $row['id'];
 			$locationArray = getLocation_by_ID($row['location_id']);
 			$format_act = getFormat_by_ID($row['format_id']);
 				?>
           <div class="Ambience">
-       		<a href="detail.php?id=<?php echo $index; ?>">
+       		<a href="detail.php?id=<?php echo $row['id'] ?>">
                 <img src="media/pics_ambiences/thumb/<?php echo htmlentities($row['picture']);?>"  class="AmbiencePic" />
             </a>
       		<div class="AmbienceDescription">
-                <a href="detail.php?id=<?php echo $index; ?>">
+                <a href="detail.php?id=<?php echo $row['id'] ?>">
                     <h1><?php echo htmlentities($row['name']); ?></h1>
                 </a>
           		<ul>

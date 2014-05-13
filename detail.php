@@ -23,7 +23,7 @@
 
         if (isset($_GET['id']) && is_numeric($_GET['id'])){
 
-            $id = $_SESSION['query_Array'][$_GET['id']];
+            $id = $_GET['id'];
             $amb = get_ambience_by_ID($id);
             $format = getFormat_by_ID($amb['format_id']);
             $loc = getLocation_by_ID($amb['location_id']);
@@ -75,26 +75,13 @@
 <div id="Content">
   <?php include ("header.php"); ?>
 
-    <div id="BkwdtoHauptseitebtn"><a href="overview.php?<?php echo http_build_query($_SESSION['query']) ?>"><< zurück zur Übersicht </a></div>
-
+    <?php if (isset($_SESSION['query'])) { ?>
+        <div id="BkwdtoHauptseitebtn"><a href="overview.php?<?php echo http_build_query($_SESSION['query']) ?>"><< zurück zur Übersicht </a></div>
+    <?php } else { ?>
+        <div id="BkwdtoHauptseitebtn"><a href="overview.php"><< zurück zur Übersicht </a></div>
+    <?php } ?>
 
     <div id="Detailansicht">
-  	
-    <div id="AmbienceBildBut">
-
-        <?php
-            if ($_GET['id'] != 0){
-        ?>
-        <a href="detail.php?id=<?php echo htmlentities($_GET['id'])-1;?>"><div id="BkwButton"></div></a>
-  	    <?php
-            }
-            if ($_GET['id'] != count($_SESSION['query_Array'])-1){
-        ?>
-        <a href="detail.php?id=<?php echo htmlentities($_GET['id'])+1;?>"><div id="FwdButton"></div></a>
-        <?php
-            }
-        ?>
-    </div>
     
     
 

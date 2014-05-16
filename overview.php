@@ -6,7 +6,6 @@
 <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/foundation.css" />
 <script src="js/vendor/modernizr.js"></script>
-<link rel="stylesheet" href="css/Haupseite.css" type="text/css" />
 <?php
 		include('php/include.php');
 
@@ -134,6 +133,7 @@
   <div id="LinkeNavigation">
     <div id="LinkeNavKat">
       <ul>
+          <noscript><li class="noscript">Für die Filterung der Einträge wird Javascript benötigt</li></noscript>
           <li class="OberKat">
               <form method="POST"><input type="hidden" name="cat" value="" /><a class="CursorAen" onclick="$(this).closest('form').submit()">Kategorien</a></form>
               <ul>

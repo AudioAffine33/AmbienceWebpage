@@ -103,6 +103,7 @@
 
             <?php if (isset($_SESSION['id'])){ ?>
             <div id="rating">
+                <noscript>Zur Bewertungsabgabe wird JavaScript benötigt</noscript>
                 <?php
                 for($i = 0; $i < $rating; $i++){
                 ?>
@@ -180,7 +181,9 @@
 	
     <div id="AmbiencePlayer">
         <audio src="media/audio/<?php echo htmlentities($amb['filename']); ?>" preload="none"></audio>
+        <noscript>Zur Wiedergabe wird Javascript benötigt</noscript>
   	</div>
+
     
   	<div id="Useranzeige">
     	<div id="UserBild">

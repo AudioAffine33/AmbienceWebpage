@@ -5,6 +5,22 @@
             if (!isset($_SESSION['name'])){
                 ?>
                 <a onclick="displayLoginMenu()"><img src="media/Design_Vorlagen/Hauptseite/02c_entdecke_login.png" /></a>
+                <noscript>
+                    <div id="LoginMenu">
+                        <form method="POST">
+                            <table>
+                                <tr>
+                                    <td>Login:</td> <td><input id="logName" type="text" class="loginText" name="loginName" <?php if(isset($errorLog['name'])){ ?> style="background-color:#F00" <?php } ?> value="<?php if(isset($_POST['loginName']) && !isset($errorLog['name'])){ echo $_POST['loginName'];} ?>"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Pass:</td> <td><input type="password" class="loginText" name="loginPass" <?php if(isset($errorLog['pass'])){ ?> style="background-color:#F00" <?php } ?> /></td>
+                                </tr>
+                            </table>
+                            <div id="LoginButton"><input class="loginButton" type="submit" value="Login" /></div>
+                            <div id="RegButton"><button class="loginButton" id="regFrame" data-fancybox-type="iframe" href="register.php" target="_blank" title="Registrieren"></button></div>
+                        </form>
+                    </div>
+                </noscript>
             <?php
             } else {
                 echo "<a onclick='displayUserMenu()'>";
@@ -15,6 +31,12 @@
                 }else {
                     ?>
                     <img src="media/Design_Vorlagen/Userseite/standardUser.jpg" width="30px" height="30px" />
+                    <noscript>
+                        <div id="UserMenu">
+                            <div id="ProfilButton"><a href="user.php?id=<?php echo $_SESSION['id']?>"><img src="media/Design_Vorlagen/Hauptseite/05_header_profil.png" /></a></div>
+                            <div id="LogoutHeader"><form method="POST" action="php/logout.php"><input type="submit" name="logout" value="Logout" /></form></div>
+                        </div>
+                    </noscript>
                 <?php
                 }
                 echo $_SESSION['name']."</a>";

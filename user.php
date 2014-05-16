@@ -142,7 +142,9 @@
     	<h1>Uploads</h1>
         <div id="UploadALinks">
     		
-            <div id="GoogleMaps"><div id="map-canvas"></div></div>
+            <div id="GoogleMaps">
+                <div id="map-canvas"><noscript>Für die Karte wird JavaScript benötigt</noscript></div>
+            </div>
 
     		<div id="Uploaddetails">
                 <div id="countUploads">

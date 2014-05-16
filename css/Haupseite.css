@@ -44,6 +44,15 @@ body{
 #LoginHeader:hover{
 	cursor:pointer;
 	}
+
+#LoginHeader:hover noscript #LoginMenu{
+    display:block;
+}
+
+#LoginHeader:hover noscript #UserMenu{
+    display:block;
+}
+
 #LoginMenu{
     display: none;
     padding: 3px;

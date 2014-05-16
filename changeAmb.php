@@ -103,7 +103,8 @@
                 </tr>
                 <tr>
                     <td><input id="submitButton" type="submit" value="Ändern" /></td>
-                    <td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>
+                    <script>document.write('<td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>');</script>
+                    <noscript><td><a id="abbut" href="detail.php?id=<?php echo htmlentities($_GET['id']); ?>">Abbrechen</a></td></noscript>
                 </tr>
             </table>
         </form>
@@ -119,7 +120,8 @@
                 </tr>
                 <tr>
                     <td><input id="submitButton" type="submit" value="Ändern" /></td>
-                    <td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>
+                    <script>document.write('<td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>');</script>
+                    <noscript><td><a id="abbut" href="detail.php?id=<?php echo htmlentities($_GET['id']); ?>">Abbrechen</a></td></noscript>
                 </tr>
             </table>
         </form>
@@ -138,7 +140,8 @@
                 </tr>
                 <tr>
                     <td><input id="submitButton" type="submit" value="Ändern" /></td>
-                    <td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>
+                    <script>document.write('<td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>');</script>
+                    <noscript><td><a id="abbut" href="detail.php?id=<?php echo htmlentities($_GET['id']); ?>">Abbrechen</a></td></noscript>
                 </tr>
             </table>
         </form>
@@ -163,7 +166,8 @@
                 </tr>
                 <tr>
                     <td><input id="submitButton" type="submit" value="Ändern" /></td>
-                    <td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>
+                    <script>document.write('<td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>');</script>
+                    <noscript><td><a id="abbut" href="detail.php?id=<?php echo htmlentities($_GET['id']); ?>">Abbrechen</a></td></noscript>
                 </tr>
             </table>
 
@@ -181,7 +185,8 @@
                 </tr>
                 <tr>
                     <td><input id="submitButton" type="submit" value="Ändern" /></td>
-                    <td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>
+                    <script>document.write('<td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>');</script>
+                    <noscript><td><a id="abbut" href="detail.php?id=<?php echo htmlentities($_GET['id']); ?>">Abbrechen</a></td></noscript>
                 </tr>
             </table>
 
@@ -194,17 +199,20 @@
             <table>
                 <tr>
                     <td class="eingabe">Ort:</td>
-                    <td><input id="placeSearch" type="text" name="location" /></td>
-                    <input id="locName" type="hidden" name="locName" value="" />
-                    <input id="land" type="hidden" name="locLand" value="" />
-                    <input id="countryCode" type="hidden" name="countryCode" value="" />
-                    <input id="lat" type="hidden" name="locLat" value="" />
-                    <input id="lng" type="hidden" name="locLng" value="" />
-                </tr>
-                <tr>
-                    <td><input id="submitButton" type="submit" value="Ändern" /></td>
-                    <td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>
-                </tr>
+                    <script> document.write(''
+                            +'<td><input id="placeSearch" type="text" name="location" value="<?php if(isset($_POST['location'])){ echo $_POST['location'];}  ?>" /></td>'
+                            +'<input id="locName" type="hidden" name="locName" value="<?php if(isset($_POST['locName'])){ echo $_POST['locName'];}  ?>" />'
+                            +'<input id="land" type="hidden" name="locLand" value="<?php if(isset($_POST['locLand'])){ echo $_POST['locLand'];}  ?>" />'
+                            +'<input id="countryCode" type="hidden" name="countryCode" value="<?php if(isset($_POST['countryCode'])){ echo $_POST['countryCode'];}  ?>" />'
+                            +'<input id="lat" type="hidden" name="locLat" value="<?php if(isset($_POST['locLat'])){ echo $_POST['locLat'];}  ?>" />'
+                            +'<input id="lng" type="hidden" name="locLng" value="<?php if(isset($_POST['locLng'])){ echo $_POST['locLng'];}  ?>" />)'
+                            +'</tr>'
+                            +'<tr>'
+                            +'<td><input id="submitButton" type="submit" value="Ändern" /></td>'
+                            +'<td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>'
+                            +'</tr>');
+                    </script>
+                    <noscript><td>Für die Ortsauswahl wird JavaScript benötigt</td></td></noscript>
             </table>
 
         </form>
@@ -222,7 +230,8 @@
                 </tr>
                 <tr>
                     <td><input id="submitButton" type="submit" value="Löschen" /></td>
-                    <td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>
+                    <script>document.write('<td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>');</script>
+                    <noscript><td><a id="abbut" href="detail.php?id=<?php echo htmlentities($_GET['id']); ?>">Abbrechen</a></td></noscript>
                 </tr>
             </table>
         </form>

@@ -100,7 +100,8 @@
                 </tr>
                 <tr>
                     <td><input id="submitButton" type="submit" value="Ändern" /></td>
-                    <td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>
+                    <script>document.write('<td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>');</script>
+                    <noscript><td><a id="abbut" href="user.php?id=<?php echo htmlentities($_SESSION['id']); ?>">Abbrechen</a></td></noscript>
                 </tr>
             </table>
         </form>
@@ -116,7 +117,8 @@
                 </tr>
                 <tr>
                     <td><input id="submitButton" type="submit" value="Ändern" /></td>
-                    <td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>
+                    <script>document.write('<td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>');</script>
+                    <noscript><td><a id="abbut" href="user.php?id=<?php echo htmlentities($_SESSION['id']); ?>">Abbrechen</a></td></noscript>
                 </tr>
             </table>
         </form>
@@ -134,7 +136,8 @@
                 </tr>
                 <tr>
                     <td><input id="submitButton" type="submit" value="Ändern" /></td>
-                    <td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>
+                    <script>document.write('<td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>');</script>
+                    <noscript><td><a id="abbut" href="user.php?id=<?php echo htmlentities($_SESSION['id']); ?>">Abbrechen</a></td></noscript>
                 </tr>
             </table>
         </form>
@@ -159,7 +162,8 @@
                 </tr>
                 <tr>
                     <td><input id="submitButton" type="submit" value="Ändern" /></td>
-                    <td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>
+                    <script>document.write('<td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>');</script>
+                    <noscript><td><a id="abbut" href="user.php?id=<?php echo htmlentities($_SESSION['id']); ?>">Abbrechen</a></td></noscript>
                 </tr>
             </table>
         </form>
@@ -176,7 +180,8 @@
                 </tr>
                 <tr>
                     <td><input id="submitButton" type="submit" value="Löschen" /></td>
-                    <td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>
+                    <script>document.write('<td><a id="abbut" onclick="parent.$.fancybox.close();">Abbrechen</a></td>');</script>
+                    <noscript><td><a id="abbut" href="user.php?id=<?php echo htmlentities($_SESSION['id']); ?>">Abbrechen</a></td></noscript>
                 </tr>
             </table>
         </form>

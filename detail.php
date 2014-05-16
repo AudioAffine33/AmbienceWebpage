@@ -75,7 +75,7 @@
 <div id="Content">
   <?php include ("header.php");
 
-  if (is_numeric(strpos($_SERVER['HTTP_REFERER'],"user.php"))){ ?>
+  if (isset($_SERVER['HTTP_REFERER']) && is_numeric(strpos($_SERVER['HTTP_REFERER'],"user.php"))){ ?>
       <div id="BkwdtoHauptseitebtn"><a href="<?php echo $_SERVER['HTTP_REFERER'] ?>"><< zurück zu User </a></div>
   <?php }
 

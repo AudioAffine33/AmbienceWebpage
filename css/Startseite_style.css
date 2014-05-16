@@ -3,14 +3,12 @@
 
 body{
 	background-color:#FFF;
-	width:1920px;
-	height:1080px;
 	padding:0;
 	margin:0;
 	font-family: 'Oxygen', 'sans-serif';
 	}
 #Content{
-    width:1150px;
+    width:1280px;
     height: 1080px;;
     margin-left: auto;
     margin-right: auto;

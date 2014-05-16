@@ -181,8 +181,8 @@
 
 	<div id="Top">
 
-		<div id="TopLeft">
-            <div class="picframe"  id="<?php echo $randPics[0]['id'] ?>" onclick="buttonClick('<?php echo $randPics[0]['id'] ?>')">
+		<div id="TopLeft" c>
+            <div class="picframe" id="<?php echo $randPics[0]['id'] ?>" onclick="buttonClick('<?php echo $randPics[0]['id'] ?>')">
                 <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
                 <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
                 <img src="media/pics_ambiences/<?php echo $randPics[0]['picture'] ?>" class="AmbienceFotoFade AmbienceFoto desaturate grey" />
@@ -218,9 +218,9 @@
         </div>
     
    		<div id="LoginBox">
-        	<div id="LoginTop"> 
+        	<div id="LoginTop">
         
-       			<h1>Login</h1> 
+       			<h1>Login</h1>
    				<form method="POST">
                 	<input id="logName" type="text" name="loginName" <?php if(isset($errorLog['name'])){ ?> style="background-color:#F00" <?php } ?> value="<?php if(isset($_POST['loginName']) && isset($errorLog['pass'])){ echo $_POST['loginName'];} ?>"/>
                     <input type="password" name="loginPass" <?php if(isset($errorLog['pass'])){ ?> style="background-color:#F00" <?php } ?>/>

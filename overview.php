@@ -6,6 +6,7 @@
 <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/foundation.css" />
 <script src="js/vendor/modernizr.js"></script>
+<link rel="stylesheet" href="css/Haupseite.css" />
 <?php
 		include('php/include.php');
 

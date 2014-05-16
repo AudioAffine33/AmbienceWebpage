@@ -10,9 +10,12 @@ body{
 	font-family: 'Oxygen', 'sans-serif';
 	}
 #Content{
-	margin-left:5%;
-	margin-right:auto;
+    width:1150px;
+    height: 1080px;;
+    margin-left: auto;
+    margin-right: auto;
 	}
+
 	
 .AmbienceFoto{
 	width:300px; 

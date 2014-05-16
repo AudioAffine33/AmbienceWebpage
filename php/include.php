@@ -23,23 +23,21 @@
     //Countrys&Continents
     require('CountryContinents.php');
 
+	//GoogleMaps API
 	?>
-    <!-- CSS -->
     <link rel="stylesheet" href="css/normalize/normalize.css" type="text/css" />
-    <link rel="stylesheet" href="js/fancyBox/source/jquery.fancybox.css" media="screen" />
-    <link rel="stylesheet" href="css/Haupseite.css" type="text/css" />
-
-    <!-- //JS -->
     <script type="text/javascript" src="js/jquery-1.11.0.js"></script>
     <script type="text/javascript" src="js/fancyBox/source/jquery.fancybox.pack.js"></script>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBeZ-iwEnYMBb5cke9oBkkYf-5WqCGhxf8&sensor=false&libraries=places"></script>
+    <link rel="stylesheet" href="js/fancyBox/source/jquery.fancybox.css" media="screen" />
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBeZ-iwEnYMBb5cke9oBkkYf-5WqCGhxf8&sensor=false&libraries=places"></script>
     <script type="text/javascript" src="js/functions.js"></script>
-
 	<?php
 	
 	//Verbindung zu PHP-Skripten
 	require_once("sql.php");
 	require_once("upload.php");
+
+	//$getID3->setOption(array('encoding' => $PageEncoding));
 	
 	//Session starten
 	session_start();
@@ -68,23 +66,7 @@
         }
     }
 
-    if (!isset($_SESSION['name'])){ ?>
-    <noscript>
-        <style>
-            #LoginHeader:hover div {
-            display:block;
-            }
-        </style>
-    </noscript>
-	<?php } else { ?>
-        <noscript>
-            <style>
-
-            </style>
-        </noscript>
-    <?php }
-
-
+    
 	//Audio auf Server laden und in DB eintragen
 	function upload_audio_inDB_onServer ($file, $userid){
 		$getID3 = new getID3;

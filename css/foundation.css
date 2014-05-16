@@ -1,3 +1,4 @@
+/*
 meta.foundation-version {
   font-family: "/5.2.2/"; }
 
@@ -1221,7 +1222,9 @@ meta.foundation-mq-topbar {
   font-family: "/only screen and (min-width:40.063em)/";
   width: 40.063em; }
 
-/* Wrapped around .top-bar to contain to grid width */
+*/
+/* Wrapped around .top-bar to contain to grid width *//*
+
 .contain-to-grid {
   width: 100%;
   background: #333333; }
@@ -1899,7 +1902,9 @@ meta.foundation-mq-topbar {
     .button-bar .button-group div {
       overflow: hidden; }
 
-/* Panels */
+*/
+/* Panels *//*
+
 .panel {
   border-style: solid;
   border-width: 1px;
@@ -2122,7 +2127,9 @@ div.switch {
     div.switch.round label {
       padding: 0 0.5625rem; }
 
-/* Image Thumbnails */
+*/
+/* Image Thumbnails *//*
+
 .th {
   line-height: 0;
   display: inline-block;
@@ -2135,7 +2142,9 @@ div.switch {
   .th.radius {
     border-radius: 3px; }
 
-/* Pricing Tables */
+*/
+/* Pricing Tables *//*
+
 .pricing-table {
   border: solid 1px #dddddd;
   margin-left: 0;
@@ -2196,7 +2205,9 @@ div.switch {
     -o-transform: rotate(360deg);
     transform: rotate(360deg); } }
 
-/* Orbit Graceful Loading */
+*/
+/* Orbit Graceful Loading *//*
+
 .slideshow-wrapper {
   position: relative; }
   .slideshow-wrapper ul {
@@ -2593,7 +2604,9 @@ ul.pagination {
     float: left;
     display: block; }
 
-/* Pagination centred wrapper */
+*/
+/* Pagination centred wrapper *//*
+
 .pagination-centered {
   text-align: center; }
   .pagination-centered ul.pagination li {
@@ -2787,7 +2800,9 @@ ul.pagination {
 
   .xxlarge-text-justify {
     text-align: justify !important; } }
-/* Typography resets */
+*/
+/* Typography resets *//*
+
 div,
 dl,
 dt,
@@ -2810,7 +2825,9 @@ td {
   margin: 0;
   padding: 0; }
 
-/* Default Link Styles */
+*/
+/* Default Link Styles *//*
+
 a {
   color: #008cba;
   text-decoration: none;
@@ -2820,7 +2837,9 @@ a {
   a img {
     border: none; }
 
-/* Default paragraph styles */
+*/
+/* Default paragraph styles *//*
+
 p {
   font-family: inherit;
   font-weight: normal;
@@ -2836,7 +2855,9 @@ p {
     line-height: 1.35;
     font-style: italic; }
 
-/* Default header styles */
+*/
+/* Default header styles *//*
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: normal;
@@ -2883,7 +2904,9 @@ hr {
   margin: 1.25rem 0 1.1875rem;
   height: 0; }
 
-/* Helpful Typography Defaults */
+*/
+/* Helpful Typography Defaults *//*
+
 em,
 i {
   font-style: italic;
@@ -2903,7 +2926,9 @@ code {
   font-weight: bold;
   color: #bd260d; }
 
-/* Lists */
+*/
+/* Lists *//*
+
 ul,
 ol,
 dl {
@@ -2923,7 +2948,9 @@ ul {
       margin-bottom: 0;
       list-style: none; }
 
-/* Unordered Lists */
+*/
+/* Unordered Lists *//*
+
 ul li ul,
 ul li ol {
   margin-left: 1.25rem;
@@ -2942,7 +2969,9 @@ ul.disc {
 ul.no-bullet {
   list-style: none; }
 
-/* Ordered Lists */
+*/
+/* Ordered Lists *//*
+
 ol {
   margin-left: 1.4rem; }
   ol li ul,
@@ -2950,14 +2979,18 @@ ol {
     margin-left: 1.25rem;
     margin-bottom: 0; }
 
-/* Definition Lists */
+*/
+/* Definition Lists *//*
+
 dl dt {
   margin-bottom: 0.3rem;
   font-weight: bold; }
 dl dd {
   margin-bottom: 0.75rem; }
 
-/* Abbreviations */
+*/
+/* Abbreviations *//*
+
 abbr,
 acronym {
   text-transform: uppercase;
@@ -2969,7 +3002,9 @@ acronym {
 abbr {
   text-transform: none; }
 
-/* Blockquotes */
+*/
+/* Blockquotes *//*
+
 blockquote {
   margin: 0 0 1.25rem;
   padding: 0.5625rem 1.25rem 0 1.1875rem;
@@ -2989,7 +3024,9 @@ blockquote p {
   line-height: 1.6;
   color: #6f6f6f; }
 
-/* Microformats */
+*/
+/* Microformats *//*
+
 .vcard {
   display: inline-block;
   margin: 0 0 1.25rem 0;
@@ -3026,12 +3063,14 @@ blockquote p {
 
   h4 {
     font-size: 1.4375rem; } }
+*/
 /*
  * Print styles.
  *
  * Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
  * Credit to Paul Irish and HTML5 Boilerplate (html5boilerplate.com)
-*/
+*//*
+
 .print-only {
   display: none !important; }
 
@@ -3039,7 +3078,9 @@ blockquote p {
   * {
     background: transparent !important;
     color: black !important;
-    /* Black prints faster: h5bp.com/s */
+    */
+/* Black prints faster: h5bp.com/s *//*
+
     box-shadow: none !important;
     text-shadow: none !important; }
 
@@ -3065,7 +3106,9 @@ blockquote p {
 
   thead {
     display: table-header-group;
-    /* h5bp.com/t */ }
+    */
+/* h5bp.com/t *//*
+ }
 
   tr,
   img {
@@ -3278,7 +3321,9 @@ dialog[open] {
 @media print {
   dialog, .reveal-modal {
     background: white !important; } }
-/* Tooltips */
+*/
+/* Tooltips *//*
+
 .has-tip {
   border-bottom: dotted 1px #cccccc;
   cursor: help;
@@ -3353,7 +3398,9 @@ dialog[open] {
     left: -10px;
     top: 50%;
     margin-top: -5px; } }
-/* Clearing Styles */
+*/
+/* Clearing Styles *//*
+
 .clearing-thumbs, [data-clearing] {
   *zoom: 1;
   margin-bottom: 0;
@@ -3524,7 +3571,9 @@ dialog[open] {
     right: 20px;
     padding-left: 0;
     padding-top: 0; } }
-/* Progress Bar */
+*/
+/* Progress Bar *//*
+
 .progress {
   background-color: #f6f6f6;
   height: 1.5625rem;
@@ -3601,11 +3650,15 @@ dialog[open] {
       .sub-nav li.active a:hover {
         background: #0078a0; }
 
-/* Foundation Joyride */
+*/
+/* Foundation Joyride *//*
+
 .joyride-list {
   display: none; }
 
-/* Default styles for the container */
+*/
+/* Default styles for the container *//*
+
 .joyride-tip-guide {
   display: none;
   position: absolute;
@@ -3629,7 +3682,9 @@ dialog[open] {
   .joyride-content-wrapper .button {
     margin-bottom: 0 !important; }
 
-/* Add a little css triangle pip, older browser just miss out on the fanciness of it */
+*/
+/* Add a little css triangle pip, older browser just miss out on the fanciness of it *//*
+
 .joyride-tip-guide .joyride-nub {
   display: block;
   position: absolute;
@@ -3656,7 +3711,9 @@ dialog[open] {
   .joyride-tip-guide .joyride-nub.left {
     left: -20px; }
 
-/* Typography */
+*/
+/* Typography *//*
+
 .joyride-tip-guide h1,
 .joyride-tip-guide h2,
 .joyride-tip-guide h3,
@@ -3726,7 +3783,9 @@ dialog[open] {
   top: 0;
   left: 0; }
 
-/* Styles for screens that are at least 768px; */
+*/
+/* Styles for screens that are at least 768px; *//*
+
 @media only screen and (min-width: 40.063em) {
   .joyride-tip-guide {
     width: 300px;
@@ -4006,7 +4065,9 @@ ul.off-canvas-list {
 .no-csstransforms .move-right > .inner-wrap {
   left: 15.625rem; }
 
-/* Foundation Dropdowns */
+*/
+/* Foundation Dropdowns *//*
+
 .f-dropdown {
   position: absolute;
   left: -9999px;
@@ -4259,11 +4320,15 @@ table {
     display: table-cell;
     line-height: 1.125rem; }
 
-/* Standard Forms */
+*/
+/* Standard Forms *//*
+
 form {
   margin: 0 0 1rem; }
 
-/* Using forms within rows, we need to set some defaults */
+*/
+/* Using forms within rows, we need to set some defaults *//*
+
 form .row .row {
   margin: 0 -0.5rem; }
   form .row .row .column,
@@ -4283,7 +4348,9 @@ form .row textarea.column,
 form .row textarea.columns {
   padding-left: 0.5rem; }
 
-/* Label Styles */
+*/
+/* Label Styles *//*
+
 label {
   font-size: 0.875rem;
   color: #4d4d4d;
@@ -4292,7 +4359,9 @@ label {
   font-weight: normal;
   line-height: 1.5;
   margin-bottom: 0;
-  /* Styles for required inputs */ }
+  */
+/* Styles for required inputs *//*
+ }
   label.right {
     float: none;
     text-align: right; }
@@ -4313,7 +4382,9 @@ select::-ms-expand {
   select:hover {
     background: #f3f3f3; } }
 
-/* Attach elements to the beginning or end of an input */
+*/
+/* Attach elements to the beginning or end of an input *//*
+
 .prefix,
 .postfix {
   display: block;
@@ -4330,7 +4401,9 @@ select::-ms-expand {
   height: 2.3125rem;
   line-height: 2.3125rem; }
 
-/* Adjust padding, alignment and radius if pre/post element is a button */
+*/
+/* Adjust padding, alignment and radius if pre/post element is a button *//*
+
 .postfix.button {
   padding-left: 0;
   padding-right: 0;
@@ -4369,7 +4442,9 @@ select::-ms-expand {
   border-bottom-right-radius: 1000px;
   border-top-right-radius: 1000px; }
 
-/* Separate prefix and postfix styles when on span or label so buttons keep their own */
+*/
+/* Separate prefix and postfix styles when on span or label so buttons keep their own *//*
+
 span.prefix, label.prefix {
   background: #f2f2f2;
   border-right: none;
@@ -4390,7 +4465,9 @@ span.postfix, label.postfix {
     border-bottom-right-radius: 3px;
     border-top-right-radius: 3px; }
 
-/* We use this to get basic styling on all basic form elements */
+*/
+/* We use this to get basic styling on all basic form elements *//*
+
 input[type="text"],
 input[type="password"],
 input[type="date"],
@@ -4501,11 +4578,15 @@ textarea {
 input[type="submit"] {
   -webkit-appearance: none; }
 
-/* Respect enforced amount of rows for textarea */
+*/
+/* Respect enforced amount of rows for textarea *//*
+
 textarea[rows] {
   height: auto; }
 
-/* Add height value for select elements to match text input height */
+*/
+/* Add height value for select elements to match text input height *//*
+
 select {
   -webkit-appearance: none !important;
   background-color: #fafafa;
@@ -4523,7 +4604,9 @@ select {
     background-color: #f3f3f3;
     border-color: #999999; }
 
-/* Adjust margin for form elements below */
+*/
+/* Adjust margin for form elements below *//*
+
 input[type="file"],
 input[type="checkbox"],
 input[type="radio"],
@@ -4538,11 +4621,15 @@ input[type="radio"] + label {
   margin-bottom: 0;
   vertical-align: baseline; }
 
-/* Normalize file input width */
+*/
+/* Normalize file input width *//*
+
 input[type="file"] {
   width: 100%; }
 
-/* We add basic fieldset styling */
+*/
+/* We add basic fieldset styling *//*
+
 fieldset {
   border: 1px solid #dddddd;
   padding: 1.25rem;
@@ -4554,7 +4641,9 @@ fieldset {
     margin: 0;
     margin-left: -0.1875rem; }
 
-/* Error Handling */
+*/
+/* Error Handling *//*
+
 [data-abide] .error small.error, [data-abide] span.error, [data-abide] small.error {
   display: block;
   padding: 0.375rem 0.5625rem 0.5625rem;
@@ -5023,7 +5112,9 @@ kbd {
   padding: 0.125rem 0.25rem 0;
   border-radius: 3px; }
 
-/* small displays */
+*/
+/* small displays *//*
+
 @media only screen {
   .show-for-small-only, .show-for-small-up, .show-for-small, .show-for-small-down, .hide-for-medium-only, .hide-for-medium-up, .hide-for-medium, .show-for-medium-down, .hide-for-large-only, .hide-for-large-up, .hide-for-large, .show-for-large-down, .hide-for-xlarge-only, .hide-for-xlarge-up, .hide-for-xxlarge-only, .hide-for-xxlarge-up {
     display: inherit !important; }
@@ -5045,7 +5136,9 @@ kbd {
 
   th.show-for-small-only, td.show-for-small-only, th.show-for-small-up, td.show-for-small-up, th.show-for-small, td.show-for-small, th.show-for-small-down, td.show-for-small-down, th.hide-for-medium-only, td.hide-for-medium-only, th.hide-for-medium-up, td.hide-for-medium-up, th.hide-for-medium, td.hide-for-medium, th.show-for-medium-down, td.show-for-medium-down, th.hide-for-large-only, td.hide-for-large-only, th.hide-for-large-up, td.hide-for-large-up, th.hide-for-large, td.hide-for-large, th.show-for-large-down, td.show-for-large-down, th.hide-for-xlarge-only, td.hide-for-xlarge-only, th.hide-for-xlarge-up, td.hide-for-xlarge-up, th.hide-for-xxlarge-only, td.hide-for-xxlarge-only, th.hide-for-xxlarge-up, td.hide-for-xxlarge-up {
     display: table-cell !important; } }
-/* medium displays */
+*/
+/* medium displays *//*
+
 @media only screen and (min-width: 40.063em) {
   .hide-for-small-only, .show-for-small-up, .hide-for-small, .hide-for-small-down, .show-for-medium-only, .show-for-medium-up, .show-for-medium, .show-for-medium-down, .hide-for-large-only, .hide-for-large-up, .hide-for-large, .show-for-large-down, .hide-for-xlarge-only, .hide-for-xlarge-up, .hide-for-xxlarge-only, .hide-for-xxlarge-up {
     display: inherit !important; }
@@ -5067,7 +5160,9 @@ kbd {
 
   th.hide-for-small-only, td.hide-for-small-only, th.show-for-small-up, td.show-for-small-up, th.hide-for-small, td.hide-for-small, th.hide-for-small-down, td.hide-for-small-down, th.show-for-medium-only, td.show-for-medium-only, th.show-for-medium-up, td.show-for-medium-up, th.show-for-medium, td.show-for-medium, th.show-for-medium-down, td.show-for-medium-down, th.hide-for-large-only, td.hide-for-large-only, th.hide-for-large-up, td.hide-for-large-up, th.hide-for-large, td.hide-for-large, th.show-for-large-down, td.show-for-large-down, th.hide-for-xlarge-only, td.hide-for-xlarge-only, th.hide-for-xlarge-up, td.hide-for-xlarge-up, th.hide-for-xxlarge-only, td.hide-for-xxlarge-only, th.hide-for-xxlarge-up, td.hide-for-xxlarge-up {
     display: table-cell !important; } }
-/* large displays */
+*/
+/* large displays *//*
+
 @media only screen and (min-width: 64.063em) {
   .hide-for-small-only, .show-for-small-up, .hide-for-small, .hide-for-small-down, .hide-for-medium-only, .show-for-medium-up, .hide-for-medium, .hide-for-medium-down, .show-for-large-only, .show-for-large-up, .show-for-large, .show-for-large-down, .hide-for-xlarge-only, .hide-for-xlarge-up, .hide-for-xxlarge-only, .hide-for-xxlarge-up {
     display: inherit !important; }
@@ -5089,7 +5184,9 @@ kbd {
 
   th.hide-for-small-only, td.hide-for-small-only, th.show-for-small-up, td.show-for-small-up, th.hide-for-small, td.hide-for-small, th.hide-for-small-down, td.hide-for-small-down, th.hide-for-medium-only, td.hide-for-medium-only, th.show-for-medium-up, td.show-for-medium-up, th.hide-for-medium, td.hide-for-medium, th.hide-for-medium-down, td.hide-for-medium-down, th.show-for-large-only, td.show-for-large-only, th.show-for-large-up, td.show-for-large-up, th.show-for-large, td.show-for-large, th.show-for-large-down, td.show-for-large-down, th.hide-for-xlarge-only, td.hide-for-xlarge-only, th.hide-for-xlarge-up, td.hide-for-xlarge-up, th.hide-for-xxlarge-only, td.hide-for-xxlarge-only, th.hide-for-xxlarge-up, td.hide-for-xxlarge-up {
     display: table-cell !important; } }
-/* xlarge displays */
+*/
+/* xlarge displays *//*
+
 @media only screen and (min-width: 90.063em) {
   .hide-for-small-only, .show-for-small-up, .hide-for-small, .hide-for-small-down, .hide-for-medium-only, .show-for-medium-up, .hide-for-medium, .hide-for-medium-down, .hide-for-large-only, .show-for-large-up, .hide-for-large, .hide-for-large-down, .show-for-xlarge-only, .show-for-xlarge-up, .hide-for-xxlarge-only, .hide-for-xxlarge-up {
     display: inherit !important; }
@@ -5111,7 +5208,9 @@ kbd {
 
   th.hide-for-small-only, td.hide-for-small-only, th.show-for-small-up, td.show-for-small-up, th.hide-for-small, td.hide-for-small, th.hide-for-small-down, td.hide-for-small-down, th.hide-for-medium-only, td.hide-for-medium-only, th.show-for-medium-up, td.show-for-medium-up, th.hide-for-medium, td.hide-for-medium, th.hide-for-medium-down, td.hide-for-medium-down, th.hide-for-large-only, td.hide-for-large-only, th.show-for-large-up, td.show-for-large-up, th.hide-for-large, td.hide-for-large, th.hide-for-large-down, td.hide-for-large-down, th.show-for-xlarge-only, td.show-for-xlarge-only, th.show-for-xlarge-up, td.show-for-xlarge-up, th.hide-for-xxlarge-only, td.hide-for-xxlarge-only, th.hide-for-xxlarge-up, td.hide-for-xxlarge-up {
     display: table-cell !important; } }
-/* xxlarge displays */
+*/
+/* xxlarge displays *//*
+
 @media only screen and (min-width: 120.063em) {
   .hide-for-small-only, .show-for-small-up, .hide-for-small, .hide-for-small-down, .hide-for-medium-only, .show-for-medium-up, .hide-for-medium, .hide-for-medium-down, .hide-for-large-only, .show-for-large-up, .hide-for-large, .hide-for-large-down, .hide-for-xlarge-only, .show-for-xlarge-up, .show-for-xxlarge-only, .show-for-xxlarge-up {
     display: inherit !important; }
@@ -5133,7 +5232,9 @@ kbd {
 
   th.hide-for-small-only, td.hide-for-small-only, th.show-for-small-up, td.show-for-small-up, th.hide-for-small, td.hide-for-small, th.hide-for-small-down, td.hide-for-small-down, th.hide-for-medium-only, td.hide-for-medium-only, th.show-for-medium-up, td.show-for-medium-up, th.hide-for-medium, td.hide-for-medium, th.hide-for-medium-down, td.hide-for-medium-down, th.hide-for-large-only, td.hide-for-large-only, th.show-for-large-up, td.show-for-large-up, th.hide-for-large, td.hide-for-large, th.hide-for-large-down, td.hide-for-large-down, th.hide-for-xlarge-only, td.hide-for-xlarge-only, th.show-for-xlarge-up, td.show-for-xlarge-up, th.show-for-xxlarge-only, td.show-for-xxlarge-only, th.show-for-xxlarge-up, td.show-for-xxlarge-up {
     display: table-cell !important; } }
-/* Orientation targeting */
+*/
+/* Orientation targeting *//*
+
 .show-for-landscape,
 .hide-for-portrait {
   display: inherit !important; }
@@ -5142,7 +5243,9 @@ kbd {
 .show-for-portrait {
   display: none !important; }
 
-/* Specific visibility for tables */
+*/
+/* Specific visibility for tables *//*
+
 table.hide-for-landscape, table.show-for-portrait {
   display: table; }
 
@@ -5169,7 +5272,9 @@ th.show-for-portrait {
   .show-for-portrait {
     display: none !important; }
 
-  /* Specific visibility for tables */
+  */
+/* Specific visibility for tables *//*
+
   table.show-for-landscape, table.hide-for-portrait {
     display: table; }
 
@@ -5195,7 +5300,9 @@ th.show-for-portrait {
   .show-for-landscape {
     display: none !important; }
 
-  /* Specific visibility for tables */
+  */
+/* Specific visibility for tables *//*
+
   table.show-for-portrait, table.hide-for-landscape {
     display: table; }
 
@@ -5212,7 +5319,9 @@ th.show-for-portrait {
   th.show-for-portrait,
   th.hide-for-landscape {
     display: table-cell !important; } }
-/* Touch-enabled device targeting */
+*/
+/* Touch-enabled device targeting *//*
+
 .show-for-touch {
   display: none !important; }
 
@@ -5225,7 +5334,9 @@ th.show-for-portrait {
 .touch .hide-for-touch {
   display: none !important; }
 
-/* Specific visibility for tables */
+*/
+/* Specific visibility for tables *//*
+
 table.hide-for-touch {
   display: table; }
 
@@ -5261,3 +5372,4 @@ th.hide-for-touch {
 
 .touch th.show-for-touch {
   display: table-cell !important; }
+*/

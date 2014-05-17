@@ -48,8 +48,8 @@
     <form method="POST">
 		<div class="row">
             	<div class="two columns"><input type="text" placeholder="Name" name="regName" <?php if(isset($errorReg['name'])){ ?> style="background-color:#F00" <?php } ?> value="<?php if(isset($_POST['regName']) && !isset($errorReg['name'])){ echo $_POST['regName'];} ?>" /></div>
-        
-                    <div id="ErrorRegN" class="column alert-box alert"><?php if(isset($errorReg['name'])){ echo $errorReg['name']; } ?></div>
+
+                    <?php if(isset($errorReg['name'])){ ?><div id="ErrorRegN" class="column alert-box alert"><?php echo $errorReg['name'];?></div><?php } ?>
                 </div>
                 <div class="row">
             	<div class="two columns"><input type="password" placeholder="Passwort" name="regPass1"<?php if(isset($errorReg['pass'])){ ?> style='background-color:#F00'<?php } ?> />
@@ -58,15 +58,15 @@
                 <div class="row">
             	<div class="two columns"><input type="password" placeholder="Passwort wiederholen" name="regPass2"<?php if(isset($errorReg['pass'])){ ?> style='background-color:#F00'<?php } ?> />	</div>
     			</div>
-    
-                    <div class="column alert-box alert"><?php if(isset($errorReg['pass'])){ echo $errorReg['pass']; } ?></div>
+
+                    <?php if(isset($errorReg['pass'])){?><div class="column alert-box alert"><?php echo $errorReg['pass']; ?></div><?php } ?>
                 <div class="row">
             	<div class="two columns"><input type="text" placeholder="E-Mail" name="regMail"<?php if(isset($errorReg['mail'])){ ?> style='background-color:#F00'<?php } ?> value="<?php if(isset($_POST['regMail']) && !isset($errorReg['mail'])){ echo $_POST['regMail'];} ?>" />
                 </div>
         		</div>
-                <div class="column alert-box alert"><?php if(isset($errorReg['mail'])){ echo $errorReg['mail']; } ?></div>
-                
-                <div class="column alert-box alert"><?php if (isset($errorCap)){ echo $errorCap;}?>				</div>
+                <?php if(isset($errorReg['mail'])){?><div class="column alert-box alert"><?php echo $errorReg['mail']; ?></div><?php } ?>
+
+                <?php if (isset($errorCap)){?><div class="column alert-box alert"><?php echo $errorCap; ?></div><?php }?>
                 <div id="Eingabe" class="column">
                 	<?php
 					  echo recaptcha_get_html($publickey);

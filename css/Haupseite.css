@@ -1,7 +1,6 @@
 @charset "UTF-8";
 /* CSS Document */
 body{
-	/* background-color:#FFF; */
 	background:-moz-linear-gradient(top, #fff 0%, #FFFBE0 50%, #FFFBE0  51%, #FFF 100%); 
 	background:-webkit-linear-gradient(top, #fff 0%, #FFFBE0 50%, #FFFBE0 51%, #FFF 100%);
 	background:-o-linear-gradient(top, #fff 0%, #FFFBE0  50%, #FFFBE0  51%, #FFF 100%); 

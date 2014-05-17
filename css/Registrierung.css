@@ -1,11 +1,11 @@
 @charset "UTF-8";
 /* CSS Document */
 
-#registrierung h1 {
+/*#registrierung h1 {
 	text-align:center;
 	padding-top:3%;
     margin-top:0%;
-}
+}*/
 
 #registrierung {
 	font-family: 'Oxygen', 'sans-serif';
@@ -15,16 +15,16 @@
 	background-image:url(../media/Design_Vorlagen/Registrierung/03_registrierung_hintergrund.png);
 	}
 #felder{
-		margin:2%;
+		/*margin:2%;*/
 	}
 #regbut{
-	padding-left:4%;
+	/*padding-left:4%;*/
 	width:129px;
 	height:31px;
 	
 	}
 #regbut input{
-	padding-left:4%;
+	/*padding-left:4%;*/
 	width:129px;
 	height:31px;
 	background:none;
@@ -34,7 +34,7 @@
 	text-indent:-99999px;	
 	}
 #abbut{
-	padding-left:5%;
+	/*padding-left:5%;*/
 	width:129px;
 	height:31px;
 	background-repeat:no-repeat;
@@ -43,7 +43,7 @@
 	cursor:pointer;
 	}
 .eingabe{
-	padding-top:5%;
-	padding-bottom:5%;
+	/*padding-top:5%;
+	padding-bottom:5%;*/
 	
 	}

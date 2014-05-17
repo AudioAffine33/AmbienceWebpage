@@ -197,7 +197,7 @@
             </div>
         </div>
     
-    	<div id="TopRight" class="medium column">
+    	<div id="TopRight" class="medium-push-1 column">
             <div class="picframe" id="<?php echo $randPics[2]['id'] ?>"  onclick="buttonClick('<?php echo $randPics[2]['id'] ?>')">
                 <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
                 <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
@@ -248,7 +248,7 @@
             </a>
 	</div>
     
-   	 	<div id="MidRight" class="medium column">
+   	 	<div id="MidRight" class="medium-push-1 column">
             <div class="picframe" id="<?php echo $randPics[4]['id'] ?>" onclick="buttonClick('<?php echo $randPics[4]['id'] ?>')">
                 <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
                 <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
@@ -275,7 +275,7 @@
             </div>
         </div>
     
-    	<div id="BotRight" class="medium column">
+    	<div id="BotRight" class="medium-push-1 column">
             <div class="picframe" id="<?php echo $randPics[7]['id'] ?>" onclick="buttonClick('<?php echo $randPics[7]['id'] ?>')">
                 <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
                 <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>

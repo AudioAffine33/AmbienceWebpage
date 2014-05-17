@@ -82,6 +82,7 @@ img {
 	
 #LoginBox{
 	padding:0%;
+	margin-left:2%;
 	width:360px;
 	height:289px;
 	background-image:url(../media/Design_Vorlagen/Startseite/01b_startseite_gruen.png);
@@ -103,9 +104,7 @@ img {
 .abstand{
 	margin:5%;
 	}
-#Center{
-	margin-top:10%;
-	}
+	
 #TopLeft{
 	width:300px;
 	height:225px;
@@ -117,18 +116,17 @@ img {
 #TopCenter{
     width:300px;
     height:225px;
-	/*float:left;
-	margin:2%;*/
+	/*float:left;*/
+	margin-left:5%;
 	}
 	
 #TopRight{
     width:300px;
     height:225px;
-	/*margin:2%;
-	float:left;*/
 	}
 
 #MidLeft{
+	padding-top:4%;
     width:300px;
     height:225px;
 	/*margin:3%;
@@ -137,6 +135,7 @@ img {
 	}
 	
 #MidRight{
+	padding-top:4%;
     width:300px;
     height:225px;
 	/*margin:3%;
@@ -154,8 +153,8 @@ img {
 #BotCenter{
     width:300px;
     height:225px;
-	/*margin:3%;
-	float:left;*/
+	margin-left:5%;
+	/* float:left;*/
 	}
 	
 #BotRight{

@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/Registrierung.css" />
+<link rel="stylesheet" href="css/foundation.css" />
 <title>Registrierung</title>
 
 	<?php
@@ -41,59 +42,39 @@
 </head>
 
 <body>
-	<div id="registrierung">
-    <h1>Registrierung</h1>
-  	<div id="felder">
+	<div id="registrierung" class="row">
+    <div class="column text-center"><h1>Registrierung</h1></div>
+  	<div class="row">
     <form method="POST">
-        <table>
-        	<tr>
-            	<td class="eingabe">Name:</td>
-            	<td><input type="text" name="regName" <?php if(isset($errorReg['name'])){ ?> style="background-color:#F00" <?php } ?> value="<?php if(isset($_POST['regName']) && !isset($errorReg['name'])){ echo $_POST['regName'];} ?>" /></td>
-        	</tr>
-            <tr>
-                <td colspan="2" id="errorName">
-                    <?php if(isset($errorReg['name'])){ echo $errorReg['name']; } ?>
-                </td>
-            </tr>
-            <tr>
-            	<td class="eingabe">Passwort:</td>
-            	<td><input type="password" name="regPass1"<?php if(isset($errorReg['pass'])){ ?> style='background-color:#F00'<?php } ?> /></td>
-        	</tr>
-            <tr>
-            	<td class="eingabe">Passwort wdh.:</td>
-            	<td><input type="password" name="regPass2"<?php if(isset($errorReg['pass'])){ ?> style='background-color:#F00'<?php } ?> /></td>
-        	</tr>
-            <tr>
-                <td colspan="2" id="errorPass">
-                    <?php if(isset($errorReg['pass'])){ echo $errorReg['pass']; } ?>
-                </td>
-            </tr>
-            <tr>
-            	<td class="eingabe">Email:</td>
-            	<td><input type="text" name="regMail"<?php if(isset($errorReg['mail'])){ ?> style='background-color:#F00'<?php } ?> value="<?php if(isset($_POST['regMail']) && !isset($errorReg['mail'])){ echo $_POST['regMail'];} ?>" /></td>
-        	</tr>
-            <tr>
-                <td colspan="2" id="errorMail">
-                    <?php if(isset($errorReg['mail'])){ echo $errorReg['mail']; } ?>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" id="errorCaptcha">
-                    <?php if (isset($errorCap)){ echo $errorCap;}?>
-                </td>
-            </tr>
-            <tr>
-            	<td colspan="2" class="eingabe">
+		<div class="row">
+            	<div class="two columns"><input type="text" placeholder="Name" name="regName" <?php if(isset($errorReg['name'])){ ?> style="background-color:#F00" <?php } ?> value="<?php if(isset($_POST['regName']) && !isset($errorReg['name'])){ echo $_POST['regName'];} ?>" /></div>
+        
+                    <div id="ErrorRegN" class="column alert-box alert"><?php if(isset($errorReg['name'])){ echo $errorReg['name']; } ?></div>
+                </div>
+                <div class="row">
+            	<div class="two columns"><input type="password" placeholder="Passwort" name="regPass1"<?php if(isset($errorReg['pass'])){ ?> style='background-color:#F00'<?php } ?> />
+                </div>
+                </div>
+                <div class="row">
+            	<div class="two columns"><input type="password" placeholder="Passwort wiederholen" name="regPass2"<?php if(isset($errorReg['pass'])){ ?> style='background-color:#F00'<?php } ?> />	</div>
+    			</div>
+    
+                    <div class="column alert-box alert"><?php if(isset($errorReg['pass'])){ echo $errorReg['pass']; } ?></div>
+                <div class="row">
+            	<div class="two columns"><input type="text" placeholder="E-Mail" name="regMail"<?php if(isset($errorReg['mail'])){ ?> style='background-color:#F00'<?php } ?> value="<?php if(isset($_POST['regMail']) && !isset($errorReg['mail'])){ echo $_POST['regMail'];} ?>" />
+                </div>
+        		</div>
+                <div class="column alert-box alert"><?php if(isset($errorReg['mail'])){ echo $errorReg['mail']; } ?></div>
+                
+                <div class="column alert-box alert"><?php if (isset($errorCap)){ echo $errorCap;}?>				</div>
+                <div id="Eingabe" class="column">
                 	<?php
 					  echo recaptcha_get_html($publickey);
-					?>
-                </td>
-            </tr>
-            <tr>
-            	<td id="regbut"><input type="submit" value="Registrieren" /></td>
-                <td id="abbut" onclick="parent.jQuery.fancybox.close();"><img src="media/Design_Vorlagen/Registrierung/03_registrierung_button_abbrechen.png" /></td>
-        	</tr>
-        </table>
+					?></div>
+                <div id="row">
+            	<div id="regbut" class="two columns"><input type="submit" value="Registrieren" /></div>
+                <div id="abbut"  class="two columns" onclick="parent.jQuery.fancybox.close();"><img src="media/Design_Vorlagen/Registrierung/03_registrierung_button_abbrechen.png" /></div>
+                </div>
    	</form>
     </div>
     </div>

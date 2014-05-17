@@ -8,17 +8,17 @@
 }*/
 
 #registrierung {
+	padding-left:3%;
+	padding-right:3%;
 	font-family: 'Oxygen', 'sans-serif';
 	width:310px;
 	height:523px;
     overflow: hidden;
 	background-image:url(../media/Design_Vorlagen/Registrierung/03_registrierung_hintergrund.png);
 	}
-#felder{
-		/*margin:2%;*/
-	}
+
 #regbut{
-	/*padding-left:4%;*/
+	padding:0%;
 	width:129px;
 	height:31px;
 	
@@ -34,7 +34,7 @@
 	text-indent:-99999px;	
 	}
 #abbut{
-	/*padding-left:5%;*/
+	padding:0%;
 	width:129px;
 	height:31px;
 	background-repeat:no-repeat;

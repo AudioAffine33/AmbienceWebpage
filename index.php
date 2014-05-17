@@ -179,9 +179,9 @@
 <body>
 <div id="Content">
 
-	<div id="Top">
+	<div class="row abstand">
 
-		<div id="TopLeft" c>
+        <div id ="TopLeft" class="small-pull-1 column">
             <div class="picframe" id="<?php echo $randPics[0]['id'] ?>" onclick="buttonClick('<?php echo $randPics[0]['id'] ?>')">
                 <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
                 <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
@@ -189,7 +189,7 @@
             </div>
         </div>
     
-    	<div id="TopCenter">
+    	<div id="TopCenter" class="small column">
             <div class="picframe" id="<?php echo $randPics[1]['id'] ?>"  onclick="buttonClick('<?php echo $randPics[1]['id'] ?>')">
                 <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
                 <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
@@ -197,7 +197,7 @@
             </div>
         </div>
     
-    	<div id="TopRight">
+    	<div id="TopRight" class="small column">
             <div class="picframe" id="<?php echo $randPics[2]['id'] ?>"  onclick="buttonClick('<?php echo $randPics[2]['id'] ?>')">
                 <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
                 <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
@@ -207,9 +207,9 @@
     
     </div>
 
-	<div id="Center">
+	<div class="row abstand">
   
-    	<div id="MidLeft">
+    	<div id="MidLeft" class="medium-pull-1 column">
             <div class="picframe" id="<?php echo $randPics[3]['id'] ?>"  onclick="buttonClick('<?php echo $randPics[3]['id'] ?>')">
                 <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
                 <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
@@ -217,37 +217,38 @@
             </div>
         </div>
     
-   		<div id="LoginBox">
-        	<div id="LoginTop">
+   		<div id="LoginBox" class="column">
+        	<div id="LoginTop" class="small row">
         
        			<h1>Login</h1>
-   				<form method="POST">
+   				<div class="small column"><form method="POST">
                 	<input id="logName" type="text" name="loginName" <?php if(isset($errorLog['name'])){ ?> style="background-color:#F00" <?php } ?> value="<?php if(isset($_POST['loginName']) && isset($errorLog['pass'])){ echo $_POST['loginName'];} ?>"/>
                     <input type="password" name="loginPass" <?php if(isset($errorLog['pass'])){ ?> style="background-color:#F00" <?php } ?>/>
                     <?php
                         if (isset($errorLog['name'])){
-                            ?><div id="error"><?php
+                            ?><div class="alert-box alert"><?php
                             echo $errorLog['name'];
                             ?></div><?php
                         } elseif (isset($errorLog['pass'])){
-                            ?><div id="error"><?php
+                            ?><div class="alert-box alert"><?php
                             echo $errorLog['pass'];
                             ?></div><?php
                         }
                     ?>
-                   <br /><div id="LoginBut"><input type="submit" value="Einloggen"/></div><br />
+                 <div id="LoginBut" class="small-push-1 column"><input type="submit" value="Einloggen"/></div>
                 </form>
-              	 <div id="Reg"><a id="regFrame" data-fancybox-type="iframe" href="register.php" target="_blank" title="Registrieren"><img src="media/Design_Vorlagen/Startseite/01b_startseite_registrieren.png" /></a> </div>
+              	 <div id="Reg" class="small-push-2 column"><a id="regFrame" data-fancybox-type="iframe" href="register.php" target="_blank" title="Registrieren"><img src="media/Design_Vorlagen/Startseite/01b_startseite_registrieren.png" /></a> </div>
+                </div>
           	</div>
         
-        	<div id="LoginBottom" href="overview.php">
+        	<a id="LoginBottom" href="overview.php" class="small column">
              
-          	<h1><a href="overview.php">Entdecke</a></h1>
+          	<h1>Entdecke</h1>
             
-            </div>
+            </a>
 	</div>
     
-   	 	<div id="MidRight">
+   	 	<div id="MidRight" class="medium column">
             <div class="picframe" id="<?php echo $randPics[4]['id'] ?>" onclick="buttonClick('<?php echo $randPics[4]['id'] ?>')">
                 <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
                 <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
@@ -256,9 +257,9 @@
         </div>
    </div>
 
-   	<div id="Bot">
+   	<div class="row abstand">
     
-  		<div id="BotLeft">
+  		<div id="BotLeft" class="small-pull-1 column">
             <div class="picframe" id="<?php echo $randPics[5]['id'] ?>"  onclick="buttonClick('<?php echo $randPics[5]['id'] ?>')">
                 <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
                 <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
@@ -266,7 +267,7 @@
             </div>
         </div>
     
-    	<div id="BotCenter" >
+    	<div id="BotCenter" class="small column">
             <div class="picframe"  id="<?php echo $randPics[6]['id'] ?>" onclick="buttonClick('<?php echo $randPics[6]['id'] ?>')">
                 <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
                 <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
@@ -274,7 +275,7 @@
             </div>
         </div>
     
-    	<div id="BotRight" >
+    	<div id="BotRight" class="small column">
             <div class="picframe" id="<?php echo $randPics[7]['id'] ?>" onclick="buttonClick('<?php echo $randPics[7]['id'] ?>')">
                 <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
                 <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>

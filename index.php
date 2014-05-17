@@ -181,7 +181,7 @@
 
 	<div class="row abstand">
 
-        <div id ="TopLeft" class="small-pull-1 column">
+        <div id ="TopLeft" class="medium-pull-1 column">
             <div class="picframe" id="<?php echo $randPics[0]['id'] ?>" onclick="buttonClick('<?php echo $randPics[0]['id'] ?>')">
                 <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
                 <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
@@ -189,7 +189,7 @@
             </div>
         </div>
     
-    	<div id="TopCenter" class="small column">
+    	<div id="TopCenter" class="medium column">
             <div class="picframe" id="<?php echo $randPics[1]['id'] ?>"  onclick="buttonClick('<?php echo $randPics[1]['id'] ?>')">
                 <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
                 <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
@@ -197,7 +197,7 @@
             </div>
         </div>
     
-    	<div id="TopRight" class="small column">
+    	<div id="TopRight" class="medium column">
             <div class="picframe" id="<?php echo $randPics[2]['id'] ?>"  onclick="buttonClick('<?php echo $randPics[2]['id'] ?>')">
                 <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
                 <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
@@ -207,7 +207,7 @@
     
     </div>
 
-	<div class="row abstand">
+	<div class="row abstand" id="Center">
   
     	<div id="MidLeft" class="medium-pull-1 column">
             <div class="picframe" id="<?php echo $randPics[3]['id'] ?>"  onclick="buttonClick('<?php echo $randPics[3]['id'] ?>')">
@@ -218,7 +218,7 @@
         </div>
     
    		<div id="LoginBox" class="column">
-        	<div id="LoginTop" class="small row">
+        	<div id="LoginTop" class="medium row text-center">
         
        			<h1>Login</h1>
    				<div class="small column"><form method="POST">
@@ -241,7 +241,7 @@
                 </div>
           	</div>
         
-        	<a id="LoginBottom" href="overview.php" class="small column">
+        	<a id="LoginBottom" href="overview.php" class="small column text-center">
              
           	<h1>Entdecke</h1>
             
@@ -259,7 +259,7 @@
 
    	<div class="row abstand">
     
-  		<div id="BotLeft" class="small-pull-1 column">
+  		<div id="BotLeft" class="medium-pull-1 column">
             <div class="picframe" id="<?php echo $randPics[5]['id'] ?>"  onclick="buttonClick('<?php echo $randPics[5]['id'] ?>')">
                 <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
                 <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
@@ -267,7 +267,7 @@
             </div>
         </div>
     
-    	<div id="BotCenter" class="small column">
+    	<div id="BotCenter" class="medium column">
             <div class="picframe"  id="<?php echo $randPics[6]['id'] ?>" onclick="buttonClick('<?php echo $randPics[6]['id'] ?>')">
                 <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
                 <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>
@@ -275,7 +275,7 @@
             </div>
         </div>
     
-    	<div id="BotRight" class="small column">
+    	<div id="BotRight" class="medium column">
             <div class="picframe" id="<?php echo $randPics[7]['id'] ?>" onclick="buttonClick('<?php echo $randPics[7]['id'] ?>')">
                 <div class="buttonPlay"><img src="media/Design_Vorlagen/Startseite/01b_startseite_play.png" /></div>
                 <div class="buttonPause"><img src="media/Design_Vorlagen/Startseite/01b_startseite_pause.png" /></div>

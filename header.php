@@ -46,8 +46,8 @@
 <div id="LoginMenu" class="row">
     <form method="POST">
         
-        <div class="two columns small-push-1"><input id="logName" type="text" placeholder="Benutzername" class="loginText" name="loginName" <?php if(isset($errorLog['name'])){ ?> style="background-color:#F00" <?php } ?> value="<?php if(isset($_POST['loginName']) && !isset($errorLog['name'])){ echo $_POST['loginName'];} ?>"/></div>
-            <div class="two columns small-push-1"><input type="password" placeholder="Passwort" class="loginText" name="loginPass" <?php if(isset($errorLog['pass'])){ ?> style="background-color:#F00" <?php } ?> /></div>
+        <div class="two columns"><input id="logName" type="text" placeholder="Benutzername" class="loginText" name="loginName" <?php if(isset($errorLog['name'])){ ?> style="background-color:#F00" <?php } ?> value="<?php if(isset($_POST['loginName']) && !isset($errorLog['name'])){ echo $_POST['loginName'];} ?>"/></div>
+            <div class="two columns"><input type="password" placeholder="Passwort" class="loginText" name="loginPass" <?php if(isset($errorLog['pass'])){ ?> style="background-color:#F00" <?php } ?> /></div>
         <div id="LoginButton" class="column"><input class="loginButton" type="submit" value="Login" /></div>
        	<div id="RegButton" class="column"><button class="loginButton" id="regFrame" data-fancybox-type="iframe" href="register.php" target="_blank" title="Registrieren"></button></div>
     </form>
@@ -59,12 +59,12 @@
 </div>
 
 <div id="ObereNavigation" class="row"> 
-    <div id="AmbBut" class="two columns small-push-3"><a href="overview.php">|Ambiences</a></div>
-    <div id="ButTopF" class="two columns small-push-3"><a href="">|Top Files</a></div>
-    <div id="ButKont" class="two columns small-push-3"><a href="">|Kontakt</a></div>
-    <div id="ButFaq" class="two columns small-push-3"><a href="">|FAQ</a></div>
+    <div id="AmbBut" class="two columns small-push-1"><a href="overview.php">|Ambiences</a></div>
+    <div id="ButTopF" class="two columns small-push-1"><a href="">|Top Files</a></div>
+    <div id="ButKont" class="two columns small-push-1"><a href="">|Kontakt</a></div>
+    <div id="ButFaq" class="two columns small-push-1"><a href="">|FAQ</a></div>
     <?php if (isset($_SESSION['name'])){ ?>
-        <div id="ButUpl" class="two columns right small-push-2 text-center"><a href="uploadData.php">|Upload</a></div>
+        <div id="ButUpl" class="two columns right small-push-1 text-center"><a href="uploadData.php">|Upload</a></div>
     <?php } ?>
 </div>
 
@@ -79,6 +79,9 @@
         <div id="SortBut1" class="column small-pull-4"></div>
         <div id="SortBut2" class="column small-pull-3"></div>
         <div id="SortBut3" class="column small-pull-2"></div>
+
+    </div>
+</div>></div>
 
     </div>
 </div>

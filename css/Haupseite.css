@@ -166,8 +166,11 @@ body{
 	}
 	
 #Suche{
-	width:200px;
 	padding-top:1%;
+	width:200px;
+	}
+#Suche input{
+	height:30px;
 	}
 	
 #SortBut{
@@ -201,6 +204,12 @@ body{
 #ObereNavigation{
 	width:800px;
 	height:30px;
+	}
+#ObereNavigation a{
+	color:#fff;
+	}
+#ObereNavigation a:hover{
+	color:#393;
 	}
 #AmbBut{
 	width:120px;

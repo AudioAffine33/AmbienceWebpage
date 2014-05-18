@@ -626,13 +626,18 @@ body{
 	float:left;
 	}
 .AmbienceUserDescr{
-	width:200px;
+    width: 300px;
 	height:225px;
 	float:left;
 	}
 .AmbienceUserDescr h3 {
 	margin-left:4%;
 	}
+.AmbienceUserDescr table{
+    min-width:250px;
+    max-width:300px;
+}
+
 .AmbienceUserDescr table tr td{
 	padding-left:4%;
 	}

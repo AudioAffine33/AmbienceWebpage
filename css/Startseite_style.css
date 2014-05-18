@@ -26,10 +26,10 @@ body{
 img.desaturate{
 	filter: grayscale(100%);
 	-webkit-filter: grayscale(100%);
-	-moz-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
 	-ms-filter: grayscale(100%);
 	-o-filter: grayscale(100%);
-	filter: url(desaturate.svg#greyscale);
+	filter: url(../desaturate.svg#greyscale);
 	filter: gray;
 	-webkit-filter: grayscale(1);
 	box-shadow: 0px 0px 30px 10px #000;

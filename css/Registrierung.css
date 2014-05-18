@@ -42,8 +42,10 @@
 #abbut:hover{
 	cursor:pointer;
 	}
-.eingabe{
-	/*padding-top:5%;
-	padding-bottom:5%;*/
+.two{
+	margin-top:2%;
+	}
+#Eingabe{
+	margin:2%;
 	
 	}

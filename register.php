@@ -67,7 +67,7 @@
                 <?php if(isset($errorReg['mail'])){?><div class="column alert-box alert"><?php echo $errorReg['mail']; ?></div><?php } ?>
 
                 <?php if (isset($errorCap)){?><div class="column alert-box alert"><?php echo $errorCap; ?></div><?php }?>
-                <div id="Eingabe" class="column">
+                <div id="Eingabe" class="three columns">
                 	<?php
 					  echo recaptcha_get_html($publickey);
 					?></div>

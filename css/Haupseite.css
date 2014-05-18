@@ -251,86 +251,71 @@ body{
 	}
 	
 /*Hauptseite */
-
+#Hauptseite{
+	padding:0%;
+	}
 #LinkeNavigation{
-	clear:both;
-	float:left;
-	width:20%;
-	height:700px;
-	background-color:#FFF;
-	margin-left:0%;
+	padding:0%;
 	}
 	
 #LinkeNavKat {
 	width:200px;
-	height:780px;
-	background-color:#F2E6C7;
-	margin:10%;
-	margin-top:0%;
-	margin-left:0%;
-	float:left;
+	background-color:#EBDAB6;
+	}
+#LinkeNavKat h5{
+	color:#603;
+	
+	}
+#LinkeNavKat h5:hover{
+	color:#E7D5AE;
 	}
 	
 #LinkeNavKat ul,li {
 	list-style:none;
 	
 	}
-
-#LinkeNavKat ul ul {
+#LinkeNavKat a{
+	color:#060;
 	}
+#LinkeNavKat a:hover{
+	color:#6BC53A;
+	
+	}
+
 
 #LinkeNavKat ul ul li:hover {
 	cursor:pointer;
 	cursor:hand; /* IE 5 */
 	}
 
-#LinkeNavKat ul ul li {
-	border-spacing:1px;
-	
-	}
 
 .CursorAen:hover{
 	cursor:s-resize;
-	
-	
 	}
 
 .OberKat {
-	margin:10%;
-	margin-left:0%;
 	background-color:#FFF;
 	}
 
  
 #AmbiencesAnzeige{
-	float:left;
-	width:80%;
+	padding:0%;
+	margin:0%;
 	background-color:#FFF;
-	margin-left:0%;
 	
 	}
 
-.NavField{
-    width:100%;
-    clear:both;
-    float:left;
-}
-
 .AnzeigeBut{
-	margin-left: auto;
-    margin-right: auto;
 	width:300px;
 	height:40px;
 	}
 #AButfwd{
-	float:right;
 	width:41px;
 	height:40px;
 	background-image:url(../media/Design_Vorlagen/Hauptseite/02c_entdecke_pfeil_rechts.png);
 	}
 	
 #AButbkw{
-	float:left;
 	width:41px;
 	height:40px;
 	background-image:url(../media/Design_Vorlagen/Hauptseite/02c_entdecke_pfeil_links.png);
@@ -338,64 +323,27 @@ body{
 	}
 
 .Ambience{
-    width: 360px;
-    height: 187px;
-    margin: 5px;
-    float:left;
+	padding:1%;
+	width:410px;
 }
 
 .AmbiencePic{
-	float:left;
+	padding:1%;
 	width:240px;
 	height:180px;
-	margin:1%;
 	}
 .AmbienceDescription{
-	width:100px;
-	height:225px;
-	float:left;
-	margin:1%
+	padding-left:1%;
+
 	}
 
 .AmbienceDescription h1{
     font-size: 12pt;
 }
+#Haupt{
+	}
+	
 
-.AmbienceDescription ul{
-    padding:0px;
-}
-	
-.Ambiences{
-    width: 100%;
-	}
-	
-/*Registrierungsseite */
-	
-#Registrierung{
-	float:left;
-	width:1100px;
-	background-color:#FFF;
-	margin:2%;
-	text-align:center;
-	}
-
-#Userbild{
-	float:left;
-	margin:2%;
-	margin-left:5%;
-	width:250px;
-	height:250px;
-	background-color:#393;
-	
-	}
-#Registrierungsformular{
-	float:left;
-	text-align:left;
-	width:250px;
-	margin:2%;
-	background-color:#FF0;
-	font-size:24px;
-	}
 	
 /*Detailansicht */
 

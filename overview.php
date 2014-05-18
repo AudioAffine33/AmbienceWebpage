@@ -128,16 +128,16 @@
 </head>
 
 <body>
-<div id="Content">
+<div id="Content" class="row">
   <?php include("header.php"); ?>
-
-  <div id="LinkeNavigation">
-    <div id="LinkeNavKat">
-      <ul>
+  <div id="Haupt" class="row">
+  <div id="LinkeNavigation" class="two columns hide-for-small">
+    <div id="LinkeNavKat" class="column">
+      <ul class="side-nav text-center">
           <noscript><li class="noscript">Für die Filterung der Einträge wird Javascript benötigt</li></noscript>
           <li class="OberKat">
-              <form method="POST"><input type="hidden" name="cat" value="" /><a class="CursorAen" onclick="$(this).closest('form').submit()">Kategorien</a></form>
-              <ul>
+              <form method="POST"><input type="hidden" name="cat" value="" /><a class="CursorAen" onclick="$(this).closest('form').submit()"><h5>Kategorien</h5></a></form>
+              <ul class="side-nav">
                   <?php
                   if (isset($_GET['cat'])){
                       $catArray = get_categories();
@@ -158,8 +158,8 @@
               </ul>
           </li>
         <li class="OberKat">
-        	<form method="POST"><input type="hidden" name="cont" value="" /><a class="CursorAen" onclick="$(this).closest('form').submit()">Orte</a></form>
-            <ul>
+        	<form method="POST"><input type="hidden" name="cont" value="" /><a class="CursorAen" onclick="$(this).closest('form').submit()"><h5>Orte</h5></a></form>
+            <ul class="side-nav">
                 <?php
                     if (isset($_GET['cont'])){
                         $contArray = getAllContinentsGerman();
@@ -182,8 +182,8 @@
         	</ul>
         </li>
         <li class="OberKat">
-            <form method="POST"><input type="hidden" name="lgt" value="" /><a class="CursorAen" onclick="$(this).closest('form').submit()">Dauer</a></form>
-        	<ul>
+            <form method="POST"><input type="hidden" name="lgt" value="" /><a class="CursorAen" onclick="$(this).closest('form').submit()"><h5>Dauer</h5></a></form>
+        	<ul class="side-nav">
                 <?php if(isset($_GET['lgt'])){ ?>
                 <form method="POST">
                     <li class="Unterpunkt">
@@ -201,8 +201,8 @@
             </ul>
        	</li>
         <li class="OberKat">
-            <form method="POST"><input type="hidden" name="cdc" value="" /><a class="CursorAen" onclick="$(this).closest('form').submit()">Format</a></form>
-            <ul>
+            <form method="POST"><input type="hidden" name="cdc" value="" /><a class="CursorAen" onclick="$(this).closest('form').submit()"><h5>Format</h5></a></form>
+            <ul class="side-nav">
                 <?php
                 if (isset($_GET['cdc'])){
                     $formArray = getAllFormats();
@@ -230,8 +230,8 @@
             </ul>
         </li>
         <li class="OberKat">
-            <form method="POST"><input type="hidden" name="bd" value="" /><a class="CursorAen" onclick="$(this).closest('form').submit()">Auflösung</a></form>
-            <ul>
+            <form method="POST"><input type="hidden" name="bd" value="" /><a class="CursorAen" onclick="$(this).closest('form').submit()"><h5>Auflösung</h5></a></form>
+            <ul class="side-nav">
                 <?php
                 if (isset($_GET['bd'])){
                     $bdArray = getAllBitdepths();
@@ -255,8 +255,8 @@
             </ul>
         </li>
         <li class="OberKat">
-            <form method="POST"><input type="hidden" name="sf" value="" /><a class="CursorAen" onclick="$(this).closest('form').submit()">Abtastrate</a></form>
-            <ul>
+            <form method="POST"><input type="hidden" name="sf" value="" /><a class="CursorAen" onclick="$(this).closest('form').submit()"><h5>Abtastrate</h5></a></form>
+            <ul class="side-nav">
                 <?php
                 if (isset($_GET['sf'])){
                     $bdArray = getAllFreqs();
@@ -281,10 +281,10 @@
       </ul>
     </div>
   </div>
-  <div id="AmbiencesAnzeige">
-            <?php
+  <div id="AmbiencesAnzeige" class="ten columns">
+           <?php
                 if (getNumElements($_GET) > $_GET['limit']){
-                    ?> <div class="AnzeigeBut"><?php
+                    ?> <div class="AnzeigeBut row"><?php
                         createSiteNav($_GET);
                         ?> </div> <?php
                 }
@@ -299,11 +299,11 @@
 			$locationArray = getLocation_by_ID($row['location_id']);
 			$format_act = getFormat_by_ID($row['format_id']);
 				?>
-          <div class="Ambience">
-       		<a href="detail.php?id=<?php echo $row['id'] ?>">
+          <div class="Ambience five columns">
+       		<div class="three columns"><a href="detail.php?id=<?php echo $row['id'] ?>">
                 <img src="media/pics_ambiences/thumb/<?php echo htmlentities($row['picture']);?>"  class="AmbiencePic" />
-            </a>
-      		<div class="AmbienceDescription">
+            </a></div>
+      		<div class="AmbienceDescription two columns">
                 <a href="detail.php?id=<?php echo $row['id'] ?>">
                     <h1><?php echo htmlentities($row['name']); ?></h1>
                 </a>
@@ -324,15 +324,16 @@
         <?php
             if (getNumElements($_GET) > $_GET['limit']){
                 ?>
-                <div class="NavField">
-                <div class="AnzeigeBut"><?php
+                <div class="NavField column" >
+                <div class="AnzeigeBut column"><?php
                 createSiteNav($_GET);
                 ?>
                 </div>
                 </div> <?php
             }
         ?>
-
+    </div>
+</div>
 </div>
 </body>
 </html>

@@ -81,7 +81,4 @@
         <div id="SortBut3" class="column small-pull-2"></div>
 
     </div>
-</div>></div>
-
-    </div>
 </div>

@@ -6,7 +6,7 @@ body{
 	background:-o-linear-gradient(top, #fff 0%, #FFFBE0  50%, #FFFBE0  51%, #FFF 100%); 
 	background:-ms-linear-gradient(top, #fff 0%, #FFFBE0  50%, #FFFBE0  51%, #FFF 100%); 
 	background:linear-gradient(top, #fff 0%, #FFFBE0  50%, #FFFBE0  51%, #FFF 100%);
-	width:1920px;
+	width:100%;
 	height:1080px;
 	padding:0;
 	margin:0;
@@ -256,10 +256,10 @@ body{
 	}
 #LinkeNavigation{
 	padding:0%;
+    clear: both;
 	}
 	
 #LinkeNavKat {
-	width:200px;
 	background-color:#EBDAB6;
 	}
 #LinkeNavKat h5{
@@ -302,7 +302,6 @@ body{
 	padding:0%;
 	margin:0%;
 	background-color:#FFF;
-	
 	}
 
 .AnzeigeBut{

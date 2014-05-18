@@ -131,7 +131,7 @@
 <div id="Content" class="row">
   <?php include("header.php"); ?>
   <div id="Haupt" class="row">
-  <div id="LinkeNavigation" class="two columns hide-for-small">
+  <div id="LinkeNavigation" class="columns medium-2 hide-for-medium-down">
     <div id="LinkeNavKat" class="column">
       <ul class="side-nav text-center">
           <noscript><li class="noscript">Für die Filterung der Einträge wird Javascript benötigt</li></noscript>
@@ -281,7 +281,7 @@
       </ul>
     </div>
   </div>
-  <div id="AmbiencesAnzeige" class="ten columns">
+  <div id="AmbiencesAnzeige" class="columns large-10 medium-12">
            <?php
                 if (getNumElements($_GET) > $_GET['limit']){
                     ?> <div class="AnzeigeBut row"><?php
@@ -299,11 +299,11 @@
 			$locationArray = getLocation_by_ID($row['location_id']);
 			$format_act = getFormat_by_ID($row['format_id']);
 				?>
-          <div class="Ambience five columns">
-       		<div class="three columns"><a href="detail.php?id=<?php echo $row['id'] ?>">
+          <div class="Ambience columns medium-6 small-12">
+       		<div class="columns small-8 small-8"><a href="detail.php?id=<?php echo $row['id'] ?>">
                 <img src="media/pics_ambiences/thumb/<?php echo htmlentities($row['picture']);?>"  class="AmbiencePic" />
             </a></div>
-      		<div class="AmbienceDescription two columns">
+      		<div class="AmbienceDescription medium-4 small-4 columns">
                 <a href="detail.php?id=<?php echo $row['id'] ?>">
                     <h1><?php echo htmlentities($row['name']); ?></h1>
                 </a>

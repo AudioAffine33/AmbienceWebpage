@@ -220,10 +220,10 @@
    		<div id="LoginBox" class="column">
         	<div id="LoginTop" class="medium row text-center">
         
-       			<h1>Login</h1>
+       			<h2>Login</h2>
    				<div class="small column"><form method="POST">
-                	<input id="logName" type="text" name="loginName" <?php if(isset($errorLog['name'])){ ?> style="background-color:#F00" <?php } ?> value="<?php if(isset($_POST['loginName']) && isset($errorLog['pass'])){ echo $_POST['loginName'];} ?>"/>
-                    <input type="password" name="loginPass" <?php if(isset($errorLog['pass'])){ ?> style="background-color:#F00" <?php } ?>/>
+                	<input id="logName" placeholder="Benutzername" type="text" name="loginName" <?php if(isset($errorLog['name'])){ ?> style="background-color:#F00" <?php } ?> value="<?php if(isset($_POST['loginName']) && isset($errorLog['pass'])){ echo $_POST['loginName'];} ?>"/>
+                    <input type="password" placeholder="Passwort" name="loginPass" <?php if(isset($errorLog['pass'])){ ?> style="background-color:#F00" <?php } ?>/>
                     <?php
                         if (isset($errorLog['name'])){
                             ?><div class="alert-box alert"><?php

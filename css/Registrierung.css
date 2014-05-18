@@ -1,30 +1,44 @@
 @charset "UTF-8";
 /* CSS Document */
 
-/*#registrierung h1 {
-	text-align:center;
-	padding-top:3%;
-    margin-top:0%;
-}*/
 
 #registrierung {
-	padding-left:5%;
-	padding-right:5%;
 	font-family: 'Oxygen', 'sans-serif';
 	width:310px;
 	height:523px;
     overflow: hidden;
 	background-image:url(../media/Design_Vorlagen/Registrierung/03_registrierung_hintergrund.png);
 	}
+.RegInput{
+	margin-left:5%;
+	}
+	
+#RegInput1 input{
+	width:250px;
+	height:40px;
+	}
+#RegInput2 input{
+	width:250px;
+	height:40px;
+	}
+#RegInput3 input{
+	width:250px;
+	height:40px;
+	}
+#RegInput4 input{
+	width:250px;
+	height:40px;
+	}
+
 
 #regbut{
+	margin-top:5%;
 	padding:0%;
 	width:129px;
 	height:31px;
 	
 	}
 #regbut input{
-	/*padding-left:4%;*/
 	width:129px;
 	height:31px;
 	background:none;
@@ -34,6 +48,7 @@
 	text-indent:-99999px;	
 	}
 #abbut{
+	margin-top:5%;
 	padding:0%;
 	width:129px;
 	height:31px;
@@ -41,11 +56,4 @@
 	}
 #abbut:hover{
 	cursor:pointer;
-	}
-.two{
-	margin-top:2%;
-	}
-#Eingabe{
-	margin:2%;
-	
 	}

@@ -90,11 +90,19 @@ img {
 	background-image:url(../media/Design_Vorlagen/Startseite/01b_startseite_gruen.png);
 	}
 #LoginTop{
+	padding:0%;
 	margin-left:3%;
 	margin-top:2%;
 	width:350px;
 	height:157px;
 	background-image:url(../media/Design_Vorlagen/Startseite/01b_startseite_login_gruen.png);
+	}
+#LoginTop input{
+	height:30px;
+	width:200px;
+	margin:0%;
+	margin-left:18%;
+	padding:0%;
 	}
 #LoginBottom{
 	margin-left:3%;
@@ -166,37 +174,33 @@ img {
 	float:left;*/
 	}
 #LoginBut input{
-	width:100px;
-	height:25px;
+	width:88px;
+	height:28px;
 	background:none;
 	border:none;
 	text-indent:-99999px;	
 	}
 #LoginBut{
-	width:100px;
-	height:50px;
-	/*float:right;
-	margin-top:5.5%;
-	margin-right:13%;*/
+	margin-top:5%;
+	width:88px;
+	height:28px;
 	background-image:url(../media/Design_Vorlagen/Startseite/01b_startseite_login.png);
 	background-repeat:no-repeat;
 	}
 	
 #Reg {
-	/*float:left;
-	margin-left:8%;*/
+	margin:0%;
 	width:150px;
 	height:50px;
 
 	}
-/*#error{
-	margin-left:20px;
-	font-size:14px;
-	position:absolute;
-	width:280px;
-	height:18px;
-	background-color:#C00;
-	}*/
+.regfrane{
+	margin:0%;
+	padding:0%;
+	width:150px;
+	height:50px;
+	}
+
 
 		
 	

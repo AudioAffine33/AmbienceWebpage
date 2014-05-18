@@ -26,19 +26,18 @@ body{
 	
 	}
 #LogoHeader{
-	float:left;
 	width:100px;
 	height:50px;
-	margin-left:1%;
-	margin-top:1%;
+	margin:1%;
+	padding:0%;
 	background-color:#393;
 	}
 #LoginHeader{
-	float:right;
+	margin:1%;
+	padding:0%;
 	width:100px;
 	height:25px;
-	margin-right:1%;
-	margin-top:1%;
+	
 	}
 #LoginHeader:hover{
 	cursor:pointer;
@@ -53,20 +52,29 @@ body{
 }
 
 #LoginMenu{
+	z-index:3;
     display: none;
-    padding: 3px;
-    width: 220px;
-    background-color:#F2E6C7;
+    padding: 1%;
+    width: 250px;
+   	background:-moz-radial-gradient(center, #F2E6C7 0%, #fff 80%, #fff  81%, #F2E6C7 100%); 
+	background:-webkit-radial-gradient(center, #F2E6C7 0%, #fff 80%, #fff  81%, #F2E6C7 100%);
+	background:-o-radial-gradient(center, #393 0%, #fff 80%, #fff  81%, #393 100%); 
+	background:-ms-radial-gradient(center, #393 0%, #fff 80%, #fff  81%, #393 100%); 
+	background:radial-gradient(center, #393 0%, #fff 80%, #fff  81%, #393 100%);
+	-moz-box-shadow: 5px 5px 5px #888;
+	-webkit-box-shadow: 5px 5px 5px #888;
+	box-shadow: 5px 5px 5px #888;
     position:absolute;
     top: 30px;
     right: 0px;
 }
 #LoginButton{
-	margin-top:3%;
+	/*margin-top:3%;
+	float:left;
+	*/
 	width:100px;
 	height:30px;
-	clear:both;
-	float:left;
+	padding:0%;
 	}
 #LoginButton input{
 	text-indent:-99999px;
@@ -78,10 +86,11 @@ body{
 	background-repeat:no-repeat;
 	}
 #RegButton{
-	margin-top:3%;
+	/*margin-top:3%;
+	float:left;*/
 	width:120px;
 	height:30px;
-	float:left;
+	padding:0%;
 	}
 #RegButton button{
 	width:120px;
@@ -93,7 +102,7 @@ body{
 	}
 
 .loginText{
-    margin-left: 10px;
+    /*margin-left: 10px;*/
     width: 130px;
 }
 
@@ -102,29 +111,39 @@ body{
 }
 
 #UserMenu{
+	z-index:3;
     display: none;
-    padding: 3px;
-    width: 100px;
-	height:50px;
-    background-color:#F2E6C7;
+    padding:1%;
+    width: 120px;
+	height:80px;
+   	background:-moz-radial-gradient(center, #393 0%, #fff 80%, #fff  81%, #393 100%); 
+	background:-webkit-radial-gradient(center, #393 0%, #fff 80%, #fff  81%, #393 100%);
+	background:-o-radial-gradient(center, #393 0%, #fff 80%, #fff  81%, #393 100%); 
+	background:-ms-radial-gradient(center, #393 0%, #fff 80%, #fff  81%, #393 100%); 
+	background:radial-gradient(center, #393 0%, #fff 80%, #fff  81%, #393 100%);
+	-moz-box-shadow: 5px 5px 5px #888;
+	-webkit-box-shadow: 5px 5px 5px #888;
+	box-shadow: 5px 5px 5px #888;
     position:absolute;
-    top: 30px;
+    top: 40px;
     right: 10px;
 }
 
 #ProfilButton{
+	padding:0%;
+	margin:2%;
 	width:90px;
 	height:22px;
-	float:left;
-	margin:2%
+	
 	}
 #ProfilButton a{
+	padding:0%;
+	margin:2%;
 	width:90px;
 	height:22px;
 	}
 #LogoutHeader{
-	clear:both;
-	float:left;
+	padding:0%;
 	margin:2%;
 	width:90px;
 	height:22px;
@@ -139,35 +158,22 @@ body{
 	background-repeat:no-repeat;
 	}
 #SucheHeader{
-	float:left;
+	margin-top:1%;
+	margin-bottom:1%;
 	width:1020px;
 	height:40px;
-	margin:1%;
-	margin-left:0%;
 	background-image:url(../media/Design_Vorlagen/Hauptseite/02c_entdecke_suchleiste2.png);
 	}
 	
 #Suche{
 	width:200px;
-	padding-top:1.2%;
-	margin-left:30%;
-	float:left;
-	}
-#SuchBut{
-	float:left;
-	width:64px;
-	height:31px;
-	margin-left:3%;
-	margin-top:0.9%;
-	background-image:url(../media/Design_Vorlagen/Hauptseite/02c_entdecke_lupe.png);
-	
+	padding-top:1%;
 	}
 	
 #SortBut{
 	width:150px;
 	height:40px;
-	float:right;
-	margin-right:10%;
+	
 	}
 #SortBut:hover{
 	cursor:pointer;
@@ -177,42 +183,62 @@ body{
 #SortBut1{
 	width:40px;
 	height:40px;
-	float:left;
-	margin:2%;
 	background-image:url(../media/Design_Vorlagen/Hauptseite/02c_entdecke_ansicht_liste.png);
 	}
 	
 #SortBut2{
 	width:40px;
 	height:40px;
-	float:left;
-	margin:2%;
 	background-image:url(../media/Design_Vorlagen/Hauptseite/02c_entdecke_ansicht_kacheln.png);
 	}
 	
 #SortBut3{
 	width:40px;
 	height:40px;
-	float:left;
-	margin:2%;
 	background-image:url(../media/Design_Vorlagen/Hauptseite/02c_entdecke_ansicht_detail.png);
 	}
 	
 #ObereNavigation{
 	width:800px;
 	height:30px;
-	margin-left:14%;
-	background-color:#A67329;
 	}
-.ButtonNavigationNU{
-	font-color:#fff;
-	float:left;
-	margin-left:2%;
+#AmbBut{
+	width:120px;
+	height:31px;
+	padding:1%;
+	background-image:url(../media/Design_Vorlagen/Hauptseite/header_buttons_ambiences.png);
+	background-repeat:no-repeat;
 	}
-.ButtonNavigationU{
-	font-color:#fff;
-	float:right;
-	margin-right:2%;
+#ButTopF{
+	width:120px;
+	height:31px;
+	padding:1%;
+	background-image:url(../media/Design_Vorlagen/Hauptseite/header_buttons_topfiles.png);
+	background-repeat:no-repeat;
+	}
+#ButFaq{
+	width:120px;
+	height:31px;
+	padding:1%;
+	background-image:url(../media/Design_Vorlagen/Hauptseite/header_buttons_faq.png);
+	background-repeat:no-repeat;
+	z-index:1;
+	}
+#ButKont{
+	width:120px;
+	height:31px;
+	padding:1%;
+	background-image:url(../media/Design_Vorlagen/Hauptseite/header_buttons_kontakt.png);
+	background-repeat:no-repeat;
+	
+	}
+#ButUpl{
+	width:217px;
+	height:31px;
+	padding:1%;
+	background-image:url(../media/Design_Vorlagen/Hauptseite/header_buttons_upload.png);
+	background-repeat:no-repeat;
+	z-index:1;
 	}
 	
 /*Hauptseite */

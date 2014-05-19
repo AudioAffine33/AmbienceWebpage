@@ -621,37 +621,64 @@ body{
 /*Upload Detail */
 	
 #UploadBild{
-	margin-left:5%;
-	float:left;
-	width:400px;
-	height:100px;
+	padding-top:3%;
 	
+	}
+#AmbPicUpl{
+	/*clear:both;
+	float:left;*/
+	width:102px;
+	height:100px;
+	background:url(../media/Design_Vorlagen/Upload/06_foto_button.png);
+	background-repeat:no-repeat;
+	}
+#AmbPicUpl:hover{
+	cursor:pointer;
+	
+	}
+#AmbPicUpl input{
+	display: block;
+    width: 102px;
+    height: 100px;
+    opacity: 0;
+    overflow: hidden;
+	}
+
+#UploadBild table{
+	background:none;
+	border:none;
+	}
+#UploadBild table tr{
+	background:none;
 	}
 #UploadBild h2{
 	text-decoration:underline;
 	}
 #BiUpTe{
-	padding-left:3%;
+	/*padding-left:3%;*/
 	
 	}
 #UploadDaten{
-	clear:both;
+	/*clear:both;
 	float:left;
 	margin:2%;
 	margin-top:5%;
-	width:500px;
+	width:500px;*/
 	background-color:#f3e5c8;
 	}
 #UploadDaten table{
-	margin:3%;
+	background:none;
+	border:none;
+	/*margin:3%;*/
 	}
-#UploadDaten table tr td{
-	padding:5%;
+#UploadDaten table tr {
+	background:none;
 	} 
 #UploadButton{
-	clear:both;
+	/*clear:both;
 	float:left;	
-	margin-left:2%;
+	margin-left:2%;*/
+	margin-top:2%;
 	width:339px;
 	height:100px;
 	background:url(../media/Design_Vorlagen/Upload/06_fertig_button.png);
@@ -668,25 +695,6 @@ body{
     opacity: 0;
     overflow: hidden;
 	
-	}
-#AmbPicUpl{
-	clear:both;
-	float:left;
-	width:102px;
-	height:100px;
-	background:url(../media/Design_Vorlagen/Upload/06_foto_button.png);
-	background-repeat:no-repeat;
-	}
-#AmbPicUpl:hover{
-	cursor:pointer;
-	
-	}
-#AmbPicUpl input{
-	display: block;
-    width: 102px;
-    height: 100px;
-    opacity: 0;
-    overflow: hidden;
 	}
 
 	

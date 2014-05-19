@@ -52,19 +52,19 @@
 
 </script>
 </head>
-<div id="Content">
+<div id="Content" class="row">
   	<?php include("header.php"); ?>
 
 
-	<div id="Upload">
+	<div id="Upload" class="column">
         <form enctype="multipart/form-data" method="POST">
-            <div id="UploadBild">
+            <div id="UploadBild" class="columns large-12 medium-12">
                 <table>
                     <tr>
                         <input type="hidden" name="amb_id" value="<?php echo $_GET['id']; ?>" />
                         <input type="hidden" name="MAX_FILE_SIZE" value="1000000000" />
                         <td id="AmbPicUpl"><input name="pic" type="file" <?php if ($errorPic){ echo "style='background-color:#F00'";} ?> /></td>
-                        <td id="BiUpTe"> <h2>Bild auswählen</h2><div id="Dateipfad"></div></td>
+                        <td id="BiUpTe"> <h2>Bild auswählen</h2></td>
 
                     </tr>
                     <tr>
@@ -73,7 +73,7 @@
                 </table>
             </div>
 
-            <div id="UploadDaten">
+            <div id="UploadDaten" class="columns large-12 medium-12">
                 <table>
                     <tr>
                         <td>Name:</td>
@@ -127,7 +127,7 @@
 
                 
             </div>
-            <div id="UploadButton">
+            <div id="UploadButton" class="columns large-12 medium-12 left">
                     <input type="submit" value="Send File" />
                 </div>
         </form>

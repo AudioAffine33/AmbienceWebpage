@@ -36,27 +36,24 @@
 
 </script>
 </head>
-<div id="Content">
+<div id="Content" class="row">
   	<?php include("header.php"); ?>
 
-	<div id="Upload">
-    
-    	<div id="Dateiupload">
+	<div id="Upload" class="columns">
         <h1>Datei zum Upload:</h1>
         <form enctype="multipart/form-data" method="POST">
             <input type="hidden" name="MAX_FILE_SIZE" value="1000000000" />
-            <div id="userfile">
+            <div id="userfile" class="columns large-3 medium-12">
                 <input name="userfile" type="file" <?php if ($errorFile){ echo "style='background-color:#F00'";} ?> />
             </div>
-            <div id="filetext"><h2>Audiodatei auswählen</h2>
-            <div id="Dateipfad"></div></div>
-            <div id="weiterbutton"><input type="submit" value="Weiter und Details angeben" /></div>
-            <div id="WeiterText"><h2>Weiter und Details angeben</h2></div>
+          	<div class="columns large-4 medium-12"><h3>Audiodatei auswählen</h3></div>
+            
+            <div id="weiterbutton" class="columns large-3 medium-12 small-push-1"><input type="submit" value="Weiter und Details angeben" /></div>
+            <div class="columns large-4 medium-12"><h3>Weiter und Details angeben</h3></div>
         </form>
-        <?php if ($errorFile){ echo "<div id='ErrorFile'>Ungültige Datei</div>";} ?>
+        
+        <?php if ($errorFile){ echo "<div id='ErrorFile' class='alert-box alert'>Ungültige Datei</div>";} ?>
         </div>
-    
-    </div>
     
 </div>
 

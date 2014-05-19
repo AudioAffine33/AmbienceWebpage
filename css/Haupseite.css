@@ -541,24 +541,24 @@ body{
 /*Upload */	
 
 #Upload{
-	margin-top:5%;
+	/*margin-top:5%;
 	clear:both;
 	float:left;
-	width:1020px;
+	width:1020px;*/
 }
 #Dateiupload{
-	clear:both;
+	/*clear:both;
 	float:left;
-	width:1020px;
+	width:1020px;*/
 	}
 #Upload a {
-	clear:both;
-	float:left;
+	/*clear:both;
+	float:left;*/
 	
 	}
 #userfile{
-	float:left;
-	margin:2%;
+	/*float:left;
+	margin:2%;*/
 	width:100px;
 	height:100px;
 	background:url(../media/Design_Vorlagen/Upload/06_music_button.png);
@@ -577,15 +577,15 @@ body{
 	cursor:pointer;
 	}
 #filetext{
-	float:left;
+	/*float:left;*/
 	text-decoration:underline;
 	}
 	
 #weiterbutton{
-	clear:both;
+	/*clear:both;
 	float:left;
 	margin:2%;
-	margin-top:5%;
+	margin-top:5%;*/
 	width:100px;
 	height:100px;
 	background:url(../media/Design_Vorlagen/Upload/06_forward_button.png);
@@ -605,15 +605,15 @@ body{
 	}
 #ErrorFile{
 	position:absolute;
-	float:left;
+	/*float:left;*/
 	height:20px;
 	width:150px;
 	text-align:center;
 	color:#F00;
 	}
 #WeiterText{
-	margin-top:6%;
-	float:left;
+	/*margin-top:6%;
+	float:left;*/
 	text-decoration:underline;
 	
 	}

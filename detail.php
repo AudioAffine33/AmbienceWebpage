@@ -72,44 +72,45 @@
 
 <body>
 
-<div id="Content">
-  <?php include ("header.php");
+<div id="Content" class="row">
+  <?php include ("header.php");?>
 
+	<?php
   if (isset($_SERVER['HTTP_REFERER']) && is_numeric(strpos($_SERVER['HTTP_REFERER'],"user.php"))){ ?>
-      <div id="BkwdtoHauptseitebtn"><a href="<?php echo $_SERVER['HTTP_REFERER'] ?>"><< zurück zu User </a></div>
+      <div id="BkwdtoHauptseitebtn" class="columns large-12 medium-12 small-push-1 "><a href="<?php echo $_SERVER['HTTP_REFERER'] ?>"><< zurück zu User </a></div>
   <?php }
 
   elseif (isset($_SESSION['query'])) { ?>
-        <div id="BkwdtoHauptseitebtn"><a href="overview.php?<?php echo http_build_query($_SESSION['query']) ?>"><< zurück zur Übersicht </a></div>
+        <div id="BkwdtoHauptseitebtn" class="columns large-12 medium-12 small-push-1"><a href="overview.php?<?php echo http_build_query($_SESSION['query']) ?>"><< zurück zur Übersicht </a></div>
     <?php } else { ?>
-        <div id="BkwdtoHauptseitebtn"><a href="overview.php"><< zurück zur Übersicht </a></div>
+        <div id="BkwdtoHauptseitebtn" class="columns large-12 medium-12 small-push-1"><a href="overview.php"><< zurück zur Übersicht </a></div>
     <?php } ?>
 
-    <div id="Detailansicht">
     
     
 
-        <img src="media/pics_ambiences/<?php echo $amb['picture']; ?>" id="AmbienceBildGroß" />
+
+       <div id="AmbBildGr"class="columns medium-12 large-6"> <img src="media/pics_ambiences/<?php echo $amb['picture']; ?>" id="AmbienceBildGroß" /></div>
         
 
   	
     
-    <div id="AmbienceDescript">
-    		<h1><?php echo htmlentities($amb['name']); ?></h1>
+    <div id="AmbienceDescript" class="columns medium-12 large-6">
+    		<h1 class="text-center"><?php echo htmlentities($amb['name']); ?></h1>
             <?php if(isset($_SESSION['id']) && ($amb['user_id'] == $_SESSION['id'] || $_SESSION['rights'] == 'admin' )){ ?>
-                <td><a id="changeAmbFrame" data-fancybox-type="iframe" href="changeAmb.php?ch=name&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Name">Ändern</a></td>
+                <div class="column text-center"><a id="changeAmbFrame" data-fancybox-type="iframe" href="changeAmb.php?ch=name&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Name">Ändern</a></div>
             <?php } ?>
-            (<?php echo date("d.m.y", strtotime(htmlentities($amb['date_added']))); ?>)<br />
+            <div class="column text-center">(<?php echo date("d.m.y", strtotime(htmlentities($amb['date_added']))); ?>)</div>
 
             <?php if (isset($_SESSION['id'])){ ?>
-            <div id="rating">
-                <noscript>Zur Bewertungsabgabe wird JavaScript benötigt</noscript>
+            <div id="rating" class="column">
+                <div id="column"><noscript>Zur Bewertungsabgabe wird JavaScript benötigt</noscript></div>
                 <?php
                 for($i = 0; $i < $rating; $i++){
                 ?>
                     <form class="rateBut" method="POST">
                         <input type="hidden" name="rate" value="<?php echo $i+1; ?>">
-                        <img onclick="$(this).closest('form').submit()" src="media/Design_Vorlagen/Detailansicht/bewertung_gruen_true.png" />
+                        <div class="columns large-2 medium-2"><img onclick="$(this).closest('form').submit()" src="media/Design_Vorlagen/Detailansicht/bewertung_gruen_true.png" /></div>
                     </form>
                 <?php
                 }
@@ -118,7 +119,7 @@
                         ?>
                         <form class="rateBut" method="POST">
                             <input type="hidden" name="rate" value="<?php echo $rating+$i+1; ?>">
-                            <img onclick="$(this).closest('form').submit()" src="media/Design_Vorlagen/Detailansicht/bewertung_khaki_false.png" />
+                            <div class="columns large-2 medium-2"><img onclick="$(this).closest('form').submit()" src="media/Design_Vorlagen/Detailansicht/bewertung_khaki_false.png" /></div>
                         </form>
                 <?php
                     }
@@ -126,7 +127,7 @@
                 ?>
             </div>
             <?php } ?>
-
+        	<div class="column">
             <table>
                 <tr>
                     <td>Durchschnittsbewertung:</td>
@@ -175,18 +176,19 @@
                     <?php } ?>
                 </tr>
             </table>
+            </div>
     </div>
 
    
-	
-    <div id="AmbiencePlayer">
+    <div id="AmbiencePlayer" class="columns large-6 medium-12">
         <audio src="media/audio/<?php echo htmlentities($amb['filename']); ?>" preload="none"></audio>
         <noscript>Zur Wiedergabe wird Javascript benötigt</noscript>
-  	</div>
+        </div>
+
 
     
-  	<div id="Useranzeige">
-    	<div id="UserBild">
+  	<div id="Useranzeige" class="columns large-4 medium-6">
+    	<div id="UserBild" class="column">
             <?php if (isset($user['picture']) && $user['picture'] != ""){   ?>
                 <a href="user.php?id=<?php echo htmlentities($user['id']); ?>"><img src="media/pics_user/<?php echo htmlentities($user['picture']); ?>" width="100px" height="80px" /></a>
             <?php } ?>
@@ -195,14 +197,14 @@
     </div>
 
     <?php if (isset($_SESSION['name'])){ ?>
-        <div id="downloadarea">
-        	<div id="DownloadButton">
+        <div id="downloadarea" class="columns large-6 medium-6">
+        	<div id="DownloadButton" class="columns large-6 medium-12">
                 <form method="POST" >
                     <input type="hidden" name="filename" value="<?php echo htmlentities($amb['filename']); ?>" />
                     <input  type="submit" value="Download" />
                 </form>
             </div>
-            <div id="fileinfos">
+            <div id="fileinfos" class="columns large-6 medium-12">
                 <table>
                     <tr>
                         <td>Format:</td>
@@ -223,12 +225,12 @@
         </div>
     <?php } ?>
 	<?php if(isset($_SESSION['id']) && ($amb['user_id'] == $_SESSION['id'] || $_SESSION['rights'] == 'admin' )){ ?>
-        <div id="BildChange">
+        <div id="BildChange" class="columns large-6 medium-12">
             <a id="changeAmbFrame" data-fancybox-type="iframe" href="changeAmb.php?ch=pic&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Bild">Bild ändern</a>
         </div>
         <?php } ?>
 
-  	 <div id="delAmbBut">
+  	 <div id="delAmbBut" class="columns large-6 medium-12">
         <?php if(isset($_SESSION['id']) && ($amb['user_id'] == $_SESSION['id'] || $_SESSION['rights'] == 'admin' )){ ?>
              <a id="changeAmbFrame" data-fancybox-type="iframe" href="changeAmb.php?ch=del&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Ambience wirklich löschen?"><div id="AmbienceDel"></div></a>
             <?php } ?>

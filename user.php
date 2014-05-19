@@ -72,12 +72,12 @@
 </head>
 
 <body>
-<div id="Content">
+<div id="Content" class="row">
   	<?php include("header.php"); ?>
 
-	<div id="Benutzerprofil">
-    	<h1><?php echo htmlentities($user['name']); ?></h1>
-		<div id="Benutzerbild">
+	<div id="Benutzerprofil" class="columns large-12 medium-12">
+    	<h1 class="text-center"><?php echo htmlentities($user['name']); ?></h1>
+		<div id="Benutzerbild" class="columns large-4 medium-6">
             <?php if (isset($user['picture']) && $user['picture'] != ""){ ?>
                 <img src="media/pics_user/<?php echo htmlentities($user['picture']); ?>" />
             <?php } else { ?>
@@ -87,15 +87,13 @@
                 <a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=pic" target="_blank" title="Bild">Bild ändern</a>
             <?php } ?>
         </div>
-		<div id="Benutzerdetails">
+		<div id="Benutzerdetails" class="columns large-4 medium-6">
             <table>
                 <?php if(isset($_SESSION['id']) && $user['id'] == $_SESSION['id']){ ?>
                 <tr>
                     <td class="Datenname">E-Mail:</td>
                     <td>
-                        <div id="mail">
                             <?php echo htmlentities($user['email']); ?>
-                        </div>
                     </td>
                     <td><a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=mail" target="_blank" title="E-Mail">Ändern</a></td>
                 <tr>
@@ -104,9 +102,7 @@
                     <tr>
                         <td class="Datenname">E-Mail:</td>
                         <td>
-                            <div id="mail">
                                 <a href="mailto:<?php echo htmlentities($user['email']); ?>"><?php echo htmlentities($user['email']); ?></a>
-                            </div>
                         </td>
                     </tr>
                 <?php } ?>
@@ -114,9 +110,7 @@
                 <tr>
                     <td class="Datenname">Über mich:</td>
                     <td>
-                        <div id="about">
                             <?php echo htmlentities($user['about']); ?>
-                        </div>
                     </td>
                     <?php if(isset($_SESSION['id']) && $user['id'] == $_SESSION['id']){ ?>
                     <td><a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=about" target="_blank" title="Über mich">Ändern</a></td>
@@ -125,46 +119,54 @@
             </table>
         </div>
         <?php if(isset($_SESSION['id']) && $user['id'] == $_SESSION['id']){ ?>
-        <div id="pwChangeBut">
+        
+        <div id="UserInt" class="columns large-12 medium-12">
+        
             <a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=pw" target="_blank" title="Über mich">Passwort ändern</a>
-        </div>
-        <div id="showEmail">
+            
             <form method="POST">
                 <input type="hidden" name="showMail">
                 <a onclick="$(this).closest('form').submit()">E-Mail-Addresse anzeigen</a>
                 <?php if($user['emailShown']){ echo "X";} ?>
             </form>
+            
         </div>
         
         <?php } ?>
 	</div>
-    <div id="Uploadanzeige">
-    	<h1>Uploads</h1>
-        <div id="UploadALinks">
+    <div id="Uploadanzeige" class="columns large-12 medium-12">
+    	<h1 class="text-center">Uploads</h1>
+        <div id="UploadALinks" class="columns large-4 medium-12">
     		
-            <div id="GoogleMaps">
-                <div id="map-canvas"><noscript>Für die Karte wird JavaScript benötigt</noscript></div>
+            <div id="GoogleMaps" class="column">
+                <div id="map-canvas" class="column"><noscript>Für die Karte wird JavaScript benötigt</noscript></div>
             </div>
 
-    		<div id="Uploaddetails">
-                <div id="countUploads">
-                    Uploads:<br />
+    		<div id="Uploaddetails" class="columns">
+                <table>
+                <tr>
+                	<td>
+                    Uploads:
+                    </td>
+                    <td>
                     <?php echo get_numElements_by_user($_GET); ?>
-                </div>
-                <div id="avgRating">
-                    Durchschnittliche Bewertung:<br />
-                    <?php echo round(getAverageUserRating($user), 2); ?>
-                </div>
-                <div id="countDownloads">
-                    Gedownloaded:<br />
-                    <?php echo htmlentities(getDownloadCountByUser($user)); ?>
-                </div>
-    		</div>
+                    </td>
+                </td>
+                </tr>
+                <tr>
+                    <td>Durchschnittliche Bewertung:</td>
+                    <td><?php echo round(getAverageUserRating($user), 2); ?></td>
+                </tr>
+                <tr>
+                    <td>Gedownloaded:</td>
+                    <td><?php echo htmlentities(getDownloadCountByUser($user)); ?></td>
+                </tr>
+            </table>
     	
         </div>
-        
-        <div id="UploadARechts">
-        	<div id="AmbiencesUserAnzeige">
+        </div>
+        <div id="UploadARechts" class="columns large-8 medium-12">
+        	<div id="AmbiencesUserAnzeige" class="column">
                 <?php
                     $index=0;
                     foreach($ambArray as $amb){
@@ -173,14 +175,14 @@
                         $format_act = getFormat_by_ID($amb['format_id']);
                         $cat_act = get_category_by_ID($amb['category_id']);
                 ?>
-                    <div class = "AmbienceUser">
+                    <div class = "AmbienceUser columns large-6 medium-12">
                                       
                             <a href="detail.php?id=<?php echo $amb['id'] ?>">
                                 <img src="media/pics_ambiences/thumb/<?php echo htmlentities($amb['picture']); ?>" class="UserAmPic" />
                             </a>
       
-                        <div class = "AmbienceUserDescr">
-                            <a href="detail.php?id=<?php echo $amb['id'] ?>"><h3><?php echo htmlentities($amb['name']); ?></h3></a>
+                        <div class = "AmbienceUserDescr columns">
+                            <a href="detail.php?id=<?php echo $amb['id'] ?>"><h5 class="text-center"><?php echo htmlentities($amb['name']); ?></h5></a>
                             <table>
                                 <tr>
                                     <td>Kategorie</td>
@@ -209,7 +211,7 @@
             <?php
             if (get_numElements_by_user($_GET) > 5){
                 ?>
-                <div class="NavigationUploads">
+                <div class="NavigationUploads columns large-12 medium-12 left">
                     <?php
                         createUserSiteNav($_GET);
                     ?>
@@ -221,7 +223,7 @@
                 
     </div>
 
-    <a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=del" target="_blank" title="Account wirklich löschen?"><div id="deleteUserBut"></div></a>
+    <div id="deleteUserBut" class="columns large-12 medium-12"></div><a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=del" target="_blank" title="Account wirklich löschen?"><img src="media/Design_Vorlagen/Userseite/05_benutzerloeschen.png" /></a>
 
 </div>
 </body>

@@ -422,31 +422,27 @@ body{
 /*Userseite */
 
 #Benutzerprofil{
-	margin-top:2%;
+	/*margin-top:2%;
 	clear:both;
-	float:left;
-	width:1020px;
+	float:left;*/
 	}
 #Benutzerprofil h1{
-	text-align:center;
 	background:-moz-linear-gradient(top, #fff, #C28956); 
 	background:-webkit-linear-gradient(top, #fff, #C28956);
 	background:-o-linear-gradient(top, #fff, #C28956); 
 	background:-ms-linear-gradient(top, #fff, #C28956); 
 	background:linear-gradient(top, #fff, #C289567); 
-	width:220px;
 	}
 #Benutzerbild{
-	float:left;
 	width:220px;
 	height:220px;
-	
 	}
 #Benutzerdetails{
-	margin-left:1%;
+	/*margin-left:1%;
+		float:left;*/
 	width:600px;
 	height:220px;
-	float:left;
+
 	}
 .Datenname{
 	width:50px;
@@ -457,27 +453,28 @@ body{
 	
 	}
 #pwChangeBut{
-	margin:2%;
-	margin-top:3.5%;
+	/*margin:2%;
+	margin-top:3.5%;*/
 	
 	}
 #showEmail{
-	margin:2%;
+	/*margin:2%;*/
 	}
 #Uploadanzeige{
-	clear:both;
+	/*clear:both;
 	float:left;
 	width:1020px;
-	margin-top:5%;
+	margin-top:5%;*/
 	}
 #UploadALinks{
-	float:left;
-	width:300px;
+	/*float:left;
+	width:300px;*/
 	}
 #GoogleMaps{
+	/*
 	float:left;
 	width:300px;
-	height:200px;
+	height:200px;*/
 	}
 
 #map-canvas{
@@ -488,59 +485,58 @@ body{
 }
 
 #Uploaddetails{
-	float:left;
+	/*float:left;
 	width:300px;
-	height:900px;
+	height:900px;*/
 	background-color:#f3e5c8;
 	}
+#Uploaddetails table{
+	background:none;
+	border:none;
+	}
+#Uploaddetails table tr{
+	background:none;
+	}
 #UploadARechts{
-	float:left;
+	/*float:left;
 	height:600px;
-	width:720px;
+	width:720px;*/
 	}
 
 #AmbiencesUserAnzeige{
-	float:left;
-	margin-left:2%;
+	/*float:left;
+	margin-left:2%;*/
 	}
 .AmbienceUser{
-	width:500px;
-	float:left;
+	padding-top:3%;
 	}
 .UserAmPic{
 	width:200px;
 	height:200px;
-	float:left;
+	/*float:left;*/
 	}
 .AmbienceUserDescr{
 	width:200px;
 	height:225px;
-	float:left;
+	/*float:left;*/
 	}
 .AmbienceUserDescr h3 {
-	margin-left:4%;
+	/*margin-left:4%;*/
 	}
 .AmbienceUserDescr table tr td{
 	padding-left:4%;
 	}
 .NavigationUploads{
-	clear:both;
-	float:left;
+	margin-top:2%;
 	width:100px;
 	height:60px;
-	margin-left:2%;
+
 	}
 #deleteUserBut{
-	clear:both;
-	float:left;
-	margin-top:1%;
-	margin-left:1%;
+	margin-top:2%;
 	width:160px;
 	height:34px;
-	background:url(../media/Design_Vorlagen/Userseite/05_benutzerloeschen.png);
-	background-repeat:no-repeat;
-	
-	
+	background-repeat:none;
 	}
 /*Upload */	
 

@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/Registrierung.css" />
     <title>Registrierung</title>
 
@@ -17,11 +18,14 @@
 </head>
 
 <body>
-<div id="success">
+<div id="success" class="row">
+	<div class="column text-center">
     <h1>Glückwunsch, <?php echo htmlentities($_GET['name']); ?></h1>
     Du hast dich erfolgreich registriert.
-
+	</div>
+    <div id="Abschl" class="column text-center">
     <a onclick="parent.$.fancybox.close();">Abschließen</a>
+    </div>
 </div>
 </body>
 </html>

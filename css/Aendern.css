@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/* CSS Document */
+#aenderung{
+	background-image:url(../media/Design_Vorlagen/Sonstige/formular_hintergrund.png);
+	}
+#aenderung h1{
+	text-align:center;
+	background-image:url(../media/Design_Vorlagen/Sonstige/formular_ueberschrift.png);
+	}
+#aenderung table{
+	background:none;
+	border:none;
+	}
+#aenderung table tr{
+	background:none;
+	}

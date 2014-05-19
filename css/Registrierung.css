@@ -57,3 +57,13 @@
 #abbut:hover{
 	cursor:pointer;
 	}
+/*Success*/
+#success{
+	background-image:url(../media/Design_Vorlagen/Sonstige/formular_hintergrund.png);
+	}
+#success h1{
+	background-image:url(../media/Design_Vorlagen/Sonstige/formular_ueberschrift.png);
+	}
+#Abschl{
+	margin:2%;
+	}

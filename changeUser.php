@@ -85,10 +85,13 @@
     }
 
     ?>
+    
+<link rel="stylesheet"  href="css/Aendern.css"/>
+<link rel="stylesheet" href="css/foundation.css" />
 </head>
 
 <body>
-<div id="aenderung">
+<div id="aenderung" class="row">
     <?php if($_GET['ch']=="pic"){ ?>
         <h1>Bild ändern</h1>
         <form enctype="multipart/form-data" method="POST">

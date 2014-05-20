@@ -9,33 +9,24 @@
 	<?php
 		include('php/include.php');
 
-		require_once('php/recaptcha/recaptchalib.php');
-		$publickey = "6Ld2fPISAAAAAJ_gnn-6FYe3xrndT79zYts3-XH2";
-		$privatekey = "6Ld2fPISAAAAAJrM7PcZsHwqb8mvPcrAggomSnuu";
-
 		$errorLog;
 		$errorReg;
         $errorCap;
 
 		if (isset($_POST['regName'])){
-			$resp = recaptcha_check_answer ($privatekey,
-                                $_SERVER["REMOTE_ADDR"],
-                                $_POST["recaptcha_challenge_field"],
-                                $_POST["recaptcha_response_field"]);
-
-
-				if (!$resp->is_valid) {
-                    $errorCap ="The reCAPTCHA wasn't entered correctly.";
-				} else {
-					$errorReg = addUser($_POST);
-					if ($errorReg['new']){
-				?>
-                	<script type="text/javascript">
-						//parent.$.fancybox.close();
-					</script>
-                <?php
+                if(isset($_SESSION['captcha_spam']) &&  $_POST["captcha"] == $_SESSION['captcha_spam']){
+                    unset($_SESSION['captcha_spam']);
+                    $errorReg = addUser($_POST);
+                    if ($errorReg['new']){
+                        ?>
+                            <script type="text/javascript">
+                                //parent.$.fancybox.close();
+                            </script>
+                        <?php
                         header("Location: success.php?name=".$_POST['regName']);
-					}
+                    }
+				} else {
+                    $errorCap ="The reCAPTCHA wasn't entered correctly.";
 				}
 		}
 	?>
@@ -68,9 +59,9 @@
 
                 <?php if (isset($errorCap)){?><div class="small-push-1 column alert-box alert"><?php echo $errorCap; ?></div><?php }?>
                 <div id="Eingabe" class="three columns">
-                	<?php
-					  echo recaptcha_get_html($publickey);
-					?></div>
+                    <img src="php/captcha/captcha.php" title="Sicherheitscode">
+                    <input type="text" name="captcha">
+                </div>
                 <div id="row">
             	<div id="regbut" class="two columns small-push-1"><input type="submit" value="Registrieren" /></div>
                 <div id="abbut"  class="two columns right small-pull-1" onclick="parent.jQuery.fancybox.close();"><img src="media/Design_Vorlagen/Registrierung/03_registrierung_button_abbrechen.png" /></div>

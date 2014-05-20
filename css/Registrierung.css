@@ -30,6 +30,9 @@
 	height:40px;
 	}
 
+#Eingabe noscript iframe html head body p{
+    diaplay: none;
+}
 
 #regbut{
 	margin-top:5%;

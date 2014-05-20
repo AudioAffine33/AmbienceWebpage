@@ -138,8 +138,8 @@
     	<h1 class="text-center">Uploads</h1>
         <div id="UploadALinks" class="columns large-4 medium-12">
     		
-            <div id="GoogleMaps" class="column">
-                <div id="map-canvas" class="column"><noscript>Für die Karte wird JavaScript benötigt</noscript></div>
+            <div id="GoogleMaps" class="columns">
+                <div id="map-canvas" class="columns"><noscript>Für die Karte wird JavaScript benötigt</noscript></div>
             </div>
 
     		<div id="Uploaddetails" class="columns">
@@ -175,7 +175,7 @@
                         $format_act = getFormat_by_ID($amb['format_id']);
                         $cat_act = get_category_by_ID($amb['category_id']);
                 ?>
-                    <div class = "AmbienceUser columns large-6 medium-12">
+                    <div class = "AmbienceUser columns large-6 medium-12 left">
                                       
                             <a href="detail.php?id=<?php echo $amb['id'] ?>">
                                 <img src="media/pics_ambiences/thumb/<?php echo htmlentities($amb['picture']); ?>" class="UserAmPic" />

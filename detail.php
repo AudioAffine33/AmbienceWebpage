@@ -104,27 +104,29 @@
 
             <?php if (isset($_SESSION['id'])){ ?>
             <div id="rating" class="column">
-                <div id="column"><noscript>Zur Bewertungsabgabe wird JavaScript benötigt</noscript></div>
-                <?php
-                for($i = 0; $i < $rating; $i++){
-                ?>
-                    <form class="rateBut" method="POST">
-                        <input type="hidden" name="rate" value="<?php echo $i+1; ?>">
-                        <div class="columns large-2 medium-2"><img onclick="$(this).closest('form').submit()" src="media/Design_Vorlagen/Detailansicht/bewertung_gruen_true.png" /></div>
-                    </form>
-                <?php
-                }
-                if ($rating < 5){
-                    for ($i = 0; $i < 5-$rating; $i++){
-                        ?>
-                        <form class="rateBut" method="POST">
-                            <input type="hidden" name="rate" value="<?php echo $rating+$i+1; ?>">
-                            <div class="columns large-2 medium-2"><img onclick="$(this).closest('form').submit()" src="media/Design_Vorlagen/Detailansicht/bewertung_khaki_false.png" /></div>
+                <div class="row">
+                    <noscript><div id="column">Zur Bewertungsabgabe wird JavaScript benötigt</div></noscript>
+                    <?php
+                    for($i = 0; $i < $rating; $i++){
+                    ?>
+                        <form class="rateBut column small-2 left text-center" method="POST">
+                            <input type="hidden" name="rate" value="<?php echo $i+1; ?>">
+                            <img onclick="$(this).closest('form').submit()" src="media/Design_Vorlagen/Detailansicht/bewertung_gruen_true.png" />
                         </form>
-                <?php
+                    <?php
                     }
-                }
-                ?>
+                    if ($rating < 5){
+                        for ($i = 0; $i < 5-$rating; $i++){
+                            ?>
+                            <form class="rateBut column small-2 left text-center" method="POST">
+                                <input type="hidden" name="rate" value="<?php echo $rating+$i+1; ?>">
+                                <img onclick="$(this).closest('form').submit()" src="media/Design_Vorlagen/Detailansicht/bewertung_khaki_false.png" />
+                            </form>
+                    <?php
+                        }
+                    }
+                    ?>
+                </div>
             </div>
             <?php } ?>
         	<div class="column">

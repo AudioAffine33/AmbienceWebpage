@@ -299,7 +299,7 @@
 			$locationArray = getLocation_by_ID($row['location_id']);
 			$format_act = getFormat_by_ID($row['format_id']);
 				?>
-          <div class="Ambience columns medium-6 small-12">
+          <div class="Ambience columns medium-6 small-12 left">
        		<div class="columns small-8 small-8"><a href="detail.php?id=<?php echo $row['id'] ?>">
                 <img src="media/pics_ambiences/thumb/<?php echo htmlentities($row['picture']);?>"  class="AmbiencePic" />
             </a></div>

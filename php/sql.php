@@ -363,7 +363,7 @@
     function get_ambience_by_user($array){
         global $db;
 
-        $limit = 5;
+        $limit = 6;
         if (isset($array['page'])){
             $page = $array['page'];
             $start = ($limit*($page-1));
@@ -371,7 +371,7 @@
             $start = 0;
         }
 
-        $string = "SELECT * FROM ambience WHERE user_id = :user_id ORDER BY date_added DESC LIMIT ".$start.", 5;";
+        $string = "SELECT * FROM ambience WHERE user_id = :user_id ORDER BY date_added DESC LIMIT ".$start.", 6;";
 
         $query = $db->prepare($string);
         $query->bindValue(':user_id', $array['id'], PDO::PARAM_INT);

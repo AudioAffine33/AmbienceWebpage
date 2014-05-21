@@ -104,12 +104,12 @@
 
             <?php if (isset($_SESSION['id'])){ ?>
             <div id="rating" class="column">
-                <div class="row">
+                <div class="column">
                     <noscript><div id="column">Zur Bewertungsabgabe wird JavaScript benötigt</div></noscript>
                     <?php
                     for($i = 0; $i < $rating; $i++){
                     ?>
-                        <form class="rateBut column small-2 left text-center" method="POST">
+                        <form class="rateBut column small-1" method="POST">
                             <input type="hidden" name="rate" value="<?php echo $i+1; ?>">
                             <img onclick="$(this).closest('form').submit()" src="media/Design_Vorlagen/Detailansicht/bewertung_gruen_true.png" />
                         </form>
@@ -118,7 +118,7 @@
                     if ($rating < 5){
                         for ($i = 0; $i < 5-$rating; $i++){
                             ?>
-                            <form class="rateBut column small-2 left text-center" method="POST">
+                            <form class="rateBut column small-1 left " method="POST">
                                 <input type="hidden" name="rate" value="<?php echo $rating+$i+1; ?>">
                                 <img onclick="$(this).closest('form').submit()" src="media/Design_Vorlagen/Detailansicht/bewertung_khaki_false.png" />
                             </form>
@@ -239,6 +239,11 @@
             
     </div>
   </div>
+
+
+</div>
+</body>
+</html>
 
 
 </div>

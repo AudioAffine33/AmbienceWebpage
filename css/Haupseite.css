@@ -361,6 +361,7 @@ body{
 	}
 
 .rateBut {
+	padding:0%;
 }
 .rateBut:hover{
 	cursor:pointer;

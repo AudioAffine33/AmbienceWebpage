@@ -29,6 +29,12 @@
 	width:250px;
 	height:40px;
 	}
+#Eingabe input{
+	width:250px;
+	height:40px;
+	margin-left:10%;
+	margin-top:5%;
+	}
 
 #Eingabe noscript iframe html head body p{
     diaplay: none;

@@ -58,7 +58,7 @@
                 <?php if(isset($errorReg['mail'])){?><div class=" column alert-box alert small-push-1"><?php echo $errorReg['mail']; ?></div><?php } ?>
 
                 <?php if (isset($errorCap)){?><div class="small-push-1 column alert-box alert"><?php echo $errorCap; ?></div><?php }?>
-                <div id="Eingabe" class="three columns">
+                <div id="Eingabe" class="three columns text-center">
                     <img src="php/captcha/captcha.php" title="Sicherheitscode">
                     <input type="text" name="captcha">
                 </div>

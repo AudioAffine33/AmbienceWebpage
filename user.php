@@ -88,34 +88,32 @@
             <?php } ?>
         </div>
 		<div id="Benutzerdetails" class="columns large-4 medium-6">
-            <table>
                 <?php if(isset($_SESSION['id']) && $user['id'] == $_SESSION['id']){ ?>
-                <tr>
-                    <td class="Datenname">E-Mail:</td>
-                    <td>
+                <div class="row">
+                    <div class="columns small-12 medium-2">E-Mail:</div>
+                    <div class='columns small-12 medium-8'>
                             <?php echo htmlentities($user['email']); ?>
-                    </td>
-                    <td><a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=mail" target="_blank" title="E-Mail">Ändern</a></td>
-                <tr>
+                    </div>
+                    <div class="columns small-12 medium-2"><a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=mail" target="_blank" title="E-Mail">Ändern</a></div>
                 <?php }
                 elseif($user['emailShown'] || (isset($_SESSION['rights']) && $_SESSION['rights'] == 'admin')){ ?>
-                    <tr>
-                        <td class="Datenname">E-Mail:</td>
-                        <td>
-                                <a href="mailto:<?php echo htmlentities($user['email']); ?>"><?php echo htmlentities($user['email']); ?></a>
-                        </td>
-                    </tr>
+                    <div class="row">
+                        <div class="columns small-12 medium-2">E-Mail:</div>
+                        <div class='columns small-12 medium-2'>
+                            <?php echo htmlentities($user['email']); ?>
+                        </div>
+                    </div>
                 <?php } ?>
-                </tr>
-                <tr>
-                    <td class="Datenname">Über mich:</td>
-                    <td>
-                            <?php echo htmlentities($user['about']); ?>
-                    </td>
+                </div>
+                <div class="row">
+                    <div class="columns small-12 medium-2">Über mich:</div>
+                    <div class='columns small-12 medium-8'>
+                        <?php echo htmlentities($user['about']); ?>
+                    </div>
                     <?php if(isset($_SESSION['id']) && $user['id'] == $_SESSION['id']){ ?>
-                    <td><a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=about" target="_blank" title="Über mich">Ändern</a></td>
+                    <div class="columns small-12 medium-2"><a id="changeFrame" data-fancybox-type="iframe" href="changeUser.php?ch=about" target="_blank" title="Über mich">Ändern</a></div>
                     <?php }?>
-                </tr>
+                </div>
             </table>
         </div>
         <?php if(isset($_SESSION['id']) && $user['id'] == $_SESSION['id']){ ?>
@@ -176,11 +174,11 @@
                         $cat_act = get_category_by_ID($amb['category_id']);
                 ?>
                     <div class = "AmbienceUser columns large-6 medium-12 left">
-                                      
+
                             <a href="detail.php?id=<?php echo $amb['id'] ?>">
                                 <img src="media/pics_ambiences/thumb/<?php echo htmlentities($amb['picture']); ?>" class="UserAmPic" />
                             </a>
-      
+
                         <div class = "AmbienceUserDescr columns">
                             <a href="detail.php?id=<?php echo $amb['id'] ?>"><h5 class="text-center"><?php echo htmlentities($amb['name']); ?></h5></a>
                             <table>

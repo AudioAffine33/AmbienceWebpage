@@ -16,6 +16,7 @@ body{
     position: relative;
 	margin-left: auto;
     margin-right: auto;
+    min-width:360px;
 	}
 #Header{
 	width:1020px;
@@ -360,7 +361,6 @@ body{
 	}
 
 .rateBut {
-	padding:0%;
 }
 .rateBut:hover{
 	cursor:pointer;
@@ -441,9 +441,13 @@ body{
 	/*margin-left:1%;
 		float:left;*/
 	width:600px;
-	height:220px;
-
+    background-color:white;
 	}
+#Benutzerdetails div{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .Datenname{
 	width:50px;
 	

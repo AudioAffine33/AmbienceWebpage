@@ -66,9 +66,16 @@
         if(!$errorLog['correct']){
             ?>
             <script type="text/javascript">
-                $(document).ready(function() {
-                    $("#LoginMenu").css("display", "block");
-                });
+
+                    $(document).ready(function() {
+                        if ($(".top-bar").css("display") == "none"){
+                        $("#LoginMenu").css("display", "block");
+                        } else {
+                            alert("Login fehlgeschlagen");
+                        }
+                    });
+
+
             </script>
             <?php
         }

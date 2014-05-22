@@ -74,11 +74,12 @@
                     <a href="user.php?id=<?php echo $_SESSION['id']?>"><img src="media/Design_Vorlagen/Hauptseite/05_header_profil.png" /></a>
                 </li>
                 <li>
-                    <div id="LogoutHeader" class="two columns"><form method="POST" action="php/logout.php"><input type="submit" name="logout" value="Logout" /></form></div>
+                    <div id="LogoutHeader" ><form method="POST" action="php/logout.php"><input type="submit" name="logout" value="Logout" /></form></div>
                 </li>
             <?php
             }
             ?>
+            <li><a href="uploadData.php">Upload</a></li>
         </ul>
     </section>
 </nav>

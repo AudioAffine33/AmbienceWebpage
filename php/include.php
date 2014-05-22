@@ -31,6 +31,14 @@
     <link rel="stylesheet" href="js/fancyBox/source/jquery.fancybox.css" media="screen" />
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBeZ-iwEnYMBb5cke9oBkkYf-5WqCGhxf8&sensor=false&libraries=places"></script>
     <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/foundation/foundation.js"></script>
+    <script type="text/javascript" src="js/foundation/foundation.topbar.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(document).foundation();
+
+        })
+    </script>
 	<?php
 	
 	//Verbindung zu PHP-Skripten

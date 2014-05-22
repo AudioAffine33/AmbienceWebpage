@@ -9,7 +9,8 @@ body{
 	overflow:hidden;
 	}
 #Content{
-    width:1280px;
+    max-width:1280px;
+    min-width: 1032px;
     height: 1080px;;
     margin-left: auto;
     margin-right: auto;

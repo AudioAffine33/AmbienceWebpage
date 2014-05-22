@@ -281,7 +281,7 @@
       </ul>
     </div>
   </div>
-  <div id="AmbiencesAnzeige" class="columns large-10 medium-12">
+  <div id="AmbiencesAnzeige" class="columns large-10 small-12">
            <?php
                 if (getNumElements($_GET) > $_GET['limit']){
                     ?> <div class="AnzeigeBut row"><?php
@@ -299,11 +299,11 @@
 			$locationArray = getLocation_by_ID($row['location_id']);
 			$format_act = getFormat_by_ID($row['format_id']);
 				?>
-          <div class="Ambience columns medium-6 small-12 left">
+          <div class="Ambience column medium-6 small-12 left">
        		<div class="columns small-8 small-8"><a href="detail.php?id=<?php echo $row['id'] ?>">
                 <img src="media/pics_ambiences/thumb/<?php echo htmlentities($row['picture']);?>"  class="AmbiencePic" />
             </a></div>
-      		<div class="AmbienceDescription medium-4 small-4 columns">
+      		<div class="AmbienceDescription small-4 columns">
                 <a href="detail.php?id=<?php echo $row['id'] ?>">
                     <h1><?php echo htmlentities($row['name']); ?></h1>
                 </a>

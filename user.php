@@ -131,7 +131,6 @@
         </div>
         
         <?php } ?>
-	</div>
     <div id="Uploadanzeige" class="columns large-12 medium-12">
     	<h1 class="text-center">Uploads</h1>
         <div id="UploadALinks" class="columns large-4 medium-12">

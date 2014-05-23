@@ -90,7 +90,7 @@
     
 
 
-       <div id="AmbBildGr"class="columns medium-12 large-6"> <img src="media/pics_ambiences/<?php echo $amb['picture']; ?>" id="AmbienceBildGroß" /></div>
+       <div id="AmbBildGr"class="columns small-12 large-6"><div class="small-centered"><img src="media/pics_ambiences/<?php echo $amb['picture']; ?>" id="AmbienceBildGroß" /></div></div>
         
 
   	

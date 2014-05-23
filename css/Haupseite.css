@@ -71,7 +71,7 @@ body{
 	padding:0%;
 	width:100px;
 	height:25px;
-	
+	background:none;
 	}
 #LoginHeader:hover{
 	cursor:pointer;
@@ -327,7 +327,7 @@ body{
 #AmbiencesAnzeige{
 	padding:0%;
 	margin:0%;
-	background-color:#FFF;
+	background:none;
 	}
 
 .AnzeigeBut{
@@ -356,15 +356,26 @@ body{
 	padding:1%;
 	width:240px;
 	height:180px;
+	
+	}
+.AmbPicH{
+	-moz-box-shadow: 1px 1px 1px 2px #888;
+	-webkit-box-shadow: 1px 1px 1px 2px #888;
+	box-shadow: 1px 1px 1px 2px #888;
 	}
 .AmbienceDescription{
 	padding-left:1%;
-
+	background:#FFFBE0;
+	-moz-box-shadow: 2px 2px 2px #888;
+	-webkit-box-shadow: 2px 2px 2px #888;
+	box-shadow: 2px 2px 2px #888;
 	}
 
 .AmbienceDescription h1{
     font-size: 12pt;
+
 }
+
 #Haupt{
 	}
 	

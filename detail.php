@@ -100,7 +100,7 @@
             <?php if(isset($_SESSION['id']) && ($amb['user_id'] == $_SESSION['id'] || $_SESSION['rights'] == 'admin' )){ ?>
                 <div class="column text-center"><a id="changeAmbFrame" data-fancybox-type="iframe" href="changeAmb.php?ch=name&id=<?php echo htmlentities($amb['id']); ?>" target="_blank" title="Name">Ändern</a></div>
             <?php } ?>
-            <div class="column text-center">(<?php echo date("d.m.y", strtotime(htmlentities($amb['date_added']))); ?>)</div>
+            <div class="column text-center Date">(<?php echo date("d.m.y", strtotime(htmlentities($amb['date_added']))); ?>)</div>
 
             <?php if (isset($_SESSION['id'])){ ?>
             <div id="rating" class="column">
@@ -109,7 +109,7 @@
                     <?php
                     for($i = 0; $i < $rating; $i++){
                     ?>
-                        <form class="rateBut column small-1" method="POST">
+                        <form class="rateBut column small-2 medium-2 large-2" method="POST">
                             <input type="hidden" name="rate" value="<?php echo $i+1; ?>">
                             <img onclick="$(this).closest('form').submit()" src="media/Design_Vorlagen/Detailansicht/bewertung_gruen_true.png" />
                         </form>
@@ -118,7 +118,7 @@
                     if ($rating < 5){
                         for ($i = 0; $i < 5-$rating; $i++){
                             ?>
-                            <form class="rateBut column small-1 left " method="POST">
+                            <form class="rateBut column small-2 medium-2 large-2 left " method="POST">
                                 <input type="hidden" name="rate" value="<?php echo $rating+$i+1; ?>">
                                 <img onclick="$(this).closest('form').submit()" src="media/Design_Vorlagen/Detailansicht/bewertung_khaki_false.png" />
                             </form>

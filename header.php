@@ -1,11 +1,11 @@
 <nav class="top-bar show-for-small-only" data-topbar>
     <ul class="title-area">
         <li class="name">
-            <h1><a href="overview.php">My Site</a></h1>
+            <h1><a href="overview.php">Ambience World</a></h1>
         </li>
 
         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-        <li class="toggle-topbar menu-icon"><a href="#"><span>
+        <li class="toggle-topbar menu-icon" id="SmallHeader"><a href="#"><span>
                  <?php
                  if (isset($_SESSION['name'])){
                      if(isset(get_user_by_ID($_SESSION['id'])['picture']) && get_user_by_ID($_SESSION['id'])['picture'] != ""){
@@ -36,7 +36,7 @@
                             <input type="text" name="name" placeholder="Suchbegriff" <?php if (isset($_GET['name'])){ echo "value='".htmlentities($_GET['name'])."'";} ?> />
                         </div>
                         <div class="large-4 small-3 columns">
-                            <a onclick="$(this).closest('form').submit()" class="alert button expand">Suche</a>
+                            <a onclick="$(this).closest('form').submit()" id="SuchButHedSm" class="alert button expand">Suche</a>
                         </div>
                     </div>
                 </li>

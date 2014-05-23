@@ -18,6 +18,40 @@ body{
     margin-right: auto;
     min-width:360px;
 	}
+.name{
+	background:-moz-linear-gradient(top, #C28956 0%, #A37225 100%); 
+	background:-webkit-linear-gradient(top, #C28956 0%, #A37225 100%);
+	background:-o-linear-gradient(top, #C28956 0%, #A37225 100%); 
+	background:-ms-linear-gradient(top, #C28956 0%, #A37225 100%); 
+	background:linear-gradient(top, #C28956 0%, #A37225 100%);
+
+	}
+.right{
+	background:#F3E5C8;
+	
+	}
+.top-bar-section ul{
+	background:#F3E5C8;
+	
+	}
+
+.top-bar-section ul li > a{
+	color:#603;
+	background:#F3E5C8;
+	}
+.top-bar.expanded .toggle-topbar a{
+	color:#603;
+	
+	}
+.top-bar-section .dropdown li.title h5 a{
+	color:#603;
+	}
+	
+#SuchButHedSm{
+	background:#0C3;
+	
+	}
+
 #Header{
 	width:1020px;
 	height:87px;

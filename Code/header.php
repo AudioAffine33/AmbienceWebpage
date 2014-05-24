@@ -161,10 +161,4 @@
         </form>
     </div>
 
-</div>v id="SortBut" class="six columns right">
-        <div id="SortBut1" class="column small-pull-4"></div>
-        <div id="SortBut2" class="column small-pull-3"></div>
-        <div id="SortBut3" class="column small-pull-2"></div>
-
-    </div>
 </div>

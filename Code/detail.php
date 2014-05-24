@@ -109,7 +109,7 @@
                     <?php
                     for($i = 0; $i < $rating; $i++){
                     ?>
-                        <form class="rateBut column small-2 medium-2 large-2" method="POST">
+                        <form class="rateBut column small-2 medium-2 large-2 left" method="POST">
                             <input type="hidden" name="rate" value="<?php echo $i+1; ?>">
                             <img onclick="$(this).closest('form').submit()" src="media/Design_Vorlagen/Detailansicht/bewertung_gruen_true.png" />
                         </form>

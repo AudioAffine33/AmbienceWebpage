@@ -160,7 +160,8 @@
             <input type="text" name="name" placeholder="Suchbegriff" <?php if (isset($_GET['name'])){ echo "value='".htmlentities($_GET['name'])."'";} ?>/>
         </form>
     </div>
-    <div id="SortBut" class="six columns right">
+
+</div>v id="SortBut" class="six columns right">
         <div id="SortBut1" class="column small-pull-4"></div>
         <div id="SortBut2" class="column small-pull-3"></div>
         <div id="SortBut3" class="column small-pull-2"></div>
